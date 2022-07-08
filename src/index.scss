@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body,.wrapper, html, #root{
+  color: #000;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  outline: none;
+  list-style-type: none;
+}
+
+h1,h2,h3,h4,p{
+  margin-bottom: 0 !important;
+}
+
+a{
+  text-decoration: none !important;
+}
+
