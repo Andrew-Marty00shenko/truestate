@@ -1,5 +1,4 @@
 .header{
-    height: 140px;
     padding: 40px 80px 41px 82px;
     background-color: #fff;
     display: flex;
@@ -25,6 +24,10 @@
         }
     }
 
+    &__button-burger{
+        display: none;
+    }
+
     &__menu{
         display: flex;
         align-items: center;
@@ -43,7 +46,6 @@
                 margin-right: 47px;
 
                 svg{
-                    margin-right: 5px;
                     margin-bottom: 3px;
                 }
             }
@@ -60,6 +62,158 @@
             &:nth-child(3){
                 svg{
                     margin-bottom: 6px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px){
+    .header{
+        padding: 30px 40px 41px 32px;
+
+        &__logo{
+            img{
+                width: 150px;
+            }
+        }
+
+        &__navigation{
+            li{
+                margin-right: 20px;
+                font-size: 15px;
+            }
+        }
+
+        &__menu{
+            li{
+                font-size: 16px;
+    
+                &:nth-child(1){
+                    margin-right: 37px;
+
+                    svg{
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+    
+                &:nth-child(2){
+                    margin-right: 23px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .header{
+        padding: 20px 40px 41px 22px;
+
+        &__navigation{
+            li{
+                margin-right: 20px;
+            }
+        }
+
+        &__menu{
+            li{
+                font-size: 16px;
+    
+                &:nth-child(1){
+                    margin-right: 17px;
+
+                    span{
+                        display: none;
+                    }
+                }
+    
+                &:nth-child(2){
+                    margin-right: 17px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:850px) {
+    .header{
+        &__logo{
+            img{
+                width: 120px;
+            }
+        }
+
+        &__navigation{
+            li{
+                margin-right: 14px;
+                font-size: 14px;
+            }
+        }
+
+        &__menu{
+            li{
+                &:nth-child(1){
+                    margin-right: 14px;
+                }
+    
+                &:nth-child(2){
+                    margin-right: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 730px){
+    .header{
+        padding: 20px 20px 21px 20px;
+
+        &__logo{
+            display: none;
+        }
+
+        &__navigation{
+            display: none;
+        }
+
+        &__button-burger{
+            display: block;
+        }
+
+        &__menu{
+            li{
+
+                &:nth-child(1){
+                    margin-right: 16px;
+                    
+                    svg{
+                        margin-bottom: 4px;
+
+                        path{
+                            width: 18px;
+                            height: 18px;
+                            stroke-width: .1px !important;
+                        }
+                    } 
+                }
+    
+                &:nth-child(2){
+                    margin-right: 13px;
+                    font-weight: 300;
+
+                    svg path{
+                        stroke-width: 1.1px;
+                    }
+                }
+
+                &:nth-child(3){
+                    svg {
+                        margin-bottom: 5px;
+                        path{
+                            stroke: white;
+                        }    
+                    }
                 }
             }
         }

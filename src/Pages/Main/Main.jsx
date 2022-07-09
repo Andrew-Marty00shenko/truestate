@@ -7,7 +7,7 @@ const Main = () => {
     return <div className="main">
         <SectionOne />
         <div className="main__section-one-image">
-            <img src={SectionOneImage} alt="section-one-image" width="100%" />
+            <img src={SectionOneImage} alt="section-one" width="100%" />
         </div>
     </div>
 }
