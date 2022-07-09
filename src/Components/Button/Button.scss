@@ -19,3 +19,25 @@
         margin-left: 11px;
     }
 }
+
+@media (max-width: 850px){
+    .btn.btn-primary{
+        font-size: 20px;
+        width: 257px;
+        height: 52px;
+    }
+}
+
+@media (max-width: 730px){
+    .btn.btn-primary{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 450px){
+    .btn.btn-primary{
+        width: 255px;
+        font-size: 22px;
+        height: 56px;
+    }
+}

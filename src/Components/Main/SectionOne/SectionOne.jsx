@@ -1,16 +1,18 @@
 import Button from "../../Button/Button";
 
+import Logo from "../../../assets/images/logo.svg";
 import "./SectionOne.scss";
 
 const SectionOne = () => {
     return <section className="section-one">
+        <img src={Logo} alt="logo" />
         <h1>
-            Инвестиции
+            Инвестиции <br />
             в европейскую
-            недвижимость
+            недвижимость <br />
             в криптовалюте
         </h1>
-        <div className="d-flex justify-content-between align-items-center section-one__block">
+        <div className="section-one__block">
             <p>
                 В несколько кликов. <br />
                 Просто. Прибыльно. Безопасно.

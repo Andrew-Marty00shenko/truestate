@@ -3,5 +3,30 @@
     &__section-one-image{
         margin-top: 59px;
         width: 100%;
+
+        .image-desktop{
+            max-height: 760px;
+        }
+
+        .image-mobile{
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 730px){
+    .main{
+        &__section-one-image{
+            margin-top: 74px;
+
+            .image-desktop{
+                display: none;
+            }
+
+            .image-mobile{
+                display: block;
+                max-height: 700px;
+            }
+        }
     }
 }
