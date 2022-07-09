@@ -38,3 +38,20 @@ ul{
   margin-bottom: 0 !important;
 }
 
+.btn, .btn-primary{
+  box-shadow: none;
+  border: 0px !important;
+
+  &:active{
+    box-shadow: none;
+  }
+
+  &:active:focus{
+    box-shadow: none !important;
+  }
+
+  &:focus{
+    box-shadow: none !important;
+  }
+}
+

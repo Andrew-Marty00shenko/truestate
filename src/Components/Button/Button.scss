@@ -1,0 +1,21 @@
+.btn.btn-primary{
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 25px;
+    width: 292px;
+    background: #8A0BFF;
+    border-radius: 100px;
+    height: 66px;
+
+    &:hover{
+        background: #740ed3;
+    }
+
+    &:active{
+        background:#8A0BFF;
+    }
+
+    svg{
+        margin-left: 11px;
+    }
+}

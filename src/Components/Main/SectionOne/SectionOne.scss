@@ -1,0 +1,21 @@
+.section-one{
+    padding: 66px 80px 0px 82px;
+
+    h1{
+        max-width: 513px;
+        font-weight: 300;
+        font-size: 65px;
+        line-height: 100%;
+    }
+
+    &__block{
+        margin-top: 30px;
+
+        p{
+            max-width: 513px;
+            font-weight: 100;
+            font-size: 35px;
+            line-height: 125%;
+        }
+    }
+}
