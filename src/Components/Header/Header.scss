@@ -4,6 +4,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 20;
+    
+    &__background{
+        display: none;
+        width: 100%;
+        height: 67px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        background: linear-gradient(to top, #7989e0 100%, rgba(134, 150, 238, 0) 90.83%);
+    }
+
+    &--open-sidebar{
+        & .header__background{
+            transform: none;
+        }
+    }
 
     &__navigation{
         display: flex;
@@ -26,9 +48,37 @@
 
     &__button-burger{
         display: none;
+        position: relative;
+        z-index: 19;
+
+        svg{
+            rect{
+                transition: transform 0.25s;
+            }
+
+            &.active{
+                rect:nth-of-type(1){
+                    transform: rotate(45deg);
+                    transform-origin: 5px 2px;
+                    fill: #fff;
+                }
+
+                rect:nth-of-type(2){
+                    display: none;
+                }
+
+                rect:nth-of-type(3){
+                    transform: rotate(-45deg);
+                    transform-origin: 5px 20px;
+                    fill: #fff;
+                }
+            }
+        }
     }
 
     &__menu{
+        position: relative;
+        z-index: 19;
         display: flex;
         align-items: center;
 
@@ -47,21 +97,64 @@
 
                 svg{
                     margin-bottom: 3px;
+
+                    path{
+                        transition: .8s;
+                    }
+
+                    &.active{
+                        path{
+                            fill: #fff;
+                        }
+                    }
                 }
             }
 
             &:nth-child(2){
                 margin-right: 33px;
+                transition: 1s;
+                
+                &.active{
+                    color: #fff;
+                    transition: 1s;
+                }
 
                 svg{
                     margin-left: 5px;
                     margin-bottom: 3px;
+
+                    path{
+                        transition: 1s;
+                    }
+
+                    &.active{
+                        path{
+                            transition: 1s;
+                            stroke: #fff;
+                        }
+                    }
                 }
             }
 
             &:nth-child(3){
+                .third-mobile{
+                    display: none;
+                }
+
                 svg{
                     margin-bottom: 6px;
+
+                    path{
+                        transition: 1s;
+                    }
+
+                    &.active{
+                        path{
+                            transition: 1s;
+                            stroke: #7F92EF;
+                            fill: #fff;
+                        }
+                    }
                 }
             }
         }
@@ -169,6 +262,10 @@
     .header{
         padding: 20px 20px 21px 20px;
 
+        &__background{
+            display: block;
+        }
+
         &__logo{
             display: none;
         }
@@ -208,11 +305,15 @@
                 }
 
                 &:nth-child(3){
+                    .third-desktop{
+                        display: none;
+                    }
+
+                    .third-mobile{
+                        display: block;
+                    }
                     svg {
-                        margin-bottom: 5px;
-                        path{
-                            stroke: white;
-                        }    
+                        margin-bottom: 5px;   
                     }
                 }
             }
