@@ -1,9 +1,11 @@
 import SectionOne from "../../Components/Main/SectionOne/SectionOne";
 import SectionTwo from "../../Components/Main/SectionTwo/SectionTwo";
+import SectionThree from "../../Components/Main/SectionThree/SectionThree";
 
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
 import "./Main.scss";
+
 
 const Main = () => {
     return <div className="main">
@@ -23,6 +25,7 @@ const Main = () => {
             />
         </div>
         <SectionTwo />
+        <SectionThree />
     </div>
 }
 
