@@ -1,4 +1,5 @@
 import SectionOne from "../../Components/Main/SectionOne/SectionOne";
+import SectionTwo from "../../Components/Main/SectionTwo/SectionTwo";
 
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
@@ -21,6 +22,7 @@ const Main = () => {
                 width="100%"
             />
         </div>
+        <SectionTwo />
     </div>
 }
 
