@@ -1,6 +1,6 @@
 .section-three{
     background-color: #F5F5F5;
-    padding: 72px 81px 48px 80px;
+    padding: 72px 81px 68px 80px;
 
     h1{
         font-weight: 400;
@@ -9,6 +9,18 @@
 
         span{
            color:rgba(138, 11, 255, 1);
+        }
+    }
+
+    p{
+        font-weight: 200;
+        font-size: 25px;
+        text-align: center;
+        margin-top: 43px;
+
+        span{
+            font-weight: 300;
+            color:rgba(138, 11, 255, 1);
         }
     }
 
@@ -92,7 +104,7 @@
 
 @media (max-width: 1024px){
     .section-three{
-        padding: 40px 20px 0px 20px;
+        padding: 40px 20px 48px 20px;
     }
 }
 
@@ -148,6 +160,10 @@
                     }
                 }
             }
+        }
+
+        p{
+            display: none;
         }
     }
 }

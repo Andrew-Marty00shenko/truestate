@@ -86,6 +86,11 @@ const SectionThree = () => {
                 })}
             </tbody>
         </Table>
+        <p>
+            TRUESTATE пришли, чтобы изменить рынок <br />
+            инвестиций в недвижимость с помощью <br />
+            <span> криптовалюты!</span>
+        </p>
     </section >
 }
 
