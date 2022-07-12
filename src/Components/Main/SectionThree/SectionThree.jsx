@@ -73,7 +73,7 @@ const SectionThree = () => {
                 </tr>
                 {tableInfo.map((info) => {
                     return <>
-                        <tr className="table__col">
+                        <tr className="table__col" >
                             <td colSpan="2">
                                 {info.rowName}
                             </td>

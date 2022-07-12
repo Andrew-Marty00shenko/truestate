@@ -9,7 +9,7 @@ const SectionFour = () => {
     const settings = {
         className: "section-four__slider variable-width",
         infinite: false,
-        speed: 500,
+        speed: 1000,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,

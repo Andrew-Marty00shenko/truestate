@@ -41,10 +41,12 @@
 
         .slick-slide{
             margin-right: 30px;
-
+            transition: opacity 1s;
+            
             &:not(.slick-active){
                 .section-four__block{
                    opacity: .3;
+                   transition: opacity 1s;
                 }
             }
         }
@@ -57,6 +59,7 @@
         background: #FFFFFF;
         border: 1px solid #D9D9D9;
         border-radius: 30px;
+        transition: opacity 1s;
 
         h3{
             font-weight: 400;
