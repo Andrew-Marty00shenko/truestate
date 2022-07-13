@@ -16,14 +16,18 @@
         p{
             font-weight: 400;
             font-size: 26px;
-            
+            display: flex;
+
             span{
                 color: rgba(192, 192, 192, 1);
             }
 
-            svg{
-                margin-left: 25px;
+            div{
                 cursor: pointer;
+                svg{
+                    margin-left: 25px;
+                    cursor: pointer;
+                }
             }
         }
     }
