@@ -1,0 +1,278 @@
+.section-seven{
+    overflow-x: hidden;
+    padding-bottom: 60px;
+    background: #F5F5F5;
+
+    h2{
+        font-weight: 400;
+        font-size: 40px;
+        padding: 83px 0px 0px 80px;
+        color: #000;
+    }
+
+    &__navigation{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 81px 0px 80px;
+
+        p{
+            font-weight: 400;
+            font-size: 26px;
+            color: #000;
+            display: flex;
+            user-select: none;
+            
+            span{
+                color: rgba(192, 192, 192, 1);
+                user-select: none;
+            }
+
+            div{
+                cursor: pointer;
+
+                svg{
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+
+    &__navigation-mobile{
+        display: none;
+    }
+
+    &__policy{
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 130%;
+        padding: 74px 0px 0px 81px;
+
+        a{
+            color: #A74CFF;
+            border-bottom: 1px solid #A74CFF;
+        }
+    }
+
+    &__slider{
+        margin-top: 43px;
+
+        .slick-list{
+            padding-left: 80px;
+        }
+
+        .slick-slide{
+            margin-right: 30px;
+            transition: opacity 1s;
+            
+            &:not(.slick-active){
+                .section-seven__block{
+                   opacity: .3;
+                   transition: opacity 1s;
+                }
+            }
+        }
+    }
+
+    &__block{
+        height: 834px;
+        width: 386px !important;
+        padding: 26px 26px 29px;
+        background: #FFFFFF;
+        border: 1px solid #D9D9D9;
+        border-radius: 30px;
+        transition: opacity 1s;
+
+        img{
+            width: 334px;
+            height: 298px;
+        }
+
+        &-allow-amount{
+            font-weight: 500;
+            font-size: 20px;
+            color: #fff;
+            width: 100%;
+            padding: 15px 10px;
+            background: #A74CFF;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 115%;
+            margin-top: 25px;
+
+            p{
+                font-weight: 400;
+
+                span{
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &-info{
+            margin-top: 10px;
+            p{
+                font-size: 18px;
+                font-weight: 300;
+                margin-bottom: 14px !important;
+
+                span{
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            } 
+
+            &-desc{
+                font-size: 20px;
+                font-weight: 200;
+                line-height: 80%;
+            }
+        }
+
+        &-btn{
+            font-weight: 200;
+            font-size: 20px;
+            max-width: 100px;
+            line-height: 100%;
+            border-bottom: 1px solid #A74CFF;
+            color: #A74CFF;
+            cursor: pointer;
+            padding-bottom: 0;
+            margin-top: 13px;
+        }
+
+        .btn.btn-primary{
+            width: 243px;
+            height: 55px;
+            font-size: 20px;
+            margin-top: 26px;
+        }
+    }
+}
+
+@media (max-width: 1250px){
+    .section-seven{
+        h2{
+            font-size: 35px;
+            padding: 46px 32px 40px 32px;
+        }
+
+        &__navigation{
+            padding: 20px 32px 40px 32px;
+        }
+
+        &__policy{
+            padding: 54px 32px 0px 32px;
+        }
+
+        &__slider{
+            margin-top: 20px;
+    
+            .slick-list{
+                padding-left: 32px;
+            }
+    
+            .slick-slide{
+    
+                &:not(.slick-active){
+                    .section-seven__block{
+                       opacity: .3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 730px){
+    .section-seven{
+        padding-bottom: 58px;
+
+        h2{
+            font-size: 30px;
+            padding: 58px 19px 25px 21px;
+        }
+
+        &__navigation{
+            padding: 0px 19px 0px 21px;
+            p{
+                font-size: 20px;
+
+                &:nth-child(2){
+                    display: none;
+                }
+            }
+        }
+
+        &__navigation-mobile{
+            display: block;
+            padding: 43px 21px 0px;
+
+            svg{
+                width: 24px;
+                margin-right: 15px;
+            }
+        }
+
+        &__policy{
+            font-size: 12px;
+            padding: 35px 20px 0px 20px;
+        }
+
+        &__slider{
+            margin-top: 27px;
+    
+            .slick-list{
+                padding-left: 20px;
+            }
+    
+            .slick-slide{
+                margin-right: 20px;
+                width: 314px !important;
+
+                .section-seven__block{
+                    width: 314px !important;
+                    height: 800px;
+                    padding: 26px 26px 29px;
+
+                    img{
+                        width: 263px;
+                        height: 236px;
+                    }
+
+                    &-allow-amount{
+                        margin-top: 20px;
+
+                        p{
+                            font-weight: 400;
+            
+                            span{
+                                font-weight: 500;
+                            }
+                        }
+                    }
+            
+                    &-info{
+                        margin-top: 10px;
+
+                        p{
+                            font-size: 17px;
+            
+                            span{
+                                font-size: 18px;
+                            }
+                        } 
+
+                        &-desc{
+                            font-size: 18px;
+                        }
+                    }
+            
+                    &-btn{
+                        max-width: 90px;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
