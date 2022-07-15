@@ -8,16 +8,18 @@
 
         &-image{
             margin-right: 45px;
+            width: 42%;
 
             img{
                 width: 100%;
-                height: 100%;
+                // height: 100%;
             }
         }
 
         &-info{
-
-            h2{
+            width: 100%;
+            
+            h3{
                 font-weight: 400;
                 font-size: 40px;
                 line-height: 120%;
@@ -29,6 +31,75 @@
                 font-weight: 200;
                 font-size: 26px;
                 line-height: 120%;
+            }
+
+            .accordion{
+                margin-top: 30px;
+
+                &-item{
+                    margin-bottom: 15px;
+                    border-radius: 15px;
+                    border: 1px solid #D9D9D9;
+                    padding: 20px 36px;
+                   
+                    &:not(:first-of-type){
+                        border-top: 1px solid #D9D9D9;
+                    }
+
+                    &:first-of-type{
+                        border-top-left-radius: 15px;
+                        border-top-right-radius: 15px;
+
+                        .accordion-button{
+                            border-top-left-radius: 15px;
+                            border-top-right-radius: 15px;
+                        }
+                    }
+                    &:last-of-type{
+                        border-bottom-left-radius: 15px;
+                        border-bottom-right-radius: 15px;
+
+                        .accordion-button{
+                            border-bottom-left-radius: 15px;
+                            border-bottom-right-radius: 15px;
+                        }
+                    }
+                }
+
+                &-header{
+                    border-radius: 15px;
+                }
+
+                &-button{
+                    padding: 0;
+                    border-radius: 15px;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 125%;
+
+                    &:not(.collapsed){
+                        box-shadow: none;
+                        color: #000;
+                        background-color: #fff;
+
+                        &::after{
+                            background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23212529%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e")
+                        }
+                    }
+
+                    &:focus{
+                        border: 0;
+                        box-shadow: none;
+                    }
+                }
+
+                &-body{
+                    padding: 0;
+                    margin-top: 10px;
+                    font-weight: 200;
+                    font-size: 16px;
+                    line-height: 125%;
+                }
             }
         }
     }
