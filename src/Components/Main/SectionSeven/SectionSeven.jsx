@@ -126,13 +126,13 @@ const objects = [
     },
 ]
 
-const SectionSeven = () => {
+const SectionSeven = ({ setOpenModalAddress }) => {
     const sliderRef = useRef();
 
     const settingsSlider = {
         className: "section-seven__slider variable-width",
         infinite: false,
-        speed: 1000,
+        speed: 200,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
@@ -193,6 +193,7 @@ const SectionSeven = () => {
             {objects.map(object => {
                 return <SliderItem
                     key={object.id}
+                    setOpenModalAddress={setOpenModalAddress}
                     {...object}
                 />
             })}

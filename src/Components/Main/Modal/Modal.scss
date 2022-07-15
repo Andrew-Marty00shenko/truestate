@@ -1,0 +1,254 @@
+.section-seven__modal{
+    position: absolute;
+    height: 474px;
+    z-index: 100;
+    width: 1280px;
+    border-radius: 30px;
+    background-image: url('../../../assets/images/section-seven-address.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    left:50%;
+    transform:translate(-50%, 0%);
+    padding: 78px 78px 64px 79px;
+    animation-duration: 0.4s;
+	animation-timing-function: linear;
+
+    &--hidden{
+        animation-name: fadeOut;
+        opacity: 0;
+        visibility: hidden;
+        top: -100px;
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                visibility: visible;
+                top: -100px;
+            }
+            to { 
+                opacity:0;
+                visibility: hidden; 
+                top: 0px;
+            } 
+        }
+    }
+
+    &--active{
+        animation-name: fadeIn;
+        top: -100px;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                visibility: hidden;
+                top: -300px;
+            }
+            to { 
+                opacity:1;
+                visibility: visible; 
+                top: -100px;
+            }
+        }
+    }
+
+    &-close-btn{
+        position: relative;
+
+        svg{
+            position: absolute;
+            right: -50px;
+            top: -50px;
+            cursor: pointer;
+
+            &:hover{
+                opacity: .4;
+            }
+        }
+    }
+
+    h3{
+        max-width: 576px;
+        font-weight: 300;
+        font-size: 30px;
+        line-height: 120%;
+
+        span{
+            border-bottom: 1px solid #000;
+        }
+    }
+
+    &-copy-block{
+        display: flex;
+        align-items: center;
+        margin-top: 36px;
+        
+        span{
+            margin-right: 26px;
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 120%;
+        }
+
+        .btn.btn-primary{
+            background: #8A0BFF;
+            border-radius: 67.1973px;
+            width: 150px;
+            height: 44.59px;
+            font-weight: 600;
+            font-size: 16.7993px;
+            line-height: 20px;
+            color: #Fff;
+
+            &:hover{
+                background: #740ed3;
+            }
+
+            &:focus{
+                background: #740ed3;
+            }
+        
+            &:active{
+                background:#8A0BFF;
+            }
+        }
+    }
+
+    &-info{
+        margin-top: 32px;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 140%;
+        max-width: 383px;
+    }
+
+    &-instructions{
+        margin-top: 28px;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 140%;
+
+        a{
+            color: rgba(167, 76, 255, 1);
+            border-bottom: 1px solid rgba(167, 76, 255, 1);
+        }
+    }
+}
+
+@media (max-width: 1435px) {
+    .section-seven__modal{
+        width: 1000px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .section-seven__modal{
+        background-image: url('../../../assets/images/section-seven-address-mobile.png');
+        background-color: #E2E2E2;
+        height: 734px;
+        width: 473px;
+
+        h3{
+            font-size: 23px;
+        }
+
+        &-copy-block{
+            span{
+                font-size: 23px;
+            }
+        }
+
+        &-info{
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 730px) {
+    .section-seven__modal{
+        height: 650px;
+        width: 335px;
+        padding: 56px 25px;
+
+        &--hidden{
+            animation-name: fadeOut;
+            opacity: 0;
+            visibility: hidden;
+            top: -140px;
+            
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                    visibility: visible;
+                    top: -140px;
+                }
+                to { 
+                    opacity:0;
+                    visibility: hidden; 
+                    top: 0px;
+                } 
+            }
+        }
+    
+        &--active{
+            animation-name: fadeIn;
+            top: -140px;
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    visibility: hidden;
+                    top: -240px;
+                }
+                to { 
+                    opacity:1;
+                    visibility: visible; 
+                    top: -140px;
+                }
+            }
+        }
+
+        &-close-btn{
+            position: relative;
+    
+            svg{
+                width: 20px;
+                height: 20px;
+                right: 0px;
+                top: -30px;
+    
+                &:hover{
+                    opacity: .4;
+                }
+            }
+        }
+
+        h3{
+            font-size: 20px;
+        }
+
+        &-copy-block{
+            margin-top: 9px;
+            flex-direction: column;
+            align-items: flex-start;
+
+            span{
+                font-size: 24px;
+            }
+
+            .btn.btn-primary{
+               margin-top: 23px;
+            }
+        }
+
+        &-info{
+            font-size: 16px;
+            margin-top: 24px;
+        }
+
+        &-instructions{
+            margin-top: 13px;
+            font-size: 12px;
+        }
+    }
+}

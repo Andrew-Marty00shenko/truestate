@@ -5,12 +5,16 @@ import SectionFour from "../../Components/Main/SectionFour/SectionFour";
 import SectionFive from "../../Components/Main/SectionFive/SectionFive";
 import SectionSix from "../../Components/Main/SectionSix/SectionSix";
 import SectionSeven from "../../Components/Main/SectionSeven/SectionSeven";
+import SectionEight from "../../Components/Main/SectionEight/SectionEight";
 
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
 import "./Main.scss";
+import { useState } from "react";
 
 const Main = () => {
+    const [openModalAddress, setOpenModalAddress] = useState(false);
+
     return <div className="main">
         <SectionOne />
         <div className="main__section-one-image">
@@ -32,7 +36,13 @@ const Main = () => {
         <SectionFour />
         <SectionFive />
         <SectionSix />
-        <SectionSeven />
+        <SectionSeven
+            setOpenModalAddress={setOpenModalAddress}
+        />
+        <SectionEight
+            openModalAddress={openModalAddress}
+            setOpenModalAddress={setOpenModalAddress}
+        />
     </div>
 }
 

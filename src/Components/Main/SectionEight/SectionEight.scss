@@ -1,0 +1,35 @@
+.section-eight{
+    background-color: #fff;
+    padding: 88px 80px 66px 0px;
+    position: relative;
+
+    &__faq{
+        display: flex;
+
+        &-image{
+            margin-right: 45px;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-info{
+
+            h2{
+                font-weight: 400;
+                font-size: 40px;
+                line-height: 120%;
+                color: #8A0BFF;
+                margin-bottom: 29px !important;
+            }
+
+            span{
+                font-weight: 200;
+                font-size: 26px;
+                line-height: 120%;
+            }
+        }
+    }
+}

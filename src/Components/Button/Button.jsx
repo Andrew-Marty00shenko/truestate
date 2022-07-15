@@ -2,8 +2,15 @@ import { Button } from "react-bootstrap";
 
 import "./Button.scss";
 
-const ButtonComponent = ({ text, showIcon }) => {
-    return <Button>
+const ButtonComponent = ({ text, showIcon, isSevenBlock, setOpenModalAddress }) => {
+
+    const handleClick = () => {
+        if (isSevenBlock) {
+            setOpenModalAddress(true);
+        }
+    };
+
+    return <Button onClick={handleClick}>
         {text}
         {showIcon && (
             <svg width="35" height="14" viewBox="0 0 35 14" fill="none" xmlns="http://www.w3.org/2000/svg">
