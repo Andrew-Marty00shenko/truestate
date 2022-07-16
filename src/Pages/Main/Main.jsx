@@ -6,6 +6,7 @@ import SectionFive from "../../Components/Main/SectionFive/SectionFive";
 import SectionSix from "../../Components/Main/SectionSix/SectionSix";
 import SectionSeven from "../../Components/Main/SectionSeven/SectionSeven";
 import SectionEight from "../../Components/Main/SectionEight/SectionEight";
+import SectionNine from "../../Components/Main/SectionNine/SectionNine";
 
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
@@ -43,6 +44,7 @@ const Main = () => {
             openModalAddress={openModalAddress}
             setOpenModalAddress={setOpenModalAddress}
         />
+        <SectionNine />
     </div>
 }
 
