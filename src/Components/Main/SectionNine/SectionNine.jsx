@@ -14,7 +14,7 @@ const SectionNine = () => {
                 </h2>
                 <div className="section-nine__block-info-input">
                     Твой email:
-                    <input type="text" />
+                    <input type="email" />
                 </div>
                 <Button>
                     Подписаться

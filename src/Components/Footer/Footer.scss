@@ -1,0 +1,132 @@
+.footer{
+    padding: 59px 80px 70px 80px;
+
+    &__block{
+        display: flex;
+        justify-content: space-between;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+        
+        &-logo{
+            cursor: pointer;
+            p{
+                margin-top: 34px;
+                font-weight: 200;
+                font-size: 16px;
+                line-height: 125%;
+            }
+        }
+
+        &-info{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            li{
+                a{
+                    font-weight: 200;
+                    font-size: 16px;
+                    line-height: 125%;
+                    color: #000;
+                }
+            }
+        }
+
+        &-links{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            max-width: 505px;
+            &-socials{
+                a{
+                    margin-right: 10px;
+                }
+            }
+
+            p{
+                font-weight: 200;
+                font-size: 14px;
+                line-height: 125%;
+                color: #8B8B8B;
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px){
+    .footer{
+        padding: 59px 40px 70px 40px;
+    }
+}
+
+@media (max-width: 980px){
+    .footer{
+        padding: 49px 20px 50px 20px;
+        .footer__block-links{
+            max-width: 400px;
+        }
+    }
+}
+
+@media (max-width: 730px) {
+    .footer{
+        padding: 46px 20px 59px 20px;
+
+        &__block{
+            display: none;
+        }
+
+        &__block-mobile{
+            &-logo{
+                display: flex;
+                justify-content: space-between;
+
+                &-socials{
+                    display: flex;
+                    margin-top: 29px;
+                    a{
+                        margin-right: 15px;
+
+                        svg{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+
+                &-info{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-right: 80px;
+
+                    li{
+                        a{
+                            font-weight: 200;
+                            font-size: 14px;
+                            line-height: 125%;
+                            color: #000000;
+                        }
+                    } 
+                }
+            }
+
+            &-text{
+                font-weight: 200;
+                font-size: 12px;
+                line-height: 125%;
+                color: #000000;
+                margin-top: 29px;
+            }
+
+            &-desc{
+                margin-top: 30px;
+                font-weight: 200;
+                font-size: 12px;
+                line-height: 125%;
+                color: #8B8B8B;
+            }
+        }
+    }
+}

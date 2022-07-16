@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Routes from "./Routes/Routes";
 
@@ -21,6 +22,7 @@ const App = () => {
       setOpenSidebar={setOpenSidebar}
     />
     <Routes />
+    <Footer />
     <Sidebar
       openSidebar={openSidebar}
     />
