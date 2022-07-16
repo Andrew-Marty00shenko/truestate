@@ -7,6 +7,27 @@ import Routes from "./Routes/Routes";
 
 const App = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  const scrollFunction = () => {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      setShowBtn(true);
+    } else {
+      setShowBtn(false);
+    }
+  }
+
+  const topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
   useEffect(() => {
     if (openSidebar) {
@@ -26,6 +47,17 @@ const App = () => {
     <Sidebar
       openSidebar={openSidebar}
     />
+
+
+    <div className="wrapper__button-top"
+      onClick={topFunction}
+      style={showBtn ? { display: 'flex' } : { display: 'none' }}
+    >
+      <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 11.7285L11.6066 1.12191L22.2132 11.7285" stroke="black" />
+      </svg>
+      Наверх
+    </div>
   </div>
 }
 

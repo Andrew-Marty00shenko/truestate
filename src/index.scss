@@ -61,3 +61,28 @@ ul{
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
+
+.wrapper{
+  position: relative;
+
+  &__button-top{
+    cursor: pointer;
+    width: 109px;
+    height: 109px;
+    background-color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    position: fixed;
+    right: 80px;
+    bottom: 157px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    svg{
+      margin-bottom: 10px;
+    }
+  }
+}
