@@ -1,3 +1,15 @@
+
+.Toastify__toast-icon{
+    svg{
+        fill: #8A0BFF;
+    }
+}
+
+.toast-modal-progress{
+    background: #8A0BFF !important;
+}
+
+
 .section-seven__modal{
     position: absolute;
     height: 474px;
@@ -17,36 +29,36 @@
         animation-name: fadeOut;
         opacity: 0;
         visibility: hidden;
-        top: -100px;
+        top: -800px;
         
         @keyframes fadeOut {
             from {
                 opacity: 1;
                 visibility: visible;
-                top: -100px;
+                top: -800px;
             }
             to { 
                 opacity:0;
                 visibility: hidden; 
-                top: 0px;
+                top: -500px;
             } 
         }
     }
 
     &--active{
         animation-name: fadeIn;
-        top: -100px;
+        top: -800px;
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 visibility: hidden;
-                top: -300px;
+                top: -500px;
             }
             to { 
                 opacity:1;
                 visibility: visible; 
-                top: -100px;
+                top: -800px;
             }
         }
     }
@@ -174,36 +186,36 @@
             animation-name: fadeOut;
             opacity: 0;
             visibility: hidden;
-            top: -140px;
+            top: -840px;
             
             @keyframes fadeOut {
                 from {
                     opacity: 1;
                     visibility: visible;
-                    top: -140px;
+                    top: -840px;
                 }
                 to { 
                     opacity:0;
                     visibility: hidden; 
-                    top: 0px;
+                    top: -500px;
                 } 
             }
         }
     
         &--active{
             animation-name: fadeIn;
-            top: -140px;
+            top: -840px;
     
             @keyframes fadeIn {
                 from {
                     opacity: 0;
                     visibility: hidden;
-                    top: -240px;
+                    top: -540px;
                 }
                 to { 
                     opacity:1;
                     visibility: visible; 
-                    top: -140px;
+                    top: -840px;
                 }
             }
         }
@@ -224,7 +236,7 @@
         }
 
         h3{
-            font-size: 20px;
+            font-size: 20px !important;
         }
 
         &-copy-block{
@@ -233,7 +245,7 @@
             align-items: flex-start;
 
             span{
-                font-size: 24px;
+                font-size: 24px !important;
             }
 
             .btn.btn-primary{
@@ -242,13 +254,13 @@
         }
 
         &-info{
-            font-size: 16px;
+            font-size: 16px !important;
             margin-top: 24px;
         }
 
         &-instructions{
             margin-top: 13px;
-            font-size: 12px;
+            font-size: 12px !important;
         }
     }
 }

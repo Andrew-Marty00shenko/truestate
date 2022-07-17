@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -42,12 +44,15 @@ const App = () => {
       openSidebar={openSidebar}
       setOpenSidebar={setOpenSidebar}
     />
+
     <Routes />
     <Footer />
+
+    <ToastContainer />
+
     <Sidebar
       openSidebar={openSidebar}
     />
-
 
     <div className="wrapper__button-top"
       onClick={topFunction}

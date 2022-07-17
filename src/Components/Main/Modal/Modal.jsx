@@ -1,9 +1,24 @@
 import classNames from "classnames";
 import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 import "./Modal.scss";
 
 const Modal = ({ openModalAddress, setOpenModalAddress }) => {
+
+    const notify = () => {
+        toast.success("Адрес скопирован!", {
+            className: "toast-modal",
+            autoClose: 3000,
+            className: 'toast-modal-address',
+            progressClassName: 'toast-modal-progress'
+        });
+    };
+
+    const handleCopyAddress = () => {
+        notify();
+    };
+
     return <div className={classNames("section-seven__modal", {
         "section-seven__modal--active": openModalAddress,
         "section-seven__modal--hidden": !openModalAddress,
@@ -22,7 +37,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress }) => {
         </h3>
         <div className="section-seven__modal-copy-block">
             <span>ххххххххххххххх</span>
-            <Button>
+            <Button onClick={handleCopyAddress}>
                 Скопировать
             </Button>
         </div>

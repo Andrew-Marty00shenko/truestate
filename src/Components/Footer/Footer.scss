@@ -1,6 +1,10 @@
 .footer{
     padding: 59px 80px 70px 80px;
 
+    &__block-mobile{
+        display: none;
+    }
+
     &__block{
         display: flex;
         justify-content: space-between;
