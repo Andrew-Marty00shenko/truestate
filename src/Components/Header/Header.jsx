@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { useOutside } from "../../Utils/helpers/useOutside";
 import CallMeForm from "../CallMeForm/CallMeForm"
@@ -7,13 +7,65 @@ import CallMeForm from "../CallMeForm/CallMeForm"
 import Logo from "../../assets/images/logo.svg";
 import "./Header.scss";
 
+const languages = [
+    {
+        id: 1,
+        name: 'Русский',
+        abr: 'RU',
+        icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+        </svg>
+    },
+    {
+        id: 2,
+        name: 'English',
+        abr: 'EN',
+        icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+        </svg>
+    },
+    {
+        id: 3,
+        name: 'Український',
+        abr: 'UA',
+        icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+        </svg>
+    },
+    {
+        id: 4,
+        name: 'Deutsch',
+        abr: 'DE',
+        icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+        </svg>
+    }
+];
+
 const Header = ({ openSidebar, setOpenSidebar }) => {
     const [openCallMeForm, setOpenCallMeForm] = useState(false);
+    const [openLanguagesMenu, setOpenLanguagesMenu] = useState(false);
+    const [activeLanguage, setActiveLanguage] = useState(null);
     const headerRef = useRef();
+
+    useEffect(() => {
+        setActiveLanguage(languages[0]);
+    }, []);
 
     useOutside(headerRef, () => {
         setOpenCallMeForm(false);
+        setOpenLanguagesMenu(false);
     });
+
+    const handleChangeLanguage = (lang) => {
+        setActiveLanguage(lang);
+        setOpenLanguagesMenu(false);
+        setOpenCallMeForm(false);
+    };
 
     return <header
         ref={headerRef}
@@ -55,7 +107,10 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
         </div>
         <ul className="header__menu">
             <li
-                onClick={() => setOpenCallMeForm(!openCallMeForm)}
+                onClick={() => {
+                    setOpenCallMeForm(!openCallMeForm)
+                    setOpenLanguagesMenu(false)
+                }}
             >
                 <svg className={classNames({ "active": openSidebar })}
                     width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +118,16 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 </svg>
                 <span> Перезвоните мне</span>
             </li>
-            <li className={classNames({ "active": openSidebar })}>
-                RU
+            <li
+                className={classNames("language-menu-text",
+                    { "language-menu-text--active": openLanguagesMenu }
+                )}
+                onClick={() => {
+                    setOpenLanguagesMenu(!openLanguagesMenu)
+                    setOpenCallMeForm(false)
+                }}
+            >
+                {activeLanguage?.abr}
                 <svg className={classNames({ "active": openSidebar })}
                     width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.15625 1.22095L5.53014 5.59484L9.90403 1.22095" stroke="black" strokeWidth="1.17327" />
@@ -83,8 +146,23 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
             </li>
         </ul>
 
+        {
+            openLanguagesMenu && <ul className="language-menu">
+                {languages.map(lang => {
+                    return <li
+                        className={classNames({ "active": activeLanguage?.name === lang.name })}
+                        key={lang.id}
+                        onClick={() => handleChangeLanguage(lang)}
+                    >
+                        <span>{lang.name}</span>
+                        {activeLanguage?.name === lang.name && lang.icon}
+                    </li>
+                })}
+            </ul>
+        }
+
         {openCallMeForm && <CallMeForm />}
-    </header>
+    </header >
 }
 
 export default Header;

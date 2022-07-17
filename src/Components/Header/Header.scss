@@ -157,6 +157,52 @@
                     }
                 }
             }
+
+            &.language-menu-text{
+                
+                svg{
+                    transition: .3s;
+                }
+                &--active{
+                    svg{
+                        transform: rotate(-179deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .language-menu{
+        position: absolute;
+        width: 171px;
+        top: 95px;
+        right: 81px;
+        background-color: #fff;
+        padding: 23px 20px 18px 19px !important;
+        border: 1px solid #D9D9D9;
+        border-radius: 15px;
+
+        li{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 190%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #D9D9D9;
+            cursor: pointer;
+
+            svg{
+                margin-bottom: 10px;
+            }
+
+            &:hover{
+                opacity: 1 !important;
+            }
+
+            &:not(.active){
+               color: rgba(217, 217, 217, 1)
+            }
         }
     }
 }
