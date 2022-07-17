@@ -120,7 +120,8 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
             </li>
             <li
                 className={classNames("language-menu-text",
-                    { "language-menu-text--active": openLanguagesMenu }
+                    { "language-menu-text--active": openLanguagesMenu },
+                    { "active": openSidebar }
                 )}
                 onClick={() => {
                     setOpenLanguagesMenu(!openLanguagesMenu)
