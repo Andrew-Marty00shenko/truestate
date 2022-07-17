@@ -25,6 +25,29 @@
             line-height: 125%;
         }
     }
+
+    .btn.btn-primary{
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 25px;
+        width: 363px;
+        color: #fff;
+        background: #8A0BFF;
+        border-radius: 100px;
+        height: 66px;
+
+        &:hover{
+            background: #740ed3;
+        }
+    
+        &:focus{
+            background: #740ed3;
+        }
+    
+        &:active{
+            background:#8A0BFF;
+        }
+    }
 }
 
 @media (max-width: 1250px){
@@ -60,6 +83,12 @@
         p{
             font-size: 22px;
         }
+
+        .btn.btn-primary{
+            font-size: 20px;
+            width: 287px;
+            height: 52px;
+        }
     }
 }
 
@@ -84,6 +113,10 @@
             p{
                 font-size: 22px;
             }
+        }
+
+        .btn.btn-primary{
+            font-size: 16px;
         }
     }
 }
@@ -120,6 +153,12 @@
             .btn{
                 margin-top: 30px;
             }
+        }
+
+        .btn.btn-primary{
+            width: 305px;
+            font-size: 22px;
+            height: 56px;
         }
     }
 }

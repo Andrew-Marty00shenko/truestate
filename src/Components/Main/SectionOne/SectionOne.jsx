@@ -1,4 +1,4 @@
-import Button from "../../Button/Button";
+import { Button } from "react-bootstrap";
 
 import Logo from "../../../assets/images/logo.svg";
 import "./SectionOne.scss";
@@ -17,7 +17,9 @@ const SectionOne = () => {
                 В несколько кликов. <br />
                 Просто. Прибыльно. Безопасно.
             </p>
-            <Button text={'Инвестировать'} showIcon={true} />
+            <Button>
+                Рассчитай свою прибыль
+            </Button>
         </div>
     </section>
 }
