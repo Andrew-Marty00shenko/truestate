@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
+import { useOutside } from "../../Utils/helpers/useOutside";
 import CallMeForm from "../CallMeForm/CallMeForm"
 
 import Logo from "../../assets/images/logo.svg";
@@ -8,10 +9,18 @@ import "./Header.scss";
 
 const Header = ({ openSidebar, setOpenSidebar }) => {
     const [openCallMeForm, setOpenCallMeForm] = useState(false);
+    const headerRef = useRef();
 
-    return <header className={classNames("header", {
-        "header--open-sidebar": openSidebar
-    })}>
+    useOutside(headerRef, () => {
+        setOpenCallMeForm(false);
+    });
+
+    return <header
+        ref={headerRef}
+        className={classNames("header", {
+            "header--open-sidebar": openSidebar
+        })}
+    >
         <div className="header__background" />
         <div className="header__logo">
             <img src={Logo} alt="logo" />
