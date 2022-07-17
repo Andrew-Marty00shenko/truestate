@@ -12,7 +12,7 @@ const Footer = () => {
             <ul className="footer__block-info">
                 <li>
                     <a href="#">
-                        Private Policy
+                        Privacy Policy
                     </a>
                 </li>
                 <li>
@@ -87,7 +87,7 @@ const Footer = () => {
                 <ul className="footer__block-mobile-logo-info">
                     <li>
                         <a href="#">
-                            Private Policy
+                            Privacy Policy
                         </a>
                     </li>
                     <li>
