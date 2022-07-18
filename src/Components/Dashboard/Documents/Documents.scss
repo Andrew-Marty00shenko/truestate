@@ -1,0 +1,129 @@
+.documents{
+    width: 100%;
+    padding:0px 40px;
+    margin-top: 40px;
+
+
+    &-width{
+        max-width: 590px;
+        margin: 20px auto; 
+    }
+
+    &__block{
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        
+        &-select{
+            cursor: pointer;
+            border-radius: 10px !important;
+            border: 1px solid #D9D9D9 !important;
+            font-weight: 400 !important;
+            font-size: 16px !important;
+            line-height: 19px !important;
+            color: #000000 !important;
+            height: 48px;
+            padding: 0px 20px !important;
+            width: 249px !important;
+            margin-top: 7px;
+    
+            &:focus{
+                border: 1px solid #D9D9D9 !important;
+                box-shadow: none !important;
+            }
+        }
+
+        &-file{
+            margin-right: 30px;
+            width: 297px;
+            height: 48px;
+            border: 1.18107px solid #D9D9D9;
+            border-radius: 11.8107px;
+            position: relative;
+            padding: 12px 20px 13px;
+
+            input{
+                display: none;
+            }
+
+            svg{
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                cursor: pointer;
+            }
+
+            label{
+                cursor: pointer;
+            }
+
+            span{
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 21px;
+                color: #8B8B8B;
+            }
+        }
+    }
+
+    .btn.btn-primary{
+        background: #8A0BFF;
+        border-radius: 82.5911px;
+        width: 213px;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 26px;
+        height: 55px;
+
+        &:hover{
+            background: #740ed3;
+        }
+    
+        &:focus{
+            background: #740ed3;
+        }
+    
+        &:active{
+            background:#8A0BFF;
+        }
+
+        svg{
+            margin-left: 9px;
+        }
+    }
+
+    hr{
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 38px;
+        color: #D9D9D9;
+        height: 3px !important;
+    }
+
+    &__status-block{
+        max-width: 590px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+
+            span{
+                font-weight: 300;
+
+                svg{
+                    margin-bottom: 10px;
+                    margin-left: 4px;
+                }
+            }
+
+            &:nth-child(2){
+                font-weight: 300;
+                max-width: 300px;
+            }
+        }
+    }
+}
