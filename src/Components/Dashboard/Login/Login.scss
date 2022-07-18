@@ -1,0 +1,67 @@
+.login{
+
+    div{
+        &:nth-child(2){
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        &:nth-child(3){
+            margin-top: 10px;
+            color: #A74CFF;
+            border-bottom: 1px solid #A74CFF;
+            cursor: pointer;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 16px;
+            width: 106px;
+        }
+    }
+
+    p{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #8B8B8B;
+    }
+
+    input{
+        margin-top: 7px;
+        height: 40px;
+        border: 0.987821px solid #D9D9D9;
+        border-radius: 9.87821px;
+        padding: 0px 20px;
+        width: 480px;
+        font-size: 16px;
+        color: #000;
+
+        &::placeholder{
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+            color: #8B8B8B;
+        }
+    }
+
+    .btn.btn-primary{
+        width: 167px;
+        height: 55px;
+        margin-top: 27px;
+        background: #8A0BFF;
+        border-radius: 82.5911px;
+        font-weight: 600;
+        font-size: 22px;
+
+        &:hover{
+            background: #740ed3;
+        }
+    
+        &:focus{
+            background: #740ed3;
+        }
+    
+        &:active{
+            background:#8A0BFF;
+        }
+    }
+}

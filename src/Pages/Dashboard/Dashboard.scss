@@ -1,0 +1,78 @@
+.dashboard{
+    margin-top: 56px;
+    width: 1122px;
+    background: #FFFFFF;
+    height: 570px;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+
+    &__block{
+        display: flex;
+        height: 100%;
+        width: 100%;
+
+        &-menu{
+            height: 100%;
+            width: 109px;
+
+            a{
+                li{
+                    cursor: pointer;
+                    width: 100%;
+                    height: 25%;
+                    background-color: #F5F5F5;
+                    border-bottom: 1px solid #D9D9D9;
+                    border-right: 1px solid #D9D9D9;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 300;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #000000;
+
+                    svg{
+                        margin-bottom: 9px;
+                    }
+
+                    &.active{
+                        background-color: #FFFFFF;
+                        border-right: 1px solid #fff;
+                        color: #8A0BFF;
+
+                        svg{
+                            path{
+                                fill: #8A0BFF !important;
+                                stroke: #8A0BFF !important;
+                            }
+                        }
+                    }
+                }
+
+                &:first-of-type{
+                    li{
+                        border-top-left-radius: 15px;
+                    }
+                }
+
+                &:last-of-type{
+                    li{
+                        border-bottom-left-radius: 15px;
+                        border-bottom: 0;
+                    }
+                }
+            } 
+        }
+
+        &-screen{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

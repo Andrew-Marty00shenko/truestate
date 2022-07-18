@@ -12,39 +12,45 @@ import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
 import "./Main.scss";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 const Main = () => {
     const [openModalAddress, setOpenModalAddress] = useState(false);
 
     return <div className="main">
-        <SectionOne />
-        <div className="main__section-one-image">
-            <img
-                className="image-desktop"
-                src={SectionOneImage}
-                alt="section-one"
-                width="100%"
+        <Routes>
+            <Route path='/' element={<>
+                <SectionOne />
+                <div className="main__section-one-image">
+                    <img
+                        className="image-desktop"
+                        src={SectionOneImage}
+                        alt="section-one"
+                        width="100%"
+                    />
+                    <img
+                        className="image-mobile"
+                        src={SectionOneImageMobile}
+                        alt="section-one"
+                        width="100%"
+                    />
+                </div>
+                <SectionTwo />
+                <SectionThree />
+                <SectionFour />
+                <SectionFive />
+                <SectionSix />
+                <SectionSeven
+                    setOpenModalAddress={setOpenModalAddress}
+                />
+                <SectionEight
+                    openModalAddress={openModalAddress}
+                    setOpenModalAddress={setOpenModalAddress}
+                />
+                <SectionNine />
+            </>}
             />
-            <img
-                className="image-mobile"
-                src={SectionOneImageMobile}
-                alt="section-one"
-                width="100%"
-            />
-        </div>
-        <SectionTwo />
-        <SectionThree />
-        <SectionFour />
-        <SectionFive />
-        <SectionSix />
-        <SectionSeven
-            setOpenModalAddress={setOpenModalAddress}
-        />
-        <SectionEight
-            openModalAddress={openModalAddress}
-            setOpenModalAddress={setOpenModalAddress}
-        />
-        <SectionNine />
+        </Routes>
     </div>
 }
 

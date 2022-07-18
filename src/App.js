@@ -44,12 +44,9 @@ const App = () => {
       openSidebar={openSidebar}
       setOpenSidebar={setOpenSidebar}
     />
-
     <Routes />
     <Footer />
-
     <ToastContainer />
-
     <Sidebar
       openSidebar={openSidebar}
     />
