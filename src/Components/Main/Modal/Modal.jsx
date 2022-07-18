@@ -26,8 +26,8 @@ const Modal = ({ openModalAddress, setOpenModalAddress }) => {
             onClick={() => setOpenModalAddress(false)}
         >
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L26 26" stroke="black" strokeWidth="2" stroke-linecap="round" />
-                <path d="M1 26L26 1.00002" stroke="black" strokeWidth="2" stroke-linecap="round" />
+                <path d="M1 1L26 26" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                <path d="M1 26L26 1.00002" stroke="black" strokeWidth="2" strokeLinecap="round" />
             </svg>
         </div>
         <h3>

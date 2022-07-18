@@ -24,7 +24,7 @@ const SectionNine = () => {
                 </Button>
                 <div className="section-nine__block-info-checkbox">
                     <input id="check" type="checkbox" />
-                    <label for="check">Я согласен с <a href="#">политикой конфиденциальности</a> TRUESTATE</label>
+                    <label htmlFor="check">Я согласен с <a href="#">политикой конфиденциальности</a> TRUESTATE</label>
                 </div>
             </div>
             <div className="section-nine__block-image">

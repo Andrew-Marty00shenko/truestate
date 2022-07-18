@@ -15,7 +15,7 @@ const languages = [
         abr: 'RU',
         icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
-            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" strokeWidth="1.5" />
         </svg>
     },
     {
@@ -24,7 +24,7 @@ const languages = [
         abr: 'EN',
         icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
-            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" strokeWidth="1.5" />
         </svg>
     },
     {
@@ -33,7 +33,7 @@ const languages = [
         abr: 'UA',
         icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
-            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" strokeWidth="1.5" />
         </svg>
     },
     {
@@ -42,7 +42,7 @@ const languages = [
         abr: 'DE',
         icon: <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.5" y="7.33569" width="16.0878" height="16.0878" rx="2.34797" stroke="black" />
-            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" stroke-width="1.5" />
+            <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="black" strokeWidth="1.5" />
         </svg>
     }
 ];

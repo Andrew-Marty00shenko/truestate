@@ -21,7 +21,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 2,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -34,7 +34,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 3,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -47,7 +47,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 4,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -60,7 +60,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 5,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -73,7 +73,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 6,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -86,7 +86,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 7,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -99,7 +99,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 8,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
@@ -112,7 +112,7 @@ const objects = [
         allowAmountNumber: '00.000.000 €'
     },
     {
-        id: 1,
+        id: 9,
         image: SectionFiveImage,
         location: 'Местонахождение',
         locationCountry: 'Испания, Барселона',
