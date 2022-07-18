@@ -15,3 +15,20 @@
         background: #7847ff !important;
     }
 }
+
+@media (max-width: 850px) {
+    .connect-wallet-btn{
+        font-size: 12px !important;
+        max-width: 350px !important;
+    }
+}
+
+@media (max-width: 730px) {
+    .connect-wallet-btn{
+        width: 100% !important;
+        max-width: 290px !important;
+        top: 134px;
+        right: 24px;
+        font-size: 15px !important;
+    }
+}

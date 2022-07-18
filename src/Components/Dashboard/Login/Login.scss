@@ -65,3 +65,24 @@
         }
     }
 }
+
+@media (max-width: 730px) {
+    .login{
+        margin-top: 130px;
+        padding: 0px 25px;
+        width: 100%;
+
+        div{
+            width: 100%;
+        }
+
+        input{
+            width: 100%;
+            font-size: 14px;
+
+            &::placeholder{
+                font-size: 14px;
+            }
+        }
+    }
+}
