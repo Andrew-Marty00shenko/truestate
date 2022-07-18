@@ -10,7 +10,6 @@ const Modal = ({ openModalAddress, setOpenModalAddress }) => {
         toast.success("Адрес скопирован!", {
             className: "toast-modal",
             autoClose: 3000,
-            className: 'toast-modal-address',
             progressClassName: 'toast-modal-progress'
         });
     };
