@@ -5,6 +5,7 @@ import ConnectWalletButton from '../../Components/Dashboard/ConnectWalletButton/
 import DataInput from '../../Components/Dashboard/DataInput/DataInput';
 import Login from '../../Components/Dashboard/Login/Login';
 import Documents from '../../Components/Dashboard/Documents/Documents';
+import Balance from '../../Components/Dashboard/Balance/Balance';
 
 import "./Dashboard.scss";
 
@@ -63,6 +64,7 @@ const Dashboard = () => {
                     <Route path='/dashboard/login' element={<Login />} />
                     <Route path='/dashboard/data' element={<DataInput />} />
                     <Route path='/dashboard/documents' element={<Documents />} />
+                    <Route path='/dashboard/balance' element={<Balance />} />
                 </Routes>
             </div>
         </div>

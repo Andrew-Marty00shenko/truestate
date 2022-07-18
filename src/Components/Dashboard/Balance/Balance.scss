@@ -1,0 +1,35 @@
+.balance{
+    display: flex;
+    align-items: flex-end;
+
+    &__block{
+        p{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        div{
+            margin-top: 12px;
+            height: 55px;
+            width: 297px;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 115%;
+            border: 1px solid #D9D9D9;
+            border-radius: 10px;
+        }
+    }
+
+    &__button{
+        .btn.btn-primary{
+            margin-left: 15px;
+            font-weight: 600;
+            font-size: 22px;
+            width: 172px;
+            height: 55px;
+        }
+    }
+}
