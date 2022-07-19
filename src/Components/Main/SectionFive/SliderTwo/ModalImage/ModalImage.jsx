@@ -3,7 +3,6 @@ import { Modal } from "react-bootstrap";
 import "./ModalImage.scss";
 
 const ModalImage = (props) => {
-
     return <Modal
         className="modal-image"
         {...props}
@@ -21,4 +20,5 @@ const ModalImage = (props) => {
         <img src={props.image} alt="big-image" />
     </Modal>
 }
-export default ModalImage
+
+export default ModalImage;

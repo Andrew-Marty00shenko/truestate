@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Button } from "react-bootstrap";
+
+import ModalOne from "./ModalOne/ModalOne";
 
 import Logo from "../../../assets/images/logo.svg";
 import "./SectionOne.scss";
 
 const SectionOne = () => {
+    const [modalShow, setModalShow] = useState(false);
+
     return <section className="section-one">
         <img src={Logo} alt="logo" />
         <h1>
@@ -17,10 +22,16 @@ const SectionOne = () => {
                 В несколько кликов. <br />
                 Просто. Прибыльно. Безопасно.
             </p>
-            <Button>
+            <Button onClick={() => setModalShow(true)}>
                 Рассчитай твою прибыль
             </Button>
         </div>
+
+
+        <ModalOne
+            show={modalShow}
+            setModalShow={setModalShow}
+        />
     </section>
 }
 
