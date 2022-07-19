@@ -1,4 +1,5 @@
 import { Table } from "react-bootstrap";
+import { Element } from "react-scroll";
 
 import "./SectionThree.scss";
 
@@ -43,6 +44,7 @@ const SectionThree = () => {
     ];
 
     return <section className="section-three">
+        <Element name="benefits" />
         <h1>
             Самостоятельные инвестиции VS <br />
             <span>инвестиции с TRUESTATE</span>

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
+import { Element } from "react-scroll";
 
 import SliderItem from "./SliderItem/SliderItem";
 
@@ -46,6 +47,7 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
     };
 
     return <section className="section-seven">
+        <Element name="estates" />
         <h2>
             Выбор Объекта Инвестирования
         </h2>

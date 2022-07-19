@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Link as NavigationLink } from "react-scroll";
 
 import { useOutside } from "../../Utils/helpers/useOutside";
 import CallMeForm from "../CallMeForm/CallMeForm"
@@ -82,19 +83,29 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
         </div>
         <ul className="header__navigation">
             <li>
-                О нас
+                <NavigationLink to="about">
+                    О нас
+                </NavigationLink>
             </li>
             <li>
-                Преимущества
+                <NavigationLink to="benefits">
+                    Преимущества
+                </NavigationLink>
             </li>
             <li>
-                Объекты
+                <NavigationLink to="estates">
+                    Объекты
+                </NavigationLink>
             </li>
             <li>
-                FAQ
+                <NavigationLink to="faq">
+                    FAQ
+                </NavigationLink>
             </li>
             <li>
-                Инвестировать
+                <NavigationLink to="invest">
+                    Инвестировать
+                </NavigationLink>
             </li>
         </ul>
         <div className="header__button-burger"

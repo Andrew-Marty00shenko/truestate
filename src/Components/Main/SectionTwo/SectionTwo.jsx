@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { Element } from "react-scroll";
 
 import Button from "../../Button/Button";
 
@@ -8,6 +9,7 @@ import "./SectionTwo.scss";
 
 const SectionTwo = () => {
     return <section className="section-two">
+        <Element name="about" />
         <h2>
             Что такое TRUESTATE?
         </h2>
