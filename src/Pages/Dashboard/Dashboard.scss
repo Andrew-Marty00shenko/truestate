@@ -35,6 +35,10 @@
                     line-height: 19px;
                     color: #000000;
 
+                    &:hover{
+                        opacity: .6;
+                    }
+
                     svg{
                         margin-bottom: 9px;
                     }
@@ -43,6 +47,10 @@
                         background-color: #FFFFFF;
                         border-right: 1px solid #fff;
                         color: #8A0BFF;
+
+                        &:hover{
+                            opacity: 1;
+                        }
 
                         svg{
                             path{

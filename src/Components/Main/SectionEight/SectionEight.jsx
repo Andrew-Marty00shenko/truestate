@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal";
 import SectionEightImage from "../../../assets/images/section-eight-image.png";
 import "./SectionEight.scss";
 
-const SectionEight = ({ openModalAddress, setOpenModalAddress }) => {
+const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     return <section className="section-eight">
         <div className="section-eight__faq">
             <div className="section-eight__faq-image">
@@ -116,6 +116,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress }) => {
         </div>
 
         <Modal
+            activeObjectEstate={activeObjectEstate}
             openModalAddress={openModalAddress}
             setOpenModalAddress={setOpenModalAddress}
         />

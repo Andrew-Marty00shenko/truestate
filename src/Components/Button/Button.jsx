@@ -2,11 +2,12 @@ import { Button } from "react-bootstrap";
 
 import "./Button.scss";
 
-const ButtonComponent = ({ text, showIcon, isSevenBlock, setOpenModalAddress }) => {
+const ButtonComponent = ({ text, showIcon, isSevenBlock, setOpenModalAddress, setActiveObjectEstate, object }) => {
 
     const handleClick = () => {
         if (isSevenBlock) {
             setOpenModalAddress(true);
+            setActiveObjectEstate(object);
         }
     };
 

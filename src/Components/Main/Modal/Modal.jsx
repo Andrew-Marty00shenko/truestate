@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 import "./Modal.scss";
 
-const Modal = ({ openModalAddress, setOpenModalAddress }) => {
+const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
 
     const notify = () => {
         toast.success("Адрес скопирован!", {
@@ -31,7 +31,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress }) => {
             </svg>
         </div>
         <h3>
-            Переведи с твоего кошелька <br />
+            Ты выбрал для инвестирования объект №{`00${activeObjectEstate?.id}`}. Для инвестирования и получения токенов данного объекта, переведи с твоего кошелька <br />
             <span> Metamask</span> желаемую сумму инвестиций в ETH на адрес смартконтракта:
         </h3>
         <div className="section-seven__modal-copy-block">

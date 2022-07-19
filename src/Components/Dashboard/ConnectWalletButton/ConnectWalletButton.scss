@@ -32,3 +32,13 @@
         font-size: 15px !important;
     }
 }
+
+@media (max-width: 360px) {
+    .connect-wallet-btn{
+        width: 250px !important;
+        max-width: 290px !important;
+        top: 134px;
+        right: 24px;
+        font-size: 12px !important;
+    }
+}

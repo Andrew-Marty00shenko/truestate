@@ -1,6 +1,6 @@
 import Button from "../../../Button/Button";
 
-const SliderItem = ({ setOpenModalAddress, ...object }) => {
+const SliderItem = ({ setActiveObjectEstate, setOpenModalAddress, ...object }) => {
     return <div
         className="section-seven__block"
         style={{ width: 386 }}
@@ -30,7 +30,9 @@ const SliderItem = ({ setOpenModalAddress, ...object }) => {
         </p>
         <Button text={'Инвестировать'}
             isSevenBlock={true}
+            object={object}
             setOpenModalAddress={setOpenModalAddress}
+            setActiveObjectEstate={setActiveObjectEstate}
             showIcon
         />
     </div >

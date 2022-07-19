@@ -1,8 +1,11 @@
+import { useLocation } from "react-router-dom";
 
 import FooterLogo from "../../assets/images/footer-logo.svg";
 import "./Footer.scss";
 
 const Footer = () => {
+    const location = useLocation();
+
     return <footer className="footer">
         <div className="footer__block">
             <div className="footer__block-logo">
@@ -49,10 +52,10 @@ const Footer = () => {
                         </svg>
                     </a>
                 </div>
-                <p>
+                {!location.pathname.includes('/dashboard') && <p>
                     **Указанная доходность является ориентировочной и не гарантируется
                     со стороны TRUESTATE и (или) его аффилированных лиц. Доходность указана за срок реализации проекта.
-                </p>
+                </p>}
             </div>
         </div>
         <div className="footer__block-mobile">
@@ -106,7 +109,10 @@ const Footer = () => {
                 ⓒ Truestate 2022
             </div>
             <div className="footer__block-mobile-desc">
-                **Указанная доходность является ориентировочной и не гарантируется со стороны TRUESTATE и (или) его аффилированных лиц. Доходность указана за срок реализации проекта.
+                {!location.pathname.includes('/dashboard') && <p>
+                    **Указанная доходность является ориентировочной и не гарантируется
+                    со стороны TRUESTATE и (или) его аффилированных лиц. Доходность указана за срок реализации проекта.
+                </p>}
             </div>
         </div>
     </footer>
