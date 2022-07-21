@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { Link, useLocation, Routes, Route } from 'react-router-dom';
 
+import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMain';
+import Registration from '../../Components/Dashboard/Registration/Registration';
 import ConnectWalletButton from '../../Components/Dashboard/ConnectWalletButton/ConnectWalletButton';
 import DataInput from '../../Components/Dashboard/DataInput/DataInput';
 import Login from '../../Components/Dashboard/Login/Login';
@@ -47,30 +49,50 @@ const menu = [
 const Dashboard = () => {
     const location = useLocation();
 
-    return <div className="dashboard">
-        <div className="dashboard__block">
-            <ul className="dashboard__block-menu">
-                {menu.map(m => {
-                    return <Link to={`${m.link}`} key={m.id}>
-                        <li className={classNames({ "active": location.pathname === m.link })}>
-                            {m.icon}
-                            {m.name}
-                        </li>
-                    </Link>
-                })}
-            </ul>
-            <div className="dashboard__block-screen">
-                <Routes>
-                    <Route path='/dashboard/login' element={<Login />} />
-                    <Route path='/dashboard/data' element={<DataInput />} />
-                    <Route path='/dashboard/documents' element={<Documents />} />
-                    <Route path='/dashboard/balance' element={<Balance />} />
-                </Routes>
-            </div>
-        </div>
+    return <div className={classNames("dashboard", {
+        "dashboard--registration": location.pathname === '/dashboard/registration'
+    })}>
+        {location.pathname === '/dashboard' || location.pathname === '/dashboard/registration'
+            ? (
+                <>
+                    <Routes>
+                        <Route path='/dashboard' element={<DashboardMain />} />
+                        <Route path='/dashboard/registration' element={<Registration />} />
+                    </Routes>
+                    {location.pathname === '/dashboard/registration' && <Link to='/dashboard'>
+                        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.47607L26 26.4761" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M1 26.4761L26 1.47609" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                    </Link>}
+                </>
+            ) : (
+                <>
+                    <div className="dashboard__block">
+                        <ul className="dashboard__block-menu">
+                            {menu.map(m => {
+                                return <Link to={`${m.link}`} key={m.id}>
+                                    <li className={classNames({ "active": location.pathname === m.link })}>
+                                        {m.icon}
+                                        {m.name}
+                                    </li>
+                                </Link>
+                            })}
+                        </ul>
+                        <div className="dashboard__block-screen">
+                            <Routes>
+                                <Route path='/dashboard/login' element={<Login />} />
+                                <Route path='/dashboard/data' element={<DataInput />} />
+                                <Route path='/dashboard/documents' element={<Documents />} />
+                                <Route path='/dashboard/balance' element={<Balance />} />
+                            </Routes>
+                        </div>
+                    </div>
 
-        <ConnectWalletButton />
-    </div>
+                    <ConnectWalletButton />
+                </>
+            )}
+    </div >
 }
 
 export default Dashboard;

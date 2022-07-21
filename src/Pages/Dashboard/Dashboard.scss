@@ -9,6 +9,18 @@
     position: relative;
     min-height: 570px;
 
+    &--registration{
+        height: 663px;
+        position: relative;
+
+        svg{
+            cursor: pointer;
+            position: absolute;
+            top: 36px;
+            right: 32px;
+        }
+    }
+
     &__block{
         display: flex;
         height: 100%;
@@ -96,6 +108,16 @@
 @media (max-width: 730px){
     .dashboard{
         height: auto;
+
+        &--registration{
+            height: 763px !important;
+
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
         &__block{
             flex-direction: column;
 
