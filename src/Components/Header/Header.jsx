@@ -177,7 +177,9 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
             </ul>
         }
 
-        {openCallMeForm && <CallMeForm />}
+        {openCallMeForm && <CallMeForm
+            setOpenCallMeForm={setOpenCallMeForm}
+        />}
     </header >
 }
 
