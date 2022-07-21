@@ -1,4 +1,6 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import "./Login.scss";
 
 const Login = () => {
@@ -20,7 +22,9 @@ const Login = () => {
             />
         </div>
         <div>
-            Забыли пароль?
+            <Link to='/dashboard/forgot-password'>
+                Забыли пароль?
+            </Link>
         </div>
         <Button>
             Войти

@@ -3,6 +3,7 @@ import { Link, useLocation, Routes, Route } from 'react-router-dom';
 
 import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMain';
 import Registration from '../../Components/Dashboard/Registration/Registration';
+import ForgotPassword from '../../Components/Dashboard/ForgotPassword/ForgotPassword';
 import ConnectWalletButton from '../../Components/Dashboard/ConnectWalletButton/ConnectWalletButton';
 import DataInput from '../../Components/Dashboard/DataInput/DataInput';
 import Login from '../../Components/Dashboard/Login/Login';
@@ -50,21 +51,28 @@ const Dashboard = () => {
     const location = useLocation();
 
     return <div className={classNames("dashboard", {
-        "dashboard--registration": location.pathname === '/dashboard/registration'
+        "dashboard--registration": location.pathname === '/dashboard/registration',
+        "dashboard--forgot-password": location.pathname === '/dashboard/forgot-password'
     })}>
-        {location.pathname === '/dashboard' || location.pathname === '/dashboard/registration'
+        {location.pathname === '/dashboard' ||
+            location.pathname === '/dashboard/registration' ||
+            location.pathname === '/dashboard/registration' ||
+            location.pathname === '/dashboard/forgot-password'
             ? (
                 <>
                     <Routes>
                         <Route path='/dashboard' element={<DashboardMain />} />
                         <Route path='/dashboard/registration' element={<Registration />} />
+                        <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
                     </Routes>
-                    {location.pathname === '/dashboard/registration' && <Link to='/dashboard'>
-                        <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1.47607L26 26.4761" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                            <path d="M1 26.4761L26 1.47609" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
-                    </Link>}
+                    {(location.pathname === '/dashboard/registration' ||
+                        location.pathname === '/dashboard/forgot-password') &&
+                        <Link to='/dashboard'>
+                            <svg className="close-btn" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1.47607L26 26.4761" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M1 26.4761L26 1.47609" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                        </Link>}
                 </>
             ) : (
                 <>

@@ -13,7 +13,18 @@
         height: 663px;
         position: relative;
 
-        svg{
+        .close-btn{
+            cursor: pointer;
+            position: absolute;
+            top: 36px;
+            right: 32px;
+        }
+    }
+
+    &--forgot-password{
+        position: relative;
+
+        .close-btn{
             cursor: pointer;
             position: absolute;
             top: 36px;
@@ -112,7 +123,15 @@
         &--registration{
             height: 763px !important;
 
-            svg{
+            .close-btn{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &--forgot-password{
+
+            .close-btn{
                 width: 20px;
                 height: 20px;
             }
