@@ -162,19 +162,18 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
             </li>
         </ul>
 
-        {
-            openLanguagesMenu && <ul className="language-menu">
-                {languages.map(lang => {
-                    return <li
-                        className={classNames({ "active": activeLanguage?.name === lang.name })}
-                        key={lang.id}
-                        onClick={() => handleChangeLanguage(lang)}
-                    >
-                        <span>{lang.name}</span>
-                        {activeLanguage?.name === lang.name && lang.icon}
-                    </li>
-                })}
-            </ul>
+        {openLanguagesMenu && <ul className="language-menu">
+            {languages.map(lang => {
+                return <li
+                    className={classNames({ "active": activeLanguage?.name === lang.name })}
+                    key={lang.id}
+                    onClick={() => handleChangeLanguage(lang)}
+                >
+                    <span>{lang.name}</span>
+                    {activeLanguage?.name === lang.name && lang.icon}
+                </li>
+            })}
+        </ul>
         }
 
         {openCallMeForm && <CallMeForm

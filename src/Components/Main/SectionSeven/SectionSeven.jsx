@@ -47,8 +47,8 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
     };
 
     return <section className="section-seven">
-        <Element name="estates" />
         <h2>
+            <Element name="estates" />
             Выбор Объекта Инвестирования
         </h2>
         <div className="section-seven__navigation">
