@@ -22,7 +22,9 @@ const SectionOne = () => {
                 В несколько кликов. <br />
                 Просто. Прибыльно. Безопасно.
             </p>
-            <Button onClick={() => setModalShow(true)}>
+            <Button onClick={() => setModalShow(true)}
+                className="button-pulse"
+            >
                 Рассчитай твою прибыль
             </Button>
         </div>

@@ -48,6 +48,16 @@
             background:#8A0BFF;
         }
     }
+
+    .button-pulse{
+        animation: pulse 1500ms infinite;
+    }
+
+    @keyframes pulse {
+        0% { background-color: #740ed3; box-shadow: 0 0 5px #740ed3; }
+        50% { background-color: #a24bf3; box-shadow: 0 0 20px #a24bf3; }
+        100% { background-color: #740ed3; box-shadow: 0 0 5px #740ed3; }
+    }
 }
 
 @media (max-width: 1250px){
