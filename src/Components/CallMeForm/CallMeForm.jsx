@@ -101,19 +101,19 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         <div className="call-me-form__block-checkboxes">
             <div>
                 <input type="checkbox" class="custom-checkbox" id="English" name="happy" value="yes" />
-                <label for="English">English</label>
+                <label htmlFor="English">English</label>
             </div>
             <div>
                 <input type="checkbox" class="custom-checkbox" id="Russian" name="happy" value="yes" />
-                <label for="Russian">Русский</label>
+                <label htmlFor="Russian">Русский</label>
             </div>
             <div>
                 <input type="checkbox" class="custom-checkbox" id="Ukranian" name="happy" value="yes" />
-                <label for="Ukranian">Украинский</label>
+                <label htmlFor="Ukranian">Украинский</label>
             </div>
             <div>
                 <input type="checkbox" class="custom-checkbox" id="Deutsch" name="happy" value="yes" />
-                <label for="Deutsch">Deutsch</label>
+                <label htmlFor="Deutsch">Deutsch</label>
             </div>
         </div>
 

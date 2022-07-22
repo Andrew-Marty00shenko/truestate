@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Link as NavigationLink } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 import { useOutside } from "../../Utils/helpers/useOutside";
 import CallMeForm from "../CallMeForm/CallMeForm"
@@ -49,22 +50,39 @@ const languages = [
 ];
 
 const Header = ({ openSidebar, setOpenSidebar }) => {
+    const { t, i18n } = useTranslation();
+
     const [openCallMeForm, setOpenCallMeForm] = useState(false);
     const [openLanguagesMenu, setOpenLanguagesMenu] = useState(false);
-    const [activeLanguage, setActiveLanguage] = useState(null);
+    const [activeLanguage, setActiveLanguage] = useState({
+        name: '',
+        abr: null,
+        icon: null
+    });
     const headerRef = useRef();
 
     useEffect(() => {
-        setActiveLanguage(languages[0]);
+        const indexLanguage = languages.findIndex(lang => lang.abr === i18n.language);
+        setActiveLanguage({
+            name: languages[indexLanguage]?.name,
+            abr: languages[indexLanguage]?.abr,
+            icon: languages[indexLanguage]?.icon,
+        });
     }, []);
+
+    useEffect(() => {
+        i18n.changeLanguage(activeLanguage.abr);
+    }, [activeLanguage.abr]);
 
     useOutside(headerRef, () => {
         setOpenCallMeForm(false);
         setOpenLanguagesMenu(false);
     });
 
-    const handleChangeLanguage = (lang) => {
-        setActiveLanguage(lang);
+    const handleChangeLanguage = (name, abr, icon) => {
+        setActiveLanguage({
+            name, abr, icon
+        });
         setOpenLanguagesMenu(false);
         setOpenCallMeForm(false);
     };
@@ -84,27 +102,27 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
         <ul className="header__navigation">
             <li>
                 <NavigationLink to="about">
-                    О нас
+                    {t('header:ABOUT_US')}
                 </NavigationLink>
             </li>
             <li>
                 <NavigationLink to="benefits">
-                    Преимущества
+                    {t('header:BENEFITS')}
                 </NavigationLink>
             </li>
             <li>
                 <NavigationLink to="estates">
-                    Объекты
+                    {t('header:OBJECTS')}
                 </NavigationLink>
             </li>
             <li>
                 <NavigationLink to="faq">
-                    FAQ
+                    {t('header:FAQ')}
                 </NavigationLink>
             </li>
             <li>
                 <NavigationLink to="invest">
-                    Инвестировать
+                    {t('header:INVEST')}
                 </NavigationLink>
             </li>
         </ul>
@@ -130,7 +148,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                     width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.97588 7.88185C7.67889 9.51566 10.1087 12.0895 12.161 13.0229C12.2056 12.9594 12.2547 12.8615 12.3292 12.7883C12.7601 12.365 13.1802 11.9295 13.6349 11.5334C14.2963 10.9567 15.2872 10.9562 15.9254 11.5622C16.8144 12.4064 17.6826 13.2742 18.5255 14.1638C19.1307 14.8026 19.1626 15.7885 18.5889 16.452C18.0242 17.1044 17.417 17.7266 16.7779 18.3068C16.12 18.9047 15.2953 19.0571 14.4205 18.9825C12.8032 18.8442 11.3672 18.1918 9.97543 17.4243C8.25416 16.4752 6.72246 15.2764 5.38285 13.8424C3.75535 12.0996 2.40916 10.1716 1.56069 7.92878C1.25202 7.11137 1.02495 6.27529 1.00163 5.39481C0.978316 4.50778 1.20234 3.70904 1.84047 3.06117C2.34732 2.54701 2.83593 2.01014 3.38079 1.53938C4.22368 0.811277 5.14108 0.817332 5.95357 1.5757C6.81268 2.37848 7.63834 3.2196 8.44119 4.07838C9.05752 4.73786 9.04789 5.7137 8.44727 6.39034C8.02253 6.86918 7.55369 7.30866 7.10361 7.7653C7.06408 7.80516 7.02099 7.84098 6.97588 7.88185ZM2.08832 5.33427C2.10859 5.55022 2.12633 5.76669 2.15066 5.98264C2.1608 6.07498 2.18259 6.1658 2.20338 6.25662C2.50039 7.57255 3.05184 8.78504 3.75687 9.92638C5.63729 12.97 8.14266 15.347 11.3774 16.9314C12.3657 17.4152 13.3855 17.8058 14.4981 17.9047C15.195 17.9662 15.8062 17.8058 16.3035 17.2886C16.7089 16.8668 17.123 16.4535 17.5331 16.0357C17.5853 15.9823 17.635 15.9268 17.6821 15.8687C17.971 15.5105 17.9746 15.1492 17.6608 14.8111C17.3222 14.4463 16.9629 14.1007 16.6106 13.749C16.1747 13.3136 15.7409 12.8751 15.2979 12.4467C14.9669 12.1268 14.5954 12.1233 14.2446 12.4195C14.1782 12.4755 14.1164 12.538 14.0546 12.5991C13.6258 13.0245 13.2005 13.4533 12.7687 13.8757C12.4595 14.1779 12.1164 14.2334 11.7423 14.0447C11.4813 13.913 11.2187 13.7813 10.9678 13.6325C9.83858 12.9624 8.8563 12.1142 7.96931 11.154C7.18572 10.3058 6.47055 9.40819 5.98803 8.34808C5.73309 7.788 5.78681 7.51351 6.2298 7.08564C6.67735 6.65322 7.12642 6.2213 7.55623 5.77173C7.89683 5.415 7.88467 5.06836 7.55927 4.69548C7.51822 4.64855 7.47564 4.60314 7.43154 4.55924C6.72651 3.85587 6.02199 3.15148 5.31544 2.44912C4.85471 1.99147 4.45582 1.99198 3.99003 2.45114C3.58657 2.84874 3.19478 3.25845 2.78321 3.64748C2.29359 4.10967 2.06399 4.66571 2.08832 5.33427Z" fill="black" stroke="black" strokeWidth="0.5" />
                 </svg>
-                <span> Перезвоните мне</span>
+                <span> {t('header:CALL_ME_BACK')}</span>
             </li>
             <li
                 className={classNames("language-menu-text",
@@ -167,7 +185,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 return <li
                     className={classNames({ "active": activeLanguage?.name === lang.name })}
                     key={lang.id}
-                    onClick={() => handleChangeLanguage(lang)}
+                    onClick={() => handleChangeLanguage(lang.name, lang.abr, lang.icon)}
                 >
                     <span>{lang.name}</span>
                     {activeLanguage?.name === lang.name && lang.icon}

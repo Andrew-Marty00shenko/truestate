@@ -1,13 +1,17 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Routes from "./Routes/Routes";
 
+import "./Utils/translation/translation";
+
 const App = () => {
+  const { i18n } = useTranslation();
+
   const [openSidebar, setOpenSidebar] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
 
@@ -38,6 +42,10 @@ const App = () => {
       document.body.style.overflow = 'unset';
     }
   }, [openSidebar]);
+
+  useEffect(() => {
+    localStorage.setItem("language", i18n.language);
+  }, [i18n.language]);
 
   return <div className="wrapper">
     <Header
