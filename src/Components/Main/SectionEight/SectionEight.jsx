@@ -8,13 +8,13 @@ import "./SectionEight.scss";
 
 const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     return <section className="section-eight">
-        <Element name="faq" />
         <div className="section-eight__faq">
             <div className="section-eight__faq-image">
                 <img src={SectionEightImage} alt="section-eight" />
             </div>
             <div className="section-eight__faq-info">
                 <h3>
+                    <Element name="faq" />
                     FAQ
                 </h3>
                 <span>

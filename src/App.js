@@ -49,6 +49,7 @@ const App = () => {
     <ToastContainer />
     <Sidebar
       openSidebar={openSidebar}
+      setOpenSidebar={setOpenSidebar}
     />
 
     <div className="wrapper__button-top"
