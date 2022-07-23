@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 import Button from "../../Button/Button";
 
@@ -8,21 +9,21 @@ import ListStyle from "../../../assets/images/list-style.png";
 import "./SectionTwo.scss";
 
 const SectionTwo = () => {
+    const { t } = useTranslation();
+
     return <section className="section-two">
         <Element name="about" />
         <h2>
-            Что такое TRUESTATE?
+            {t('landing:SECTION_TWO_TITLE')}
         </h2>
         <Container fluid className="section-two__container-top">
             <Row className="section-two__top">
                 <Col lg={5} className="section-two__top-left-block">
                     <h3>
-                        TRUESTATE — это криптовалютный проект, позволяющий инвестировать
-                        в недвижимость в Европе не выходя из дома!
+                        {t('landing:SECTION_TWO_TEXT_1')}
                     </h3>
                     <p>
-                        Больше никаких дополнительных затрат, бумажной волокиты и огромных вложений:
-                        с TRUESTATE процесс инвестирования становится быстрым и простым!
+                        {t('landing:SECTION_TWO_TEXT_2')}
                     </p>
                 </Col>
                 <Col lg={7} className="section-two__top-right-block">
@@ -33,7 +34,7 @@ const SectionTwo = () => {
                                     01
                                 </p>
                                 <span>
-                                    Минимальный размер инвестиций: от €100
+                                    {t('landing:SECTION_TWO_BLOCK_1_TEXT')}
                                 </span>
                             </div>
                         </Col>
@@ -43,8 +44,7 @@ const SectionTwo = () => {
                                     02
                                 </p>
                                 <span>
-                                    Доходность:
-                                    до 48%*  **
+                                    {t('landing:SECTION_TWO_BLOCK_2_TEXT')}
                                 </span>
                             </div>
                         </Col>
@@ -54,9 +54,7 @@ const SectionTwo = () => {
                                     03
                                 </p>
                                 <span>
-                                    Вложение средств
-                                    и получение прибыли
-                                    в пару кликов
+                                    {t('landing:SECTION_TWO_BLOCK_3_TEXT')}
                                 </span>
                             </div>
                         </Col>
@@ -66,7 +64,7 @@ const SectionTwo = () => {
                                     04
                                 </p>
                                 <span>
-                                    Смартконтракт вместо «тонны бумаг»
+                                    {t('landing:SECTION_TWO_BLOCK_4_TEXT')}
                                 </span>
                             </div>
                         </Col>
@@ -74,34 +72,34 @@ const SectionTwo = () => {
                 </Col>
             </Row>
             <p className="section-two__top-subtext">
-                * за срок реализации проекта
+                {t('landing:SECTION_TWO_SUBTEXT')}
             </p>
         </Container>
         <Container fluid className="section-two__container-bottom">
             <Row className="section-two__bottom">
                 <Col lg={5} className="section-two__bottom-left-block">
                     <h3>
-                        Прибыльность объектов TRUESTATE достигает 48% ** за счет:
+                        {t('landing:SECTION_TWO_TITLE_2')}
                     </h3>
                     <ul>
                         <li>
                             <img src={ListStyle} alt="list-style" />
-                            Приобретения недвижимости по низким ценам (аукционы и предложения off market);
+                            {t('landing:SECTION_TWO_BENEFIT_1')}
                         </li>
                         <li>
                             <img src={ListStyle} alt="list-style" />
-                            Ремонта и увеличения площади объектов, что увеличивает их конечную стоимость;
+                            {t('landing:SECTION_TWO_BENEFIT_2')}
                         </li>
                         <li>
                             <img src={ListStyle} alt="list-style" />
-                            Постоянного роста цен на рынке на 7-14%;
+                            {t('landing:SECTION_TWO_BENEFIT_3')}
                         </li>
                         <li>
                             <img src={ListStyle} alt="list-style" />
-                            Самых выгодных на рынке цен на ремонтные работы и отделочные материалы.
+                            {t('landing:SECTION_TWO_BENEFIT_4')}
                         </li>
                     </ul>
-                    <Button text={'Инвестировать'} showIcon />
+                    <Button text={t('landing:SECTION_TWO_BUTTON')} showIcon />
                 </Col>
                 <Col lg={7} className="section-two__bottom-right-block">
                     <img src={SectionTwoImage} alt="section-two" />
