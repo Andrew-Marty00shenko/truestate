@@ -1,60 +1,63 @@
 import { Table } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import { Element } from "react-scroll";
 
 import "./SectionThree.scss";
 
 const SectionThree = () => {
+    const { t } = useTranslation();
+
     const tableInfo = [
         {
             id: 1,
-            rowName: 'Поиск объекта',
-            rowFirstColumn: `2-6 месяцев`,
-            rowSecondColumn: `моментально, объекты уже отобраны командой специалистов`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_1'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_1'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_1')
         },
         {
             id: 2,
-            rowName: 'Процесс покупки',
-            rowFirstColumn: `до нескольких месяцев`,
-            rowSecondColumn: `в несколько кликов`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_2'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_2'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_2')
         },
         {
             id: 3,
-            rowName: 'Расходы',
-            rowFirstColumn: `  нотариус, налог на покупку, страховки и сборы`,
-            rowSecondColumn: `только комиссия сети (цена транзакции)`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_3'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_3'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_3')
         },
         {
             id: 4,
-            rowName: 'Ремонт',
-            rowFirstColumn: `длительный процесс, требующий контроля и опыта`,
-            rowSecondColumn: `берет на себя TRUESTATE`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_4'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_4'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_4')
         },
         {
             id: 5,
-            rowName: 'Процесс перепродажи',
-            rowFirstColumn: `длительный процесс, требующий контроля и личного присутствия`,
-            rowSecondColumn: `берет на себя TRUESTATE`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_5'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_5'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_5')
         },
         {
             id: 6,
-            rowName: 'Минимальные инвестиции',
-            rowFirstColumn: `от €100.000`,
-            rowSecondColumn: `от €100`,
+            rowName: t('landing:SECTION_THREE_TABLE_COLUMN_NAME_6'),
+            rowFirstColumn: t('landing:SECTION_THREE_TABLE_COLUMN_1_TEXT_6'),
+            rowSecondColumn: t('landing:SECTION_THREE_TABLE_COLUMN_2_TEXT_6')
         }
     ];
 
     return <section className="section-three">
         <Element name="benefits" />
         <h1>
-            Самостоятельные инвестиции VS <br />
-            <span>инвестиции с TRUESTATE</span>
+            {t('landing:SECTION_THREE_TITLE_WORD_1')} <br />
+            <span>{t('landing:SECTION_THREE_TITLE_WORD_2')}</span>
         </h1>
         <Table className="section-three__table-desktop">
             <tbody>
                 <tr className="head__table">
                     <td> </td>
-                    <td>Самостоятельно</td>
-                    <td>С TRUESTATE</td>
+                    <td>{t('landing:SECTION_THREE_TABLE_HEADER_1')}</td>
+                    <td>{t('landing:SECTION_THREE_TABLE_HEADER_2')}</td>
                 </tr>
                 {tableInfo.map((info) => {
                     return <tr className="table__row" key={info.id}>
@@ -70,8 +73,8 @@ const SectionThree = () => {
         <Table className="section-three__table-mobile">
             <tbody>
                 <tr className="head__table">
-                    <td>Самостоятельно</td>
-                    <td>С TRUESTATE</td>
+                    <td>{t('landing:SECTION_THREE_TABLE_HEADER_1')}</td>
+                    <td>{t('landing:SECTION_THREE_TABLE_HEADER_2')}</td>
                 </tr>
                 {tableInfo.map((info) => {
                     return <>
@@ -89,9 +92,9 @@ const SectionThree = () => {
             </tbody>
         </Table>
         <p>
-            TRUESTATE пришли, чтобы изменить рынок <br />
-            инвестиций в недвижимость с помощью <br />
-            <span> криптовалюты!</span>
+            {t('landing:SECTION_THREE_BOTTOM_TEXT_1')} <br />
+            {t('landing:SECTION_THREE_BOTTOM_TEXT_2')} <br />
+            <span>  {t('landing:SECTION_THREE_BOTTOM_TEXT_3')}</span>
         </p>
     </section >
 }
