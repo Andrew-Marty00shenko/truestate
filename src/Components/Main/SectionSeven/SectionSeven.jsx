@@ -1,12 +1,15 @@
 import { useRef } from "react";
 import Slider from "react-slick";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 import SliderItem from "./SliderItem/SliderItem";
 
 import "./SectionSeven.scss";
 
+
 const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) => {
+    const { t } = useTranslation();
     const sliderRef = useRef();
 
     const settingsSlider = {
@@ -49,7 +52,7 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
     return <section className="section-seven">
         <h2>
             <Element name="estates" />
-            Выбор Объекта Инвестирования
+            {t('landing:SECTION_SEVEN_TITLE')}
         </h2>
         <div className="section-seven__navigation">
             <p>
@@ -97,8 +100,8 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
         </div>
 
         <p className="section-seven__policy">
-            *отправляя ETH на адрес смарт-контракта TRUSTATE и приобретая токены <br />
-            проекта TRUSTATE вы автоматически соглашаетесь с <a href="#"> условиями </a> проекта.
+            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_1')} <br />
+            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_2')} <a href="#"> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF')} </a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_NEXT')}
         </p>
     </section>
 }

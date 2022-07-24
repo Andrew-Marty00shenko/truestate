@@ -64,5 +64,10 @@
     "SECTION_SIX_STEP_2_HREF": "тут",
     "SECTION_SIX_STEP_3_TEXT": "Отримай повідомлення про закінчення інвестиційного періоду",
     "SECTION_SIX_STEP_4_TEXT": "Увійди в Особистий кабінет на сайті та отримай назад суму інвестицій разом з прибутком (інструкція —",
-    "SECTION_SIX_STEP_4_HREF": "тут"
+    "SECTION_SIX_STEP_4_HREF": "тут",
+    "SECTION_SEVEN_TITLE": "Вибір Об'єкта Інвестування",
+    "SECTION_SEVEN_BOTTOM_TEXT_1": "*Надсилаючи ETH на адресу смарт контракту TRUESTATE і купуючи токени ",
+    "SECTION_SEVEN_BOTTOM_TEXT_2": "проєкту TRUESTATE, ти автоматично погоджуєшся з ",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " умовами ",
+    "SECTION_SEVEN_BOTTOM_TEXT_NEXT": "проєкту."
 }

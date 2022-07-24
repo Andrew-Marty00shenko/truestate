@@ -64,5 +64,10 @@
     "SECTION_SIX_STEP_2_HREF": "здесь",
     "SECTION_SIX_STEP_3_TEXT": "Получи уведомление об окончании периода инвестиций",
     "SECTION_SIX_STEP_4_TEXT": "Зайди в личный кабинет на сайте и получи возврат инвестиций и прибыль (инструкция — ",
-    "SECTION_SIX_STEP_4_HREF": "здесь"
+    "SECTION_SIX_STEP_4_HREF": "здесь",
+    "SECTION_SEVEN_TITLE": "Выбор Объекта Инвестирования",
+    "SECTION_SEVEN_BOTTOM_TEXT_1": "*отправляя ETH на адрес смарт-контракта TRUSTATE и приобретая токены ",
+    "SECTION_SEVEN_BOTTOM_TEXT_2": "проекта TRUSTATE вы автоматически соглашаетесь с ",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " условиями",
+    "SECTION_SEVEN_BOTTOM_TEXT_NEXT": "проекта."
 }
