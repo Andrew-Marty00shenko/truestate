@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 import FooterLogo from "../../assets/images/footer-logo.svg";
 import "./Footer.scss";
 
 const Footer = () => {
+    const { t } = useTranslation();
     const location = useLocation();
 
     return <footer className="footer">
@@ -25,7 +27,7 @@ const Footer = () => {
                 </li>
                 <li>
                     <a href="#">
-                        Контакты
+                        {t('footer:FOOTER_CONTACTS')}
                     </a>
                 </li>
             </ul>
@@ -53,8 +55,7 @@ const Footer = () => {
                     </a>
                 </div>
                 {!location.pathname.includes('/dashboard') && <p>
-                    **Указанная доходность является ориентировочной и не гарантируется
-                    со стороны TRUESTATE и (или) его аффилированных лиц. Доходность указана за срок реализации проекта.
+                    {t('footer:FOOTER_TEXT')}
                 </p>}
             </div>
         </div>
@@ -100,7 +101,7 @@ const Footer = () => {
                     </li>
                     <li>
                         <a href="#">
-                            Контакты
+                            {t('footer:FOOTER_CONTACTS')}
                         </a>
                     </li>
                 </ul>
@@ -110,8 +111,7 @@ const Footer = () => {
             </div>
             <div className="footer__block-mobile-desc">
                 {!location.pathname.includes('/dashboard') && <p>
-                    **Указанная доходность является ориентировочной и не гарантируется
-                    со стороны TRUESTATE и (или) его аффилированных лиц. Доходность указана за срок реализации проекта.
+                    {t('footer:FOOTER_TEXT')}
                 </p>}
             </div>
         </div>
