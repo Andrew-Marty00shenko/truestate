@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
 import "./SectionFour.scss";
 
 const SectionFour = () => {
+    const { t } = useTranslation();
     const [slider, setSlider] = useState();
     // const [activeSlide, setActiveSlide] = useState('01');
 
@@ -47,7 +49,7 @@ const SectionFour = () => {
 
     return <section className="section-four">
         <h2>
-            Почему TRUESTATE
+            {t('landing:SECTION_FOUR_TITLE')}
         </h2>
         <div className="section-four__navigation">
             <p>
@@ -74,53 +76,50 @@ const SectionFour = () => {
         <Slider ref={c => setSlider(c)} {...settings}>
             <div className="section-four__block" style={{ width: 386 }}>
                 <h3>
-                    Лицензия Центрального банка Литвы.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_1')}
                 </h3>
                 <p>
-                    Процесс выпуска и оборота токенов TRUESTATE регулируется и контролируется Центробанком Литвы, государством-членом Евросоюза.
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_1')}
                 </p>
             </div>
             <div className="section-four__block">
                 <h3>
-                    Никакой волатильности.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_2')}
                 </h3>
                 <p>
-                    TRUESTATE — это security token, который обеспечен реальным активом: он не падает в цене
-                    и не подвержен волатильности на криптовалютном рынке.
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_2')}
                 </p>
             </div>
             <div className="section-four__block">
                 <h3>
-                    Инвестиции
-                    в пару кликов.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_3')}
                 </h3>
                 <p>
-                    Забудьте о бумажной волоките, длительном поиске объекта недвижимости и неразберихе
-                    с налогами — TRUESTATE сделает все за вас, а вы лишь получите пассивный доход.
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_3')}
                 </p>
             </div>
             <div className="section-four__block" style={{ width: 386, marginRight: 30 }}>
                 <h3>
-                    Фиксированный доход.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_4')}
                 </h3>
                 <p>
-                    Получайте до 48% от прибыли по объекту за счет роста его стоимости и повышения цен на рынке недвижимости в целом.
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_4')}
                 </p>
             </div>
             <div className="section-four__block">
                 <h3>
-                    Токен = Договор.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_5')}
                 </h3>
                 <p>
-                    Приобретая токены объекта, вы автоматически подписываете договор с TRUESTATE, что защищает ваши права и гарантирует возврат средств по истечению срока инвестиций вместе с накопленной прибылью.
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_5')}
                 </p>
             </div>
             <div className="section-four__block">
                 <h3>
-                    Прозрачность.
+                    {t('landing:SECTION_FOUR_BLOCK_TITLE_6')}
                 </h3>
                 <p>
-                    Смарт-контракт TRUESTATE является открытым соглашением, проверить который может любой желающий. Аудит смарт-контракта был выполнен немецкой компанией SOLID Proof (MAKE Network GmbH, Handewitt).
+                    {t('landing:SECTION_FOUR_BLOCK_TEXT_6')}
                 </p>
             </div>
         </Slider>
