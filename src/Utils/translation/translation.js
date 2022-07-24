@@ -13,21 +13,28 @@ import footerRu from "../../Translations/ru/footerRu.json";
 import footerEn from "../../Translations/en/footerEn.json";
 import footerUa from "../../Translations/ua/footerUa.json";
 
+import buttonUpRu from "../../Translations/ru/buttonUpRu.json";
+import buttonUpEn from "../../Translations/en/buttonUpEn.json";
+import buttonUpUa from "../../Translations/ua/buttonUpUa.json";
+
 const resources = {
     RU: {
         header: headerRu,
         landing: landingRu,
-        footer: footerRu
+        footer: footerRu,
+        buttonUp: buttonUpRu
     },
     EN: {
         header: headerEn,
         landing: landingEn,
-        footer: footerEn
+        footer: footerEn,
+        buttonUp: buttonUpEn
     },
     UA: {
         header: headerUa,
         landing: landingUa,
-        footer: footerUa
+        footer: footerUa,
+        buttonUp: buttonUpUa
     }
 };
 

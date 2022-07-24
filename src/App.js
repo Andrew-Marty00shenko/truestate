@@ -10,7 +10,7 @@ import Routes from "./Routes/Routes";
 import "./Utils/translation/translation";
 
 const App = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [openSidebar, setOpenSidebar] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
@@ -67,7 +67,7 @@ const App = () => {
       <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 11.7285L11.6066 1.12191L22.2132 11.7285" stroke="black" />
       </svg>
-      Наверх
+      {t('buttonUp:BUTTON_UP')}
     </div>
   </div>
 }
