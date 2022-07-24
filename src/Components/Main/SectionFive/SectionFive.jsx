@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
 import Slider from "react-slick";
+import { useTranslation } from "react-i18next";
 
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
@@ -199,6 +200,7 @@ const objects = [
 ];
 
 const SectionFive = () => {
+    const { t } = useTranslation();
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
     const sliderOneRef = useRef();
@@ -262,7 +264,7 @@ const SectionFive = () => {
 
     return <section className="section-five">
         <h2>
-            Завершенные объекты
+            {t('landing:SECTION_FIVE_TITLE')}
         </h2>
         <div className="section-five__navigation">
             <p>
