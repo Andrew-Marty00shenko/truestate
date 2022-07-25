@@ -203,16 +203,20 @@ const SectionFive = () => {
     const { t } = useTranslation();
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
+    const [activeSlide, setActiveSlide] = useState('01');
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
 
     const settingsSliderFirst = {
         className: "section-five__slider-one variable-width",
-        infinite: false,
+        infinite: true,
         speed: 200,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
+        beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
+        autoplay: true,
+        autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1661,
@@ -268,8 +272,8 @@ const SectionFive = () => {
         </h2>
         <div className="section-five__navigation">
             <p>
-                01
-                <span> – 06</span>
+                {activeSlide}&nbsp;
+                <span>– 06</span>
             </p>
             <p>
                 <div onClick={prev}>

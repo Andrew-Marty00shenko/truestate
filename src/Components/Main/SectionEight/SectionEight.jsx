@@ -27,7 +27,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_1')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_1')}<a href="#">{t('landing:SECTION_EIGHT_HREF')}</a>
+                            {t('landing:SECTION_EIGHT_ANSWER_1')}<a href="#"> {t('landing:SECTION_EIGHT_HREF')}</a>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
@@ -45,7 +45,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="3">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_4')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_4')} <a href="https://metamask.io/download/" target="_blank">{t('landing:SECTION_EIGHT_HREF')}</a>.
+                            {t('landing:SECTION_EIGHT_ANSWER_4')} <a href="https://metamask.io/download/" target="_blank">{t('landing:SECTION_EIGHT_HREF')}</a>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="4">

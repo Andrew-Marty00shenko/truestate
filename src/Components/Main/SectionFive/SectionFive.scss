@@ -52,13 +52,19 @@
         .slick-slide{
             margin-right: 30px;
             transition: opacity 1s;
+            opacity: 1;
+
+            // &[data-index = "-1"]{
+            //     margin-right: 80px;
+            // }
             
-            &:not(.slick-active){
-                .section-five__block{
-                   opacity: .3;
-                   transition: opacity 1s;
-                }
-            }
+            // &.slick-active{
+            //     opacity: 1;
+            //        transition: opacity 1s;
+            //     .section-five__block{
+                   
+            //     }
+            // }
         }
     }
 

@@ -7,16 +7,19 @@ import "./SectionFour.scss";
 const SectionFour = () => {
     const { t } = useTranslation();
     const [slider, setSlider] = useState();
-    // const [activeSlide, setActiveSlide] = useState('01');
+    const [activeSlide, setActiveSlide] = useState('01');
 
     const settings = {
         className: "section-four__slider variable-width",
-        infinite: false,
+        infinite: true,
         speed: 200,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
-        // beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
+        autoplay: true,
+        pauseOnHover: false,
+        autoplaySpeed: 3000,
+        beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
         responsive: [
             {
                 breakpoint: 1661,
@@ -53,7 +56,7 @@ const SectionFour = () => {
         </h2>
         <div className="section-four__navigation">
             <p>
-                01
+                {activeSlide}&nbsp;
                 <span> – 06</span>
             </p>
             <p>
