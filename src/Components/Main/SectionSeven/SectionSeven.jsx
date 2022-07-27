@@ -1,24 +1,31 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Slider from "react-slick";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
-import SliderItem from "./SliderItem/SliderItem";
+import SliderOne from "./SliderOne/SliderOne";
+import SliderTwo from "./SliderTwo/SliderTwo";
 
 import "./SectionSeven.scss";
 
 
 const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) => {
     const { t } = useTranslation();
-    const sliderRef = useRef();
+    const [showFirstSlider, setShowFirstSlider] = useState(true);
+    const [showSecondSlider, setShowSecondSlider] = useState(false);
+    const sliderOneRef = useRef();
+    const sliderTwoRef = useRef();
 
-    const settingsSlider = {
+    const settingsSliderFirst = {
         className: "section-seven__slider variable-width",
         infinite: false,
-        speed: 200,
+        speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
+        // beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
+        // autoplay: true,
+        // autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1661,
@@ -41,12 +48,31 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
         ]
     };
 
+    const settingsSliderSecond = {
+        className: "section-five__slider-two variable-width",
+        infinite: false,
+        speed: 500,
+        slidesToScroll: 1,
+        variableWidth: true,
+        slidesToShow: 1
+    };
+
     const next = () => {
-        sliderRef.current.slickNext();
+        if (showFirstSlider) {
+            sliderOneRef.current.slickNext();
+        }
+        if (showSecondSlider) {
+            sliderTwoRef.current.slickNext();
+        }
     };
 
     const prev = () => {
-        sliderRef.current.slickPrev();
+        if (showFirstSlider) {
+            sliderOneRef.current.slickPrev();
+        }
+        if (showSecondSlider) {
+            sliderTwoRef.current.slickPrev();
+        }
     };
 
     return <section className="section-seven">
@@ -73,16 +99,35 @@ const SectionSeven = ({ objects, setOpenModalAddress, setActiveObjectEstate }) =
             </p>
         </div>
 
-        <Slider ref={sliderRef} {...settingsSlider}>
-            {objects.map(object => {
-                return <SliderItem
-                    key={object.id}
-                    setOpenModalAddress={setOpenModalAddress}
-                    setActiveObjectEstate={setActiveObjectEstate}
-                    {...object}
-                />
-            })}
-        </Slider>
+        {showFirstSlider && (
+            <Slider ref={sliderOneRef} {...settingsSliderFirst}>
+                {objects.map(object => {
+                    return <SliderOne
+                        key={object.id}
+                        setOpenModalAddress={setOpenModalAddress}
+                        setActiveObjectEstate={setActiveObjectEstate}
+                        setShowFirstSlider={setShowFirstSlider}
+                        setShowSecondSlider={setShowSecondSlider}
+                        {...object}
+                    />
+                })}
+            </Slider>
+        )}
+
+        {showSecondSlider && (
+            <Slider ref={sliderTwoRef} {...settingsSliderSecond}>
+                {objects.map(object => {
+                    return <SliderTwo
+                        key={object.id}
+                        setOpenModalAddress={setOpenModalAddress}
+                        setActiveObjectEstate={setActiveObjectEstate}
+                        setShowFirstSlider={setShowFirstSlider}
+                        setShowSecondSlider={setShowSecondSlider}
+                        {...object}
+                    />
+                })}
+            </Slider>
+        )}
 
         <div className="section-seven__navigation-mobile">
             <p>

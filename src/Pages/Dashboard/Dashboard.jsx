@@ -95,6 +95,12 @@ const Dashboard = () => {
                                 <Route path='/dashboard/balance' element={<Balance />} />
                             </Routes>
                         </div>
+                        <Link to='/dashboard'>
+                            <svg className="close-btn" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1.47607L26 26.4761" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M1 26.4761L26 1.47609" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                        </Link>
                     </div>
 
                     <ConnectWalletButton />

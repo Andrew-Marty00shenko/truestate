@@ -1,6 +1,12 @@
 import Button from "../../../Button/Button";
 
-const SliderItem = ({ setActiveObjectEstate, setOpenModalAddress, ...object }) => {
+const SliderOne = ({ setActiveObjectEstate, setOpenModalAddress, setShowFirstSlider, setShowSecondSlider, ...object }) => {
+
+    const handleShowInfo = () => {
+        setShowSecondSlider(true);
+        setShowFirstSlider(false);
+    }
+
     return <div
         className="section-seven__block"
         style={{ width: 386 }}
@@ -25,7 +31,9 @@ const SliderItem = ({ setActiveObjectEstate, setOpenModalAddress, ...object }) =
                 {object.description}
             </span>
         </div >
-        <p className="section-seven__block-btn">
+        <p className="section-seven__block-btn"
+            onClick={handleShowInfo}
+        >
             Подробнее
         </p>
         <Button text={'Инвестировать'}
@@ -38,4 +46,4 @@ const SliderItem = ({ setActiveObjectEstate, setOpenModalAddress, ...object }) =
     </div >
 }
 
-export default SliderItem;
+export default SliderOne;

@@ -36,6 +36,17 @@
         display: flex;
         height: 100%;
         width: 100%;
+        position: relative;
+
+        &{
+            a{
+                .close-btn{
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                }
+            }
+        }
 
         &-menu{
             height: 100%;
@@ -139,6 +150,18 @@
 
         &__block{
             flex-direction: column;
+
+            &{
+                a{
+                    .close-btn{
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        right: 15px;
+                        top: 105px;
+                    }
+                }
+            }
 
             &-menu{
                 display: flex;
