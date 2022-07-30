@@ -210,7 +210,7 @@ const SectionFive = () => {
     const settingsSliderFirst = {
         className: "section-five__slider-one variable-width",
         infinite: true,
-        speed: 200,
+        speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
