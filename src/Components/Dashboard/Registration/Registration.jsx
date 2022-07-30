@@ -1,14 +1,16 @@
 import { Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "./Registration.scss";
 
 const Registration = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const handleSubmitForm = () => {
-        toast.success('Вы были успешно зарегистрированы!', {
+        toast.success(t('registration:REGISTRATION_NOTIFICATION'), {
             className: "toast-modal",
             autoClose: 3000,
             progressClassName: 'toast-modal-progress'
@@ -19,50 +21,53 @@ const Registration = () => {
 
     return <form className="registration">
         <h1>
-            Здесь будет какое-то приветствие!
+            {t('registration:REGISTRATION_TITLE')}
         </h1>
+        <p style={{ fontSize: 22, marginTop: 15, lineHeight: '20px' }}>
+            {t('registration:REGISTRATION_TEXT')}
+        </p>
         <div>
             <p>
-                Фамилия
+                {t('registration:REGISTRATION_SECOND_NAME')}
             </p>
             <input
                 name="secondName"
                 type="text"
-                placeholder="Фамилия"
+                placeholder={t('registration:REGISTRATION_SECOND_NAME')}
             />
         </div>
         <div>
             <p>
-                Имя
+                {t('registration:REGISTRATION_NAME')}
             </p>
             <input
                 name="firstName"
                 type="text"
-                placeholder="Имя"
+                placeholder={t('registration:REGISTRATION_NAME')}
             />
         </div>
         <div>
             <p>
-                Email
+                {t('registration:REGISTRATION_EMAIL')}
             </p>
             <input
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder={t('registration:REGISTRATION_EMAIL')}
             />
         </div>
         <div>
             <p>
-                Пароль
+                {t('registration:REGISTRATION_PASSWORD')}
             </p>
             <input
                 name="password"
                 type="password"
-                placeholder="Пароль"
+                placeholder={t('registration:REGISTRATION_PASSWORD')}
             />
         </div>
         <Button onClick={handleSubmitForm}>
-            Зарегистрироваться
+            {t('registration:REGISTRATION_BUTTON')}
         </Button>
     </form>
 }

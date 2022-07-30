@@ -9,16 +9,16 @@
         &:nth-child(3){
             a{
                 color: #A74CFF;
+                border-bottom: 1px solid #A74CFF;
             }
 
             margin-top: 10px;
             color: #A74CFF;
-            border-bottom: 1px solid #A74CFF;
             cursor: pointer;
             font-weight: 300;
             font-size: 14px;
             line-height: 16px;
-            width: 106px;
+            max-width: 136px;
         }
     }
 

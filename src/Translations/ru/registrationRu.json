@@ -1,0 +1,10 @@
+{
+    "REGISTRATION_TITLE": "Добро пожаловать в TRUESTATE!",
+    "REGISTRATION_TEXT": "Заполните поля для создания аккаунта",
+    "REGISTRATION_NAME": "Имя",
+    "REGISTRATION_SECOND_NAME": "Фамилия",
+    "REGISTRATION_EMAIL": "Email",
+    "REGISTRATION_PASSWORD": "Пароль",
+    "REGISTRATION_BUTTON": "Зарегистрироваться",
+    "REGISTRATION_NOTIFICATION": "Вы были успешно зарегистрированы!"
+}
