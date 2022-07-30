@@ -1,0 +1,18 @@
+{
+    "SHOW_I_CALL": "Как к Вам обращаться?",
+    "NAME": "Ім’я",
+    "SECOND_NAME": "Призвіще",
+    "PHONE_NUMBER": "Телефон",
+    "PHONE_NUMBER_PLACEHOLDER": "+66 (066) 66 666 66",
+    "COMMUNICATION_OPTION": "Варіант зв'язку",
+    "TIMEZONE": "Часовий пояс",
+    "DESIRED_CALL_TIME": "Бажаний час дзвінка",
+    "CASE_APPEAL": "Тема звернення",
+    "CASE_APPEAL_PLACEHOLDER": "Вибери тему звернення",
+    "YOUR_MESSAGE": "Ваше повідомлення",
+    "YOUR_MESSAGE_PLACEHOLDER": "Текст повідомлення",
+    "NOTIFICATION": "*якщо ми не зможемо додзвонитися",
+    "CONSULTATION_LANGUAGE": "Мова Консультації",
+    "THANKS_FOR_CONTACTING": "Дякую за звернення!",
+    "CALL_ME_BACK_BUTTON": "Передзвоніть мені"
+}

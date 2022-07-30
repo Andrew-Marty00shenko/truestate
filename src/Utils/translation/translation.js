@@ -17,24 +17,31 @@ import buttonUpRu from "../../Translations/ru/buttonUpRu.json";
 import buttonUpEn from "../../Translations/en/buttonUpEn.json";
 import buttonUpUa from "../../Translations/ua/buttonUpUa.json";
 
+import callMeBackRu from "../../Translations/ru/callMeBackRu.json";
+import callMeBackEn from "../../Translations/en/callMeBackEn.json";
+import callMeBackUa from "../../Translations/ua/callMeBackUa.json";
+
 const resources = {
     RU: {
         header: headerRu,
         landing: landingRu,
         footer: footerRu,
-        buttonUp: buttonUpRu
+        buttonUp: buttonUpRu,
+        callMeBack: callMeBackRu
     },
     EN: {
         header: headerEn,
         landing: landingEn,
         footer: footerEn,
-        buttonUp: buttonUpEn
+        buttonUp: buttonUpEn,
+        callMeBack: callMeBackEn
     },
     UA: {
         header: headerUa,
         landing: landingUa,
         footer: footerUa,
-        buttonUp: buttonUpUa
+        buttonUp: buttonUpUa,
+        callMeBack: callMeBackUa
     }
 };
 
