@@ -1,11 +1,21 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../../Button/Button";
 
-const SliderOne = ({ setActiveObjectEstate, setOpenModalAddress, setShowFirstSlider, setShowSecondSlider, ...object }) => {
+const SliderOne = ({
+    setActiveObjectEstate,
+    setOpenModalAddress,
+    setShowFirstSlider,
+    setShowSecondSlider,
+    setActiveDescriptionObject,
+    ...object }) => {
+    const { t } = useTranslation();
+
 
     const handleShowInfo = () => {
         setShowSecondSlider(true);
         setShowFirstSlider(false);
-    }
+        setActiveDescriptionObject(object);
+    };
 
     return <div
         className="section-seven__block"
@@ -28,15 +38,15 @@ const SliderOne = ({ setActiveObjectEstate, setOpenModalAddress, setShowFirstSli
                 <span>{object.profit}:</span> {object.profitNumber} <br />
             </p>
             <span className="section-seven__block-info-desc">
-                {object.description}
+                {/* {object.description} */}
             </span>
         </div >
         <p className="section-seven__block-btn"
             onClick={handleShowInfo}
         >
-            Подробнее
+            {t('landing:SECTION_SEVEN_OBJECT_DESC')}
         </p>
-        <Button text={'Инвестировать'}
+        <Button text={t('landing:SECTION_SEVEN_OBJECT_INVEST_BUTTON')}
             isSevenBlock={true}
             object={object}
             setOpenModalAddress={setOpenModalAddress}

@@ -13,132 +13,11 @@ import SectionNine from "../../Components/Main/SectionNine/SectionNine";
 
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
-import SectionFiveImage from "../../assets/images/section-five-image.png";
 import "./Main.scss";
-
-const objects = [
-    {
-        id: 1,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 2,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 3,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 4,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 5,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 6,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 7,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 8,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-    {
-        id: 9,
-        image: SectionFiveImage,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        price: 'Стоимость',
-        priceNumber: '620 000$',
-        profit: 'Прогноз прибыли',
-        profitNumber: '50%',
-        description: 'Здесь будет короткое описание, описание будет здесь, более детальная информация, короткое описание, здесь будет короткое описание.',
-        allowAmount: 'Доступно к инвестированию',
-        allowAmountNumber: '00.000.000 €'
-    },
-];
 
 const Main = () => {
     const [openModalAddress, setOpenModalAddress] = useState(false);
-    const [activeObjectEstate, setActiveObjectEstate] = useState();
+    const [activeObjectEstate, setActiveObjectEstate] = useState(null);
 
     return <div className="main">
         <Routes>
@@ -166,7 +45,6 @@ const Main = () => {
                 <SectionSeven
                     setActiveObjectEstate={setActiveObjectEstate}
                     setOpenModalAddress={setOpenModalAddress}
-                    objects={objects}
                 />
                 <SectionEight
                     activeObjectEstate={activeObjectEstate}

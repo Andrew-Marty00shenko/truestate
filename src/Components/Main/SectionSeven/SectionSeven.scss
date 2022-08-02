@@ -67,7 +67,7 @@
             
             &:not(.slick-active){
                 .section-seven__block{
-                   opacity: .3;
+                   opacity: 1;
                    transition: opacity 1s;
                 }
             }
@@ -75,7 +75,7 @@
     }
 
     &__block{
-        height: 834px;
+        height: 695px;
         width: 386px !important;
         padding: 26px 26px 29px;
         background: #FFFFFF;
@@ -86,6 +86,7 @@
         img{
             width: 334px;
             height: 298px;
+            border-radius: 20px;
         }
 
         &-allow-amount{
@@ -176,7 +177,7 @@
     
                 &:not(.slick-active){
                     .section-seven__block{
-                       opacity: .3;
+                       opacity: 1;
                     }
                 }
             }
@@ -232,7 +233,7 @@
 
                 .section-seven__block{
                     width: 314px !important;
-                    height: 800px;
+                    height: 640px;
                     padding: 26px 26px 29px;
 
                     img{

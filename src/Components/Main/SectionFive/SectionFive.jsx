@@ -10,195 +10,6 @@ import SectionFiveImage from "../../../assets/images/section-five-image.png";
 import SectionFiveImageBig from "../../../assets/images/section-five-image-big.png";
 import "./SectionFive.scss";
 
-const objects = [
-    {
-        id: 1,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 1,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-    {
-        id: 2,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 2,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-    {
-        id: 3,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 3,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-    {
-        id: 4,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 4,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-    {
-        id: 5,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 5,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-    {
-        id: 6,
-        image: SectionFiveImage,
-        bigImage: SectionFiveImageBig,
-        location: 'Местонахождение',
-        locationCountry: 'Испания, Барселона',
-        deadline: 'Срок выполнения',
-        deadlineTime: '12 месяцев',
-        profitPercents: 'Процент полученной прибыли',
-        profitPercentsNumber: '50%',
-        subInfo: [
-            {
-                id: 6,
-                image: SectionFiveImage,
-                location: 'Местонахождение',
-                locationCountry: 'Испания, Барселона',
-                typeOfRealEstate: 'Вид недвижимости',
-                square: 'Площадь',
-                price: 'Цена покупки',
-                repairAndImprovements: 'Ремон и улучшения',
-                repairAndImprovementsNubmer: '1234$',
-                fee: 'Налоги, пошлины, проч. расходы',
-                feeNumber: '1234$',
-                priceOfSell: 'Цена продажи',
-                deadline: 'Срок выполнения',
-                deadlineTime: '12 месяцев',
-                profitPercents: 'Процент полученной прибыли',
-                profitPercentsNumber: '50%',
-            }
-        ]
-    },
-];
-
 const SectionFive = () => {
     const { t } = useTranslation();
     const [showFirstSlider, setShowFirstSlider] = useState(true);
@@ -206,6 +17,195 @@ const SectionFive = () => {
     const [activeSlide, setActiveSlide] = useState('01');
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
+
+    const objects = [
+        {
+            id: 1,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 1,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+        {
+            id: 2,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 2,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+        {
+            id: 3,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 3,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+        {
+            id: 4,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 4,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+        {
+            id: 5,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 5,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+        {
+            id: 6,
+            image: SectionFiveImage,
+            bigImage: SectionFiveImageBig,
+            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+            locationCountry: 'Испания, Барселона',
+            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+            deadlineTime: '12 месяцев',
+            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+            profitPercentsNumber: '50%',
+            subInfo: [
+                {
+                    id: 6,
+                    image: SectionFiveImage,
+                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
+                    locationCountry: 'Испания, Барселона',
+                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
+                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
+                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
+                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
+                    repairAndImprovementsNubmer: '1234$',
+                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
+                    feeNumber: '1234$',
+                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
+                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
+                    deadlineTime: '12 месяцев',
+                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
+                    profitPercentsNumber: '50%',
+                }
+            ]
+        },
+    ];
 
     const settingsSliderFirst = {
         className: "section-five__slider-one variable-width",
@@ -273,7 +273,10 @@ const SectionFive = () => {
         <div className="section-five__navigation">
             <p>
                 {activeSlide}&nbsp;
-                <span>– 06</span>
+                <span> – {objects.length < 10
+                    ? `0${objects.length}`
+                    : objects.length
+                }</span>
             </p>
             <p>
                 <div onClick={prev}>
