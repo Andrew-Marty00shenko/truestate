@@ -2,5 +2,10 @@
     "READY_TO_START": "Готовы начать?",
     "SIGNIN_OR_SIGNUP": "Создайте аккаунт или войдите в существующий, чтобы продолжить",
     "SIGNIN_BUTTON": "Войти",
-    "SIGNUP_BUTTON": "Зарегистрироваться"
+    "SIGNUP_BUTTON": "Зарегистрироваться",
+    "DASHBOARD_MENU_SIGNIN": "Вход",
+    "DASHBOARD_MENU_DATA": "Данные",
+    "DASHBOARD_MENU_DOCS": "Документы",
+    "DASHBOARD_MENU_BALANCE": "Баланс",
+    "DASHBOARD_CONNECT_WALLET": "Соеденить с кошельком Metamask"
 }

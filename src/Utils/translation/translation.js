@@ -37,6 +37,18 @@ import forgotPasswordRu from "../../Translations/ru/forgotPasswordRu.json";
 import forgotPasswordEn from "../../Translations/en/forgotPasswordEn.json";
 import forgotPasswordUa from "../../Translations/ua/forgotPasswordUa.json";
 
+import dataInputRu from "../../Translations/ru/dataInputRu.json";
+import dataInputEn from "../../Translations/en/dataInputEn.json";
+import dataInputUa from "../../Translations/ua/dataInputUa.json";
+
+import documentsRu from "../../Translations/ru/documentsRu.json";
+import documentsEn from "../../Translations/en/documentsEn.json";
+import documentsUa from "../../Translations/ua/documentsUa.json";
+
+import balanceRu from "../../Translations/ru/balanceRu.json";
+import balanceEn from "../../Translations/en/balanceEn.json";
+import balanceUa from "../../Translations/ua/balanceUa.json";
+
 const resources = {
     RU: {
         header: headerRu,
@@ -47,7 +59,10 @@ const resources = {
         dashboardMain: dashboardMainRu,
         registration: registrationRu,
         login: loginRu,
-        forgotPassword: forgotPasswordRu
+        forgotPassword: forgotPasswordRu,
+        dataInput: dataInputRu,
+        documents: documentsRu,
+        balance: balanceRu
     },
     EN: {
         header: headerEn,
@@ -58,7 +73,10 @@ const resources = {
         dashboardMain: dashboardMainEn,
         registration: registrationEn,
         login: loginEn,
-        forgotPassword: forgotPasswordEn
+        forgotPassword: forgotPasswordEn,
+        dataInput: dataInputEn,
+        documents: documentsEn,
+        balance: balanceEn
     },
     UA: {
         header: headerUa,
@@ -69,7 +87,10 @@ const resources = {
         dashboardMain: dashboardMainUa,
         registration: registrationUa,
         login: loginUa,
-        forgotPassword: forgotPasswordUa
+        forgotPassword: forgotPasswordUa,
+        dataInput: dataInputUa,
+        documents: documentsUa,
+        balance: balanceUa
     }
 };
 

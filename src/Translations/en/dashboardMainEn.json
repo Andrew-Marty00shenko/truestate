@@ -2,5 +2,10 @@
     "READY_TO_START": "Ready to start?",
     "SIGNIN_OR_SIGNUP": "Create an account or sign in to an existing one to continue",
     "SIGNIN_BUTTON": "Sign in",
-    "SIGNUP_BUTTON": "Register"
+    "SIGNUP_BUTTON": "Register",
+    "DASHBOARD_MENU_SIGNIN": "Sign in",
+    "DASHBOARD_MENU_DATA": "Data",
+    "DASHBOARD_MENU_DOCS": "Docs",
+    "DASHBOARD_MENU_BALANCE": "Balance",
+    "DASHBOARD_CONNECT_WALLET": "Connect with Metamask Wallet"
 }

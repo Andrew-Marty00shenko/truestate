@@ -1,0 +1,18 @@
+{
+    "SEX": "Стать",
+    "MALE": "Чоловіча",
+    "FEMALE": "Жіноча",
+    "SECOND_NAME": "Призвіще",
+    "NAME": "Ім’я",
+    "DATE_OF_BIRTH": "Дата Народження",
+    "DATE_OF_BIRTH_PLACEHOLDER": "05.05.1985",
+    "COUNTRY": "Країна",
+    "ADDRESS": "Адреса",
+    "ADDRESS_PLACEHOLDER": "Адреса по прописці в паспорті",
+    "EMAIL": "Електронна адреса",
+    "PHONE_NUMBER": "Телефон",
+    "PHONE_NUMBER_PLACEHOLDER": "+66 (066) 66 666 66",
+    "QUESTION": "Являєтесь чи Ви громадянином і/або податковим резидентом Америки (США)?",
+    "ANSWER_YES": "Так",
+    "ANSWER_NO": "Ні"
+}

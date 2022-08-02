@@ -1,10 +1,13 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { Form, ButtonGroup, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 import "./DataInput.scss";
 
 const DataInput = () => {
+    const { t } = useTranslation();
+
     const [residentOfUSA, setResidentOfUSA] = useState({
         yes: true,
         no: false
@@ -28,58 +31,58 @@ const DataInput = () => {
         <div className="data-input__block">
             <div className="data-input__block-left">
                 <div>
-                    <p>Пол</p>
+                    <p>{t('dataInput:SEX')}</p>
                     <Form.Select className="data-input__block-select">
-                        <option>Мужчина</option>
-                        <option>Женщина</option>
+                        <option>{t('dataInput:MALE')}</option>
+                        <option>{t('dataInput:FEMALE')}</option>
                     </Form.Select>
                 </div>
                 <div>
-                    <p>Фамилия</p>
+                    <p>{t('dataInput:SECOND_NAME')}</p>
                     <input type="text"
-                        placeholder="Фамилия"
+                        placeholder={t('dataInput:SECOND_NAME')}
                     />
                 </div>
                 <div>
-                    <p>Имя</p>
+                    <p>{t('dataInput:NAME')}</p>
                     <input type="text"
-                        placeholder="Имя"
+                        placeholder={t('dataInput:NAME')}
                     />
                 </div>
             </div>
             <div className="data-input__block-right">
                 <div className="data-input__block-right-flex">
                     <div>
-                        <p>Дата рождения</p>
+                        <p>{t('dataInput:DATE_OF_BIRTH')}</p>
                         <input type="text"
-                            placeholder="05.05.1985"
+                            placeholder={t('dataInput:DATE_OF_BIRTH_PLACEHOLDER')}
                         />
                     </div>
                     <div>
-                        <p>Гражданство</p>
+                        <p>{t('dataInput:COUNTRY')}</p>
                         <Form.Select className="data-input__block-select">
-                            <option>Мужчина</option>
-                            <option>Женщина</option>
+                            {/* <option>Мужчина</option>
+                            <option>Женщина</option> */}
                         </Form.Select>
                     </div>
                 </div>
                 <div>
-                    <p>Адрес</p>
+                    <p>{t('dataInput:ADDRESS')}</p>
                     <input type="text"
-                        placeholder="Адрес по прописке в паспорте"
+                        placeholder={t('dataInput:ADDRESS_PLACEHOLDER')}
                     />
                 </div>
                 <div className="data-input__block-right-flex">
                     <div>
-                        <p>Email</p>
+                        <p>{t('dataInput:EMAIL')}</p>
                         <input type="email"
-                            placeholder="Email"
+                            placeholder={t('dataInput:EMAIL')}
                         />
                     </div>
                     <div>
-                        <p>Телефон</p>
+                        <p>{t('dataInput:PHONE_NUMBER')}</p>
                         <input type="text"
-                            placeholder="+66 (066) 66 666 66"
+                            placeholder={t('dataInput:PHONE_NUMBER_PLACEHOLDER')}
                         />
                     </div>
                 </div>
@@ -87,19 +90,19 @@ const DataInput = () => {
         </div>
 
         <div className="data-input__text">
-            Являетесь ли Вы гражданином и / или налоговым резидентом Америки (США)?
+            {t('dataInput:QUESTION')}
             <ButtonGroup>
                 <Button
                     className={classNames({ "active": residentOfUSA.yes })}
                     onClick={handleClickYes}
                 >
-                    Да
+                    {t('dataInput:ANSWER_YES')}
                 </Button>
                 <Button
                     className={classNames({ "active": residentOfUSA.no })}
                     onClick={handleClickNo}
                 >
-                    Нет
+                    {t('dataInput:ANSWER_NO')}
                 </Button>
             </ButtonGroup>
         </div>

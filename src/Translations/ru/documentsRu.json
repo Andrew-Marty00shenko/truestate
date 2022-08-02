@@ -1,0 +1,11 @@
+{
+    "PASSWORD": "Паспорт",
+    "ID": "ID",
+    "CHOOSE_COUNTRY": "Выбери страну",
+    "PROOF_OF_ADDRESS": "Проверка адреса",
+    "BANK_STATEMENT": "Банковская выписка",
+    "SEND": "Отправить",
+    "STATUS": "Статус",
+    "RECIEVED": "принято",
+    "NOT_RECIEVED": "не принято"
+}

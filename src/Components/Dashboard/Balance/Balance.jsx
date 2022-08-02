@@ -1,12 +1,15 @@
 import { Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 import "./Balance.scss";
 
 const Balance = () => {
+    const { t } = useTranslation();
+
     return <div className="balance">
         <div className="balance__block">
             <p>
-                Ваш баланс токенов TRUESTATE
+                {t('balance:TOKEN_BALANCE')}
             </p>
             <div>
                 00.000.000

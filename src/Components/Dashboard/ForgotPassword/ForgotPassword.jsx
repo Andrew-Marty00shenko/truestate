@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         if (email) {
             setClickedNextBtn(true);
         } else {
-            toast.error('Введите верную почту!', {
+            toast.error(t('forgotPassword:FORGOT_PASSWORD_NOTIFICATION'), {
                 className: "toast-modal",
                 autoClose: 3000,
                 progressClassName: 'toast-modal-progress'
