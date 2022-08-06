@@ -11,9 +11,10 @@ import { useState } from "react";
 const SectionNine = () => {
     const { t } = useTranslation();
     const [checkbox, setCheckbox] = useState(false);
+    const [value, setValue] = useState('');
 
     const notify = () => {
-        toast.success("Спасибо за подписку!", {
+        toast.success(t('landing:SECTION_NINE_THANKS_SUBSCRIPTION'), {
             className: "toast-modal",
             autoClose: 3000,
             progressClassName: 'toast-modal-progress'
@@ -22,7 +23,13 @@ const SectionNine = () => {
 
     const handleFollowing = () => {
         if (!checkbox) {
-            toast.error("Пожалуйста, примите соглашение с политикой конфиденциальности!", {
+            toast.error(t('landing:SECTION_NINE_PRIVACY_POLICY'), {
+                className: "toast-modal",
+                autoClose: 3000,
+                progressClassName: 'toast-modal-progress'
+            });
+        } else if (!value) {
+            toast.error(t('landing:SECTION_NINE_THANKS_EMAIL_ERROR'), {
                 className: "toast-modal",
                 autoClose: 3000,
                 progressClassName: 'toast-modal-progress'
@@ -43,6 +50,8 @@ const SectionNine = () => {
                     <input
                         type="email"
                         name="email"
+                        value={value}
+                        onChange={e => setValue(e.target.value)}
                     />
                 </div>
                 <Button onClick={handleFollowing}>

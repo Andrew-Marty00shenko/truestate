@@ -1,0 +1,11 @@
+{
+    "YOU_HAVE_CHOOSEN": "Ти обрав для інвестування об'єкт ",
+    "FOR_INVEST_TEXT_1": "Для інвестування та отримання токенів даного об'єкта переведи з твого гаманця ",
+    "FOR_INVEST_TEXT_SPAN": "Metamask ",
+    "FOR_INVEST_TEXT_2": "бажану суму інвестицій в ETH на адресу смартконтракту:",
+    "COPY_BUTTON": "Копіювати",
+    "INFO_TOKEN_TEXT": "Натомість ти отримаєш токени TRUESTATE за поточним курсом € — ETH.",
+    "DETAIL_INSTRUCTION": "Детальна інструкція — ",
+    "DETAIL_INSTRUCTION_HREF": "тут.",
+    "NOTIFICATION": "Адреса скопійована!"
+}

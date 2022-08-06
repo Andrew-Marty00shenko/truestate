@@ -1,13 +1,15 @@
 import classNames from "classnames";
 import { Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 import "./Modal.scss";
 
 const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
+    const { t } = useTranslation();
 
     const notify = () => {
-        toast.success("Адрес скопирован!", {
+        toast.success(t('modalInvest:NOTIFICATION'), {
             className: "toast-modal",
             autoClose: 3000,
             progressClassName: 'toast-modal-progress'
@@ -31,21 +33,20 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
             </svg>
         </div>
         <h3>
-            Ты выбрал для инвестирования объект №{`00${activeObjectEstate?.id}`}. Для инвестирования и получения токенов данного объекта, переведи с твоего кошелька <br />
-            <span> Metamask</span> желаемую сумму инвестиций в ETH на адрес смартконтракта:
+            {t('modalInvest:YOU_HAVE_CHOOSEN')} №{`00${activeObjectEstate?.id}`}. {t('modalInvest:FOR_INVEST_TEXT_1')}
+            <span> {t('modalInvest:FOR_INVEST_TEXT_SPAN')}</span>  {t('modalInvest:FOR_INVEST_TEXT_2')}
         </h3>
         <div className="section-seven__modal-copy-block">
             <span>ххххххххххххххх</span>
             <Button onClick={handleCopyAddress}>
-                Скопировать
+                {t('modalInvest:COPY_BUTTON')}
             </Button>
         </div>
         <p className="section-seven__modal-info">
-            В ответ ты получишь токены TRUESTATE
-            по текущему курсу € - ETH
+            {t('modalInvest:INFO_TOKEN_TEXT')}
         </p>
         <p className="section-seven__modal-instructions">
-            Подробная инструкция - <a href="#">здесь</a>
+            {t('modalInvest:DETAIL_INSTRUCTION')} <a href="#">{t('modalInvest:DETAIL_INSTRUCTION_HREF')}</a>
         </p>
     </div>
 }

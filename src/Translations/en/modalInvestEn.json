@@ -1,0 +1,11 @@
+{
+    "YOU_HAVE_CHOOSEN": "You have chosen object ",
+    "FOR_INVEST_TEXT_1": " for investment. To invest and receive tokens of this object, transfer the desired amount of investment in ETH from your",
+    "FOR_INVEST_TEXT_SPAN": "Metamask ",
+    "FOR_INVEST_TEXT_2": "wallet to the address of the smart contract:",
+    "COPY_BUTTON": "Copy",
+    "INFO_TOKEN_TEXT": "In return, you will receive TRUESTATE tokens at the current € — ETH exchange rate",
+    "DETAIL_INSTRUCTION": "Detailed instructions — ",
+    "DETAIL_INSTRUCTION_HREF": "here.",
+    "NOTIFICATION": "Address copied!"
+}

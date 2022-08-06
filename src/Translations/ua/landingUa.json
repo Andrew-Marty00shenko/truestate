@@ -133,5 +133,8 @@
     "SECTION_NINE_BUTTON": "Підписатися",
     "SECTION_NINE_CONFIDENTIAL_TEXT_1": "Я згоден з",
     "SECTION_NINE_CONFIDENTIAL_TEXT_2": "Політикою Конфіденційності ",
-    "SECTION_NINE_CONFIDENTIAL_TEXT_3": "TRUESTATE"
+    "SECTION_NINE_CONFIDENTIAL_TEXT_3": "TRUESTATE",
+    "SECTION_NINE_PRIVACY_POLICY": "Будь ласка, погодьтеся з Політикою Конфіденційності!",
+    "SECTION_NINE_THANKS_SUBSCRIPTION": "Дякую за підписку!",
+    "SECTION_NINE_THANKS_EMAIL_ERROR": "Введи свою електронну пошту!"
 }

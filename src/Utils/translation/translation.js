@@ -49,6 +49,10 @@ import balanceRu from "../../Translations/ru/balanceRu.json";
 import balanceEn from "../../Translations/en/balanceEn.json";
 import balanceUa from "../../Translations/ua/balanceUa.json";
 
+import modalInvestRu from "../../Translations/ru/modalInvestRu.json";
+import modalInvestEn from "../../Translations/en/modalInvestEn.json";
+import modalInvestUa from "../../Translations/ua/modalInvestUa.json";
+
 const resources = {
     RU: {
         header: headerRu,
@@ -62,7 +66,8 @@ const resources = {
         forgotPassword: forgotPasswordRu,
         dataInput: dataInputRu,
         documents: documentsRu,
-        balance: balanceRu
+        balance: balanceRu,
+        modalInvest: modalInvestRu
     },
     EN: {
         header: headerEn,
@@ -76,7 +81,8 @@ const resources = {
         forgotPassword: forgotPasswordEn,
         dataInput: dataInputEn,
         documents: documentsEn,
-        balance: balanceEn
+        balance: balanceEn,
+        modalInvest: modalInvestEn
     },
     UA: {
         header: headerUa,
@@ -90,7 +96,8 @@ const resources = {
         forgotPassword: forgotPasswordUa,
         dataInput: dataInputUa,
         documents: documentsUa,
-        balance: balanceUa
+        balance: balanceUa,
+        modalInvest: modalInvestUa
     }
 };
 
