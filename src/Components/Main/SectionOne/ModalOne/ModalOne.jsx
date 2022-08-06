@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 import ModalTwo from "../ModalTwo/ModalTwo";
 
 import "./ModalOne.scss";
 
 const ModalOne = ({ show, setModalShow }) => {
+    const { t } = useTranslation();
     const [showSecondModal, setShowSecondModal] = useState(false);
 
     return <>
@@ -30,7 +32,7 @@ const ModalOne = ({ show, setModalShow }) => {
                 </svg>
             </div>
             <h1>
-                Какую сумму ты хочешь инвестировать?
+                {t('modalCalculateProfit:SLIDE_ONE_TITLE')}
             </h1>
             <Form.Select>
                 <option value="">100€</option>
@@ -44,7 +46,7 @@ const ModalOne = ({ show, setModalShow }) => {
                 setShowSecondModal(true)
                 setModalShow(false)
             }}>
-                Отправить
+                {t('modalCalculateProfit:SLIDE_ONE_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.7492 7.07413C36.0849 6.73844 36.0849 6.19418 35.7492 5.85849L30.2788 0.388096C29.9431 0.0524054 29.3989 0.0524054 29.0632 0.388096C28.7275 0.723786 28.7275 1.26805 29.0632 1.60374L33.9257 6.46631L29.0632 11.3289C28.7275 11.6646 28.7275 12.2088 29.0632 12.5445C29.3989 12.8802 29.9431 12.8802 30.2788 12.5445L35.7492 7.07413ZM0.757812 7.3259H35.1414V5.60672H0.757812V7.3259Z" fill="white" />
                 </svg>

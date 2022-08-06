@@ -1,9 +1,12 @@
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 
 import "./Sidebar.scss";
 
 const Sidebar = ({ openSidebar, setOpenSidebar }) => {
+    const { t } = useTranslation();
+
     return <div className={classNames("sidebar", {
         "sidebar--open": openSidebar
     })}>
@@ -12,35 +15,35 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
                 <Link to='about'
                     onClick={() => setOpenSidebar(false)}
                 >
-                    О нас
+                    {t('sidebar:SIDEBAR_MENU_1')}
                 </Link>
             </li>
             <li>
                 <Link to='benefits'
                     onClick={() => setOpenSidebar(false)}
                 >
-                    Преимущества
+                    {t('sidebar:SIDEBAR_MENU_2')}
                 </Link>
             </li>
             <li>
                 <Link to='estates'
                     onClick={() => setOpenSidebar(false)}
                 >
-                    Объекты
+                    {t('sidebar:SIDEBAR_MENU_3')}
                 </Link>
             </li>
             <li>
                 <Link to='faq'
                     onClick={() => setOpenSidebar(false)}
                 >
-                    FAQ
+                    {t('sidebar:SIDEBAR_MENU_4')}
                 </Link>
             </li>
             <li>
                 <Link to='invest'
                     onClick={() => setOpenSidebar(false)}
                 >
-                    Инвестировать
+                    {t('sidebar:SIDEBAR_MENU_5')}
                 </Link>
             </li>
         </div>

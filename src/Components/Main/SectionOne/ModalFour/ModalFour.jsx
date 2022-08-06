@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+
 import ModalFive from "../ModalFive/ModalFive";
 
 const ModalFour = ({ showFourthModal, setShowFourthModal }) => {
+    const { t } = useTranslation();
+
     const [showFifthModal, setShowFifthModal] = useState(false);
 
     return <>
@@ -28,8 +32,7 @@ const ModalFour = ({ showFourthModal, setShowFourthModal }) => {
             </div>
 
             <h1 style={{ fontSize: 30 }}>
-
-                <span>Средний срок реализации проекта TRUESTATE - </span> 12-18 месяцев. Прогноз по сроку реализации указан под каждым проектом на нашем сайте.
+                {t('modalCalculateProfit:SLIDE_FOUR_TITLE')}
             </h1>
             <Button style={{ width: 260 }}
                 onClick={() => {
@@ -37,7 +40,7 @@ const ModalFour = ({ showFourthModal, setShowFourthModal }) => {
                     setShowFifthModal(true)
                 }}
             >
-                Понятно, далее
+                {t('modalCalculateProfit:SLIDE_FOUR_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.7492 7.07413C36.0849 6.73844 36.0849 6.19418 35.7492 5.85849L30.2788 0.388096C29.9431 0.0524054 29.3989 0.0524054 29.0632 0.388096C28.7275 0.723786 28.7275 1.26805 29.0632 1.60374L33.9257 6.46631L29.0632 11.3289C28.7275 11.6646 28.7275 12.2088 29.0632 12.5445C29.3989 12.8802 29.9431 12.8802 30.2788 12.5445L35.7492 7.07413ZM0.757812 7.3259H35.1414V5.60672H0.757812V7.3259Z" fill="white" />
                 </svg>

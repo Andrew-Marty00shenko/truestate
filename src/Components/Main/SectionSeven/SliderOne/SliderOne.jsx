@@ -41,11 +41,11 @@ const SliderOne = ({
                 {/* {object.description} */}
             </span>
         </div >
-        <p className="section-seven__block-btn"
+        <a className="section-seven__block-btn"
             onClick={handleShowInfo}
         >
             {t('landing:SECTION_SEVEN_OBJECT_DESC')}
-        </p>
+        </a><br />
         <Button text={t('landing:SECTION_SEVEN_OBJECT_INVEST_BUTTON')}
             isSevenBlock={true}
             object={object}

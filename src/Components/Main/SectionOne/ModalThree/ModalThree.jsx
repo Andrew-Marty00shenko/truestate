@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+
 import ModalFour from "../ModalFour/ModalFour";
 
 const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
+    const { t } = useTranslation();
     const [showFourthModal, setShowFourthModal] = useState(false);
 
     return <>
@@ -26,21 +29,16 @@ const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
             </svg>
 
             <h1>
-                На какой срок ты хотел бы разместить инвестиции?
+                {t('modalCalculateProfit:SLIDE_THREE_TITLE')}
             </h1>
             <Form.Select>
-                <option value="">1 год</option>
-                <option value="">2 года</option>
-                <option value="">3 года</option>
-                <option value="">4 года</option>
-                <option value="">5 лет</option>
-                <option value="">6 лет</option>
+                <option value="">  {t('modalCalculateProfit:SLIDE_THREE_OPTION_1')}</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowThirdModal(false);
                 setShowFourthModal(true);
             }}>
-                Отправить
+                {t('modalCalculateProfit:SLIDE_THREE_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.7492 7.07413C36.0849 6.73844 36.0849 6.19418 35.7492 5.85849L30.2788 0.388096C29.9431 0.0524054 29.3989 0.0524054 29.0632 0.388096C28.7275 0.723786 28.7275 1.26805 29.0632 1.60374L33.9257 6.46631L29.0632 11.3289C28.7275 11.6646 28.7275 12.2088 29.0632 12.5445C29.3989 12.8802 29.9431 12.8802 30.2788 12.5445L35.7492 7.07413ZM0.757812 7.3259H35.1414V5.60672H0.757812V7.3259Z" fill="white" />
                 </svg>

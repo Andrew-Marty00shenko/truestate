@@ -53,6 +53,14 @@ import modalInvestRu from "../../Translations/ru/modalInvestRu.json";
 import modalInvestEn from "../../Translations/en/modalInvestEn.json";
 import modalInvestUa from "../../Translations/ua/modalInvestUa.json";
 
+import modalCalculateProfitRu from "../../Translations/ru/modalCalculateProfitRu.json";
+import modalCalculateProfitEn from "../../Translations/en/modalCalculateProfitEn.json";
+import modalCalculateProfitUa from "../../Translations/ua/modalCalculateProfitUa.json";
+
+import sidebarRu from "../../Translations/ru/sidebarRu.json";
+import sidebarEn from "../../Translations/en/sidebarEn.json";
+import sidebarUa from "../../Translations/ua/sidebarUa.json";
+
 const resources = {
     RU: {
         header: headerRu,
@@ -67,7 +75,9 @@ const resources = {
         dataInput: dataInputRu,
         documents: documentsRu,
         balance: balanceRu,
-        modalInvest: modalInvestRu
+        modalInvest: modalInvestRu,
+        modalCalculateProfit: modalCalculateProfitRu,
+        sidebar: sidebarRu
     },
     EN: {
         header: headerEn,
@@ -82,7 +92,9 @@ const resources = {
         dataInput: dataInputEn,
         documents: documentsEn,
         balance: balanceEn,
-        modalInvest: modalInvestEn
+        modalInvest: modalInvestEn,
+        modalCalculateProfit: modalCalculateProfitEn,
+        sidebar: sidebarEn
     },
     UA: {
         header: headerUa,
@@ -97,7 +109,9 @@ const resources = {
         dataInput: dataInputUa,
         documents: documentsUa,
         balance: balanceUa,
-        modalInvest: modalInvestUa
+        modalInvest: modalInvestUa,
+        modalCalculateProfit: modalCalculateProfitUa,
+        sidebar: sidebarUa
     }
 };
 
