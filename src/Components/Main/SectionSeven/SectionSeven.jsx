@@ -9,6 +9,11 @@ import SliderTwo from "./SliderTwo/SliderTwo";
 import SectionSevenObjectOne from "../../../assets/images/investObjects/section-seven-object-1.jpg";
 import SectionSevenObjectTwo from "../../../assets/images/investObjects/section-seven-object-2.jpg";
 import SectionSevenObjectThree from "../../../assets/images/investObjects/section-seven-object-3.jpg";
+
+import image1 from "../../../assets/images/investObjects/section-seven-obj-1/1.jpg";
+import image2 from "../../../assets/images/investObjects/section-seven-obj-1/2.jpg";
+import image3 from "../../../assets/images/investObjects/section-seven-obj-1/3.jpg";
+import image4 from "../../../assets/images/investObjects/section-seven-obj-1/4.jpg";
 import "./SectionSeven.scss";
 
 
@@ -36,7 +41,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 1,
-                    image: SectionSevenObjectOne,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -72,7 +77,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 2,
-                    image: SectionSevenObjectTwo,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -108,7 +113,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 3,
-                    image: SectionSevenObjectThree,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -144,7 +149,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 4,
-                    image: SectionSevenObjectOne,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -180,7 +185,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 5,
-                    image: SectionSevenObjectOne,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -216,7 +221,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 6,
-                    image: SectionSevenObjectOne,
+                    image: [image1, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),

@@ -32,6 +32,10 @@
         }
     }
 
+    &-close__btn-main{
+        display: none;
+    }
+
     &__block{
         display: flex;
         height: 100%;
@@ -130,6 +134,18 @@
 @media (max-width: 730px){
     .dashboard{
         height: auto;
+
+        &-close__btn-main{
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
 
         &--registration{
             height: 763px !important;
