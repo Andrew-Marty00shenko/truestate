@@ -14,5 +14,6 @@
     "PHONE_NUMBER_PLACEHOLDER": "+66 (066) 66 666 66",
     "QUESTION": "Are you a citizen and / or tax resident of America (USA)?",
     "ANSWER_YES": "Yes",
-    "ANSWER_NO": "No"
+    "ANSWER_NO": "No",
+    "SEND_BTN": "Send"
 }
