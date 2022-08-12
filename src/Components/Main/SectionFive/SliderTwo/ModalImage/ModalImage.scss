@@ -4,3 +4,16 @@
         border: 0;
     }
 }
+
+@media (max-width: 450px) {
+    .modal-image{
+        .modal-content{
+            background-color: transparent;
+            border: 0;
+
+            .big-image{
+                max-height: 300px;
+            }
+        }
+    }
+}

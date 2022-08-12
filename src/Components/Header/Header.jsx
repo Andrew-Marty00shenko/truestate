@@ -111,7 +111,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 </NavigationLink>
             </li>
             <li>
-                <NavigationLink to="estates">
+                <NavigationLink to="copmpleted-objects">
                     {t('header:OBJECTS')}
                 </NavigationLink>
             </li>
@@ -121,7 +121,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 </NavigationLink>
             </li>
             <li>
-                <NavigationLink to="invest">
+                <NavigationLink to="estates">
                     {t('header:INVEST')}
                 </NavigationLink>
             </li>

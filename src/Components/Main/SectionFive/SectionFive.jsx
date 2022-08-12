@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
+import { Element } from "react-scroll";
 
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
@@ -268,6 +269,7 @@ const SectionFive = () => {
 
     return <section className="section-five">
         <h2>
+            <Element name="copmpleted-objects" />
             {t('landing:SECTION_FIVE_TITLE')}
         </h2>
         <div className="section-five__navigation">

@@ -13,7 +13,6 @@ const SliderTwo = ({
     description,
     ...object
 }) => {
-    // console.log(description)
     const { t } = useTranslation();
     const [modalShow, setModalShow] = useState(false);
     const [activeBigPhoto, setActiveBigPhoto] = useState();
@@ -28,7 +27,6 @@ const SliderTwo = ({
     };
 
     const changeActiveBigPhoto = (index) => {
-        console.log(index)
         setActiveBigPhoto(description[0].image[index]);
     }
 

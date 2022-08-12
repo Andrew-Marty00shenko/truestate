@@ -26,7 +26,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
                 </Link>
             </li>
             <li>
-                <Link to='estates'
+                <Link to='copmpleted-objects'
                     onClick={() => setOpenSidebar(false)}
                 >
                     {t('sidebar:SIDEBAR_MENU_3')}
@@ -40,7 +40,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
                 </Link>
             </li>
             <li>
-                <Link to='invest'
+                <Link to='estates'
                     onClick={() => setOpenSidebar(false)}
                 >
                     {t('sidebar:SIDEBAR_MENU_5')}
