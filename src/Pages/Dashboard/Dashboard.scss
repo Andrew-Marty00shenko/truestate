@@ -33,7 +33,10 @@
     }
 
     &-close__btn-main{
-        display: none;
+        display: block;
+        position: absolute;
+        top: 36px;
+        right: 32px;
     }
 
     &__block{
@@ -136,7 +139,6 @@
         height: auto;
 
         &-close__btn-main{
-            display: block;
             position: absolute;
             top: 20px;
             right: 20px;
