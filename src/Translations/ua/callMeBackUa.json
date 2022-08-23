@@ -20,5 +20,10 @@
     "NOTIFICATION": "*якщо ми не зможемо додзвонитися",
     "CONSULTATION_LANGUAGE": "Мова Консультації",
     "THANKS_FOR_CONTACTING": "Дякую за звернення!",
-    "CALL_ME_BACK_BUTTON": "Передзвоніть мені"
+    "CALL_ME_BACK_BUTTON": "Передзвоніть мені",
+    "FORM_ERROR_NAME": "*Це поле є обов'язковим для заповнення",
+    "FORM_ERROR_SECOND_NAME": "*Це поле є обов'язковим для заповнення",
+    "FORM_ERROR_PHONE_NUMBER": "*Заповніть формат +66 (066) 66 666 66 ",
+    "FORM_ERROR_MESSAGE": "*Це поле є обов'язковим для заповнення",
+    "FORM_ERROR_EMAIL": "*Це поле є обов'язковим для заповнення"
 }

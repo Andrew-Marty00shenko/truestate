@@ -1,31 +1,33 @@
-.registration{
+.registration {
     height: 100%;
     padding: 101px 0px 75px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 
-    h1{
+    h1 {
         font-weight: 300;
         font-size: 35px;
     }
 
-    div{
+    div {
         margin-top: 21px;
-        &:first-of-type{
+
+        &:first-of-type {
             margin-top: 39px;
         }
     }
 
-    p{
+    p {
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
         color: #8B8B8B;
     }
 
-    input{
+    input {
         margin-top: 7px;
         height: 40px;
         border: 0.987821px solid #D9D9D9;
@@ -35,15 +37,23 @@
         font-size: 16px;
         color: #000;
 
-        &::placeholder{
+        &::placeholder {
             font-weight: 300;
             font-size: 16px;
             line-height: 19px;
             color: #8B8B8B;
         }
+
+        &.error {
+            border-color: #ff0000;
+
+            &::placeholder {
+                color: #ff0000;
+            }
+        }
     }
 
-    .btn.btn-primary{
+    .btn.btn-primary {
         width: 267px;
         height: 55px;
         margin-top: 37px;
@@ -52,47 +62,47 @@
         font-weight: 500;
         font-size: 22px;
 
-        &:hover{
+        &:hover {
             background: #740ed3;
         }
-    
-        &:focus{
+
+        &:focus {
             background: #740ed3;
         }
-    
-        &:active{
-            background:#8A0BFF;
+
+        &:active {
+            background: #8A0BFF;
         }
     }
 }
 
 @media (max-width: 730px) {
-    .registration{
+    .registration {
         padding: 118px 26px 108px 26px;
 
-        h1{
+        h1 {
             font-size: 30px;
         }
 
-        div{
+        div {
             margin-top: 21px;
             width: 100%;
 
-            &:first-of-type{
+            &:first-of-type {
                 margin-top: 30px;
             }
         }
 
-        input{
+        input {
             width: 100%;
             font-size: 14px;
 
-            &::placeholder{
+            &::placeholder {
                 font-size: 14px;
             }
         }
 
-        .btn.btn-primary{
+        .btn.btn-primary {
             margin-top: 43px;
             width: 100%;
         }

@@ -118,7 +118,7 @@ const DataInput = () => {
             </Button>
 
             {residentOfUSA.yes ? <p>
-                *Вы не можете покупать токены TRUESTATE.
+                {t('dataInput:RESIDENT_OF_USA_ERROR')}
             </p> : ""}
         </div>
     </form>

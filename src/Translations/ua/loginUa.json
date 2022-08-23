@@ -2,5 +2,7 @@
     "LOGIN": "Логін",
     "PASSWORD": "Пароль",
     "FORGOT_PASSWORD": "Забули пароль?",
-    "SIGNIN": "Увійти"
+    "SIGNIN": "Увійти",
+    "USERNAME_ERROR": "*це поле є обов'язковим",
+    "PASSWORD_ERROR": "*це поле є обов'язковим"
 }

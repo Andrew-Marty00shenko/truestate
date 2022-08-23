@@ -6,5 +6,6 @@
     "REGISTRATION_EMAIL": "Електронна адреса",
     "REGISTRATION_PASSWORD": "Пароль",
     "REGISTRATION_BUTTON": "Зареєструватися",
-    "REGISTRATION_NOTIFICATION": "Ви були успішно зареєстровані!"
+    "REGISTRATION_NOTIFICATION": "На твою пошту надіслано підтвердження облікового запису!",
+    "REGISTRATION_ERROR": "*це поле є обов'язковим"
 }

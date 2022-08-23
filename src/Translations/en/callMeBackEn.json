@@ -20,5 +20,10 @@
     "NOTIFICATION": "*if we can't get through",
     "CONSULTATION_LANGUAGE": "Consultation Language",
     "THANKS_FOR_CONTACTING": "Thank you for your feedback!",
-    "CALL_ME_BACK_BUTTON": "call me back"
+    "CALL_ME_BACK_BUTTON": "call me back",
+    "FORM_ERROR_NAME": "*This field is required",
+    "FORM_ERROR_SECOND_NAME": "*This field is required",
+    "FORM_ERROR_PHONE_NUMBER": "*Fill in the format +66 (066) 66 666 66 ",
+    "FORM_ERROR_MESSAGE": "*This field is required",
+    "FORM_ERROR_EMAIL": "*This field is required"
 }

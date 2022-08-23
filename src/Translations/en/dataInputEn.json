@@ -15,5 +15,6 @@
     "QUESTION": "Are you a citizen and / or tax resident of America (USA)?",
     "ANSWER_YES": "Yes",
     "ANSWER_NO": "No",
-    "SEND_BTN": "Send"
+    "SEND_BTN": "Send",
+    "RESIDENT_OF_USA_ERROR": "*You cannot buy TRUESTATE tokens"
 }

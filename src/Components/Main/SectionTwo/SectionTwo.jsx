@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-scroll";
 
 import Button from "../../Button/Button";
 
@@ -99,7 +100,9 @@ const SectionTwo = () => {
                             {t('landing:SECTION_TWO_BENEFIT_4')}
                         </li>
                     </ul>
-                    <Button text={t('landing:SECTION_TWO_BUTTON')} showIcon />
+                    <Link to="estates">
+                        <Button text={t('landing:SECTION_TWO_BUTTON')} showIcon />
+                    </Link>
                 </Col>
                 <Col lg={7} className="section-two__bottom-right-block">
                     <img src={SectionTwoImage} alt="section-two" />

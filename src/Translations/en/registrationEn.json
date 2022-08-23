@@ -6,5 +6,6 @@
     "REGISTRATION_EMAIL": "Email",
     "REGISTRATION_PASSWORD": "Password",
     "REGISTRATION_BUTTON": "Register",
-    "REGISTRATION_NOTIFICATION": "You have been successfully registered!"
+    "REGISTRATION_NOTIFICATION": "An account confirmation has been sent to your email!",
+    "REGISTRATION_ERROR": "*this field is required"
 }
