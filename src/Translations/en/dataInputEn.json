@@ -16,5 +16,7 @@
     "ANSWER_YES": "Yes",
     "ANSWER_NO": "No",
     "SEND_BTN": "Send",
-    "RESIDENT_OF_USA_ERROR": "*You cannot buy TRUESTATE tokens"
+    "RESIDENT_OF_USA_ERROR": "*You cannot buy TRUESTATE tokens",
+    "INPUT_ERROR": "*this field is required",
+    "ERROR_PHONE_NUMBER": "*Fill in the format +66 (066) 66 666 66 "
 }

@@ -1,24 +1,27 @@
-.data-input{
-margin-top: 65px;
-    &__block{
+.data-input {
+    margin-top: 65px;
+    overflow-y: scroll;
+    padding: 40px;
+
+    &__block {
         display: flex;
         justify-content: space-between;
 
-        &-left{
+        &-left {
             width: 247px;
             margin-right: 81px;
 
-            div{
+            div {
                 margin-bottom: 23px;
 
-                p{
+                p {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 16px;
                     color: #8B8B8B;
                 }
-    
-                input{
+
+                input {
                     width: 100%;
                     height: 40px;
                     border: 1px solid #D9D9D9;
@@ -29,34 +32,42 @@ margin-top: 65px;
                     line-height: 19px;
                     color: #8B8B8B;
                     margin-top: 7px;
+
+                    &.error {
+                        border-color: #FF0000;
+
+                        &::placeholder {
+                            color: #ff0000;
+                        }
+                    }
                 }
-            } 
+            }
         }
 
-        &-right{
+        &-right {
             width: 495px;
 
-            &-flex{
+            &-flex {
                 display: flex;
                 justify-content: space-between;
 
-                div{
+                div {
                     width: 239px;
                     margin-bottom: 0 !important;
                 }
             }
 
-            div{
+            div {
                 margin-bottom: 23px;
 
-                p{
+                p {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 16px;
                     color: #8B8B8B;
                 }
-    
-                input{
+
+                input {
                     width: 100%;
                     height: 40px;
                     border: 1px solid #D9D9D9;
@@ -67,11 +78,19 @@ margin-top: 65px;
                     line-height: 19px;
                     color: #8B8B8B;
                     margin-top: 7px;
+
+                    &.error {
+                        border-color: #FF0000;
+
+                        &::placeholder {
+                            color: #ff0000;
+                        }
+                    }
                 }
-            } 
+            }
         }
 
-        &-select{
+        &-select {
             cursor: pointer;
             border-radius: 10px !important;
             border: 1px solid #D9D9D9 !important;
@@ -83,15 +102,15 @@ margin-top: 65px;
             padding: 0px 20px !important;
             width: 100%;
             margin-top: 7px;
-    
-            &:focus{
+
+            &:focus {
                 border: 1px solid #D9D9D9 !important;
                 box-shadow: none !important;
             }
         }
     }
 
-    &__text{
+    &__text {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -101,13 +120,13 @@ margin-top: 65px;
         line-height: 19px;
         color: #8B8B8B;
 
-        .btn-group{
+        .btn-group {
             margin-left: 10px;
             width: 219px;
             height: 71px;
             border-radius: 10px;
 
-            .btn.btn-primary{
+            .btn.btn-primary {
                 background: #fff;
                 font-weight: 300;
                 font-size: 24px;
@@ -115,17 +134,17 @@ margin-top: 65px;
                 color: #8B8B8B;
                 border: 1px solid #D9D9D9 !important;
 
-                &:nth-child(1){
+                &:nth-child(1) {
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
                 }
-                
-                &:nth-child(2){
+
+                &:nth-child(2) {
                     border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                 }
 
-                &.active{
+                &.active {
                     background-color: #A585FF;
                     color: #fff;
                 }
@@ -133,47 +152,52 @@ margin-top: 65px;
         }
     }
 
-    .data-input__send-btn{
-        display: flex; 
+    .data-input__send-btn {
+        display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
 
-        .send-btn{
+        .send-btn {
             width: 213px;
             height: 55px;
             font-size: 22px;
+
+            &:disabled {
+                background-color: #8B8B8B;
+            }
         }
 
-        p{
+        p {
             color: #FF0000;
         }
     }
 }
 
 @media (max-width: 1100px) {
-    .data-input{
+    .data-input {
         overflow-y: auto;
         padding: 80px 0px;
-        &__block{
+
+        &__block {
             flex-direction: column;
 
-            &-left{
+            &-left {
                 width: 495px;
                 margin-right: 0;
             }
         }
 
-        &__text{
+        &__text {
             flex-direction: column;
             width: 495px;
         }
 
-        .data-input__send-btn{
-            display: flex; 
+        .data-input__send-btn {
+            display: flex;
             flex-direction: column-reverse;
 
-            .send-btn{
+            .send-btn {
                 margin-top: 38px;
             }
         }
@@ -181,43 +205,44 @@ margin-top: 65px;
 }
 
 @media (max-width: 730px) {
-    .data-input{
+    .data-input {
         overflow-y: hidden;
         margin-top: 130px;
         padding: 0px 25px 40px;
         width: 100%;
 
-        &__block{
-          
-            &-left{
+        &__block {
+
+            &-left {
                 width: 100%;
             }
 
-            &-right{
+            &-right {
                 width: 100%;
 
-                &-flex{
+                &-flex {
                     flex-direction: column;
 
-                    div{
+                    div {
                         width: 100%;
 
-                        &:nth-child(2){
+                        &:nth-child(2) {
                             margin-top: 20px;
                         }
                     }
 
-                    input,select{
+                    input,
+                    select {
                         width: 100%;
                     }
                 }
             }
         }
 
-        &__text{
+        &__text {
             width: 100%;
 
-            .btn-group{
+            .btn-group {
                 margin-top: 23px;
             }
         }

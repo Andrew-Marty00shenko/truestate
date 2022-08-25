@@ -1,20 +1,21 @@
-.documents{
+.documents {
     width: 100%;
-    padding:0px 40px;
+    padding: 40px 40px;
     margin-top: 40px;
+    overflow: auto;
 
 
-    &-width{
+    &-width {
         max-width: 590px;
-        margin: 20px auto; 
+        margin: 20px auto;
     }
 
-    &__block{
+    &__block {
         display: flex;
-        align-items: flex-end;
+        align-items: baseline;
         margin-bottom: 20px;
-        
-        &-select{
+
+        &-select {
             cursor: pointer;
             border-radius: 10px !important;
             border: 1px solid #D9D9D9 !important;
@@ -26,14 +27,19 @@
             padding: 0px 20px !important;
             width: 249px !important;
             margin-top: 7px;
-    
-            &:focus{
+
+            &:focus {
                 border: 1px solid #D9D9D9 !important;
                 box-shadow: none !important;
             }
+
+            &.error {
+                color: #ff0000 !important;
+                border-color: #ff0000 !important;
+            }
         }
 
-        &-file{
+        &-file {
             margin-right: 30px;
             width: 297px;
             height: 48px;
@@ -42,22 +48,34 @@
             position: relative;
             padding: 12px 20px 13px;
 
-            input{
+            &.error {
+                border-color: #ff0000;
+
+                svg {
+                    fill: #ff0000;
+                }
+
+                span {
+                    color: #Ff0000;
+                }
+            }
+
+            input {
                 display: none;
             }
 
-            svg{
+            svg {
                 position: absolute;
                 right: 20px;
                 top: 10px;
                 cursor: pointer;
             }
 
-            label{
+            label {
                 cursor: pointer;
             }
 
-            span{
+            span {
                 font-weight: 300;
                 font-size: 18px;
                 line-height: 21px;
@@ -66,7 +84,7 @@
         }
     }
 
-    .btn.btn-primary{
+    .btn.btn-primary {
         background: #8A0BFF;
         border-radius: 82.5911px;
         width: 213px;
@@ -75,24 +93,24 @@
         line-height: 26px;
         height: 55px;
 
-        &:hover{
+        &:hover {
             background: #740ed3;
-        }
-    
-        &:focus{
-            background: #740ed3;
-        }
-    
-        &:active{
-            background:#8A0BFF;
         }
 
-        svg{
+        &:focus {
+            background: #740ed3;
+        }
+
+        &:active {
+            background: #8A0BFF;
+        }
+
+        svg {
             margin-left: 9px;
         }
     }
 
-    hr{
+    hr {
         width: 100%;
         margin-top: 40px;
         margin-bottom: 38px;
@@ -100,27 +118,27 @@
         height: 3px !important;
     }
 
-    &__status-block{
+    &__status-block {
         max-width: 590px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
 
-        p{
+        p {
             font-weight: 500;
             font-size: 16px;
             line-height: 19px;
 
-            span{
+            span {
                 font-weight: 300;
 
-                svg{
+                svg {
                     margin-bottom: 10px;
                     margin-left: 4px;
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 font-weight: 300;
                 max-width: 300px;
             }
@@ -129,58 +147,58 @@
 }
 
 @media (max-width: 850px) {
-    .documents{
+    .documents {
         padding: 80px 0px;
         overflow-y: auto;
 
-        &-width{
+        &-width {
             width: 495px;
         }
 
-        &__block{
+        &__block {
             flex-direction: column;
             align-items: center;
 
-            div{
+            div {
                 width: 100%;
 
-                &:nth-child(2){
+                &:nth-child(2) {
                     margin-top: 20px;
                 }
             }
 
-            &-file{
+            &-file {
                 width: 100%;
-                margin-right: 0; 
+                margin-right: 0;
             }
 
-            select{
+            select {
                 width: 100% !important;
             }
         }
 
-        &__status-block{
+        &__status-block {
             width: 495px;
         }
     }
 }
 
 @media (max-width: 730px) {
-    .documents{
+    .documents {
         padding: 0px 20px 50px;
         overflow-y: hidden;
         margin-top: 130px;
 
-        &-width{
+        &-width {
             width: 100%;
         }
 
-        &__status-block{
+        &__status-block {
             width: 100%;
             flex-direction: column;
 
-            p{
-                &:nth-child(2){
+            p {
+                &:nth-child(2) {
                     margin-top: 15px;
                 }
             }

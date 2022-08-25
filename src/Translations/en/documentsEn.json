@@ -7,5 +7,6 @@
     "SEND": "Send",
     "STATUS": "Status",
     "RECIEVED": "revieved",
-    "NOT_RECIEVED": "not recieved"
+    "NOT_RECIEVED": "not recieved",
+    "INPUT_ERROR": "*this field is required"
 }

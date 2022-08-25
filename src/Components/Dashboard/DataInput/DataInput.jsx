@@ -2,11 +2,13 @@ import { useState } from "react";
 import classNames from "classnames";
 import { Form, ButtonGroup, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useForm } from "react-hook-form";
 
 import "./DataInput.scss";
 
 const DataInput = () => {
     const { t } = useTranslation();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [residentOfUSA, setResidentOfUSA] = useState({
         yes: true,
@@ -27,63 +29,130 @@ const DataInput = () => {
         });
     };
 
-    return <form className="data-input">
+    const onSubmit = data => {
+        console.log(data)
+    }
+
+    return <form className="data-input" onSubmit={handleSubmit(onSubmit)}>
         <div className="data-input__block">
             <div className="data-input__block-left">
                 <div>
                     <p>{t('dataInput:SEX')}</p>
-                    <Form.Select className="data-input__block-select">
-                        <option>{t('dataInput:MALE')}</option>
-                        <option>{t('dataInput:FEMALE')}</option>
+                    <Form.Select className="data-input__block-select"
+                        {...register("gender")}
+                    >
+                        <option value="male">{t('dataInput:MALE')}</option>
+                        <option value="female">{t('dataInput:FEMALE')}</option>
                     </Form.Select>
                 </div>
                 <div>
-                    <p>{t('dataInput:SECOND_NAME')}</p>
-                    <input type="text"
+                    <p style={errors?.secondName && { color: "#ff0000" }}>
+                        {t('dataInput:SECOND_NAME')}
+                    </p>
+                    <input
+                        className={classNames({ "error": errors?.secondName })}
+                        {...register("secondName", { required: true })}
+                        type="text"
                         placeholder={t('dataInput:SECOND_NAME')}
                     />
+                    {errors?.secondName && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                        {t('dataInput:INPUT_ERROR')}
+                    </p>}
                 </div>
                 <div>
-                    <p>{t('dataInput:NAME')}</p>
-                    <input type="text"
+                    <p style={errors?.name && { color: "#ff0000" }}>
+                        {t('dataInput:NAME')}
+                    </p>
+                    <input
+                        className={classNames({ "error": errors?.name })}
+                        {...register("name", { required: true })}
+                        type="text"
                         placeholder={t('dataInput:NAME')}
                     />
+                    {errors?.name && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                        {t('dataInput:INPUT_ERROR')}
+                    </p>}
                 </div>
             </div>
             <div className="data-input__block-right">
                 <div className="data-input__block-right-flex">
                     <div>
-                        <p>{t('dataInput:DATE_OF_BIRTH')}</p>
-                        <input type="text"
+                        <p style={errors?.dateOfBirth && { color: "#ff0000" }}>
+                            {t('dataInput:DATE_OF_BIRTH')}
+                        </p>
+                        <input
+                            className={classNames({ "error": errors?.dateOfBirth })}
+                            {...register("dateOfBirth", { required: true })}
+                            type="text"
                             placeholder={t('dataInput:DATE_OF_BIRTH_PLACEHOLDER')}
                         />
+                        {errors?.dateOfBirth && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                            {t('dataInput:INPUT_ERROR')}
+                        </p>}
                     </div>
                     <div>
                         <p>{t('dataInput:COUNTRY')}</p>
-                        <Form.Select className="data-input__block-select">
-                            {/* <option>Мужчина</option>
-                            <option>Женщина</option> */}
+                        <Form.Select className="data-input__block-select"
+                            {...register("country")}
+                        >
+                            <option>Мужчина</option>
+                            <option>Женщина</option>
                         </Form.Select>
                     </div>
                 </div>
                 <div>
-                    <p>{t('dataInput:ADDRESS')}</p>
-                    <input type="text"
+                    <p style={errors?.address && { color: "#ff0000" }}>
+                        {t('dataInput:ADDRESS')}
+                    </p>
+                    <input
+                        className={classNames({ "error": errors?.address })}
+                        {...register("address", { required: true })}
+                        type="text"
                         placeholder={t('dataInput:ADDRESS_PLACEHOLDER')}
                     />
+                    {errors?.address && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                        {t('dataInput:INPUT_ERROR')}
+                    </p>}
                 </div>
                 <div className="data-input__block-right-flex">
                     <div>
-                        <p>{t('dataInput:EMAIL')}</p>
-                        <input type="email"
+                        <p style={errors?.email && { color: "#ff0000" }}>
+                            {t('dataInput:EMAIL')}
+                        </p>
+                        <input
+                            {...register("email",
+                                {
+                                    required: true,
+                                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+                                })
+                            }
+                            className={classNames({ "error": errors?.email })}
+                            name="email"
+                            type="email"
                             placeholder={t('dataInput:EMAIL')}
                         />
+                        {errors?.email && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                            {t('registration:REGISTRATION_ERROR')}
+                        </p>}
                     </div>
                     <div>
-                        <p>{t('dataInput:PHONE_NUMBER')}</p>
-                        <input type="text"
+                        <p style={errors?.phone && { color: "#ff0000" }}>
+                            {t('dataInput:PHONE_NUMBER')}
+                        </p>
+                        <input
+                            className={classNames({ "error": errors?.phone })}
+                            type="text"
                             placeholder={t('dataInput:PHONE_NUMBER_PLACEHOLDER')}
+                            {...register("phone",
+                                {
+                                    required: true,
+                                    pattern: /(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/
+                                })
+                            }
                         />
+                        {errors?.phone && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                            {t('dataInput:ERROR_PHONE_NUMBER')}
+                        </p>}
                     </div>
                 </div>
             </div>
@@ -110,6 +179,8 @@ const DataInput = () => {
         <div className="data-input__send-btn">
             <Button
                 className="send-btn"
+                type="submit"
+                disabled={residentOfUSA.yes}
             >
                 {t('dataInput:SEND_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
