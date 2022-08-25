@@ -3,30 +3,24 @@ import classNames from "classnames";
 import { Form, ButtonGroup, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from "react-redux/es/exports";
+
+import { clickNo, clickYes } from "../../../Redux/slices/checkingResidentOfUsa";
 
 import "./DataInput.scss";
 
 const DataInput = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const [residentOfUSA, setResidentOfUSA] = useState({
-        yes: true,
-        no: false
-    });
+    const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
+    const dispatch = useDispatch();
 
     const handleClickYes = () => {
-        setResidentOfUSA({
-            yes: true,
-            no: false
-        });
+        dispatch(clickYes())
     };
 
     const handleClickNo = () => {
-        setResidentOfUSA({
-            yes: false,
-            no: true
-        });
+        dispatch(clickNo())
     };
 
     const onSubmit = data => {
@@ -162,13 +156,13 @@ const DataInput = () => {
             {t('dataInput:QUESTION')}
             <ButtonGroup>
                 <Button
-                    className={classNames({ "active": residentOfUSA.yes })}
+                    className={classNames({ "active": checkingResidentOfUsa })}
                     onClick={handleClickYes}
                 >
                     {t('dataInput:ANSWER_YES')}
                 </Button>
                 <Button
-                    className={classNames({ "active": residentOfUSA.no })}
+                    className={classNames({ "active": !checkingResidentOfUsa })}
                     onClick={handleClickNo}
                 >
                     {t('dataInput:ANSWER_NO')}
@@ -180,7 +174,7 @@ const DataInput = () => {
             <Button
                 className="send-btn"
                 type="submit"
-                disabled={residentOfUSA.yes}
+                disabled={checkingResidentOfUsa}
             >
                 {t('dataInput:SEND_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +182,7 @@ const DataInput = () => {
                 </svg>
             </Button>
 
-            {residentOfUSA.yes ? <p>
+            {checkingResidentOfUsa ? <p>
                 {t('dataInput:RESIDENT_OF_USA_ERROR')}
             </p> : ""}
         </div>

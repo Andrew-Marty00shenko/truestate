@@ -1,4 +1,4 @@
-.connect-wallet-btn{
+.connect-wallet-btn {
     position: absolute;
     right: 20px;
     top: 48px;
@@ -11,20 +11,24 @@
     max-width: 302px !important;
     height: 40px !important;
 
-    &:hover{
+    &:disabled {
+        background: #8B8B8B !important;
+    }
+
+    &:hover {
         background: #7847ff !important;
     }
 }
 
 @media (max-width: 850px) {
-    .connect-wallet-btn{
+    .connect-wallet-btn {
         font-size: 12px !important;
         max-width: 350px !important;
     }
 }
 
 @media (max-width: 730px) {
-    .connect-wallet-btn{
+    .connect-wallet-btn {
         width: 100% !important;
         max-width: 290px !important;
         top: 134px;
@@ -34,7 +38,7 @@
 }
 
 @media (max-width: 360px) {
-    .connect-wallet-btn{
+    .connect-wallet-btn {
         width: 250px !important;
         max-width: 290px !important;
         top: 134px;

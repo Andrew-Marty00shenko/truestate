@@ -1,3 +1,4 @@
 {
-    "TOKEN_BALANCE": "Ваш баланс токенов TRUESTATE"
+    "TOKEN_BALANCE": "Ваш баланс токенов TRUESTATE",
+    "CANT_BUY": "*Ты не можешь покупать токены TRUESTATE."
 }
