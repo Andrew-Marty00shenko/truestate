@@ -1,4 +1,14 @@
-.dashboard{
+.Toastify__toast--error {
+    svg {
+        fill: #ff0000;
+    }
+}
+
+.Toastify__progress-bar--error {
+    background: #ff0000 !important;
+}
+
+.dashboard {
     margin-top: 56px;
     width: 1122px;
     background: #FFFFFF;
@@ -9,11 +19,11 @@
     position: relative;
     min-height: 570px;
 
-    &--registration{
+    &--registration {
         height: 663px;
         position: relative;
 
-        .close-btn{
+        .close-btn {
             cursor: pointer;
             position: absolute;
             top: 36px;
@@ -21,10 +31,10 @@
         }
     }
 
-    &--forgot-password{
+    &--forgot-password {
         position: relative;
 
-        .close-btn{
+        .close-btn {
             cursor: pointer;
             position: absolute;
             top: 36px;
@@ -32,22 +42,22 @@
         }
     }
 
-    &-close__btn-main{
+    &-close__btn-main {
         display: block;
         position: absolute;
         top: 36px;
         right: 32px;
     }
 
-    &__block{
+    &__block {
         display: flex;
         height: 100%;
         width: 100%;
         position: relative;
 
-        &{
-            a{
-                .close-btn{
+        & {
+            a {
+                .close-btn {
                     position: absolute;
                     right: 15px;
                     top: 15px;
@@ -55,12 +65,12 @@
             }
         }
 
-        &-menu{
+        &-menu {
             height: 100%;
             width: 109px;
 
-            a{
-                li{
+            a {
+                li {
                     cursor: pointer;
                     width: 100%;
                     height: 25%;
@@ -76,48 +86,74 @@
                     line-height: 19px;
                     color: #000000;
 
-                    &:hover{
+                    &:hover {
                         opacity: .6;
                     }
 
-                    svg{
+                    svg {
                         margin-bottom: 9px;
                     }
 
-                    &.active{
+                    &.active {
                         background-color: #FFFFFF;
                         border-right: 1px solid #fff;
                         color: #8A0BFF;
 
-                        &:hover{
+                        &:hover {
                             opacity: 1;
                         }
 
-                        svg{
-                            path{
+                        svg {
+                            path {
                                 fill: #8A0BFF !important;
                                 stroke: #8A0BFF !important;
                             }
                         }
                     }
+
+                    &.disabled {
+                        background-color: #8B8B8B;
+                        cursor: default;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+
+                    &.active.disabled {
+                        background-color: #8B8B8B;
+                        cursor: default;
+                        color: #000000;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        svg {
+                            path {
+                                fill: black !important;
+                                stroke: black !important;
+                            }
+                        }
+                    }
                 }
 
-                &:first-of-type{
-                    li{
+                &:first-of-type {
+                    li {
                         border-top-left-radius: 15px;
                     }
                 }
 
-                &:last-of-type{
-                    li{
+                &:last-of-type {
+                    li {
                         border-bottom-left-radius: 15px;
                         border-bottom: 0;
                     }
                 }
-            } 
+            }
         }
 
-        &-screen{
+        &-screen {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -128,50 +164,50 @@
 }
 
 @media (max-width: 1200px) {
-    .dashboard{
+    .dashboard {
         width: 90%;
         max-width: 100%;
     }
 }
 
-@media (max-width: 730px){
-    .dashboard{
+@media (max-width: 730px) {
+    .dashboard {
         height: auto;
 
-        &-close__btn-main{
+        &-close__btn-main {
             position: absolute;
             top: 20px;
             right: 20px;
 
-            svg{
+            svg {
                 width: 20px;
                 height: 20px;
             }
         }
 
-        &--registration{
+        &--registration {
             height: 763px !important;
 
-            .close-btn{
+            .close-btn {
                 width: 20px;
                 height: 20px;
             }
         }
 
-        &--forgot-password{
+        &--forgot-password {
 
-            .close-btn{
+            .close-btn {
                 width: 20px;
                 height: 20px;
             }
         }
 
-        &__block{
+        &__block {
             flex-direction: column;
 
-            &{
-                a{
-                    .close-btn{
+            & {
+                a {
+                    .close-btn {
                         width: 20px;
                         height: 20px;
                         position: absolute;
@@ -181,45 +217,46 @@
                 }
             }
 
-            &-menu{
+            &-menu {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
                 height: auto;
-                
-                a{
+
+                a {
                     width: 25%;
-                    li{
+
+                    li {
                         height: 94px;
                         font-size: 12px;
 
-                        svg{
+                        svg {
                             width: 20px;
                             height: 21px;
                         }
 
-                        &.active{
+                        &.active {
                             border-right: 1px solid #D9D9D9;
                             border-bottom: 1px solid #FFFFFF;
-    
-                            svg{
+
+                            svg {
                                 width: 20px;
                             }
 
-                            &:last-of-type{
+                            &:last-of-type {
                                 border-bottom: 1px solid #fff !important;
                             }
                         }
                     }
 
-                    &:first-of-type{
-                        li{
+                    &:first-of-type {
+                        li {
                             border-top-left-radius: 15px;
                         }
                     }
-    
-                    &:last-of-type{
-                        li{
+
+                    &:last-of-type {
+                        li {
                             border-top-right-radius: 15px;
                             border-bottom-left-radius: 0px;
                             border-bottom: 1px solid #D9D9D9;

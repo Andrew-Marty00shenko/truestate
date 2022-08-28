@@ -41,6 +41,9 @@ const ModalSeven = ({ showSeventhModal, setShowSeventhModal }) => {
                     </svg>
                 </Button>
             </Link>
+            <p style={{ fontSize: 10, marginTop: 70, textAlign: 'left' }}>
+                {t('modalCalculateProfit:SLIDE_EIGHT_TEXT')}
+            </p>
         </Modal>
     </>
 }

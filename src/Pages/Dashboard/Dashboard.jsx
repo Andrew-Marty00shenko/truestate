@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { Link, useLocation, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMain';
 import Registration from '../../Components/Dashboard/Registration/Registration';
@@ -16,6 +18,13 @@ import "./Dashboard.scss";
 const Dashboard = () => {
     const { t } = useTranslation();
     const location = useLocation();
+    const isAuth = useSelector(state => state.user.isAuth);
+
+    const clickLinks = () => {
+        if (!isAuth) {
+            toast.error(t('dashboardMain:CLICK_LINKS_ERROR'));
+        }
+    };
 
     const menu = [
         {
@@ -89,8 +98,15 @@ const Dashboard = () => {
                     <div className="dashboard__block">
                         <ul className="dashboard__block-menu">
                             {menu.map(m => {
-                                return <Link to={`${m.link}`} key={m.id}>
-                                    <li className={classNames({ "active": location.pathname === m.link })}>
+                                return <Link
+                                    to={isAuth ? `${m.link}` : '/dashboard/login'}
+                                    key={m.id}
+                                    onClick={clickLinks}
+                                >
+                                    <li className={classNames(
+                                        { "active": location.pathname === m.link },
+                                        { "disabled": !isAuth && m.id !== 1 }
+                                    )}>
                                         {m.icon}
                                         {m.name}
                                     </li>

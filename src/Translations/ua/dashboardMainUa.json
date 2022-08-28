@@ -7,5 +7,6 @@
     "DASHBOARD_MENU_DATA": "Дані",
     "DASHBOARD_MENU_DOCS": "Документи",
     "DASHBOARD_MENU_BALANCE": "Баланс",
-    "DASHBOARD_CONNECT_WALLET": "З'єднати з гаманцем Metamask"
+    "DASHBOARD_CONNECT_WALLET": "З'єднати з гаманцем Metamask",
+    "CLICK_LINKS_ERROR": "Увійди до облікового запису"
 }

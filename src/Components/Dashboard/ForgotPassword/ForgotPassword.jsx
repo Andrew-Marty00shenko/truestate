@@ -63,7 +63,7 @@ const ForgotPassword = () => {
 
                 <div>
                     <p style={errors?.email && { color: "#ff0000" }}>
-                        {t('forgotPassword:FORGOT_PASSWORD_EMAIL')}
+                        {t('forgotPassword:FORGOT_PASSWORD_EMAIL')}:
                     </p>
                     <input
                         {...register("email",
@@ -101,7 +101,7 @@ const ForgotPassword = () => {
 
                 <div>
                     <p style={errors?.code && { color: "#ff0000" }}>
-                        {t('forgotPassword:FORGOT_PASSWORD_INPUT_CODE')}
+                        {t('forgotPassword:FORGOT_PASSWORD_INPUT_CODE')}:
                     </p>
                     <input
                         {...register("code", { required: true })}
@@ -133,7 +133,7 @@ const ForgotPassword = () => {
 
                 <div>
                     <p style={errors?.password && { color: "#ff0000" }}>
-                        {t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}
+                        {t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}:
                     </p>
                     <input
                         {...register("password", { required: true })}
@@ -151,14 +151,14 @@ const ForgotPassword = () => {
                     marginTop: 24
                 }}>
                     <p style={errors?.password_confirmation && { color: "#ff0000" }}>
-                        {t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}
+                        {t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD_REPEAT')}:
                     </p>
                     <input
                         {...register("password_confirmation", { required: true })}
                         className={classNames({ "error": errors?.password_confirmation })}
                         name="password_confirmation"
                         type="password"
-                        placeholder={t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}
+                        placeholder={t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD_REPEAT')}
                     />
                     {errors?.password_confirmation && <p style={{ color: "#ff0000", marginTop: 5 }}>
                         {t('forgotPassword:FORGOT_PASSWORD_ERROR')}

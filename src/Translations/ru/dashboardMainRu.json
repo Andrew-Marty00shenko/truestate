@@ -7,5 +7,6 @@
     "DASHBOARD_MENU_DATA": "Данные",
     "DASHBOARD_MENU_DOCS": "Документы",
     "DASHBOARD_MENU_BALANCE": "Баланс",
-    "DASHBOARD_CONNECT_WALLET": "Соеденить с кошельком Metamask"
+    "DASHBOARD_CONNECT_WALLET": "Соеденить с кошельком Metamask",
+    "CLICK_LINKS_ERROR": "Сначала войди в аккаунт"
 }

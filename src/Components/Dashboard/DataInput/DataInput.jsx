@@ -31,7 +31,7 @@ const DataInput = () => {
         <div className="data-input__block">
             <div className="data-input__block-left">
                 <div>
-                    <p>{t('dataInput:SEX')}</p>
+                    <p>{t('dataInput:SEX')}:</p>
                     <Form.Select className="data-input__block-select"
                         {...register("gender")}
                     >
@@ -41,7 +41,7 @@ const DataInput = () => {
                 </div>
                 <div>
                     <p style={errors?.secondName && { color: "#ff0000" }}>
-                        {t('dataInput:SECOND_NAME')}
+                        {t('dataInput:SECOND_NAME')}:
                     </p>
                     <input
                         className={classNames({ "error": errors?.secondName })}
@@ -55,7 +55,7 @@ const DataInput = () => {
                 </div>
                 <div>
                     <p style={errors?.name && { color: "#ff0000" }}>
-                        {t('dataInput:NAME')}
+                        {t('dataInput:NAME')}:
                     </p>
                     <input
                         className={classNames({ "error": errors?.name })}
@@ -72,7 +72,7 @@ const DataInput = () => {
                 <div className="data-input__block-right-flex">
                     <div>
                         <p style={errors?.dateOfBirth && { color: "#ff0000" }}>
-                            {t('dataInput:DATE_OF_BIRTH')}
+                            {t('dataInput:DATE_OF_BIRTH')}:
                         </p>
                         <input
                             className={classNames({ "error": errors?.dateOfBirth })}
@@ -85,7 +85,7 @@ const DataInput = () => {
                         </p>}
                     </div>
                     <div>
-                        <p>{t('dataInput:COUNTRY')}</p>
+                        <p>{t('dataInput:COUNTRY')}:</p>
                         <Form.Select className="data-input__block-select"
                             {...register("country")}
                         >
@@ -96,7 +96,7 @@ const DataInput = () => {
                 </div>
                 <div>
                     <p style={errors?.address && { color: "#ff0000" }}>
-                        {t('dataInput:ADDRESS')}
+                        {t('dataInput:ADDRESS')}:
                     </p>
                     <input
                         className={classNames({ "error": errors?.address })}
@@ -111,7 +111,7 @@ const DataInput = () => {
                 <div className="data-input__block-right-flex">
                     <div>
                         <p style={errors?.email && { color: "#ff0000" }}>
-                            {t('dataInput:EMAIL')}
+                            {t('dataInput:EMAIL')}:
                         </p>
                         <input
                             {...register("email",
@@ -131,7 +131,7 @@ const DataInput = () => {
                     </div>
                     <div>
                         <p style={errors?.phone && { color: "#ff0000" }}>
-                            {t('dataInput:PHONE_NUMBER')}
+                            {t('dataInput:PHONE_NUMBER')}:
                         </p>
                         <input
                             className={classNames({ "error": errors?.phone })}

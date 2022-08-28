@@ -32,7 +32,12 @@ const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
                 {t('modalCalculateProfit:SLIDE_THREE_TITLE')}
             </h1>
             <Form.Select>
-                <option value="">  {t('modalCalculateProfit:SLIDE_THREE_OPTION_1')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_1')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_2')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_3')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_4')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_5')}</option>
+                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_6')}</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowThirdModal(false);

@@ -3,23 +3,27 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+
+import { login } from "../../../Redux/slices/user";
 
 import "./Login.scss";
 
 const Login = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-
-    }
+        dispatch(login());
+    };
 
     return <form className="login"
         onSubmit={handleSubmit(onSubmit)}
     >
         <div>
             <p style={errors?.username && { color: "#ff0000" }}>
-                {t('login:LOGIN')}
+                {t('login:LOGIN')}:
             </p>
             <input
                 className={classNames({ "error": errors?.username })}
@@ -33,7 +37,7 @@ const Login = () => {
         </div>
         <div>
             <p style={errors?.password && { color: "#ff0000" }}>
-                {t('login:PASSWORD')}
+                {t('login:PASSWORD')}:
             </p>
             <input
                 className={classNames({ "error": errors?.password })}

@@ -1,8 +1,8 @@
 {
     "LOGIN": "Username",
     "PASSWORD": "Password",
-    "FORGOT_PASSWORD": "Forgot the password?",
-    "SIGNIN": "Sign in",
+    "FORGOT_PASSWORD": "Forgotten password?",
+    "SIGNIN": "Sign-in",
     "USERNAME_ERROR": "*this field is requied",
     "PASSWORD_ERROR": "*this field is requied"
 }

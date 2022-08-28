@@ -68,6 +68,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 >
                     <option value="Mr">Mr</option>
                     <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
                 </Form.Select>
             </>
         ) : null}
@@ -76,7 +77,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 <p
                     style={errors?.name ? { color: "#FF0000" } : null}
                 >
-                    {t('callMeBack:NAME')}
+                    {t('callMeBack:NAME')}:
                 </p>
                 <input
                     className={classNames({ "input-error": errors?.name })}
@@ -97,7 +98,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                             ? { color: "#FF0000" }
                             : null
                     }>
-                    {t('callMeBack:SECOND_NAME')}
+                    {t('callMeBack:SECOND_NAME')}:
                 </p>
                 <input
                     className={classNames({ "input-error": errors?.secondName })}
@@ -119,7 +120,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                             ? { color: "#FF0000" }
                             : null
                     }>
-                    {t('callMeBack:PHONE_NUMBER')}
+                    {t('callMeBack:PHONE_NUMBER')}:
                 </p>
                 <input
                     className={classNames({ "input-error": errors?.phone })}
@@ -139,7 +140,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 }
             </div>
             <div>
-                <p> {t('callMeBack:COMMUNICATION_OPTION')}</p>
+                <p> {t('callMeBack:COMMUNICATION_OPTION')}:</p>
                 <Form.Select className="call-me-form__block-select"
                     {...register("communication-option")}
                 >
@@ -152,7 +153,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         </div>
         <div className="call-me-form__block">
             <div>
-                <p> {t('callMeBack:TIMEZONE')}</p>
+                <p> {t('callMeBack:TIMEZONE')}:</p>
                 <Form.Select className="call-me-form__block-select"
                     value={selectedTimeZone}
                     onChange={e => setSelectedTimeZone(e.target.value)}
@@ -187,7 +188,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 </Form.Select>
             </div>
             <div>
-                <p> {t('callMeBack:DESIRED_CALL_TIME')}</p>
+                <p> {t('callMeBack:DESIRED_CALL_TIME')}:</p>
                 <Form.Select className="call-me-form__block-select"
                     value={selectedTimeToCall}
                     onChange={e => setSelectedTimeToCall(e.target.value)}
@@ -226,7 +227,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                     ? { color: "#FF0000", marginTop: 13 }
                     : { marginTop: 13 }
             }>
-            {t('callMeBack:CASE_APPEAL')}
+            {t('callMeBack:CASE_APPEAL')}:
         </p>
         <Form.Select
             className={classNames("call-me-form__select",
@@ -260,7 +261,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                     ? { color: "#FF0000" }
                     : { marginTop: 13 }
             }>
-            {t('callMeBack:YOUR_MESSAGE')}
+            {t('callMeBack:YOUR_MESSAGE')}:
         </p>
         <textarea
             className={classNames("call-me-form__textarea",
@@ -306,7 +307,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         <span> {t('callMeBack:NOTIFICATION')}</span>
 
         <p style={{ marginTop: 12 }}>
-            {t('callMeBack:CONSULTATION_LANGUAGE')}
+            {t('callMeBack:CONSULTATION_LANGUAGE')}:
         </p>
         <div className="call-me-form__block-checkboxes">
             <div>

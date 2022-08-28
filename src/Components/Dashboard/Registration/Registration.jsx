@@ -36,7 +36,7 @@ const Registration = () => {
 
         <div>
             <p style={errors?.secondName && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_SECOND_NAME')}
+                {t('registration:REGISTRATION_SECOND_NAME')}:
             </p>
             <input
                 {...register("secondName", { required: true })}
@@ -52,7 +52,7 @@ const Registration = () => {
 
         <div>
             <p style={errors?.firstName && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_NAME')}
+                {t('registration:REGISTRATION_NAME')}:
             </p>
             <input
                 {...register("firstName", { required: true })}
@@ -68,7 +68,7 @@ const Registration = () => {
 
         <div>
             <p style={errors?.email && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_EMAIL')}
+                {t('registration:REGISTRATION_EMAIL')}:
             </p>
             <input
                 {...register("email",
@@ -89,7 +89,7 @@ const Registration = () => {
 
         <div>
             <p style={errors?.password && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_PASSWORD')}
+                {t('registration:REGISTRATION_PASSWORD')}:
             </p>
             <input
                 {...register("password", { required: true })}
