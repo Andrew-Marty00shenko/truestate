@@ -2,8 +2,17 @@ import { Modal, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 
-const ModalSeven = ({ showSeventhModal, setShowSeventhModal }) => {
+const ModalSeven = ({
+    showSeventhModal,
+    setShowSeventhModal,
+    selectedSumm,
+    selectedTimeToInvest,
+    selectedProfit,
+}) => {
     const { t } = useTranslation();
+    const profit = parseInt(selectedSumm, 10) * parseFloat(`0.${selectedProfit}`, 10);
+    const profitByTime = profit * parseInt(selectedTimeToInvest, 10);
+    const resultRevenue = profitByTime + parseInt(selectedSumm, 10)
 
     return <>
         <Modal
@@ -28,6 +37,32 @@ const ModalSeven = ({ showSeventhModal, setShowSeventhModal }) => {
             <h1>
                 {t('modalCalculateProfit:SLIDE_EIGHT_TITLE')}
             </h1>
+            <div style={{ textAlign: 'left', marginTop: 20, fontSize: 20 }}>
+                <p>
+                    {t('modalCalculateProfit:SLIDE_EIGHT_INVESTMENT_AMOUNT')} <span>€{selectedSumm}</span>
+                </p>
+                <p>
+                    {t('modalCalculateProfit:SLIDE_EIGHT_TERM')}
+                    <span>
+                        {selectedTimeToInvest == 1
+                            ? selectedTimeToInvest + t('modalCalculateProfit:SLIDE_YEAR')
+                            : (selectedTimeToInvest > 1 && selectedTimeToInvest < 5)
+                                ? selectedTimeToInvest + t('modalCalculateProfit:SLIDE_YEARS')
+                                : selectedTimeToInvest + t('modalCalculateProfit:SLIDE_YEARS_MORE')
+                        }
+                    </span>
+                </p>
+                <p>
+                    {t('modalCalculateProfit:SLIDE_EIGHT_REVENUE')} <span>{selectedProfit}%</span>
+                </p>
+                <p>
+                    {t('modalCalculateProfit:SLIDE_EIGHT_PROFIT_IS')} <span>€{resultRevenue}</span>
+                </p>
+            </div>
+            <div style={{ marginTop: 10 }}>
+                <p>{t('modalCalculateProfit:SLIDE_EIGHT_PROFIT_OFFERT')}</p>
+                <p>{t('modalCalculateProfit:SLIDE_EIGHT_PROFIT_RETURN')}</p>
+            </div>
             <Link to="estates">
                 <Button onClick={() => {
                     setShowSeventhModal(false);
@@ -41,8 +76,14 @@ const ModalSeven = ({ showSeventhModal, setShowSeventhModal }) => {
                     </svg>
                 </Button>
             </Link>
-            <p style={{ fontSize: 10, marginTop: 70, textAlign: 'left' }}>
-                {t('modalCalculateProfit:SLIDE_EIGHT_TEXT')}
+            <p style={{ fontSize: 10, marginTop: 30, textAlign: 'left' }}>
+                {t('modalCalculateProfit:SLIDE_EIGHT_TEXT')} <a
+                    href="/#"
+                    style={{ color: '#8A0BFF' }}
+                >
+                    {t('modalCalculateProfit:SLIDE_EIGHT_TEXT_HREF')}
+                </a>
+                {t('modalCalculateProfit:SLIDE_EIGHT_TEXT_2')}
             </p>
         </Modal>
     </>

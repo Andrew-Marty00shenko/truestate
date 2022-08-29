@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
@@ -6,9 +7,22 @@ import ModalTwo from "../ModalTwo/ModalTwo";
 
 import "./ModalOne.scss";
 
-const ModalOne = ({ show, setModalShow }) => {
+const ModalOne = ({
+    show,
+    setModalShow,
+    selectedSumm,
+    setSelectedSumm,
+    selectedTimeToInvest,
+    setSelectedTimeToInvest,
+    selectedProfit,
+    setSelectedProfit,
+}) => {
     const { t } = useTranslation();
     const [showSecondModal, setShowSecondModal] = useState(false);
+
+    useEffect(() => {
+        setSelectedSumm('100');
+    }, []);
 
     return <>
         <Modal
@@ -34,13 +48,13 @@ const ModalOne = ({ show, setModalShow }) => {
             <h1>
                 {t('modalCalculateProfit:SLIDE_ONE_TITLE')}
             </h1>
-            <Form.Select>
-                <option value="">100€</option>
-                <option value="">100€</option>
-                <option value="">100€</option>
-                <option value="">100€</option>
-                <option value="">100€</option>
-                <option value="">100€</option>
+            <Form.Select onChange={(e) => setSelectedSumm(e.target.value)}>
+                <option value="100">€100</option>
+                <option value="500">€500</option>
+                <option value="1000">€1000</option>
+                <option value="5000">€5000</option>
+                <option value="10000">€10000</option>
+                <option value="15000">€15000</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowSecondModal(true)
@@ -56,6 +70,11 @@ const ModalOne = ({ show, setModalShow }) => {
         <ModalTwo
             showSecondModal={showSecondModal}
             setShowSecondModal={setShowSecondModal}
+            selectedSumm={selectedSumm}
+            selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
+            selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </>
 }

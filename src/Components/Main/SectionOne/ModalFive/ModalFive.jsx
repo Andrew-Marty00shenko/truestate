@@ -1,13 +1,24 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import ModalSix from "../ModalSix/ModalSix";
 
-const ModalFive = ({ showFifthModal, setShowFifthModal }) => {
+const ModalFive = ({
+    showFifthModal,
+    setShowFifthModal,
+    selectedSumm,
+    selectedTimeToInvest,
+    selectedProfit,
+    setSelectedProfit,
+}) => {
     const { t } = useTranslation();
-
     const [showSixthModal, setShowSixthModal] = useState(false);
+
+    useEffect(() => {
+        setSelectedProfit('25');
+    }, []);
 
     return <>
         <Modal
@@ -32,13 +43,14 @@ const ModalFive = ({ showFifthModal, setShowFifthModal }) => {
             <h1>
                 {t('modalCalculateProfit:SLIDE_SIX_TITLE')}
             </h1>
-            <Form.Select>
-                <option value="">15%</option>
-                <option value="">25%</option>
-                <option value="">35%</option>
-                <option value="">45%</option>
-                <option value="">55%</option>
-                <option value="">65%</option>
+            <Form.Select onChange={e => setSelectedProfit(e.target.value)}>
+                <option value="25">25%</option>
+                <option value="30">30%</option>
+                <option value="35">35%</option>
+                <option value="40">40%</option>
+                <option value="45">45%</option>
+                <option value="50">50%</option>
+                <option value="55">55%</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowFifthModal(false);
@@ -54,6 +66,9 @@ const ModalFive = ({ showFifthModal, setShowFifthModal }) => {
         <ModalSix
             showSixthModal={showSixthModal}
             setShowSixthModal={setShowSixthModal}
+            selectedSumm={selectedSumm}
+            selectedTimeToInvest={selectedTimeToInvest}
+            selectedProfit={selectedProfit}
         />
     </>
 }

@@ -15,8 +15,20 @@
     "SLIDE_FOUR_BTN": "Зрозуміло, далі",
     "SLIDE_SIX_TITLE": "Бажаний відсоток прибутку?",
     "SLIDE_SIX_BTN": "Надіслати",
-    "SLIDE_SEVEN_TITLE": "Після кожного питання з'являється коментар, який знайомить користувача з умовами TRUESTATE.",
+    "SLIDE_SEVEN_TITLE": "Середньостатистичний рівень доходності за проектами TRUESTATE варіюється від 39% до 48% за період реалізації проекту. Прогноз за рівнем доходності вказаний під кожним об'єктом у розділі «Вибір об'єкта інвестування».",
     "SLIDE_SEVEN_BTN": "Зрозуміло, далі",
-    "SLIDE_EIGHT_TITLE": "Прогнозуємий прибуток становитиме:",
-    "SLIDE_EIGHT_BTN": "Переглянути доступні об'єкти"
+    "SLIDE_EIGHT_TITLE": "Прогноз прибутку*",
+    "SLIDE_EIGHT_INVESTMENT_AMOUNT": "Сума інвестицій: ",
+    "SLIDE_EIGHT_TERM": "Срок: ",
+    "SLIDE_EIGHT_REVENUE": "Дохід: ",
+    "SLIDE_EIGHT_PROFIT_IS": "Розмір погашення після реалізації проекту*: ",
+    "SLIDE_EIGHT_PROFIT_OFFERT": "*не є пропозицією",
+    "SLIDE_EIGHT_PROFIT_RETURN": "**рентабельність інвестицій і % прибутку",
+    "SLIDE_EIGHT_BTN": "Переглянути доступні об'єкти",
+    "SLIDE_EIGHT_TEXT": "*Детальна інформація - у розділі ",
+    "SLIDE_EIGHT_TEXT_HREF": "White Paper",
+    "SLIDE_EIGHT_TEXT_2": "",
+    "SLIDE_YEAR": " рік",
+    "SLIDE_YEARS": " роки",
+    "SLIDE_YEARS_MORE": " років"
 }

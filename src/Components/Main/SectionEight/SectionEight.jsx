@@ -1,5 +1,5 @@
 import { Accordion } from "react-bootstrap";
-import { Element } from "react-scroll";
+import { Element, Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
 import Modal from "../Modal/Modal";
@@ -39,7 +39,13 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="2">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_3')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_3')}
+                            {t('landing:SECTION_EIGHT_ANSWER_3_TEXT')}
+                            <Link
+                                to="estates"
+                                className="section_href"
+                                style={{ border: 0, cursor: "pointer" }}
+                            >{t('landing:SECTION_EIGHT_ANSWER_3_HREF')}</Link>
+                            {t('landing:SECTION_EIGHT_ANSWER_3_TEXT_2')}
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3">

@@ -9,6 +9,9 @@ import "./SectionOne.scss";
 
 const SectionOne = () => {
     const { t } = useTranslation();
+    const [selectedSumm, setSelectedSumm] = useState('');
+    const [selectedTimeToInvest, setSelectedTimeToInvest] = useState('');
+    const [selectedProfit, setSelectedProfit] = useState('');
     const [modalShow, setModalShow] = useState(false);
 
     return <section className="section-one">
@@ -34,6 +37,12 @@ const SectionOne = () => {
         <ModalOne
             show={modalShow}
             setModalShow={setModalShow}
+            selectedSumm={selectedSumm}
+            setSelectedSumm={setSelectedSumm}
+            selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
+            selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </section>
 }

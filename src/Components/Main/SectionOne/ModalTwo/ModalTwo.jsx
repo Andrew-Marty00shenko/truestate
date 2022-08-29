@@ -4,7 +4,15 @@ import { useTranslation } from "react-i18next";
 
 import ModalThree from "../ModalThree/ModalThree";
 
-const ModalTwo = ({ showSecondModal, setShowSecondModal }) => {
+const ModalTwo = ({
+    showSecondModal,
+    setShowSecondModal,
+    selectedSumm,
+    selectedTimeToInvest,
+    setSelectedTimeToInvest,
+    selectedProfit,
+    setSelectedProfit,
+}) => {
     const { t } = useTranslation();
     const [showThirdModal, setShowThirdModal] = useState(false);
 
@@ -48,6 +56,11 @@ const ModalTwo = ({ showSecondModal, setShowSecondModal }) => {
         <ModalThree
             showThirdModal={showThirdModal}
             setShowThirdModal={setShowThirdModal}
+            selectedSumm={selectedSumm}
+            selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
+            selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </>
 }

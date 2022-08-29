@@ -16,6 +16,7 @@ const ForgotPassword = () => {
     const [clickedSubmitKeyBtn, setClickedSubmitKeyBtn] = useState(false);
     const [clickedChangePassword, setClickedChangePassword] = useState(false);
     const [checkingEqualPasswords, setChekingEqualPasswords] = useState(false);
+    const err = true
 
     // const handleSubmitEmail = e => {
     //     if (email) {
@@ -30,9 +31,14 @@ const ForgotPassword = () => {
     // };
 
     const onSubmitEmail = data => {
+        if (err) {
+            toast.error(t('forgotPassword:FORGOT_PASSWORD_NOT_FOUND_EMAIL'));
+
+            return;
+        }
         setClickedNextBtn(true);
-        setEmail(data.email)
-    }
+        setEmail(data.email);
+    };
 
     const onSubmitCode = data => {
         setClickedSubmitKeyBtn(true);

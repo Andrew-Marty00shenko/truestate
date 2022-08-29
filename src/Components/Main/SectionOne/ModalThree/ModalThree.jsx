@@ -1,12 +1,25 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import ModalFour from "../ModalFour/ModalFour";
 
-const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
+const ModalThree = ({
+    showThirdModal,
+    setShowThirdModal,
+    selectedSumm,
+    selectedTimeToInvest,
+    setSelectedTimeToInvest,
+    selectedProfit,
+    setSelectedProfit,
+}) => {
     const { t } = useTranslation();
     const [showFourthModal, setShowFourthModal] = useState(false);
+
+    useEffect(() => {
+        setSelectedTimeToInvest('1');
+    }, []);
 
     return <>
         <Modal
@@ -31,13 +44,13 @@ const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
             <h1>
                 {t('modalCalculateProfit:SLIDE_THREE_TITLE')}
             </h1>
-            <Form.Select>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_1')}</option>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_2')}</option>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_3')}</option>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_4')}</option>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_5')}</option>
-                <option value=""> {t('modalCalculateProfit:SLIDE_THREE_OPTION_6')}</option>
+            <Form.Select onChange={e => setSelectedTimeToInvest(e.target.value)}>
+                <option value="1"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_1')}</option>
+                <option value="2"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_2')}</option>
+                <option value="3"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_3')}</option>
+                <option value="4"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_4')}</option>
+                <option value="5"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_5')}</option>
+                <option value="6"> {t('modalCalculateProfit:SLIDE_THREE_OPTION_6')}</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowThirdModal(false);
@@ -53,6 +66,10 @@ const ModalThree = ({ showThirdModal, setShowThirdModal }) => {
         <ModalFour
             showFourthModal={showFourthModal}
             setShowFourthModal={setShowFourthModal}
+            selectedSumm={selectedSumm}
+            selectedTimeToInvest={selectedTimeToInvest}
+            selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </>
 }
