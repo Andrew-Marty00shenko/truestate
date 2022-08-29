@@ -11,7 +11,6 @@ import "./Utils/translation/translation";
 
 const App = () => {
   const { t, i18n } = useTranslation();
-
   const [openSidebar, setOpenSidebar] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
 

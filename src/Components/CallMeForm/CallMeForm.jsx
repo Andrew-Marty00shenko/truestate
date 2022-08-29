@@ -1,4 +1,6 @@
+import axios from "axios";
 import classNames from "classnames";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -17,7 +19,13 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
     const [selectedTimeZone, setSelectedTimeZone] = useState('GTM-12');
     const [selectedTimeToCall, setSelectedTimeToCall] = useState('00:00');
     const [selectedCaseOfAppeal, setSelectedCaseOfAppeal] = useState('');
+    const [countryCallingCode, setCountryCallingCode] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const fetchCountryCallingCode = () => {
+        axios.get('https://ipapi.co/country_calling_code/')
+            .then(res => setCountryCallingCode(res.data));
+    };
 
     const changeCheckboxValue = e => {
         if (e.target.name === 'english') {
@@ -53,6 +61,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
 
     const onSubmit = (data) => {
         notify();
+        console.log(data)
     };
 
     return <form className="call-me-form"
@@ -94,7 +103,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
             <div>
                 <p
                     style={
-                        errors?.name
+                        errors?.secondName
                             ? { color: "#FF0000" }
                             : null
                     }>
@@ -124,12 +133,15 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 </p>
                 <input
                     className={classNames({ "input-error": errors?.phone })}
+                    onFocus={fetchCountryCallingCode}
+                    value={countryCallingCode}
                     type="text"
                     placeholder={t('callMeBack:PHONE_NUMBER_PLACEHOLDER')}
                     {...register("phone",
                         {
                             required: true,
-                            pattern: /(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/
+                            pattern: /(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/,
+                            onChange: e => setCountryCallingCode(e.target.value)
                         })
                     }
                 />
@@ -223,7 +235,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
 
         <p
             style={
-                errors?.appeal
+                errors?.appeal && selectedCaseOfAppeal === ''
                     ? { color: "#FF0000", marginTop: 13 }
                     : { marginTop: 13 }
             }>
@@ -231,12 +243,12 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         </p>
         <Form.Select
             className={classNames("call-me-form__select",
-                { "call-me-form__select-error": errors?.appeal }
+                { "call-me-form__select-error": errors?.appeal && selectedCaseOfAppeal === '' }
             )}
             {...register("appeal",
                 {
                     required: true,
-                    pattern: selectedCaseOfAppeal !== ""
+                    validate: selectedCaseOfAppeal !== ""
                 })
             }
             value={selectedCaseOfAppeal}
@@ -249,7 +261,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
             <option value="technical-points"> {t('callMeBack:CASE_APPEAL_OPTION_4')}</option>
             <option value="other"> {t('callMeBack:CASE_APPEAL_OPTION_5')}</option>
         </Form.Select>
-        {errors?.appeal &&
+        {errors?.appeal && selectedCaseOfAppeal === '' &&
             <p className="call-me-form__error">
                 {t('callMeBack:FORM_ERROR_NAME')}
             </p>
@@ -258,7 +270,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         <p
             style={
                 errors?.your_message
-                    ? { color: "#FF0000" }
+                    ? { color: "#FF0000", marginTop: 13 }
                     : { marginTop: 13 }
             }>
             {t('callMeBack:YOUR_MESSAGE')}:
@@ -288,7 +300,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         </p>
         <input
             className={classNames("call-me-form__input",
-                { "call-me-form__input-error": errors?.name })}
+                { "call-me-form__input-error": errors?.email })}
             type="email"
             placeholder="Email"
             {...register("email",
@@ -313,7 +325,6 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
             <div>
                 <input
                     {...register("english")}
-                    defaultChecked
                     checked={checkboxValue.english}
                     type="checkbox"
                     className="custom-checkbox"

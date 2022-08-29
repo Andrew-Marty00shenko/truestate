@@ -76,7 +76,7 @@ const SectionThree = () => {
                     <td>{t('landing:SECTION_THREE_TABLE_HEADER_1')}</td>
                     <td>{t('landing:SECTION_THREE_TABLE_HEADER_2')}</td>
                 </tr>
-                {tableInfo.map((info) => {
+                {tableInfo.map((info, index) => {
                     return <>
                         <tr className="table__col" >
                             <td colSpan="2">

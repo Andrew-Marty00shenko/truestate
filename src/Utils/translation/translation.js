@@ -118,7 +118,15 @@ const resources = {
 i18n.use(initReactI18next)
     .init({
         resources,
-        lng: localStorage.getItem("language") || "EN",
+        lng: localStorage.getItem("language")
+            ? localStorage.getItem("language")
+            : navigator.language.includes('EN') || navigator.language.includes('en')
+                ? "EN"
+                : navigator.language.includes('RU') || navigator.language.includes('ru')
+                    ? "RU"
+                    : navigator.language.includes('UA') || navigator.language.includes('ua')
+                        ? "UA"
+                        : "EN",
         interpolation: { escapeValue: false }
     });
 
