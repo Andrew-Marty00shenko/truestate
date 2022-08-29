@@ -9,7 +9,9 @@ const ModalFive = ({
     showFifthModal,
     setShowFifthModal,
     selectedSumm,
+    setSelectedSumm,
     selectedTimeToInvest,
+    setSelectedTimeToInvest,
     selectedProfit,
     setSelectedProfit,
 }) => {
@@ -67,8 +69,11 @@ const ModalFive = ({
             showSixthModal={showSixthModal}
             setShowSixthModal={setShowSixthModal}
             selectedSumm={selectedSumm}
+            setSelectedSumm={setSelectedSumm}
             selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
             selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </>
 }

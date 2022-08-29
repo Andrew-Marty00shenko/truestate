@@ -6,13 +6,15 @@ const ModalSeven = ({
     showSeventhModal,
     setShowSeventhModal,
     selectedSumm,
+    setSelectedSumm,
     selectedTimeToInvest,
+    setSelectedTimeToInvest,
     selectedProfit,
+    setSelectedProfit,
 }) => {
     const { t } = useTranslation();
     const profit = parseInt(selectedSumm, 10) * parseFloat(`0.${selectedProfit}`, 10);
-    const profitByTime = profit * parseInt(selectedTimeToInvest, 10);
-    const resultRevenue = profitByTime + parseInt(selectedSumm, 10)
+    const resultRevenue = profit + parseInt(selectedSumm, 10);
 
     return <>
         <Modal
@@ -23,7 +25,12 @@ const ModalSeven = ({
         >
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
                 className="section-five__block-full-close-btn"
-                onClick={() => setShowSeventhModal(false)}
+                onClick={() => {
+                    setShowSeventhModal(false)
+                    setSelectedSumm('100');
+                    setSelectedTimeToInvest('1');
+                    setSelectedProfit('25');
+                }}
             >
                 <path d="M1 1L26 26" stroke="black" strokeWidth="2" strokeLinecap="round" />
                 <path d="M1 26L26 1.00002" stroke="black" strokeWidth="2" strokeLinecap="round" />
@@ -66,6 +73,9 @@ const ModalSeven = ({
             <Link to="estates">
                 <Button onClick={() => {
                     setShowSeventhModal(false);
+                    setSelectedSumm('100');
+                    setSelectedTimeToInvest('1');
+                    setSelectedProfit('25');
                 }}
                     style={{ width: 430 }}
                     className="seven"

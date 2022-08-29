@@ -9,6 +9,7 @@ const ModalThree = ({
     showThirdModal,
     setShowThirdModal,
     selectedSumm,
+    setSelectedSumm,
     selectedTimeToInvest,
     setSelectedTimeToInvest,
     selectedProfit,
@@ -67,7 +68,9 @@ const ModalThree = ({
             showFourthModal={showFourthModal}
             setShowFourthModal={setShowFourthModal}
             selectedSumm={selectedSumm}
+            setSelectedSumm={setSelectedSumm}
             selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
             selectedProfit={selectedProfit}
             setSelectedProfit={setSelectedProfit}
         />

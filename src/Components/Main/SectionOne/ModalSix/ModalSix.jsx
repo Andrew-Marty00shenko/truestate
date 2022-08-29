@@ -8,8 +8,11 @@ const ModalFour = ({
     showSixthModal,
     setShowSixthModal,
     selectedSumm,
+    setSelectedSumm,
     selectedTimeToInvest,
+    setSelectedTimeToInvest,
     selectedProfit,
+    setSelectedProfit,
 }) => {
     const { t } = useTranslation();
 
@@ -57,8 +60,11 @@ const ModalFour = ({
             showSeventhModal={showSeventhModal}
             setShowSeventhModal={setShowSeventhModal}
             selectedSumm={selectedSumm}
+            setSelectedSumm={setSelectedSumm}
             selectedTimeToInvest={selectedTimeToInvest}
+            setSelectedTimeToInvest={setSelectedTimeToInvest}
             selectedProfit={selectedProfit}
+            setSelectedProfit={setSelectedProfit}
         />
     </>
 }

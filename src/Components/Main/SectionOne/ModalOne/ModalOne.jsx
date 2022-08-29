@@ -71,6 +71,7 @@ const ModalOne = ({
             showSecondModal={showSecondModal}
             setShowSecondModal={setShowSecondModal}
             selectedSumm={selectedSumm}
+            setSelectedSumm={setSelectedSumm}
             selectedTimeToInvest={selectedTimeToInvest}
             setSelectedTimeToInvest={setSelectedTimeToInvest}
             selectedProfit={selectedProfit}
