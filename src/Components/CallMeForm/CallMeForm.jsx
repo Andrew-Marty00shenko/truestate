@@ -64,6 +64,8 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
         console.log(data)
     };
 
+    console.log(errors)
+
     return <form className="call-me-form"
         onSubmit={handleSubmit(onSubmit)}
     >
@@ -147,7 +149,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
                 />
                 {errors?.phone &&
                     <p className="call-me-form__error">
-                        {errors.phone.type === 'pattern' && t('callMeBack:FORM_ERROR_PHONE_NUMBER')}
+                        {errors.phone.type === 'required' && t('callMeBack:FORM_ERROR_PHONE_NUMBER')}
                     </p>
                 }
             </div>
