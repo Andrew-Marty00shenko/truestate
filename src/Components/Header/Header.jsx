@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { Link as NavigationLink } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
+import { closed, opened } from "../../Redux/slices/callMeBack";
 import { useOutside } from "../../Utils/helpers/useOutside";
 import CallMeForm from "../CallMeForm/CallMeForm"
 
 import Logo from "../../assets/images/logo.svg";
 import "./Header.scss";
+import { useDispatch, useSelector } from "react-redux";
 
 const languages = [
     {
@@ -51,8 +53,8 @@ const languages = [
 
 const Header = ({ openSidebar, setOpenSidebar }) => {
     const { t, i18n } = useTranslation();
-
-    const [openCallMeForm, setOpenCallMeForm] = useState(false);
+    const callMeBackState = useSelector(state => state.callMeBack.value);
+    const dispatch = useDispatch();
     const [openLanguagesMenu, setOpenLanguagesMenu] = useState(false);
     const [activeLanguage, setActiveLanguage] = useState({
         name: '',
@@ -75,8 +77,10 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
     }, [activeLanguage.abr]);
 
     useOutside(headerRef, () => {
-        setOpenCallMeForm(false);
-        setOpenLanguagesMenu(false);
+        if (window.pageYOffset >= 0 && window.pageYOffset <= 100) {
+            dispatch(closed());
+            setOpenLanguagesMenu(false);
+        }
     });
 
     const handleChangeLanguage = (name, abr, icon) => {
@@ -84,7 +88,6 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
             name, abr, icon
         });
         setOpenLanguagesMenu(false);
-        setOpenCallMeForm(false);
     };
 
     return <header
@@ -140,7 +143,11 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
         <ul className="header__menu">
             <li
                 onClick={() => {
-                    setOpenCallMeForm(!openCallMeForm)
+                    if (callMeBackState) {
+                        dispatch(closed())
+                    } else {
+                        dispatch(opened())
+                    }
                     setOpenLanguagesMenu(false)
                 }}
             >
@@ -157,7 +164,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 )}
                 onClick={() => {
                     setOpenLanguagesMenu(!openLanguagesMenu)
-                    setOpenCallMeForm(false)
+                    dispatch(closed())
                 }}
             >
                 {activeLanguage?.abr}
@@ -194,9 +201,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
         </ul>
         }
 
-        {openCallMeForm && <CallMeForm
-            setOpenCallMeForm={setOpenCallMeForm}
-        />}
+        {callMeBackState && <CallMeForm />}
     </header >
 }
 

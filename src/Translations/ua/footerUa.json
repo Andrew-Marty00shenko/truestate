@@ -1,4 +1,10 @@
 {
     "FOOTER_CONTACTS": "Контакти",
-    "FOOTER_TEXT": "**Зазначена прибутковість є орієнтовною та не гарантується зі сторони TRUESTATE та/або його афілійованих осіб. Прибутковість вказана за період реалізації проекту."
+    "FOOTER_TEXT": "**Зазначена прибутковість є орієнтовною та не гарантується зі сторони TRUESTATE та/або його афілійованих осіб. Прибутковість вказана за період реалізації проекту.",
+    "FOOTER_WINDOW_CONTACTS_TITLE": "Наші контакти",
+    "FOOTER_WINDOW_CONTACTS_TEXT_1": "Напиши нам на email: ",
+    "FOOTER_WINDOW_CONTACTS_TEXT_2": "Задай питання в ",
+    "FOOTER_WINDOW_CONTACTS_TEXT_3": "Або залиш ",
+    "FOOTER_WINDOW_CONTACTS_TEXT_4": "заявку на дзвінок",
+    "FOOTER_WINDOW_CONTACTS_TEXT_5": " на нашому сайті."
 }

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 import "./CallMeForm.scss";
 
-const CallMeForm = ({ setOpenCallMeForm }) => {
+const CallMeForm = () => {
     const { t, i18n } = useTranslation();
     const [checkboxValue, setCheboxValue] = useState({
         russian: false,
@@ -61,10 +61,7 @@ const CallMeForm = ({ setOpenCallMeForm }) => {
 
     const onSubmit = (data) => {
         notify();
-        console.log(data)
     };
-
-    console.log(errors)
 
     return <form className="call-me-form"
         onSubmit={handleSubmit(onSubmit)}

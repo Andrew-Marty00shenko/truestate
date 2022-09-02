@@ -1,12 +1,29 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import FooterLogo from "../../assets/images/footer-logo.svg";
+import { opened } from "../../Redux/slices/callMeBack";
 import "./Footer.scss";
 
 const Footer = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const location = useLocation();
+    const dispatch = useDispatch();
+    const [openWidnowContacts, setOpenWindowContacts] = useState(false);
+
+    const handleOpenWindowContacts = () => {
+        setOpenWindowContacts(true);
+    };
+
+    const scrollToTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        dispatch(opened());
+        setOpenWindowContacts(false);
+    };
 
     return <footer className="footer">
         <div className="footer__block">
@@ -25,10 +42,39 @@ const Footer = () => {
                         White paper
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li className="footer__block-info__contacts">
+                    <a onClick={handleOpenWindowContacts}>
                         {t('footer:FOOTER_CONTACTS')}
                     </a>
+
+                    {openWidnowContacts && <div className="footer__block-info__contacts-window"
+                        style={i18n.language === 'RU' ? { width: 370 } : i18n.language === 'EN' ? { width: 250 } : { width: 370 }}
+                    >
+                        <svg className="close-btn" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            onClick={() => setOpenWindowContacts(false)}
+                        >
+                            <path d="M1 1.47607L26 26.4761" stroke="#9b9b9b" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M1 26.4761L26 1.47609" stroke="#9b9b9b" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                        <h3>
+                            {t('footer:FOOTER_WINDOW_CONTACTS_TITLE')}
+                        </h3>
+                        <div>
+                            <p>
+                                {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_1')}
+                                <span>question@tru.estate</span>
+                            </p>
+                            <p>
+                                {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_2')}
+                                <a href="#">Telegram</a>
+                            </p>
+                            <p>
+                                {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_3')}
+                                <span onClick={scrollToTop}>{t('footer:FOOTER_WINDOW_CONTACTS_TEXT_4')}</span>
+                                {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_5')}
+                            </p>
+                        </div>
+                    </div>}
                 </li>
             </ul>
             <div className="footer__block-links">
@@ -99,10 +145,39 @@ const Footer = () => {
                             White paper
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li className="footer__block-mobile-logo-info__contacts">
+                        <a onClick={handleOpenWindowContacts}>
                             {t('footer:FOOTER_CONTACTS')}
                         </a>
+
+                        {openWidnowContacts && <div className="footer__block-mobile-logo-info__contacts-window"
+                            style={i18n.language === 'RU' ? { width: 370 } : i18n.language === 'EN' ? { width: 250 } : { width: 370 }}
+                        >
+                            <svg className="close-btn" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                onClick={() => setOpenWindowContacts(false)}
+                            >
+                                <path d="M1 1.47607L26 26.4761" stroke="#9b9b9b" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M1 26.4761L26 1.47609" stroke="#9b9b9b" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                            <h3>
+                                {t('footer:FOOTER_WINDOW_CONTACTS_TITLE')}
+                            </h3>
+                            <div>
+                                <p>
+                                    {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_1')}
+                                    <span>question@tru.estate</span>
+                                </p>
+                                <p>
+                                    {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_2')}
+                                    <a href="#">Telegram</a>
+                                </p>
+                                <p>
+                                    {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_3')}
+                                    <span onClick={scrollToTop}>{t('footer:FOOTER_WINDOW_CONTACTS_TEXT_4')}</span>
+                                    {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_5')}
+                                </p>
+                            </div>
+                        </div>}
                     </li>
                 </ul>
             </div>
