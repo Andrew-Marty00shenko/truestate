@@ -7,5 +7,10 @@
     "INFO_TOKEN_TEXT": "Натомість ти отримаєш токени TRUESTATE за поточним курсом € — ETH.",
     "DETAIL_INSTRUCTION": "Детальна інструкція — ",
     "DETAIL_INSTRUCTION_HREF": "тут.",
-    "NOTIFICATION": "Адреса скопійована!"
+    "NOTIFICATION": "Адреса скопійована!",
+    "PRIVACY_POLICY": "я погоджений з політикою конфіденційності, умовами та правилами проекту TRUESTATE",
+    "CONTRACT_NUMBER": "Номер контракту",
+    "AMOUNT_INVEST": "Сума інвестицій",
+    "CURRENCY": "Валюта",
+    "INVEST": "Інвестувати"
 }

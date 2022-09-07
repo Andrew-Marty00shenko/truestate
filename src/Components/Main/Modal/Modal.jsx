@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
@@ -33,6 +33,51 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
             </svg>
         </div>
         <h3>
+            {t('modalInvest:YOU_HAVE_CHOOSEN')} №{`00${activeObjectEstate?.id}`}.
+        </h3>
+        <form>
+            <div>
+                <p> {t('modalInvest:CONTRACT_NUMBER')}</p>
+                <input
+                    type="text"
+                    placeholder={t('modalInvest:CONTRACT_NUMBER')}
+                />
+            </div>
+            <div className="form__input">
+                <div>
+                    <p>{t('modalInvest:AMOUNT_INVEST')}</p>
+                    <input
+                        type="text"
+                        placeholder={t('modalInvest:AMOUNT_INVEST')}
+                    />
+                </div>
+                <div>
+                    <p>{t('modalInvest:CURRENCY')}</p>
+                    <Form.Select placeholder={t('modalInvest:CURRENCY')}>
+                        <option value="$">
+                            $
+                        </option>
+                        <option value="ETH">
+                            ETH
+                        </option>
+                    </Form.Select>
+                </div>
+            </div>
+            <div className="form__checkbox">
+                <input
+                    id="check"
+                    type="checkbox"
+                />
+                <label htmlFor="check"> {t('modalInvest:PRIVACY_POLICY')}</label>
+            </div>
+            <Button>
+                {t('modalInvest:INVEST')}
+                <svg width="35" height="14" viewBox="0 0 35 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.7514 7.5444C35.075 7.22075 35.075 6.696 34.7514 6.37235L29.4771 1.09811C29.1535 0.774452 28.6287 0.774452 28.3051 1.09811C27.9814 1.42176 27.9814 1.94651 28.3051 2.27016L32.9933 6.95837L28.3051 11.6466C27.9814 11.9702 27.9814 12.495 28.3051 12.8186C28.6287 13.1423 29.1535 13.1423 29.4771 12.8186L34.7514 7.5444ZM0.832031 7.78714H34.1654V6.12961H0.832031V7.78714Z" fill="white" />
+                </svg>
+            </Button>
+        </form>
+        {/* <h3>
             {t('modalInvest:YOU_HAVE_CHOOSEN')} №{`00${activeObjectEstate?.id}`}. {t('modalInvest:FOR_INVEST_TEXT_1')}
             <span> {t('modalInvest:FOR_INVEST_TEXT_SPAN')}</span>  {t('modalInvest:FOR_INVEST_TEXT_2')}
         </h3>
@@ -47,7 +92,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
         </p>
         <p className="section-seven__modal-instructions">
             {t('modalInvest:DETAIL_INSTRUCTION')} <a href="#">{t('modalInvest:DETAIL_INSTRUCTION_HREF')}</a>
-        </p>
+        </p> */}
     </div>
 }
 

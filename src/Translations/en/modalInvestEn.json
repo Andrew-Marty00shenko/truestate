@@ -7,5 +7,10 @@
     "INFO_TOKEN_TEXT": "In return, you will receive TRUESTATE tokens at the current € — ETH exchange rate",
     "DETAIL_INSTRUCTION": "Detailed instructions — ",
     "DETAIL_INSTRUCTION_HREF": "here.",
-    "NOTIFICATION": "Address copied!"
+    "NOTIFICATION": "Address copied!",
+    "PRIVACY_POLICY": "I agree with the privacy policy, terms and conditions of the TRUESTATE project",
+    "CONTRACT_NUMBER": "Contract number",
+    "AMOUNT_INVEST": "Amount of investment",
+    "CURRENCY": "Currency",
+    "INVEST": "Invest"
 }

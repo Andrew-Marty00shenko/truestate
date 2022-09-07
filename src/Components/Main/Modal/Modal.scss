@@ -15,12 +15,11 @@
     height: 474px;
     z-index: 100;
     width: 1280px;
-    border-radius: 30px;
-    background-image: url('../../../assets/images/section-seven-address.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    border-radius: 15px;
+    background-color: #fff;
     left:50%;
     transform:translate(-50%, 0%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     padding: 78px 78px 64px 79px;
     animation-duration: 0.4s;
 	animation-timing-function: linear;
@@ -79,69 +78,86 @@
     }
 
     h3{
-        max-width: 576px;
+        text-align: center;
         font-weight: 300;
         font-size: 24px;
         line-height: 120%;
+        margin-bottom: 39px !important;
 
         span{
             border-bottom: 1px solid #000;
         }
     }
 
-    &-copy-block{
+    form{
         display: flex;
         align-items: center;
-        margin-top: 36px;
-        
-        span{
-            margin-right: 26px;
-            font-weight: 500;
-            font-size: 36px;
-            line-height: 120%;
+        flex-direction: column;
+
+        input::placeholder{
+            font-size: 14px;
         }
 
-        .btn.btn-primary{
-            background: #8A0BFF;
-            border-radius: 67.1973px;
-            width: 150px;
-            height: 44.59px;
-            font-weight: 600;
-            font-size: 16.7993px;
-            line-height: 20px;
-            color: #Fff;
-
-            &:hover{
-                background: #740ed3;
+        div{
+            p{
+                font-weight: 400;
+                font-size: 14px;
+                margin-bottom: 7px !important;
+                line-height: 16px;
+                color: #8B8B8B;
             }
-
-            &:focus{
-                background: #740ed3;
-            }
-        
-            &:active{
-                background:#8A0BFF;
+            input, select{
+                width: 376px;
+                height: 40px;
+                padding: 0px 20px;
+                border: 1px solid #D9D9D9;
+                border-radius: 10px;
+                font-size: 16px;
+                
+                &:focus {
+                    border: 1px solid #D9D9D9 !important;
+                    box-shadow: none !important;
+                }
             }
         }
-    }
 
-    &-info{
-        margin-top: 32px;
-        font-weight: 300;
-        font-size: 20px;
-        line-height: 140%;
-        max-width: 383px;
-    }
+        .form__input{
+            display: flex;
+            margin-top: 21px;
 
-    &-instructions{
-        margin-top: 28px;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 140%;
+            input{
+                margin-right: 10px;
+            }
 
-        a{
-            color: rgba(167, 76, 255, 1);
-            border-bottom: 1px solid rgba(167, 76, 255, 1);
+            input,select{
+                height: 40px;
+                width: 185px;
+            }
+        }
+
+        .form__checkbox{
+            display: flex;
+            width: 376px;
+            align-items: center;
+            margin-top: 23px;
+
+            input{
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            label{
+                font-weight: 400;
+                font-size: 12px;
+            }
+        }
+
+        .btn{
+            margin-top: 25px;
+            width: 243px;
+            height: 55px;
+            font-size: 19px;
         }
     }
 }
@@ -155,31 +171,20 @@
 
 @media (max-width: 1024px) {
     .section-seven__modal{
-        background-image: url('../../../assets/images/section-seven-address-mobile.png');
-        background-color: #E2E2E2;
-        height: 734px;
+        background-color: #fff;
+        height: 500px;
         width: 473px;
 
         h3{
             font-size: 18px !important;
-        }
-
-        &-copy-block{
-            span{
-                font-size: 23px;
-            }
-        }
-
-        &-info{
-            font-size: 16px;
         }
     }
 }
 
 @media (max-width: 730px) {
     .section-seven__modal{
-        height: 650px;
-        width: 335px;
+        height: 450px;
+        width: 435px;
         padding: 56px 25px;
 
         &--hidden{
@@ -242,29 +247,76 @@
                 font-size: 16px !important;
             }
         }
+    }
+}
 
-        &-copy-block{
-            margin-top: 9px;
+@media (max-width: 470px) {
+    .section-seven__modal{
+        height: 450px;
+        width: 335px;
+        padding: 56px 25px;
+
+        form{
+            display: flex;
+            align-items: center;
             flex-direction: column;
-            align-items: flex-start;
-
-            span{
-                font-size: 24px !important;
+    
+            div{
+                p{
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin-bottom: 7px !important;
+                    line-height: 16px;
+                    color: #8B8B8B;
+                }
+                input, select{
+                    width: 296px;
+                    height: 40px;
+                    padding: 0px 20px;
+                    border: 1px solid #D9D9D9;
+                    border-radius: 10px;
+                    font-size: 16px;
+                }
             }
-
-            .btn.btn-primary{
-               margin-top: 23px;
+    
+            .form__input{
+                display: flex;
+                margin-top: 21px;
+    
+                input{
+                    margin-right: 10px;
+                }
+    
+                input,select{
+                    height: 40px;
+                    width: 145px;
+                }
             }
-        }
-
-        &-info{
-            font-size: 16px !important;
-            margin-top: 24px;
-        }
-
-        &-instructions{
-            margin-top: 13px;
-            font-size: 12px !important;
+    
+            .form__checkbox{
+                display: flex;
+                width: 256px;
+                align-items: center;
+                margin-top: 23px;
+    
+                input{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 3px;
+                }
+    
+                label{
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+    
+            .btn{
+                margin-top: 25px;
+                width: 243px;
+                height: 55px;
+                font-size: 19px;
+            }
         }
     }
 }
