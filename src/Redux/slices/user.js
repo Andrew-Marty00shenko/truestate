@@ -1,11 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import userAPI from "../../API/userAPI";
+
 const initialState = {
     user: null,
     token: window.localStorage.token,
     isAuth: !!window.localStorage.token,
     loading: false
 };
+
+export const registerUser = createAsyncThunk(
+    'user/registration',
+    async data => {
+        const response = await userAPI.registration(data)
+            .then(res => res.data)
+            .catch(err => console.log(err));
+        return response;
+    }
+);
 
 // export const fetchUser = createAsyncThunk(
 //     'user/fetchUser',
@@ -30,20 +42,7 @@ const userSlice = createSlice({
         login: (state) => {
             state.isAuth = true;
         }
-    },
-    // extraReducers: builder => {
-    //     builder.addCase(fetchUser.fulfilled, (state, action) => {
-    //         state.loading = false;
-    //         state.user = action.payload;
-    //     });
-    //     builder.addCase(fetchUser.pending, state => {
-    //         state.loading = true;
-    //     });
-    //     builder.addCase(fetchUser.rejected, (state, action) => {
-    //         state.loading = false;
-    //         state.error = action.payload;
-    //     });
-    // }
+    }
 });
 
 export const { login } = userSlice.actions;

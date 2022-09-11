@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMain';
 import Registration from '../../Components/Dashboard/Registration/Registration';
+import Confirmation from '../../Components/Dashboard/Confirmation/Confirmation'
 import ForgotPassword from '../../Components/Dashboard/ForgotPassword/ForgotPassword';
 import ConnectWalletButton from '../../Components/Dashboard/ConnectWalletButton/ConnectWalletButton';
 import DataInput from '../../Components/Dashboard/DataInput/DataInput';
@@ -67,13 +68,15 @@ const Dashboard = () => {
     })}>
         {location.pathname === '/dashboard' ||
             location.pathname === '/dashboard/registration' ||
-            location.pathname === '/dashboard/forgot-password'
+            location.pathname === '/dashboard/forgot-password' ||
+            location.pathname.includes('/dashboard/confirmation')
             ? (
                 <>
                     <Routes>
                         <Route path='/dashboard' element={<DashboardMain />} />
                         <Route path='/dashboard/registration' element={<Registration />} />
                         <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
+                        <Route path='/dashboard/confirmation/:code' element={<Confirmation />} />
                     </Routes>
                     {(location.pathname === '/dashboard/registration' ||
                         location.pathname === '/dashboard/forgot-password') &&

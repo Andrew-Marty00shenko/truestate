@@ -8,5 +8,7 @@
     "DASHBOARD_MENU_DOCS": "Документи",
     "DASHBOARD_MENU_BALANCE": "Баланс",
     "DASHBOARD_CONNECT_WALLET": "З'єднати з гаманцем Metamask",
-    "CLICK_LINKS_ERROR": "Увійди до облікового запису"
+    "CLICK_LINKS_ERROR": "Увійди до облікового запису",
+    "CONFIRMATION": "Пошта успішно підтверджена!",
+    "CONFIRMATION_LOGIN": "Увійти"
 }

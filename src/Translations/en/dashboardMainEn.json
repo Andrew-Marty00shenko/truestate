@@ -8,5 +8,7 @@
     "DASHBOARD_MENU_DOCS": "Docs",
     "DASHBOARD_MENU_BALANCE": "Balance",
     "DASHBOARD_CONNECT_WALLET": "Connect with Metamask Wallet",
-    "CLICK_LINKS_ERROR": "Log in to your account"
+    "CLICK_LINKS_ERROR": "Log in to your account",
+    "CONFIRMATION": "Mail successfully confirmed!",
+    "CONFIRMATION_LOGIN": "Sign-in"
 }

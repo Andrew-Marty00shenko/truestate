@@ -2,8 +2,11 @@ import classNames from "classnames";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
+import { registerUser } from "../../../Redux/slices/user";
 
 import "./Registration.scss";
 
@@ -11,6 +14,7 @@ const Registration = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const dispatch = useDispatch();
 
     const notify = () => {
         toast.success(t('registration:REGISTRATION_NOTIFICATION'), {
@@ -19,12 +23,12 @@ const Registration = () => {
             progressClassName: 'toast-modal-progress'
         });
 
-        navigate('/dashboard/login');
+        // navigate('/dashboard/login');
     };
 
     const onSubmit = data => {
-        notify()
-    }
+        dispatch(registerUser(data));
+    };
 
     return <form className="registration" onSubmit={handleSubmit(onSubmit)}>
         <h1>
