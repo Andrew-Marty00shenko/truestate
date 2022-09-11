@@ -1,4 +1,12 @@
 
+.Toastify__toast--error{
+    .Toastify__toast-icon{
+        svg{
+            fill: #ff0000;
+        }
+    }  
+}
+
 .Toastify__toast-icon{
     svg{
         fill: #8A0BFF;
