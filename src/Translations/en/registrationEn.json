@@ -1,8 +1,7 @@
 {
     "REGISTRATION_TITLE": "Welcome to TRUESTATE!",
     "REGISTRATION_TEXT": "Fill in the fields to create an account",
-    "REGISTRATION_NAME": "First name",
-    "REGISTRATION_SECOND_NAME": "Surname",
+    "REGISTRATION_LOGIN": "Login",
     "REGISTRATION_EMAIL": "Email",
     "REGISTRATION_PASSWORD": "Password",
     "REGISTRATION_BUTTON": "Register",

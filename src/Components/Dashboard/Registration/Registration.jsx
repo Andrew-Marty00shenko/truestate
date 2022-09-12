@@ -26,33 +26,17 @@ const Registration = () => {
         </p>
 
         <div>
-            <p style={errors?.secondName && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_SECOND_NAME')}:
+            <p style={errors?.login && { color: "#ff0000" }}>
+                {t('registration:REGISTRATION_LOGIN')}:
             </p>
             <input
-                {...register("secondName", { required: true })}
-                className={classNames({ "error": errors?.secondName })}
-                name="secondName"
+                {...register("login", { required: true })}
+                className={classNames({ "error": errors?.login })}
+                name="login"
                 type="text"
-                placeholder={t('registration:REGISTRATION_SECOND_NAME')}
+                placeholder={t('registration:REGISTRATION_LOGIN')}
             />
-            {errors?.secondName && <p style={{ color: "#ff0000", marginTop: 5 }}>
-                {t('registration:REGISTRATION_ERROR')}
-            </p>}
-        </div>
-
-        <div>
-            <p style={errors?.firstName && { color: "#ff0000" }}>
-                {t('registration:REGISTRATION_NAME')}:
-            </p>
-            <input
-                {...register("firstName", { required: true })}
-                className={classNames({ "error": errors?.firstName })}
-                name="firstName"
-                type="text"
-                placeholder={t('registration:REGISTRATION_NAME')}
-            />
-            {errors?.firstName && <p style={{ color: "#ff0000", marginTop: 5 }}>
+            {errors?.login && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('registration:REGISTRATION_ERROR')}
             </p>}
         </div>
