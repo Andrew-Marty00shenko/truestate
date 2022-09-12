@@ -66,7 +66,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                         {...register("currency", { required: true })}
                     >
                         <option value="$">
-                            $
+                            €
                         </option>
                         <option value="ETH">
                             ETH
