@@ -7,5 +7,6 @@
     "REGISTRATION_PASSWORD": "Пароль",
     "REGISTRATION_BUTTON": "Зареєструватися",
     "REGISTRATION_NOTIFICATION": "На твою пошту надіслано підтвердження облікового запису!",
-    "REGISTRATION_ERROR": "*це поле є обов'язковим"
+    "REGISTRATION_ERROR": "*це поле є обов'язковим",
+    "REGISTRATION_ERROR_RESPONSE": "Користувач із таким логіном або електронною поштою вже існує!"
 }

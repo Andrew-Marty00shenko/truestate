@@ -7,5 +7,6 @@
     "REGISTRATION_PASSWORD": "Password",
     "REGISTRATION_BUTTON": "Register",
     "REGISTRATION_NOTIFICATION": "An account confirmation has been sent to your email!",
-    "REGISTRATION_ERROR": "*this field is required"
+    "REGISTRATION_ERROR": "*this field is required",
+    "REGISTRATION_ERROR_RESPONSE": "User with this login or email already exists!"
 }

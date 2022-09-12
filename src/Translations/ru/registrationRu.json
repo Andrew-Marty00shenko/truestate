@@ -7,5 +7,6 @@
     "REGISTRATION_PASSWORD": "Пароль",
     "REGISTRATION_BUTTON": "Зарегистрироваться",
     "REGISTRATION_NOTIFICATION": "На твою почту отправлено продтверждение аккаунта!",
-    "REGISTRATION_ERROR": "*обязательное поле для заполнения"
+    "REGISTRATION_ERROR": "*обязательное поле для заполнения",
+    "REGISTRATION_ERROR_RESPONSE": "Пользователь с таким логином или email уже существует!"
 }
