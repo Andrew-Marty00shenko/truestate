@@ -8,7 +8,7 @@ const ConnectWalletButton = () => {
     const { t } = useTranslation();
     const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
 
-    return <Button className="connect-wallet-btn" disabled={checkingResidentOfUsa}>
+    return <Button className="connect-wallet-btn" disabled={checkingResidentOfUsa || window.location.pathname === '/dashboard/login'}>
         {t('dashboardMain:DASHBOARD_CONNECT_WALLET')}
     </Button>
 }

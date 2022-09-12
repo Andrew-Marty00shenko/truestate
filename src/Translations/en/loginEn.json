@@ -4,5 +4,7 @@
     "FORGOT_PASSWORD": "Forgotten password?",
     "SIGNIN": "Sign-in",
     "USERNAME_ERROR": "*this field is requied",
-    "PASSWORD_ERROR": "*this field is requied"
+    "PASSWORD_ERROR": "*this field is requied",
+    "LOGIN_ERROR": "User with such details was not found!",
+    "LOGIN_SUCCESS": "Welcome!"
 }

@@ -75,6 +75,10 @@
         &:active {
             background: #8A0BFF;
         }
+
+        &:disabled{
+            background-color: #8B8B8B;
+        }
     }
 }
 
