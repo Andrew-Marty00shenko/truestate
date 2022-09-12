@@ -41,9 +41,9 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 1,
-                    image: [image1, image2, image3],
+                    image: [SectionSevenObjectOne, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
+                    locationCountry: 'Берлин',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
                     typeOfRealEstateValue: 'многоквартирный дом',
                     square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
@@ -77,7 +77,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 2,
-                    image: [image1, image2, image3],
+                    image: [SectionSevenObjectTwo, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -113,7 +113,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             description: [
                 {
                     id: 3,
-                    image: [image1, image2, image3],
+                    image: [SectionSevenObjectThree, image2, image3],
                     location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
                     locationCountry: 'Испания, Барселона',
                     typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
@@ -338,6 +338,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             <Slider ref={sliderOneRef} {...settingsSliderFirst}>
                 {objects.map(object => {
                     return <SliderOne
+                        sliderTwoRef={sliderTwoRef}
                         key={object.id}
                         setOpenModalAddress={setOpenModalAddress}
                         setActiveObjectEstate={setActiveObjectEstate}
@@ -349,8 +350,8 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
                 })}
             </Slider>
         )}
-
-        {showSecondSlider && (
+        {/* {showSecondSlider && ( */}
+        <div style={showSecondSlider ? { display: 'block' } : { display: 'none' }}>
             <Slider ref={sliderTwoRef} {...settingsSliderSecond}>
                 {objects.map(object => {
                     return <SliderTwo
@@ -360,10 +361,12 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
                         setShowFirstSlider={setShowFirstSlider}
                         setShowSecondSlider={setShowSecondSlider}
                         description={object.description}
+                        {...object}
                     />
                 })}
             </Slider>
-        )}
+        </div>
+        {/* )} */}
 
         <div className="section-seven__navigation-mobile">
             <p>
