@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import userAPI from "../../../API/userAPI";
 
@@ -9,11 +9,11 @@ import "./Confirmation.scss";
 
 const Confirmation = () => {
     const { t } = useTranslation();
-    const params = useParams();
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
-        userAPI.confirmation(1, params.code);
-    }, []);
+        userAPI.confirmation(searchParams.get('user_id'), searchParams.get('uid'));
+    }, [searchParams]);
 
     return <div className="confirmation">
         <h1>
