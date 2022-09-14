@@ -41,7 +41,7 @@ export const loginUser = createAsyncThunk(
             });
         return response;
     }
-)
+);
 
 // export const fetchUser = createAsyncThunk(
 //     'user/fetchUser',

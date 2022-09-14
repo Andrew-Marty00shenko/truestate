@@ -15,6 +15,7 @@ import Documents from '../../Components/Dashboard/Documents/Documents';
 import Balance from '../../Components/Dashboard/Balance/Balance';
 
 import "./Dashboard.scss";
+import PasswordConfirmation from '../../Components/Dashboard/ForgotPassword/PasswordConfirmation/PasswordConfirmation';
 
 const Dashboard = () => {
     const { t } = useTranslation();
@@ -68,7 +69,7 @@ const Dashboard = () => {
     })}>
         {location.pathname === '/dashboard' ||
             location.pathname === '/dashboard/registration' ||
-            location.pathname === '/dashboard/forgot-password' ||
+            location.pathname.includes('/dashboard/forgot-password') ||
             location.pathname.includes('/dashboard/confirmation')
             ? (
                 <>
@@ -76,6 +77,7 @@ const Dashboard = () => {
                         <Route path='/dashboard' element={<DashboardMain />} />
                         <Route path='/dashboard/registration' element={<Registration />} />
                         <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
+                        <Route path='/dashboard/forgot-password/confirmation/:code' element={<PasswordConfirmation />} />
                         <Route path='/dashboard/confirmation/:code' element={<Confirmation />} />
                     </Routes>
                     {(location.pathname === '/dashboard/registration' ||
