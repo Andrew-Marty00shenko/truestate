@@ -6,7 +6,7 @@ import userAPI from "../../API/userAPI";
 
 const initialState = {
     user: null,
-    isAuth: !!window.localStorage.token,
+    isAuth: !!window.localStorage.access_token,
     loading: false
 };
 
@@ -15,8 +15,12 @@ export const registerUser = createAsyncThunk(
     async data => {
         const response = await userAPI.registration(data)
             .then(res => {
-                toast.success(t('registration:REGISTRATION_NOTIFICATION'));
-                return res.data;
+                if (res.data.error) {
+                    toast.error(t('registration:REGISTRATION_ERROR_RESPONSE'), { autoClose: 50000 });
+                } else {
+                    toast.success(t('registration:REGISTRATION_NOTIFICATION'));
+                    return res.data;
+                }
             })
             .catch(err => {
                 toast.error(t('registration:REGISTRATION_ERROR_RESPONSE'))
@@ -30,11 +34,15 @@ export const loginUser = createAsyncThunk(
     async (data, thunkAPI) => {
         const response = await userAPI.login(data)
             .then(res => {
-                toast.error(t('login:LOGIN_SUCCESS'));
-                window.axios.defaults.headers.common['access_token'] = res.data.access_token;
-                window.localStorage['access_token'] = res.data.access_token;
-                // thunkAPI.dispatch()
-                return res.data;
+                if (res.data.error) {
+                    toast.error(t('login:LOGIN_ERROR'));
+                } else {
+                    toast.success(t('login:LOGIN_SUCCESS'));
+                    window.axios.defaults.headers.common['access_token'] = res.data.access_token;
+                    window.localStorage['access_token'] = res.data.access_token;
+                    // thunkAPI.dispatch()
+                    return res.data;
+                }
             })
             .catch(err => {
                 toast.error(t('login:LOGIN_ERROR'))
@@ -42,22 +50,6 @@ export const loginUser = createAsyncThunk(
         return response;
     }
 );
-
-// export const fetchUser = createAsyncThunk(
-//     'user/fetchUser',
-//     async () => {
-//         const data = await userApi
-//             .getUser()
-//             .then(res => {
-//                 res.data
-//             })
-//             .catch(err => {
-//                 console.log(err);
-//             });
-
-//         return data;
-//     }
-// );
 
 const userSlice = createSlice({
     name: 'user',
@@ -70,7 +62,11 @@ const userSlice = createSlice({
         });
         builder.addCase(loginUser.fulfilled, (state, action) => {
             state.loading = false;
-            state.isAuth = false;
+            if (action.payload?.access_token) {
+                state.isAuth = true;
+            } else {
+                state.isAuth = false;
+            }
         });
         builder.addCase(loginUser.rejected, state => {
             state.loading = false;

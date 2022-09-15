@@ -88,6 +88,12 @@ ul{
   }
 }
 
+.Toastify__toast--success{
+  .Toastify__progress-bar{
+    background: #8A0BFF !important;
+  }
+}
+
 @media (max-width: 730px) {
   .wrapper{
 

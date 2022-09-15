@@ -1,19 +1,28 @@
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 
 import { loginUser } from "../../../Redux/slices/user";
 
 import "./Login.scss";
+import { useEffect } from "react";
 
 const Login = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
     const loading = useSelector(state => state.user.loading);
+    const isAuth = useSelector(state => state.user.isAuth);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (isAuth) {
+            navigate('/dashboard/data');
+        }
+    }, [isAuth]);
 
     const onSubmit = (data) => {
         dispatch(loginUser(data));
@@ -23,16 +32,16 @@ const Login = () => {
         onSubmit={handleSubmit(onSubmit)}
     >
         <div>
-            <p style={errors?.username && { color: "#ff0000" }}>
+            <p style={errors?.login && { color: "#ff0000" }}>
                 {t('login:LOGIN')}:
             </p>
             <input
-                className={classNames({ "error": errors?.username })}
-                {...register("username", { required: true })}
+                className={classNames({ "error": errors?.login })}
+                {...register("login", { required: true })}
                 type="text"
                 placeholder={t('login:LOGIN')}
             />
-            {errors?.username && <p style={{ color: "#ff0000", marginTop: 5 }}>
+            {errors?.login && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('login:USERNAME_ERROR')}
             </p>}
         </div>
