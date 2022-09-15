@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import classNames from "classnames";
 import { Form, ButtonGroup, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 
@@ -11,9 +12,17 @@ import "./DataInput.scss";
 
 const DataInput = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
+    const isAuth = useSelector(state => state.user.isAuth);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/dashboard/login');
+        }
+    }, []);
 
     const handleClickYes = () => {
         dispatch(clickYes())

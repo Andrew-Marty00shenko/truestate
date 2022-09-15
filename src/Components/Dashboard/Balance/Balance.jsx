@@ -1,12 +1,22 @@
+import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import "./Balance.scss";
 
 const Balance = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
+    const isAuth = useSelector(state => state.user.isAuth);
+
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/dashboard/login');
+        }
+    }, []);
 
     return <div className="balance">
         <div className="balance__block">

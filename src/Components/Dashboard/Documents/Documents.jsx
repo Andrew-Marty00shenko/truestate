@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./Documents.scss";
-import { useEffect } from "react";
 
 const Documents = () => {
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
     const { register, watch, handleSubmit, formState: { errors } } = useForm();
+    const allFields = watch();
     const [passportValue, setPassportValue] = useState('');
     const [idValue, setIdValue] = useState('');
     const [addressValue, setAddressValue] = useState('');
+    const isAuth = useSelector(state => state.user.isAuth);
 
-    const allFields = watch();
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/dashboard/login')
+        }
+    }, []);
 
     useEffect(() => {
         if (allFields) {
