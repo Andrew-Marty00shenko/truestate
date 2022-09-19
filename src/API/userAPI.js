@@ -6,6 +6,10 @@ export default {
     login: ({ login, password }) => axios.post("/user/login", { login, password }),
     forgot: ({ email }) => axios.post("/forgot", { email }),
     restore: (user_id, uid) => axios.post("/restore", { user_id, uid }),
-    new_password: ({ password }) => axios.post("/new_password", { password }),
+    new_password: ({ password }, token) => axios.post("/new_password", { password }, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }),
     subscribe: (bool) => axios.post("/user/subscribe", { subscribe: bool })
 }

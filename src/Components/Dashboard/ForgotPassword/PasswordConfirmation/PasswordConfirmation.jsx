@@ -15,18 +15,25 @@ const PasswordConfirmation = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [checkingEqualPasswords, setChekingEqualPasswords] = useState(false);
     const [clickedChangePassword, setClickedChangePassword] = useState(false);
+    const [token, setToken] = useState('');
 
     useEffect(() => {
-        userAPI.restore(searchParams.get('user_id'), searchParams.get('uid'));
+        userAPI.restore(searchParams.get('user_id'), searchParams.get('uid'))
+            .then(res => {
+                setToken(res.data.access_token);
+            });
     }, [searchParams]);
 
-    const onSubmitNewPassword = (data) => {
+    const onSubmitNewPassword = data => {
         if (data.password !== data.password_confirmation) {
             setChekingEqualPasswords(true);
             return;
         } else {
-            userAPI.new_password(data.password);
-            setClickedChangePassword(true);
+            userAPI.new_password(data, token)
+                .then(res => {
+                    setClickedChangePassword(true);
+                })
+                .catch(err => console.log(err));
         }
     };
 

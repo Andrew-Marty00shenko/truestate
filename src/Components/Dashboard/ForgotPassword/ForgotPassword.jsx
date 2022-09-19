@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+
+import userAPI from "../../../API/userAPI";
 
 import "./ForgotPassword.scss";
 
@@ -11,16 +14,25 @@ const ForgotPassword = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [email, setEmail] = useState('')
     const [clickedNextBtn, setClickedNextBtn] = useState(false);
-    // const err = true
+    const [loading, setLoading] = useState(false);
 
     const onSubmitEmail = data => {
-        // if (err) {
-        //     toast.error(t('forgotPassword:FORGOT_PASSWORD_NOT_FOUND_EMAIL'));
-
-        //     return;
-        // }
-        setClickedNextBtn(true);
-        setEmail(data.email);
+        setLoading(true);
+        userAPI.forgot(data)
+            .then(res => {
+                if (res.data.error) {
+                    setLoading(false);
+                    toast.error(t('forgotPassword:FORGOT_PASSWORD_NOT_FOUND_EMAIL'));
+                } else {
+                    setLoading(false);
+                    setClickedNextBtn(true);
+                    setEmail(data.email);
+                }
+            })
+            .catch(err => {
+                setLoading(false);
+                console.log(err);
+            });
     };
 
     return <div className="forgot-password">
@@ -57,6 +69,7 @@ const ForgotPassword = () => {
                 <Button
                     type="submit"
                     className="btn-first"
+                    disabled={loading}
                 >
                     {t('forgotPassword:FORGOT_PASSWORD_NEXT_BUTTON')}
                     <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">

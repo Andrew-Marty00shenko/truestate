@@ -16,7 +16,7 @@ export const registerUser = createAsyncThunk(
         const response = await userAPI.registration(data)
             .then(res => {
                 if (res.data.error) {
-                    toast.error(t('registration:REGISTRATION_ERROR_RESPONSE'), { autoClose: 50000 });
+                    toast.error(t('registration:REGISTRATION_ERROR_RESPONSE'));
                 } else {
                     toast.success(t('registration:REGISTRATION_NOTIFICATION'));
                     return res.data;
@@ -31,16 +31,15 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
     'user/login',
-    async (data, thunkAPI) => {
+    async (data) => {
         const response = await userAPI.login(data)
             .then(res => {
                 if (res.data.error) {
                     toast.error(t('login:LOGIN_ERROR'));
                 } else {
                     toast.success(t('login:LOGIN_SUCCESS'));
-                    window.axios.defaults.headers.common['access_token'] = res.data.access_token;
+                    window.axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`;
                     window.localStorage['access_token'] = res.data.access_token;
-                    // thunkAPI.dispatch()
                     return res.data;
                 }
             })
