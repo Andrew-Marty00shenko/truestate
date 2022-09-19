@@ -139,5 +139,6 @@
     "SECTION_NINE_CONFIDENTIAL_TEXT_3": "",
     "SECTION_NINE_PRIVACY_POLICY": "Please accept the agreement with the Privacy Policy!",
     "SECTION_NINE_THANKS_SUBSCRIPTION": "Thanks for subscribing!",
-    "SECTION_NINE_THANKS_EMAIL_ERROR": "Enter your Email!"
+    "SECTION_NINE_THANKS_EMAIL_ERROR": "Enter your Email!",
+    "SECTION_NINE_BEFORE_LOGIN": "Login to your account first!"
 }

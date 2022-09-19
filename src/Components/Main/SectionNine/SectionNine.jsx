@@ -8,6 +8,7 @@ import SectionNineImage from "../../../assets/images/section-nine-image.png";
 import SectionNineImageMobile from "../../../assets/images/section-nine-image-mobile.png";
 
 import "./SectionNine.scss";
+import userAPI from "../../../API/userAPI";
 
 const SectionNine = () => {
     const { t } = useTranslation();
@@ -15,29 +16,41 @@ const SectionNine = () => {
     const [checkbox, setCheckbox] = useState(false);
     const [value, setValue] = useState('');
 
-    const notify = () => {
-        toast.success(t('landing:SECTION_NINE_THANKS_SUBSCRIPTION'), {
-            className: "toast-modal",
-            autoClose: 3000,
-            progressClassName: 'toast-modal-progress'
-        });
+    const userSubscribe = () => {
+        userAPI.subscribe(true)
+            .then(res => {
+                toast.success(t('landing:SECTION_NINE_THANKS_SUBSCRIPTION'), {
+                    className: "toast-modal",
+                    autoClose: 3000,
+                    progressClassName: 'toast-modal-progress'
+                });
+            })
+            .catch(err => toast.error(err));
     };
 
     const onSubmit = data => {
-        if (!checkbox) {
-            toast.error(t('landing:SECTION_NINE_PRIVACY_POLICY'), {
-                className: "toast-modal",
-                autoClose: 3000,
-                progressClassName: 'toast-modal-progress'
-            });
-        } else if (!value) {
-            toast.error(t('landing:SECTION_NINE_THANKS_EMAIL_ERROR'), {
+        if (!window.localStorage.access_token) {
+            toast.error(t('landing:SECTION_NINE_BEFORE_LOGIN'), {
                 className: "toast-modal",
                 autoClose: 3000,
                 progressClassName: 'toast-modal-progress'
             });
         } else {
-            notify();
+            if (!checkbox) {
+                toast.error(t('landing:SECTION_NINE_PRIVACY_POLICY'), {
+                    className: "toast-modal",
+                    autoClose: 3000,
+                    progressClassName: 'toast-modal-progress'
+                });
+            } else if (!value) {
+                toast.error(t('landing:SECTION_NINE_THANKS_EMAIL_ERROR'), {
+                    className: "toast-modal",
+                    autoClose: 3000,
+                    progressClassName: 'toast-modal-progress'
+                });
+            } else {
+                userSubscribe();
+            }
         }
     };
 
