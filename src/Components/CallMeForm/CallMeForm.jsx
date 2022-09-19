@@ -1,11 +1,12 @@
 import axios from "axios";
 import classNames from "classnames";
-import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { userRequest } from "../../Redux/slices/callMeBack";
 
 import "./CallMeForm.scss";
 
@@ -16,11 +17,11 @@ const CallMeForm = () => {
         english: true,
         ukranian: false
     });
-    const [selectedTimeZone, setSelectedTimeZone] = useState('GTM-12');
-    const [selectedTimeToCall, setSelectedTimeToCall] = useState('00:00');
     const [selectedCaseOfAppeal, setSelectedCaseOfAppeal] = useState('');
     const [countryCallingCode, setCountryCallingCode] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const isLoading = useSelector(state => state.callMeBack.isLoading);
+    const dispatch = useDispatch();
 
     const fetchCountryCallingCode = () => {
         axios.get('https://ipapi.co/country_calling_code/')
@@ -51,16 +52,23 @@ const CallMeForm = () => {
         }
     };
 
-    const notify = () => {
-        toast.success(t('callMeBack:THANKS_FOR_CONTACTING'), {
-            className: "toast-modal",
-            autoClose: 3000,
-            progressClassName: 'toast-modal-progress'
-        });
-    };
-
     const onSubmit = (data) => {
-        notify();
+        dispatch(
+            userRequest({
+                title: data.gender,
+                firstname: data.name,
+                lastname: data.secondName,
+                phone: data.phone,
+                channel: data.communication_option,
+                timezone: data.timezone,
+                time: data.time_to_call,
+                subject: data.appeal,
+                message: data.your_message,
+                email: data.email,
+                lang: checkboxValue.english ? Array('en') :
+                    checkboxValue.russian ? Array('ru') :
+                        Array('ua')
+            }))
     };
 
     return <form className="call-me-form"
@@ -73,6 +81,7 @@ const CallMeForm = () => {
                 </p>
                 <Form.Select className="call-me-form__select"
                     {...register("gender")}
+                    defaultValue="Mr"
                 >
                     <option value="Mr">Mr</option>
                     <option value="Mrs">Mrs</option>
@@ -153,7 +162,7 @@ const CallMeForm = () => {
             <div>
                 <p> {t('callMeBack:COMMUNICATION_OPTION')}:</p>
                 <Form.Select className="call-me-form__block-select"
-                    {...register("communication-option")}
+                    {...register("communication_option")}
                 >
                     <option value="whatsApp">WhatsApp</option>
                     <option value="telegram" >Telegram</option>
@@ -166,8 +175,9 @@ const CallMeForm = () => {
             <div>
                 <p> {t('callMeBack:TIMEZONE')}:</p>
                 <Form.Select className="call-me-form__block-select"
-                    value={selectedTimeZone}
-                    onChange={e => setSelectedTimeZone(e.target.value)}
+                    // value={selectedTimeZone}
+                    // onChange={e => setSelectedTimeZone(e.target.value)}
+                    {...register("timezone")}
                 >
                     <option value="GTM-12">GTM-12</option>
                     <option value="GTM-11">GTM-11</option>
@@ -201,8 +211,9 @@ const CallMeForm = () => {
             <div>
                 <p> {t('callMeBack:DESIRED_CALL_TIME')}:</p>
                 <Form.Select className="call-me-form__block-select"
-                    value={selectedTimeToCall}
-                    onChange={e => setSelectedTimeToCall(e.target.value)}
+                    // value={selectedTimeToCall}
+                    // onChange={e => setSelectedTimeToCall(e.target.value)}
+                    {...register("time_to_call")}
                 >
                     <option value="00:00">00:00</option>
                     <option value="01:00">01:00</option>
@@ -254,11 +265,11 @@ const CallMeForm = () => {
             onChange={e => setSelectedCaseOfAppeal(e.target.value)}
         >
             <option value="" disabled selected> {t('callMeBack:CASE_APPEAL_PLACEHOLDER')}</option>
-            <option value="investing"> {t('callMeBack:CASE_APPEAL_OPTION_1')}</option>
-            <option value="smart-contract"> {t('callMeBack:CASE_APPEAL_OPTION_2')}</option>
-            <option value="available-objects"> {t('callMeBack:CASE_APPEAL_OPTION_3')}</option>
-            <option value="technical-points"> {t('callMeBack:CASE_APPEAL_OPTION_4')}</option>
-            <option value="other"> {t('callMeBack:CASE_APPEAL_OPTION_5')}</option>
+            <option value={t('callMeBack:CASE_APPEAL_OPTION_1')}> {t('callMeBack:CASE_APPEAL_OPTION_1')}</option>
+            <option value={t('callMeBack:CASE_APPEAL_OPTION_2')}> {t('callMeBack:CASE_APPEAL_OPTION_2')}</option>
+            <option value={t('callMeBack:CASE_APPEAL_OPTION_3')}> {t('callMeBack:CASE_APPEAL_OPTION_3')}</option>
+            <option value={t('callMeBack:CASE_APPEAL_OPTION_4')}> {t('callMeBack:CASE_APPEAL_OPTION_4')}</option>
+            <option value={t('callMeBack:CASE_APPEAL_OPTION_5')}> {t('callMeBack:CASE_APPEAL_OPTION_5')}</option>
         </Form.Select>
         {errors?.appeal && selectedCaseOfAppeal === '' &&
             <p className="call-me-form__error">
@@ -323,39 +334,33 @@ const CallMeForm = () => {
         <div className="call-me-form__block-checkboxes">
             <div>
                 <input
-                    {...register("english")}
                     checked={checkboxValue.english}
                     type="checkbox"
                     className="custom-checkbox"
                     id="English"
                     name="english"
-                    value={checkboxValue.english}
                     onChange={changeCheckboxValue}
                 />
                 <label htmlFor="English">English</label>
             </div>
             <div>
                 <input
-                    {...register("russian")}
                     checked={checkboxValue.russian}
                     type="checkbox"
                     className="custom-checkbox"
                     id="Russian"
                     name="russian"
-                    value={checkboxValue.russian}
                     onChange={changeCheckboxValue}
                 />
                 <label htmlFor="Russian">Русский</label>
             </div>
             <div>
                 <input
-                    {...register("ukranian")}
                     checked={checkboxValue.ukranian}
                     type="checkbox"
                     className="custom-checkbox"
                     id="Ukranian"
                     name="ukranian"
-                    value={checkboxValue.ukranian}
                     onChange={changeCheckboxValue}
                 />
                 <label htmlFor="Ukranian">Украинский</label>
@@ -368,6 +373,7 @@ const CallMeForm = () => {
 
         <Button onClick={handleSubmit}
             type="submit"
+            disabled={isLoading}
         >
             {t('callMeBack:CALL_ME_BACK_BUTTON')}
             <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">

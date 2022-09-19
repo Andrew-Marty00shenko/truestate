@@ -228,6 +228,10 @@
         svg {
             margin-left: 8px;
         }
+
+        &:disabled{
+            background-color: #8B8B8B;
+        }
     }
 }
 
