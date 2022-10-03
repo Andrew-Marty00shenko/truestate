@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import SectionOne from "../../Components/Main/SectionOne/SectionOne";
@@ -10,14 +10,28 @@ import SectionSix from "../../Components/Main/SectionSix/SectionSix";
 import SectionSeven from "../../Components/Main/SectionSeven/SectionSeven";
 import SectionEight from "../../Components/Main/SectionEight/SectionEight";
 import SectionNine from "../../Components/Main/SectionNine/SectionNine";
-
 import SectionOneImage from "../../assets/images/section-one-image.png";
 import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.png";
+
+import completedObjectsAPI from "../../API/completedObjectsAPI";
+
 import "./Main.scss";
 
 const Main = () => {
     const [openModalAddress, setOpenModalAddress] = useState(false);
     const [activeObjectEstate, setActiveObjectEstate] = useState(null);
+    const [objects, setObjects] = useState([]);
+    const [skip, setSkip] = useState(0);
+    const [limit, setLimit] = useState(10);
+    const [total, setTotal] = useState(null);
+
+    useEffect(() => {
+        completedObjectsAPI.getCompletedObjects(skip, limit)
+            .then(({ data }) => {
+                setObjects([...objects, ...data.data]);
+                setTotal(data.total);
+            });
+    }, [skip, limit]);
 
     return <div className="main">
         <Routes>
@@ -40,7 +54,15 @@ const Main = () => {
                 <SectionTwo />
                 <SectionThree />
                 <SectionFour />
-                <SectionFive />
+                {objects.length !== 0 &&
+                    <SectionFive
+                        objects={objects}
+                        total={total}
+                        skip={skip}
+                        setSkip={setSkip}
+                        limit={limit}
+                        setLimit={setLimit}
+                    />}
                 <SectionSix />
                 <SectionSeven
                     setActiveObjectEstate={setActiveObjectEstate}

@@ -11,12 +11,14 @@
     "ADDRESS_PLACEHOLDER": "Адрес по прописке в паспорте",
     "EMAIL": "Email",
     "PHONE_NUMBER": "Телефон",
+    "LANGUAGE": "Язык",
     "PHONE_NUMBER_PLACEHOLDER": "+66 (066) 66 666 66",
     "QUESTION": "Являетесь ли Вы гражданином и / или налоговым резидентом Америки (США)?",
     "ANSWER_YES": "Да",
     "ANSWER_NO": "Нет",
-    "SEND_BTN": "Отправить",
+    "SEND_BTN": "Сохранить",
     "RESIDENT_OF_USA_ERROR": "*Ты не можешь покупать токены TRUESTATE",
     "INPUT_ERROR": "*обязательное поле для заполнения",
-    "ERROR_PHONE_NUMBER": "*Заполните в формате +66 (066) 66 666 66 "
+    "ERROR_PHONE_NUMBER": "*Заполните в формате +66 (066) 66 666 66 ",
+    "USER_PROFILE_UPDATED": "Профиль успешно обновлен!"
 }

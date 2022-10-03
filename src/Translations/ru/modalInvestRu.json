@@ -13,5 +13,7 @@
     "CONTRACT_NUMBER": "Номер контракта",
     "AMOUNT_INVEST": "Сумма инвестиций",
     "CURRENCY": "Валюта",
-    "INVEST": "Инвестировать"
+    "INVEST": "Инвестировать",
+    "METAMASK_IS_NOT_INSTALLED": "На вашем устройстве не установлен метамаск, скачайте его ",
+    "METAMASK_IS_NOT_INSTALLED_HREF": "здесь"
 }

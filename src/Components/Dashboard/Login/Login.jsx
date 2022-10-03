@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -8,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../Redux/slices/user";
 
 import "./Login.scss";
-import { useEffect } from "react";
 
 const Login = () => {
     const { t } = useTranslation();

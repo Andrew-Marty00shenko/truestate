@@ -6,7 +6,9 @@
     "BANK_STATEMENT": "Bank statement",
     "SEND": "Send",
     "STATUS": "Status",
+    "NO_INFO": "No info",
     "RECIEVED": "revieved",
     "NOT_RECIEVED": "not recieved",
-    "INPUT_ERROR": "*this field is required"
+    "INPUT_ERROR": "*this field is required",
+    "SUCCESS_SEND": "Documents sent for review"
 }

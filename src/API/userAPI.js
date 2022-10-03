@@ -11,5 +11,10 @@ export default {
             'Authorization': `Bearer ${token}`
         }
     }),
-    subscribe: (bool) => axios.post("/user/subscribe", { subscribe: bool })
+    subscribe: ({ email, browser, date, client }) => axios.post("/subscribe", {
+        email,
+        browser,
+        date,
+        client
+    })
 }

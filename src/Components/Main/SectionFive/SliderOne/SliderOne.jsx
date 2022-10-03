@@ -1,27 +1,56 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import completedObjectsAPI from "../../../../API/completedObjectsAPI";
 
-const SliderOne = ({ setShowFirstSlider, setShowSecondSlider, ...object }) => {
-    const { t } = useTranslation();
-    const [openInfoEstate, setOpenInfoEstate] = useState(false);
+const SliderOne = ({
+    sliderTwoRef,
+    setShowFirstSlider,
+    setShowSecondSlider,
+    index,
+    ...object
+}) => {
+    const { t, i18n } = useTranslation();
+    const url = 'https://topmail.net.ua:8443';
+    const [photo, setPhoto] = useState(null);
 
     const handleShowInfo = () => {
         setShowSecondSlider(true);
         setShowFirstSlider(false);
-    }
+        sliderTwoRef.current.slickGoTo(index);
+    };
+
+    useEffect(() => {
+        completedObjectsAPI.getPhotosCompletedObjects(object.id)
+            .then(({ data }) => {
+                setPhoto(data[0]);
+            })
+    }, []);
 
     return <div
         className="section-five__block"
         style={{ width: 386 }}
         key={object.id}
     >
-        <img src={object.image} alt="section-five" />
+        <img src={`${url}${photo?.url}`} alt="section-five" />
         <div className="section-five__block-info">
             <p>
-                <span>{object.location}:</span> {object.locationCountry} <br />
-                <span>{object.deadline}:</span> {object.deadlineTime}<br />
-                <span>{object.profitPercents}:</span> {object.profitPercentsNumber}
+                <span>{t('landing:SECTION_FIVE_OBJECT_LOCATION')}:</span> {i18n.language === "EN"
+                    ? object.location.en
+                    : i18n.language === "RU"
+                        ? object.location.ru
+                        : object.location.ua
+                }
+                <br />
+                <span>{t('landing:SECTION_FIVE_OBJECT_DEADLINE')}:</span> {i18n.language === "EN"
+                    ? object.term.en
+                    : i18n.language === "RU"
+                        ? object.term.ru
+                        : object.term.ua
+                }
+                <br />
+                <span>{t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE')}:</span> {object.profit}%
             </p>
         </div >
         <Button onClick={handleShowInfo}>

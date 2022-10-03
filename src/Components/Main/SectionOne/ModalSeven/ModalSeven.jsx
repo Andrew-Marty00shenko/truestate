@@ -38,7 +38,7 @@ const ModalSeven = ({
 
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="27.9967" cy="27.9999" r="27.0358" fill="#A585FF" />
-                <path d="M15.1328 27.2703L26.1042 38.2416L44.0626 16.5019" stroke="white" stroke-width="4" />
+                <path d="M15.1328 27.2703L26.1042 38.2416L44.0626 16.5019" stroke="white" strokeWidth="4" />
             </svg>
 
             <h1>

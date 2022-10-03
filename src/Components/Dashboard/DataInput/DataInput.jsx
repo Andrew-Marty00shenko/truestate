@@ -1,22 +1,59 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { toast } from "react-toastify";
 import { Form, ButtonGroup, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux/es/exports";
+import countries from "i18n-iso-countries";
 
 import { clickNo, clickYes } from "../../../Redux/slices/checkingResidentOfUsa";
+import userDataAPI from "../../../API/userDataAPI";
 
 import "./DataInput.scss";
 
+countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+countries.registerLocale(require('i18n-iso-countries/langs/ru.json'));
+countries.registerLocale(require('i18n-iso-countries/langs/uk.json'));
+
 const DataInput = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [activeCountries, setActiveCountries] = useState(null);
+    const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(false);
+
     const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
     const isAuth = useSelector(state => state.user.isAuth);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setActiveCountries(countries.getNames(i18n.language === 'UA' ?
+            'uk' :
+            i18n.language.toLocaleLowerCase())
+        );
+    }, [t]);
+
+    useEffect(() => {
+        userDataAPI.getUserProfile()
+            .then(({ data }) => {
+                reset({
+                    gender: data.sex,
+                    secondName: data.lastname,
+                    name: data.firstname,
+                    dateOfBirth: data.birthday,
+                    country: data.citizenship,
+                    address: data.address,
+                    email: data.email,
+                    phone: data.phone,
+                    language: data.lang
+                });
+                setUserData(data);
+            })
+    }, []);
 
     useEffect(() => {
         if (!isAuth) {
@@ -33,8 +70,24 @@ const DataInput = () => {
     };
 
     const onSubmit = data => {
-        console.log(data)
-    }
+        setLoading(true);
+        userDataAPI.saveUserProfile({
+            firstname: data.name,
+            lastname: data.secondName,
+            sex: data.gender,
+            birthday: data.dateOfBirth,
+            address: data.address,
+            phone: data.phone,
+            citizenship: data.country,
+            is_usa: checkingResidentOfUsa,
+            lang: data.language,
+        }).then(({ data }) => {
+            setLoading(false);
+            if (data.succes) {
+                toast.success(t('dataInput:USER_PROFILE_UPDATED'))
+            }
+        }).catch(err => toast.error(err));
+    };
 
     return <form className="data-input" onSubmit={handleSubmit(onSubmit)}>
         <div className="data-input__block">
@@ -44,8 +97,9 @@ const DataInput = () => {
                     <Form.Select className="data-input__block-select"
                         {...register("gender")}
                     >
-                        <option value="male">{t('dataInput:MALE')}</option>
-                        <option value="female">{t('dataInput:FEMALE')}</option>
+                        <option value={userData?.sex}>{userData?.sex === 'M' ? t('dataInput:MALE') : t('dataInput:FEMALE')}</option>
+                        <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                        <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
                     </Form.Select>
                 </div>
                 <div>
@@ -86,7 +140,7 @@ const DataInput = () => {
                         <input
                             className={classNames({ "error": errors?.dateOfBirth })}
                             {...register("dateOfBirth", { required: true })}
-                            type="text"
+                            type="date"
                             placeholder={t('dataInput:DATE_OF_BIRTH_PLACEHOLDER')}
                         />
                         {errors?.dateOfBirth && <p style={{ color: "#ff0000", marginTop: 5 }}>
@@ -98,8 +152,15 @@ const DataInput = () => {
                         <Form.Select className="data-input__block-select"
                             {...register("country")}
                         >
-                            <option>Мужчина</option>
-                            <option>Женщина</option>
+                            <option value={userData?.citizenship}>{userData?.citizenship}</option>
+                            {activeCountries && Object.keys(activeCountries).map(countryId => {
+                                return <option
+                                    key={countryId}
+                                    value={activeCountries[countryId]}
+                                >
+                                    {activeCountries[countryId]}
+                                </option>
+                            })}
                         </Form.Select>
                     </div>
                 </div>
@@ -161,6 +222,40 @@ const DataInput = () => {
             </div>
         </div>
 
+        <div className="data-input__language">
+            <p style={errors?.language && { color: "#ff0000" }}>
+                {t('dataInput:LANGUAGE')}:
+            </p>
+            <Form.Select className="data-input__block-select"
+                {...register("language", {
+                    required: true
+                })}
+            >
+                <option value={userData?.language === "ru"
+                    ? 'ru'
+                    : userData?.language === "en"
+                        ? 'en'
+                        : userData?.language === "ua"
+                            ? 'ua'
+                            : null}
+                    disabled
+                >
+                    {userData?.language === "ru"
+                        ? 'Русский'
+                        : userData?.language === "en"
+                            ? 'English'
+                            : 'Український'
+                    }
+                </option>
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+                <option value="ua">Український</option>
+            </Form.Select>
+            {errors?.language && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                {t('dataInput:INPUT_ERROR')}
+            </p>}
+        </div>
+
         <div className="data-input__text">
             {t('dataInput:QUESTION')}
             <ButtonGroup>
@@ -169,12 +264,20 @@ const DataInput = () => {
                     onClick={handleClickYes}
                 >
                     {t('dataInput:ANSWER_YES')}
+                    {checkingResidentOfUsa && <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="#fff" strokeWidth="1.5">
+                        </path>
+                    </svg>}
                 </Button>
                 <Button
                     className={classNames({ "active": !checkingResidentOfUsa })}
                     onClick={handleClickNo}
                 >
                     {t('dataInput:ANSWER_NO')}
+                    {!checkingResidentOfUsa && <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 13.2937L9.14074 18.4344L21.0848 3.79091" stroke="#fff" strokeWidth="1.5">
+                        </path>
+                    </svg>}
                 </Button>
             </ButtonGroup>
         </div>
@@ -183,7 +286,7 @@ const DataInput = () => {
             <Button
                 className="send-btn"
                 type="submit"
-                disabled={checkingResidentOfUsa}
+                disabled={checkingResidentOfUsa || loading}
             >
                 {t('dataInput:SEND_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -195,7 +298,7 @@ const DataInput = () => {
                 {t('dataInput:RESIDENT_OF_USA_ERROR')}
             </p> : ""}
         </div>
-    </form>
+    </form >
 }
 
 export default DataInput;

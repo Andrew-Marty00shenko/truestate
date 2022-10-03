@@ -15,16 +15,21 @@ import image2 from "../../../assets/images/investObjects/section-seven-obj-1/2.j
 import image3 from "../../../assets/images/investObjects/section-seven-obj-1/3.jpg";
 import image4 from "../../../assets/images/investObjects/section-seven-obj-1/4.jpg";
 import "./SectionSeven.scss";
+import { useEffect } from "react";
 
 
 const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
     const { t } = useTranslation();
+    const [windowWidth, setWindowWidth] = useState(null);
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
     const [activeSlide, setActiveSlide] = useState('01');
-    const [activeDescriptionObject, setActiveDescriptionObject] = useState(null);
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+    }, []);
 
     const objects = [
         {
@@ -255,7 +260,7 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
         variableWidth: true,
         slidesToShow: 4,
         beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
-        autoplay: true,
+        autoplay: windowWidth < 500 ? false : true,
         autoplaySpeed: 3000,
         responsive: [
             {
@@ -344,7 +349,6 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
                         setActiveObjectEstate={setActiveObjectEstate}
                         setShowFirstSlider={setShowFirstSlider}
                         setShowSecondSlider={setShowSecondSlider}
-                        setActiveDescriptionObject={setActiveDescriptionObject}
                         {...object}
                     />
                 })}

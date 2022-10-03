@@ -11,12 +11,14 @@
     "ADDRESS_PLACEHOLDER": "Address as registered in the passport",
     "EMAIL": "Email",
     "PHONE_NUMBER": "Phone number",
+    "LANGUAGE": "Language",
     "PHONE_NUMBER_PLACEHOLDER": "+66 (066) 66 666 66",
     "QUESTION": "Are you a citizen and / or tax resident of America (USA)?",
     "ANSWER_YES": "Yes",
     "ANSWER_NO": "No",
-    "SEND_BTN": "Send",
+    "SEND_BTN": "Save",
     "RESIDENT_OF_USA_ERROR": "*You cannot buy TRUESTATE tokens",
     "INPUT_ERROR": "*this field is required",
-    "ERROR_PHONE_NUMBER": "*Fill in the format +66 (066) 66 666 66 "
+    "ERROR_PHONE_NUMBER": "*Fill in the format +66 (066) 66 666 66 ",
+    "USER_PROFILE_UPDATED": "Profile updated successfully!"
 }

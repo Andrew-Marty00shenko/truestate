@@ -12,7 +12,10 @@ export default {
         subject,
         message,
         email,
-        lang
+        lang,
+        browser,
+        client,
+        date
     }) => axios.post("/user/request", {
         title,
         firstname,
@@ -24,7 +27,10 @@ export default {
         subject,
         message,
         email,
-        lang
+        lang,
+        browser,
+        client,
+        date
     })
 
 }

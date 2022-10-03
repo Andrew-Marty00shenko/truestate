@@ -10,5 +10,6 @@
     "DASHBOARD_CONNECT_WALLET": "Connect with Metamask Wallet",
     "CLICK_LINKS_ERROR": "Log in to your account",
     "CONFIRMATION": "Mail successfully confirmed!",
-    "CONFIRMATION_LOGIN": "Sign-in"
+    "CONFIRMATION_LOGIN": "Sign-in",
+    "LOGOUT": "Log-out"
 }

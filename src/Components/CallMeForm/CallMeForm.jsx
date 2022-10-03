@@ -23,6 +23,13 @@ const CallMeForm = () => {
     const isLoading = useSelector(state => state.callMeBack.isLoading);
     const dispatch = useDispatch();
 
+    let userAgent = navigator.userAgent.toLowerCase();
+
+    let Mozila = /firefox/.test(userAgent);
+    let Chrome = /chrome/.test(userAgent);
+    let Safari = /safari/.test(userAgent);
+    let Opera = /opera/.test(userAgent);
+
     const fetchCountryCallingCode = () => {
         axios.get('https://ipapi.co/country_calling_code/')
             .then(res => setCountryCallingCode(res.data));
@@ -67,7 +74,10 @@ const CallMeForm = () => {
                 email: data.email,
                 lang: checkboxValue.english ? Array('en') :
                     checkboxValue.russian ? Array('ru') :
-                        Array('ua')
+                        Array('ua'),
+                browser: Mozila ? 'Mozila' : Chrome ? 'Chrome' : Safari ? 'Safari' : Opera ? 'Opera' : 'Edge',
+                date: new Date().toLocaleString(),
+                client: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
             }))
     };
 

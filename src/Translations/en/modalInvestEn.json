@@ -13,5 +13,7 @@
     "CONTRACT_NUMBER": "Contract number",
     "AMOUNT_INVEST": "Amount of investment",
     "CURRENCY": "Currency",
-    "INVEST": "Invest"
+    "INVEST": "Invest",
+    "METAMASK_IS_NOT_INSTALLED": "Metamask is not installed on your device, download it ",
+    "METAMASK_IS_NOT_INSTALLED_HREF": "here"
 }

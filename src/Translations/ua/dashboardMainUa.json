@@ -10,5 +10,6 @@
     "DASHBOARD_CONNECT_WALLET": "З'єднати з гаманцем Metamask",
     "CLICK_LINKS_ERROR": "Увійди до облікового запису",
     "CONFIRMATION": "Пошта успішно підтверджена!",
-    "CONFIRMATION_LOGIN": "Увійти"
+    "CONFIRMATION_LOGIN": "Увійти",
+    "LOGOUT": "Вийти"
 }

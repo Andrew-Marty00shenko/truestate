@@ -10,203 +10,17 @@ import SliderTwo from "./SliderTwo/SliderTwo";
 import SectionFiveImage from "../../../assets/images/section-five-image.png";
 import SectionFiveImageBig from "../../../assets/images/section-five-image-big.png";
 import "./SectionFive.scss";
+import { useEffect } from "react";
+import completedObjectsAPI from "../../../API/completedObjectsAPI";
 
-const SectionFive = () => {
+const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
     const { t } = useTranslation();
+    const [windowWidth, setWindowWidth] = useState(null);
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
-    const [activeSlide, setActiveSlide] = useState('01');
+    const [activeSlide, setActiveSlide] = useState(1);
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
-
-    const objects = [
-        {
-            id: 1,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 1,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-        {
-            id: 2,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 2,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-        {
-            id: 3,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 3,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-        {
-            id: 4,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 4,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-        {
-            id: 5,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 5,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-        {
-            id: 6,
-            image: SectionFiveImage,
-            bigImage: SectionFiveImageBig,
-            location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-            locationCountry: 'Испания, Барселона',
-            deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-            deadlineTime: '12 месяцев',
-            profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-            profitPercentsNumber: '50%',
-            subInfo: [
-                {
-                    id: 6,
-                    image: SectionFiveImage,
-                    location: t('landing:SECTION_FIVE_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_FIVE_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    square: t('landing:SECTION_FIVE_OBJECT_AREA'),
-                    price: t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE'),
-                    repairAndImprovements: t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '1234$',
-                    fee: t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '1234$',
-                    priceOfSell: t('landing:SECTION_FIVE_OBJECT_SALE_PRICE'),
-                    deadline: t('landing:SECTION_FIVE_OBJECT_DEADLINE'),
-                    deadlineTime: '12 месяцев',
-                    profitPercents: t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '50%',
-                }
-            ]
-        },
-    ];
 
     const settingsSliderFirst = {
         className: "section-five__slider-one variable-width",
@@ -214,27 +28,27 @@ const SectionFive = () => {
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
-        slidesToShow: 4,
-        beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
-        autoplay: true,
+        slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
+        beforeChange: (current, next) => setActiveSlide(next + 1),
+        autoplay: windowWidth < 500 ? false : true,
         autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1661,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : 3,
                 }
             },
             {
                 breakpoint: 1247,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : 2,
                 }
             },
             {
                 breakpoint: 833,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : 1,
                 }
             }
         ]
@@ -246,11 +60,15 @@ const SectionFive = () => {
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
-        slidesToShow: 1
+        slidesToShow: 1,
+        beforeChange: (current, next) => setActiveSlide(next + 1),
     };
 
     const next = () => {
         if (showFirstSlider) {
+            if ((activeSlide === limit - 1) && (total > skip)) {
+                setSkip(skip + 10);
+            };
             sliderOneRef.current.slickNext();
         }
         if (showSecondSlider) {
@@ -274,10 +92,10 @@ const SectionFive = () => {
         </h2>
         <div className="section-five__navigation">
             <p>
-                {activeSlide}&nbsp;
-                <span> – {objects.length < 10
-                    ? `0${objects.length}`
-                    : objects.length
+                {`0${activeSlide}`}&nbsp;
+                <span> – {total < 10
+                    ? `0${total}`
+                    : total
                 }</span>
             </p>
             <p>
@@ -293,24 +111,28 @@ const SectionFive = () => {
                 </div>
             </p>
         </div>
-        {showFirstSlider && (
+        <div style={showFirstSlider ? { display: 'block' } : { display: 'none' }}>
             <div>
                 <Slider ref={sliderOneRef} {...settingsSliderFirst}>
-                    {objects.map(object => {
-                        return <SliderOne
-                            key={object.id}
-                            setShowFirstSlider={setShowFirstSlider}
-                            setShowSecondSlider={setShowSecondSlider}
-                            {...object}
-                        />
+                    {objects?.map((object, index) => {
+                        return <Fade delay={100}>
+                            <SliderOne
+                                sliderTwoRef={sliderTwoRef}
+                                key={object.id}
+                                index={index}
+                                setShowFirstSlider={setShowFirstSlider}
+                                setShowSecondSlider={setShowSecondSlider}
+                                {...object}
+                            />
+                        </Fade>
                     })}
                 </Slider>
             </div>
-        )}
-        {showSecondSlider && (
+        </div>
+        <div style={showSecondSlider ? { display: 'block' } : { display: 'none' }}>
             <Slider ref={sliderTwoRef} {...settingsSliderSecond}>
-                {objects.map(object => {
-                    return <Fade>
+                {objects.map((object) => {
+                    return <Fade delay={100}>
                         <SliderTwo
                             key={object.id}
                             setShowFirstSlider={setShowFirstSlider}
@@ -320,7 +142,7 @@ const SectionFive = () => {
                     </Fade>
                 })}
             </Slider >
-        )}
+        </div>
         <div className="section-five__navigation-mobile">
             <p>
                 <svg width="41" height="16" viewBox="0 0 41 16" fill="none" xmlns="http://www.w3.org/2000/svg"
