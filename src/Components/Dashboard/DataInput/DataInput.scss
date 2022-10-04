@@ -115,6 +115,16 @@
                 border: 1px solid #D9D9D9 !important;
                 box-shadow: none !important;
             }
+
+            &.error{
+                border: 1px solid #FF0000 !important;
+
+                color: #FF0000 !important;
+
+                option{
+                    color: #000 !important;
+                }
+            }
         }
     }
 

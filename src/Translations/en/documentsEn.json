@@ -10,5 +10,6 @@
     "RECIEVED": "revieved",
     "NOT_RECIEVED": "not recieved",
     "INPUT_ERROR": "*this field is required",
-    "SUCCESS_SEND": "Documents sent for review"
+    "SUCCESS_SEND": "Documents sent for review",
+    "DOCUMENT_REMOVED": "Document deleted"
 }

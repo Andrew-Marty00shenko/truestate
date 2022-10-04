@@ -22,6 +22,8 @@ const DataInput = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
 
+    console.log(errors)
+
     const [activeCountries, setActiveCountries] = useState(null);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -93,14 +95,43 @@ const DataInput = () => {
         <div className="data-input__block">
             <div className="data-input__block-left">
                 <div>
-                    <p>{t('dataInput:SEX')}:</p>
-                    <Form.Select className="data-input__block-select"
-                        {...register("gender")}
+                    <p style={errors?.gender && { color: "#ff0000" }}>
+                        {t('dataInput:SEX')}:
+                    </p>
+                    <Form.Select
+                        className={classNames("data-input__block-select",
+                            { "error": errors?.gender })
+                        }
+                        {...register("gender", {
+                            required: true,
+                            validate: v => v !== ''
+                        })}
                     >
-                        <option value={userData?.sex}>{userData?.sex === 'M' ? t('dataInput:MALE') : t('dataInput:FEMALE')}</option>
-                        <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
-                        <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
+                        {userData?.sex !== null ? <>
+                            <option value={userData?.sex}>
+                                {
+                                    userData?.sex === 'М' || userData?.sex === 'M' || userData?.sex === 'Ч'
+                                        ? t('dataInput:MALE')
+                                        : t('dataInput:FEMALE')
+                                }
+                            </option>
+
+                            {
+                                userData?.sex === 'М' || userData?.sex === 'M' || userData?.sex === 'Ч'
+                                    ? <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
+                                    : <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                            }
+                        </>
+                            : <>
+                                <option value="" disabled selected>{t('dataInput:CHOOSE_SEX')}</option>
+                                <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
+                                <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                            </>
+                        }
                     </Form.Select>
+                    {errors?.gender && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                        {t('dataInput:INPUT_ERROR')}
+                    </p>}
                 </div>
                 <div>
                     <p style={errors?.secondName && { color: "#ff0000" }}>
@@ -148,10 +179,19 @@ const DataInput = () => {
                         </p>}
                     </div>
                     <div>
-                        <p>{t('dataInput:COUNTRY')}:</p>
-                        <Form.Select className="data-input__block-select"
-                            {...register("country")}
+                        <p style={errors?.country && { color: "#ff0000" }}>
+                            {t('dataInput:COUNTRY')}:
+                        </p>
+                        <Form.Select
+                            className={classNames("data-input__block-select",
+                                { "error": errors?.country })
+                            }
+                            {...register("country", {
+                                required: true,
+                                validate: v => v !== ''
+                            })}
                         >
+                            <option value="" disabled selected>{t('dataInput:CHOOSE_COUNTRY')}</option>
                             <option value={userData?.citizenship}>{userData?.citizenship}</option>
                             {activeCountries && Object.keys(activeCountries).map(countryId => {
                                 return <option
@@ -162,6 +202,9 @@ const DataInput = () => {
                                 </option>
                             })}
                         </Form.Select>
+                        {errors?.country && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                            {t('dataInput:INPUT_ERROR')}
+                        </p>}
                     </div>
                 </div>
                 <div>

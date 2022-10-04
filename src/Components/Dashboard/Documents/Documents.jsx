@@ -58,6 +58,7 @@ const Documents = () => {
                 });
                 setKycData({
                     passportFiles: data.data.filter(d => d.doctype === 'passport')[0]?.urls,
+                    passportCountry: data.data.filter(d => d.doctype === 'passport' && d.country)[0]?.country,
                     idFiles: data.data.filter(d => d.doctype === 'id')[0]?.urls,
                     poaFiles: data.data.filter(d => d.doctype === 'poa')[0]?.urls,
                     reason: data.reason,
@@ -79,7 +80,7 @@ const Documents = () => {
         kycDataAPI.deleteDocument(doc)
             .then(({ data }) => {
                 if (data.success) {
-                    toast.success('Документ удален');
+                    toast.success(t('documents:DOCUMENT_REMOVED'));
                     setUpdated(true);
                 };
             }).catch(err => toast.error(err));
@@ -204,6 +205,7 @@ const Documents = () => {
                         className={classNames("documents__block-select", { "error": errors?.countryPassport })}
                     >
                         <option value="" disabled selected>{t('documents:CHOOSE_COUNTRY')}</option>
+                        <option value={kycData?.passportCountry}>{kycData?.passportCountry}</option>
                         {activeCountries && Object.keys(activeCountries).map(countryId => {
                             return <option
                                 key={countryId}
@@ -344,17 +346,25 @@ const Documents = () => {
         <hr />
         <div className="documents__status-block">
             <p>
-                {t('documents:STATUS')}: {kycData?.reason}
-                <span>
-                    {kycData?.reason === null ? t('documents:NO_INFO') : kycData?.reason}
-                    {/* <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.25" y="7.75" width="12.5" height="12.5" stroke="black" strokeWidth="0.5" />
-                        <path d="M2 11.9908L6.44356 16.4344L16.7677 3.77681" stroke="black" />
-                    </svg> */}
-                </span>
+                {t('documents:STATUS')}: {kycData?.reason === null && kycData?.status === 1
+                    ? t('documents:NO_INFO')
+                    : kycData?.reason !== null && kycData?.status === 1
+                        ? t('documents:NOT_RECIEVED')
+                        : kycData?.status === 2
+                            ? <>
+                                {t('documents:RECIEVED')}
+                                <span>
+                                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.25" y="7.75" width="12.5" height="12.5" stroke="black" strokeWidth="0.5" />
+                                        <path d="M2 11.9908L6.44356 16.4344L16.7677 3.77681" stroke="black" />
+                                    </svg>
+                                </span>
+                            </>
+                            : null
+                }
             </p>
             <p>
-                {/* Здесь написано почему отклонена заявка.Также рекомендации по дальнейшим действиям. */}
+                {kycData?.reason}
             </p>
         </div>
     </form >

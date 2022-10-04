@@ -7,6 +7,8 @@
     "DATE_OF_BIRTH": "Дата Народження",
     "DATE_OF_BIRTH_PLACEHOLDER": "05.05.1985",
     "COUNTRY": "Країна",
+    "CHOOSE_SEX": "Вибери підлогу",
+    "CHOOSE_COUNTRY": "Вибери країну",
     "ADDRESS": "Адреса",
     "ADDRESS_PLACEHOLDER": "Адреса по прописці в паспорті",
     "EMAIL": "Електронна адреса",
