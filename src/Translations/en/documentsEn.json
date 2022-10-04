@@ -11,5 +11,6 @@
     "NOT_RECIEVED": "not recieved",
     "INPUT_ERROR": "*this field is required",
     "SUCCESS_SEND": "Documents sent for review",
-    "DOCUMENT_REMOVED": "Document deleted"
+    "DOCUMENT_REMOVED": "Document deleted",
+    "DOCUMENT_REMOVE_CONFIRMATION": "Are you sure you want to delete the document?"
 }

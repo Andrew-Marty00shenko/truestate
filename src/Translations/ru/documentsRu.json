@@ -11,5 +11,6 @@
     "NOT_RECIEVED": "не принято",
     "INPUT_ERROR": "*поле обязательно для заполнения",
     "SUCCESS_SEND": "Документы отправлены на проверку",
-    "DOCUMENT_REMOVED": "Документ удалён"
+    "DOCUMENT_REMOVED": "Документ удалён",
+    "DOCUMENT_REMOVE_CONFIRMATION": "Ты уверен, что хочешь удалить документ?"
 }

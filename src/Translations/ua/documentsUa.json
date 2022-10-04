@@ -11,5 +11,6 @@
     "NOT_RECIEVED": "не прийнято",
     "INPUT_ERROR": "*це поле є обов'язковим",
     "SUCCESS_SEND": "Документи надіслано на перевірку",
-    "DOCUMENT_REMOVED": "Документ видалено"
+    "DOCUMENT_REMOVED": "Документ видалено",
+    "DOCUMENT_REMOVE_CONFIRMATION": "Ти певен, що хочеш видалити документ?"
 }

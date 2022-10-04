@@ -77,13 +77,15 @@ const Documents = () => {
     }, [allFields]);
 
     const handleRemoveDoc = doc => {
-        kycDataAPI.deleteDocument(doc)
-            .then(({ data }) => {
-                if (data.success) {
-                    toast.success(t('documents:DOCUMENT_REMOVED'));
-                    setUpdated(true);
-                };
-            }).catch(err => toast.error(err));
+        if (window.confirm(t('documents:DOCUMENT_REMOVE_CONFIRMATION'))) {
+            kycDataAPI.deleteDocument(doc)
+                .then(({ data }) => {
+                    if (data.success) {
+                        toast.success(t('documents:DOCUMENT_REMOVED'));
+                        setUpdated(true);
+                    };
+                }).catch(err => toast.error(err));
+        };
     };
 
     const handleChangeDoc = (e, doc) => {
@@ -336,7 +338,10 @@ const Documents = () => {
                     </p>}
                 </div>
             </div>
-            <Button type="submit">
+            <Button
+                type="submit"
+                disabled={kycData?.status === 2}
+            >
                 {t('documents:SEND')}
                 <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.2492 7.60782C35.5849 7.27213 35.5849 6.72787 35.2492 6.39218L29.7788 0.921787C29.4431 0.586097 28.8989 0.586097 28.5632 0.921787C28.2275 1.25748 28.2275 1.80174 28.5632 2.13743L33.4257 7L28.5632 11.8626C28.2275 12.1983 28.2275 12.7425 28.5632 13.0782C28.8989 13.4139 29.4431 13.4139 29.7788 13.0782L35.2492 7.60782ZM0.257812 7.85959H34.6414V6.14041H0.257812V7.85959Z" fill="white" />
@@ -364,6 +369,7 @@ const Documents = () => {
                 }
             </p>
             <p>
+                {kycData?.reason !== null && <span style={{ fontWeight: 500 }}>Комментарий: </span>}
                 {kycData?.reason}
             </p>
         </div>
