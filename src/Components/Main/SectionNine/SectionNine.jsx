@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import userAPI from "../../../API/userAPI";
 import SectionNineImage from "../../../assets/images/section-nine-image.png";
 import SectionNineImageMobile from "../../../assets/images/section-nine-image-mobile.png";
+import PrivacyPolicyDoc from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
 
 import "./SectionNine.scss";
-import userAPI from "../../../API/userAPI";
 
 const SectionNine = () => {
     const { t } = useTranslation();
@@ -95,7 +96,7 @@ const SectionNine = () => {
                         checked={checkbox}
                         onChange={() => setCheckbox(!checkbox)}
                     />
-                    <label htmlFor="check">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_1')} <a href="#">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_2')}</a>{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_3')}</label>
+                    <label htmlFor="check">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_1')} <a href={PrivacyPolicyDoc} target="_blank">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_2')}</a>{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_3')}</label>
                 </div>
                 <Button type="submit">
                     {t('landing:SECTION_NINE_BUTTON')}

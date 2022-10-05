@@ -4,8 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
+import PrivacyPolicyDoc from "../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
 import FooterLogo from "../../assets/images/footer-logo.svg";
 import { opened } from "../../Redux/slices/callMeBack";
+
 import "./Footer.scss";
 
 const Footer = () => {
@@ -33,12 +35,12 @@ const Footer = () => {
             </div>
             <ul className="footer__block-info">
                 <li>
-                    <a href="#">
+                    <a target="_blank" href={PrivacyPolicyDoc}>
                         Privacy Policy
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="">
                         White paper
                     </a>
                 </li>
