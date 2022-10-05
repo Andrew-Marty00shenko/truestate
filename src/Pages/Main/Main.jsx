@@ -16,22 +16,38 @@ import SectionOneImageMobile from "../../assets/images/section-one-image-mobile.
 import completedObjectsAPI from "../../API/completedObjectsAPI";
 
 import "./Main.scss";
+import activeObjectsAPI from "../../API/activeObjectsAPI";
 
 const Main = () => {
     const [openModalAddress, setOpenModalAddress] = useState(false);
     const [activeObjectEstate, setActiveObjectEstate] = useState(null);
-    const [objects, setObjects] = useState([]);
-    const [skip, setSkip] = useState(0);
-    const [limit, setLimit] = useState(10);
-    const [total, setTotal] = useState(null);
+
+    const [completedObjects, setCompletedObjects] = useState([]);
+    const [skipCompletedObjects, setSkipCompletedObjects] = useState(0);
+    const [limitCompletedObjects, setLimitCompletedObjects] = useState(10);
+    const [totalCompletedObjects, setTotalCompletedObjects] = useState(null);
+
+    const [activeObjects, setActiveObjects] = useState([]);
+    const [skipActiveObjects, setSkipActiveObjects] = useState(0);
+    const [limitActiveObjects, setLimitActiveObjects] = useState(10);
+    const [totalActiveObjects, setTotalActiveObjects] = useState(null);
 
     useEffect(() => {
-        completedObjectsAPI.getCompletedObjects(skip, limit)
+        completedObjectsAPI.getCompletedObjects(skipCompletedObjects, limitCompletedObjects)
             .then(({ data }) => {
-                setObjects([...objects, ...data.data]);
-                setTotal(data.total);
+                setCompletedObjects([...completedObjects, ...data.data]);
+                setTotalCompletedObjects(data.total);
             });
-    }, [skip, limit]);
+    }, [skipCompletedObjects, limitCompletedObjects]);
+
+
+    useEffect(() => {
+        activeObjectsAPI.getActiveObjects(skipCompletedObjects, limitCompletedObjects)
+            .then(({ data }) => {
+                setActiveObjects([...completedObjects, ...data.data]);
+                setTotalActiveObjects(data.total);
+            });
+    }, [skipActiveObjects, limitActiveObjects])
 
     return <div className="main">
         <Routes>
@@ -54,20 +70,28 @@ const Main = () => {
                 <SectionTwo />
                 <SectionThree />
                 <SectionFour />
-                {objects.length !== 0 &&
+                {completedObjects.length !== 0 &&
                     <SectionFive
-                        objects={objects}
-                        total={total}
-                        skip={skip}
-                        setSkip={setSkip}
-                        limit={limit}
-                        setLimit={setLimit}
+                        objects={completedObjects}
+                        total={totalCompletedObjects}
+                        skip={skipCompletedObjects}
+                        setSkip={setSkipCompletedObjects}
+                        limit={limitCompletedObjects}
+                        setLimit={setLimitCompletedObjects}
                     />}
                 <SectionSix />
-                <SectionSeven
-                    setActiveObjectEstate={setActiveObjectEstate}
-                    setOpenModalAddress={setOpenModalAddress}
-                />
+                {completedObjects.length !== 0 &&
+                    <SectionSeven
+                        objects={activeObjects}
+                        total={totalActiveObjects}
+                        skip={skipActiveObjects}
+                        setSkip={setSkipActiveObjects}
+                        limit={limitActiveObjects}
+                        setLimit={setLimitActiveObjects}
+                        setActiveObjectEstate={setActiveObjectEstate}
+                        setOpenModalAddress={setOpenModalAddress}
+                    />}
+
                 <SectionEight
                     activeObjectEstate={activeObjectEstate}
                     openModalAddress={openModalAddress}

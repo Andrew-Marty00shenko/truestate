@@ -94,7 +94,7 @@
     }
 
     &__block{
-        height: 566px;
+        min-height: 450px;
         width: 386px !important;
         padding: 26px 26px 29px;
         background: #FFFFFF;
@@ -458,7 +458,7 @@
 
                 .section-five__block{
                     width: 314px !important;
-                    height: 501px;
+                    min-height: 450px;
                     padding: 26px 26px 29px;
 
                     img{
@@ -525,6 +525,8 @@
 
 @media (max-width: 510px) {
     .section-five{
+
+
 
         &__slider-two{
             .slick-slide{

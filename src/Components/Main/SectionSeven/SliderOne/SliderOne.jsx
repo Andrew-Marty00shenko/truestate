@@ -1,22 +1,34 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
+import { useEffect } from "react";
+
+import activeObjectsAPI from "../../../../API/activeObjectsAPI";
 
 const SliderOne = ({
     sliderTwoRef,
+    index,
     setActiveObjectEstate,
     setOpenModalAddress,
     setShowFirstSlider,
     setShowSecondSlider,
-    setActiveDescriptionObject,
     ...object
 }) => {
-    const { t } = useTranslation();
+    const url = 'https://topmail.net.ua:8443';
+    const { t, i18n } = useTranslation();
+    const [photo, setPhoto] = useState(null);
+
+    useEffect(() => {
+        activeObjectsAPI.getPhotosActiveObjects(object.id)
+            .then(({ data }) => {
+                setPhoto(data[0]);
+            });
+    }, []);
 
     const handleShowInfo = () => {
         setShowSecondSlider(true);
         setShowFirstSlider(false);
-        setActiveDescriptionObject(object);
-        sliderTwoRef.current.slickGoTo(object.id - 1);
+        sliderTwoRef.current.slickGoTo(index);
     };
 
     const handleClick = () => {
@@ -29,24 +41,27 @@ const SliderOne = ({
         style={{ width: 386 }}
         key={object.id}
     >
-        <img src={object.image} alt="section-five" />
-        <div className="section-seven__block-allow-amount">
+        <img src={`${url}${photo?.url}`} alt="section-five" />
+        {/* <div className="section-seven__block-allow-amount">
             <p>
                 {object.allowAmount} <br />
                 <span>
                     {object.allowAmountNumber}
                 </span>
             </p>
-        </div>
+        </div> */}
         <div className="section-seven__block-info">
             <p>
-                <span>{object.location}:</span> {object.locationCountry} <br />
-                <span>{object.price}:</span> {object.priceNumber}<br />
-                <span>{object.profit}:</span> {object.profitNumber} <br />
+                <span>{t('landing:SECTION_FIVE_OBJECT_LOCATION')}:</span> {i18n.language === "EN"
+                    ? object.location.en
+                    : i18n.language === "RU"
+                        ? object.location.ru
+                        : object.location.ua
+                }
+                <br />
+                <span>{t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE')}:</span> {object.buy_price}<br />
+                <span>{t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE')}:</span> {object.profit}%
             </p>
-            <span className="section-seven__block-info-desc">
-                {/* {object.description} */}
-            </span>
         </div >
         <a className="section-seven__block-btn"
             onClick={handleShowInfo}

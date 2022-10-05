@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import "./Modal.scss";
 
@@ -45,19 +46,33 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
             </svg>
         </div>
         <h3>
-            {t('modalInvest:YOU_HAVE_CHOOSEN')} №{`00${activeObjectEstate?.id}`}.
+            {t('modalInvest:YOU_HAVE_CHOOSEN')} {`${activeObjectEstate !== null ? (
+                activeObjectEstate.id < 10
+                    ? `TRUESTATE №0000${activeObjectEstate.id}`
+                    : activeObjectEstate.id < 100
+                        ? `TRUESTATE №000${activeObjectEstate.id}`
+                        : activeObjectEstate.id < 1000
+                            ? `TRUESTATE №00${activeObjectEstate.id}`
+                            : activeObjectEstate.id < 10000
+                                ? `TRUESTATE №0${activeObjectEstate.id}`
+                                : null
+            ) : (
+                null
+            )}`}.
         </h3>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <p> {t('modalInvest:CONTRACT_NUMBER')}</p>
                 <div>
-                    xxxxxxxxxxxxxxx
-                    <svg
-                        onClick={notify}
-                        width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 7.5V21H7.5V7.5H21ZM21 6H7.5C7.10218 6 6.72064 6.15804 6.43934 6.43934C6.15804 6.72064 6 7.10218 6 7.5V21C6 21.3978 6.15804 21.7794 6.43934 22.0607C6.72064 22.342 7.10218 22.5 7.5 22.5H21C21.3978 22.5 21.7794 22.342 22.0607 22.0607C22.342 21.7794 22.5 21.3978 22.5 21V7.5C22.5 7.10218 22.342 6.72064 22.0607 6.43934C21.7794 6.15804 21.3978 6 21 6Z" fill="#949494" />
-                        <path d="M3 13.5H1.5V3C1.5 2.60218 1.65804 2.22064 1.93934 1.93934C2.22064 1.65804 2.60218 1.5 3 1.5H13.5V3H3V13.5Z" fill="#949494" />
-                    </svg>
+                    xxxx xxxx xxxx xxxx
+                    <CopyToClipboard text={activeObjectEstate?.contract}>
+                        <svg
+                            onClick={notify}
+                            width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7.5V21H7.5V7.5H21ZM21 6H7.5C7.10218 6 6.72064 6.15804 6.43934 6.43934C6.15804 6.72064 6 7.10218 6 7.5V21C6 21.3978 6.15804 21.7794 6.43934 22.0607C6.72064 22.342 7.10218 22.5 7.5 22.5H21C21.3978 22.5 21.7794 22.342 22.0607 22.0607C22.342 21.7794 22.5 21.3978 22.5 21V7.5C22.5 7.10218 22.342 6.72064 22.0607 6.43934C21.7794 6.15804 21.3978 6 21 6Z" fill="#949494" />
+                            <path d="M3 13.5H1.5V3C1.5 2.60218 1.65804 2.22064 1.93934 1.93934C2.22064 1.65804 2.60218 1.5 3 1.5H13.5V3H3V13.5Z" fill="#949494" />
+                        </svg>
+                    </CopyToClipboard>
                 </div>
             </div>
             <div className="form__input">
@@ -115,7 +130,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
         <p className="section-seven__modal-instructions">
             {t('modalInvest:DETAIL_INSTRUCTION')} <a href="#">{t('modalInvest:DETAIL_INSTRUCTION_HREF')}</a>
         </p> */}
-    </div>
+    </div >
 }
 
 export default Modal;

@@ -15,18 +15,18 @@ const SliderOne = ({
     const url = 'https://topmail.net.ua:8443';
     const [photo, setPhoto] = useState(null);
 
-    const handleShowInfo = () => {
-        setShowSecondSlider(true);
-        setShowFirstSlider(false);
-        sliderTwoRef.current.slickGoTo(index);
-    };
-
     useEffect(() => {
         completedObjectsAPI.getPhotosCompletedObjects(object.id)
             .then(({ data }) => {
                 setPhoto(data[0]);
             })
     }, []);
+
+    const handleShowInfo = () => {
+        setShowSecondSlider(true);
+        setShowFirstSlider(false);
+        sliderTwoRef.current.slickGoTo(index);
+    };
 
     return <div
         className="section-five__block"

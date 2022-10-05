@@ -17,7 +17,7 @@ const ModalImage = (props) => {
             <path d="M1 1L26 26" stroke="black" strokeWidth="2" strokeLinecap="round" />
             <path d="M1 26L26 1.00002" stroke="black" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <img className="big-image" src={props.image} alt="big-image" />
+        <img className="big-image" src={`${props.url}${props.image}`} alt="big-image" />
     </Modal>
 }
 

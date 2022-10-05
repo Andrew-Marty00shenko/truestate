@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Slider from "react-slick";
+import { Fade } from "react-awesome-reveal";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
@@ -18,12 +19,20 @@ import "./SectionSeven.scss";
 import { useEffect } from "react";
 
 
-const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
+const SectionSeven = ({
+    objects,
+    total,
+    skip,
+    setSkip,
+    limit,
+    setOpenModalAddress,
+    setActiveObjectEstate
+}) => {
     const { t } = useTranslation();
     const [windowWidth, setWindowWidth] = useState(null);
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
-    const [activeSlide, setActiveSlide] = useState('01');
+    const [activeSlide, setActiveSlide] = useState(1);
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
 
@@ -31,254 +40,33 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
         setWindowWidth(window.innerWidth);
     }, []);
 
-    const objects = [
-        {
-            id: 1,
-            image: SectionSevenObjectOne,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 1,
-                    image: [SectionSevenObjectOne, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Берлин',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        },
-        {
-            id: 2,
-            image: SectionSevenObjectTwo,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 2,
-                    image: [SectionSevenObjectTwo, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        },
-        {
-            id: 3,
-            image: SectionSevenObjectThree,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 3,
-                    image: [SectionSevenObjectThree, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        },
-        {
-            id: 4,
-            image: SectionSevenObjectOne,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 4,
-                    image: [image1, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        },
-        {
-            id: 5,
-            image: SectionSevenObjectOne,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 5,
-                    image: [image1, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        },
-        {
-            id: 6,
-            image: SectionSevenObjectOne,
-            location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-            locationCountry: 'Берлин',
-            price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-            priceNumber: '100.000€',
-            profit: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-            profitNumber: '100%',
-            allowAmount: t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST'),
-            allowAmountNumber: '00.000.000 €',
-            description: [
-                {
-                    id: 6,
-                    image: [image1, image2, image3],
-                    location: t('landing:SECTION_SEVEN_OBJECT_LOCATION'),
-                    locationCountry: 'Испания, Барселона',
-                    typeOfRealEstate: t('landing:SECTION_SEVEN_OBJECT_TYPE_OF_REAL_ESTATE'),
-                    typeOfRealEstateValue: 'многоквартирный дом',
-                    square: t('landing:SECTION_SEVEN_OBJECT_AREA'),
-                    squareValue: '1000 м2',
-                    price: t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE'),
-                    priceValue: '100.000€',
-                    repairAndImprovements: t('landing:SECTION_SEVEN_OBJECT_REPAIR_AND_IMPROVEMENTS'),
-                    repairAndImprovementsNubmer: '50.000€',
-                    fee: t('landing:SECTION_SEVEN_OBJECT_TAXES_FEES_ETC'),
-                    feeNumber: '10.000€',
-                    priceOfSell: t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE'),
-                    priceOfSellValue: '400.000€',
-                    deadline: t('landing:SECTION_SEVEN_OBJECT_DEADLINE'),
-                    deadlineTime: '18 месяцев ',
-                    profitPercents: t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE'),
-                    profitPercentsNumber: '100%'
-                }
-            ]
-        }
-
-    ];
-
-
     const settingsSliderFirst = {
         className: "section-seven__slider variable-width",
         infinite: true,
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
-        slidesToShow: 4,
-        beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
-        autoplay: windowWidth < 500 ? false : true,
+        slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
+        beforeChange: (current, next) => setActiveSlide(next + 1),
+        autoplay: windowWidth < 500 || showSecondSlider ? false : true,
         autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1661,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : 3,
                 }
             },
             {
                 breakpoint: 1247,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : 2,
                 }
             },
             {
                 breakpoint: 833,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: total === 0 ? 0 : total === 1 ? 1 : 1,
                 }
             }
         ]
@@ -286,15 +74,19 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
 
     const settingsSliderSecond = {
         className: "section-five__slider-two variable-width",
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
-        slidesToShow: 1
+        slidesToShow: 1,
+        beforeChange: (current, next) => setActiveSlide(next + 1),
     };
 
     const next = () => {
         if (showFirstSlider) {
+            if ((activeSlide === limit - 2) && (total > skip)) {
+                setSkip(skip + limit);
+            };
             sliderOneRef.current.slickNext();
         }
         if (showSecondSlider) {
@@ -318,12 +110,11 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
         </h2>
         <div className="section-seven__navigation">
             <p>
-                {activeSlide}&nbsp;
-                <span> – {objects.length < 10
-                    ? `0${objects.length}`
-                    : objects.length
-                }
-                </span>
+                {`0${activeSlide}`}&nbsp;
+                <span> – {total < 10
+                    ? `0${total}`
+                    : total
+                }</span>
             </p>
             <p>
                 <div onClick={prev}>
@@ -339,38 +130,42 @@ const SectionSeven = ({ setOpenModalAddress, setActiveObjectEstate }) => {
             </p>
         </div>
 
-        {showFirstSlider && (
-            <Slider ref={sliderOneRef} {...settingsSliderFirst}>
-                {objects.map(object => {
-                    return <SliderOne
-                        sliderTwoRef={sliderTwoRef}
-                        key={object.id}
-                        setOpenModalAddress={setOpenModalAddress}
-                        setActiveObjectEstate={setActiveObjectEstate}
-                        setShowFirstSlider={setShowFirstSlider}
-                        setShowSecondSlider={setShowSecondSlider}
-                        {...object}
-                    />
-                })}
-            </Slider>
-        )}
-        {/* {showSecondSlider && ( */}
+        <div style={showFirstSlider ? { display: 'block' } : { display: 'none' }}>
+            <div>
+                <Slider ref={sliderOneRef} {...settingsSliderFirst}>
+                    {objects.map((object, index) => {
+                        return <Fade key={object.id} triggerOnce delay={100}>
+                            <SliderOne
+                                sliderTwoRef={sliderTwoRef}
+                                key={object.id}
+                                index={index}
+                                setOpenModalAddress={setOpenModalAddress}
+                                setActiveObjectEstate={setActiveObjectEstate}
+                                setShowFirstSlider={setShowFirstSlider}
+                                setShowSecondSlider={setShowSecondSlider}
+                                {...object}
+                            />
+                        </Fade>
+                    })}
+                </Slider>
+            </div>
+        </div>
         <div style={showSecondSlider ? { display: 'block' } : { display: 'none' }}>
             <Slider ref={sliderTwoRef} {...settingsSliderSecond}>
                 {objects.map(object => {
-                    return <SliderTwo
-                        key={object.id}
-                        setOpenModalAddress={setOpenModalAddress}
-                        setActiveObjectEstate={setActiveObjectEstate}
-                        setShowFirstSlider={setShowFirstSlider}
-                        setShowSecondSlider={setShowSecondSlider}
-                        description={object.description}
-                        {...object}
-                    />
+                    return <Fade key={object.id} triggerOnce delay={100}>
+                        <SliderTwo
+                            key={object.id}
+                            setOpenModalAddress={setOpenModalAddress}
+                            setActiveObjectEstate={setActiveObjectEstate}
+                            setShowFirstSlider={setShowFirstSlider}
+                            setShowSecondSlider={setShowSecondSlider}
+                            {...object}
+                        />
+                    </Fade>
                 })}
             </Slider>
         </div>
-        {/* )} */}
 
         <div className="section-seven__navigation-mobile">
             <p>

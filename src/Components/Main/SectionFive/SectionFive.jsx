@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
@@ -7,11 +7,7 @@ import { Element } from "react-scroll";
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
 
-import SectionFiveImage from "../../../assets/images/section-five-image.png";
-import SectionFiveImageBig from "../../../assets/images/section-five-image-big.png";
 import "./SectionFive.scss";
-import { useEffect } from "react";
-import completedObjectsAPI from "../../../API/completedObjectsAPI";
 
 const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
     const { t } = useTranslation();
@@ -22,6 +18,10 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
 
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+    }, []);
+
     const settingsSliderFirst = {
         className: "section-five__slider-one variable-width",
         infinite: true,
@@ -30,7 +30,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         variableWidth: true,
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
         beforeChange: (current, next) => setActiveSlide(next + 1),
-        autoplay: windowWidth < 500 ? false : true,
+        autoplay: windowWidth < 500 || showSecondSlider ? false : true,
         autoplaySpeed: 3000,
         responsive: [
             {
@@ -56,7 +56,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
 
     const settingsSliderSecond = {
         className: "section-five__slider-two variable-width",
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
@@ -66,8 +66,8 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
 
     const next = () => {
         if (showFirstSlider) {
-            if ((activeSlide === limit - 1) && (total > skip)) {
-                setSkip(skip + 10);
+            if ((activeSlide === limit - 2) && (total > skip)) {
+                setSkip(skip + limit);
             };
             sliderOneRef.current.slickNext();
         }
@@ -115,7 +115,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
             <div>
                 <Slider ref={sliderOneRef} {...settingsSliderFirst}>
                     {objects?.map((object, index) => {
-                        return <Fade delay={100}>
+                        return <Fade key={object.id} triggerOnce delay={100}>
                             <SliderOne
                                 sliderTwoRef={sliderTwoRef}
                                 key={object.id}
@@ -132,7 +132,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         <div style={showSecondSlider ? { display: 'block' } : { display: 'none' }}>
             <Slider ref={sliderTwoRef} {...settingsSliderSecond}>
                 {objects.map((object) => {
-                    return <Fade delay={100}>
+                    return <Fade key={object.id} triggerOnce delay={100}>
                         <SliderTwo
                             key={object.id}
                             setShowFirstSlider={setShowFirstSlider}
