@@ -23,8 +23,8 @@ export const connectWallet = async () => {
     return false;
 };
 
-// export const saveTransaction = async tx_hash => {
-//     const response = await transactionAPI.saveTransaction(tx_hash);
+export const saveTransaction = async tx_hash => {
+    const response = await transactionAPI.saveTransaction(tx_hash);
 
-//     return response;
-// };
+    return response;
+};
