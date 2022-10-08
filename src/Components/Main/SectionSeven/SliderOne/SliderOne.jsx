@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import activeObjectsAPI from "../../../../API/activeObjectsAPI";
+import useBalanceById from "../../../../Hooks/web3hooks/useBalanceById";
 
 const SliderOne = ({
     sliderTwoRef,
@@ -17,6 +18,7 @@ const SliderOne = ({
     const url = 'https://topmail.net.ua:8443';
     const { t, i18n } = useTranslation();
     const [photo, setPhoto] = useState(null);
+    const { balance, getBalance } = useBalanceById();
 
     useEffect(() => {
         activeObjectsAPI.getPhotosActiveObjects(object.id)
@@ -24,6 +26,10 @@ const SliderOne = ({
                 setPhoto(data[0]);
             });
     }, []);
+
+    useEffect(() => {
+        getBalance(object.id);
+    }, [balance]);
 
     const handleShowInfo = () => {
         setShowSecondSlider(true);
@@ -42,14 +48,14 @@ const SliderOne = ({
         key={object.id}
     >
         <img src={`${url}${photo?.url}`} alt="section-five" />
-        {/* <div className="section-seven__block-allow-amount">
+        <div className="section-seven__block-allow-amount">
             <p>
-                {object.allowAmount} <br />
+                {t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST')}: <br />
                 <span>
-                    {object.allowAmountNumber}
+                    {balance?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} €
                 </span>
             </p>
-        </div> */}
+        </div>
         <div className="section-seven__block-info">
             <p>
                 <span>{t('landing:SECTION_FIVE_OBJECT_LOCATION')}:</span> {i18n.language === "EN"

@@ -30,7 +30,7 @@
     "sass": "^1.53.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.0",
-    "web3": "^1.7.4"
+    "web3": "^1.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
