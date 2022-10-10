@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import { Fade } from "react-awesome-reveal";
 import { Element } from "react-scroll";
@@ -7,18 +7,7 @@ import { useTranslation } from "react-i18next";
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
 
-import SectionSevenObjectOne from "../../../assets/images/investObjects/section-seven-object-1.jpg";
-import SectionSevenObjectTwo from "../../../assets/images/investObjects/section-seven-object-2.jpg";
-import SectionSevenObjectThree from "../../../assets/images/investObjects/section-seven-object-3.jpg";
-
-import image1 from "../../../assets/images/investObjects/section-seven-obj-1/1.jpg";
-import image2 from "../../../assets/images/investObjects/section-seven-obj-1/2.jpg";
-import image3 from "../../../assets/images/investObjects/section-seven-obj-1/3.jpg";
-import image4 from "../../../assets/images/investObjects/section-seven-obj-1/4.jpg";
 import "./SectionSeven.scss";
-import { useEffect } from "react";
-import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
-
 
 const SectionSeven = ({
     objects,
@@ -34,19 +23,12 @@ const SectionSeven = ({
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
     const [activeSlide, setActiveSlide] = useState(1);
-    const { minAmount, getMinAmount } = useMinAmount();
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
     }, []);
-
-    useEffect(() => {
-        getMinAmount();
-    }, []);
-
-    console.log(minAmount)
 
     const settingsSliderFirst = {
         className: "section-seven__slider variable-width",

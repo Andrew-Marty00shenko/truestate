@@ -52,7 +52,7 @@ const SliderOne = ({
             <p>
                 {t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST')}: <br />
                 <span>
-                    {balance?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} €
+                    {balance?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} €
                 </span>
             </p>
         </div>
@@ -65,7 +65,7 @@ const SliderOne = ({
                         : object.location.ua
                 }
                 <br />
-                <span>{t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE')}:</span> {object.buy_price}<br />
+                <span>{t('landing:SECTION_SEVEN_OBJECT_PURCHACE_PRICE')}:</span> {object.buy_price}€<br />
                 <span>{t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE')}:</span> {object.profit}%
             </p>
         </div >

@@ -8,12 +8,14 @@
     "DETAIL_INSTRUCTION": "Детальна інструкція — ",
     "DETAIL_INSTRUCTION_HREF": "тут.",
     "NOTIFICATION": "Адреса скопійована!",
-    "LITTLE_AMOUNT": "Мінімальна сума інвестування - 100!",
+    "LITTLE_AMOUNT": "Мінімальна сума інвестування -",
     "PRIVACY_POLICY": "я погоджений з політикою конфіденційності, умовами та правилами проекту TRUESTATE",
     "CONTRACT_NUMBER": "Номер контракту",
     "AMOUNT_INVEST": "Сума інвестицій",
     "CURRENCY": "Валюта",
     "INVEST": "Інвестувати",
     "METAMASK_IS_NOT_INSTALLED": "На вашому пристрої не встановлено метамаск, скачайте його ",
-    "METAMASK_IS_NOT_INSTALLED_HREF": "тут"
+    "METAMASK_IS_NOT_INSTALLED_HREF": "тут",
+    "LOGIN_IN_ACCOUNT": "Спочатку увійди до свого облікового запису",
+    "SUCCESS_INVEST": "Ви успішно інвестували в об'єкт"
 }

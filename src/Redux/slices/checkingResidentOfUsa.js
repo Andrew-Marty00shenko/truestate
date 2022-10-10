@@ -12,7 +12,6 @@ export const checkingResidentOfUsaSlice = createSlice({
             state.value = true
         },
         clickNo: (state) => {
-            console.log(state)
             state.value = false
         }
     }

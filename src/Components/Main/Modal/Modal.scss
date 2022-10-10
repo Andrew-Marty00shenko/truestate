@@ -134,6 +134,15 @@
                     border: 1px solid #D9D9D9 !important;
                     box-shadow: none !important;
                 }
+
+                &.error{
+                    color: #ff0000;
+                    border-color: #ff0000;
+
+                    &::placeholder{
+                        color: #ff0000;
+                    }
+                }
             }
 
             &:nth-child(1){

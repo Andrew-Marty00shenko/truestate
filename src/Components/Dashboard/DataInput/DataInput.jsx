@@ -22,8 +22,6 @@ const DataInput = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
 
-    console.log(errors)
-
     const [activeCountries, setActiveCountries] = useState(null);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);

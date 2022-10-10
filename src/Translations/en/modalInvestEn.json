@@ -8,12 +8,14 @@
     "DETAIL_INSTRUCTION": "Detailed instructions — ",
     "DETAIL_INSTRUCTION_HREF": "here.",
     "NOTIFICATION": "Address copied!",
-    "LITTLE_AMOUNT": "The minimum investment amount is 100!",
+    "LITTLE_AMOUNT": "The minimum investment amount is",
     "PRIVACY_POLICY": "I agree with the privacy policy, terms and conditions of the TRUESTATE project",
     "CONTRACT_NUMBER": "Contract number",
     "AMOUNT_INVEST": "Amount of investment",
     "CURRENCY": "Currency",
     "INVEST": "Invest",
     "METAMASK_IS_NOT_INSTALLED": "Metamask is not installed on your device, download it ",
-    "METAMASK_IS_NOT_INSTALLED_HREF": "here"
+    "METAMASK_IS_NOT_INSTALLED_HREF": "here",
+    "LOGIN_IN_ACCOUNT": "Login to your account first",
+    "SUCCESS_INVEST": "You have successfully invested in an object"
 }
