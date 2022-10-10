@@ -3,21 +3,22 @@ import { toast } from "react-toastify";
 
 import { contract } from "../../Utils/contract/contract";
 
-const useBalanceById = () => {
-    const [balance, setBalance] = useState(null);
+const useMinAmount = () => {
+    const [minAmount, setMinAmount] = useState(null);
 
-    const getBalance = (id) =>
+    const getMinAmount = () =>
         contract.methods
-            .getBalanceByID(id)
+            .getMinAmount()
             .call()
             .then((res) => {
-                setBalance(res);
+                console.log(res)
+                // setBalance(res);
             })
             .catch((e) => {
                 toast(e.message, { type: "error" });
             });
 
-    return { balance, getBalance };
+    return { minAmount, getMinAmount };
 };
 
-export default useBalanceById;
+export default useMinAmount;

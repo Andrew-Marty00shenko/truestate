@@ -17,6 +17,7 @@ import image3 from "../../../assets/images/investObjects/section-seven-obj-1/3.j
 import image4 from "../../../assets/images/investObjects/section-seven-obj-1/4.jpg";
 import "./SectionSeven.scss";
 import { useEffect } from "react";
+import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
 
 
 const SectionSeven = ({
@@ -33,12 +34,19 @@ const SectionSeven = ({
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
     const [activeSlide, setActiveSlide] = useState(1);
+    const { minAmount, getMinAmount } = useMinAmount();
     const sliderOneRef = useRef();
     const sliderTwoRef = useRef();
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
     }, []);
+
+    useEffect(() => {
+        getMinAmount();
+    }, []);
+
+    console.log(minAmount)
 
     const settingsSliderFirst = {
         className: "section-seven__slider variable-width",
