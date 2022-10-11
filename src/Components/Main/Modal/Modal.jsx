@@ -8,7 +8,6 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Web3 from "web3";
 
 import { connectWallet, saveTransaction } from "../../../Utils/contract/contract";
-import contractABI from "../../../Utils/contract/contractABI";
 import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
 
 import "./Modal.scss";
