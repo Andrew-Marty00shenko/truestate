@@ -138,7 +138,7 @@ const Footer = () => {
 
                 <ul className="footer__block-mobile-logo-info">
                     <li>
-                        <a href="#">
+                        <a target="_blank" href={PrivacyPolicyDoc}>
                             Privacy Policy
                         </a>
                     </li>
