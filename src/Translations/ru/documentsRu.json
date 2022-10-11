@@ -3,7 +3,9 @@
     "ID": "ID",
     "CHOOSE_COUNTRY": "Выбери страну",
     "PROOF_OF_ADDRESS": "Проверка адреса",
+    "CHOOSE_PROOF_OF_ADDRESS": "Выбери подтверждение адреса",
     "BANK_STATEMENT": "Банковская выписка",
+    "UTILITY_BILL": "Счет за коммунальные услуги",
     "SEND": "Отправить",
     "STATUS": "Статус",
     "NO_INFO": "Нет информации",
@@ -12,5 +14,6 @@
     "INPUT_ERROR": "*поле обязательно для заполнения",
     "SUCCESS_SEND": "Документы отправлены на проверку",
     "DOCUMENT_REMOVED": "Документ удалён",
-    "DOCUMENT_REMOVE_CONFIRMATION": "Ты уверен, что хочешь удалить документ?"
+    "DOCUMENT_REMOVE_CONFIRMATION": "Ты уверен, что хочешь удалить документ?",
+    "ERROR_REMOVE_DOCS": "Ты не можешь удалить принятые документы"
 }

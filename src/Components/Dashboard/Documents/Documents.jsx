@@ -32,6 +32,7 @@ const Documents = () => {
     const [idFiles, setIdFiles] = useState([]);
     const [poaFiles, setPoaFiles] = useState([]);
     const [updated, setUpdated] = useState(false);
+    const [loading, setLoading] = useState(false);
     const isAuth = useSelector(state => state.user.isAuth);
 
     useEffect(() => {
@@ -61,6 +62,7 @@ const Documents = () => {
                     passportCountry: data.data.filter(d => d.doctype === 'passport' && d.country)[0]?.country,
                     idFiles: data.data.filter(d => d.doctype === 'id')[0]?.urls,
                     poaFiles: data.data.filter(d => d.doctype === 'poa')[0]?.urls,
+                    poaCountry: data.data.filter(d => d.doctype === 'poa' && d.country)[0]?.country,
                     reason: data.reason,
                     status: data.status
                 });
@@ -78,13 +80,17 @@ const Documents = () => {
 
     const handleRemoveDoc = doc => {
         if (window.confirm(t('documents:DOCUMENT_REMOVE_CONFIRMATION'))) {
-            kycDataAPI.deleteDocument(doc)
-                .then(({ data }) => {
-                    if (data.success) {
-                        toast.success(t('documents:DOCUMENT_REMOVED'));
-                        setUpdated(true);
-                    };
-                }).catch(err => toast.error(err));
+            if (kycData?.status === 2) {
+                toast.error(t('documents:ERROR_REMOVE_DOCS'));
+            } else {
+                kycDataAPI.deleteDocument(doc)
+                    .then(({ data }) => {
+                        if (data.success) {
+                            toast.success(t('documents:DOCUMENT_REMOVED'));
+                            setUpdated(true);
+                        };
+                    }).catch(err => toast.error(err));
+            }
         };
     };
 
@@ -125,6 +131,7 @@ const Documents = () => {
     };
 
     const onSubmit = data => {
+        setLoading(true);
         kycDataAPI.sendKycData({
             doctype: 'passport',
             country: data.countryPassport,
@@ -132,6 +139,7 @@ const Documents = () => {
         }).then(({ data }) => {
             toast.success(t('documents:SUCCESS_SEND'));
             setUpdated(true);
+            setLoading(false);
         });
 
         kycDataAPI.sendKycData({
@@ -141,6 +149,7 @@ const Documents = () => {
         }).then(({ data }) => {
             toast.success(t('documents:SUCCESS_SEND'));
             setUpdated(true);
+            setLoading(false);
         });
 
         kycDataAPI.sendKycData({
@@ -150,6 +159,7 @@ const Documents = () => {
         }).then(({ data }) => {
             toast.success(t('documents:SUCCESS_SEND'));
             setUpdated(true);
+            setLoading(false);
         });
     };
 
@@ -331,7 +341,23 @@ const Documents = () => {
                         })}
                         className={classNames("documents__block-select", { "error": errors?.countryPoa })}
                     >
-                        <option value="банковская выписка" selected>{t('documents:BANK_STATEMENT')}</option>
+                        <option value="" disabled selected>{t('documents:CHOOSE_PROOF_OF_ADDRESS')}</option>
+
+                        {kycData?.poaCountry?.toLocaleLowerCase() === t('documents:BANK_STATEMENT').toLocaleLowerCase()
+                            ? <>
+                                <option value={kycData?.poaCountry}>{kycData?.poaCountry}</option>
+                                <option value={t('documents:UTILITY_BILL')} >{t('documents:UTILITY_BILL')}</option>
+                            </>
+                            : kycData?.poaCountry?.toLocaleLowerCase() === t('documents:UTILITY_BILL').toLocaleLowerCase()
+                                ? <>
+                                    <option value={kycData?.poaCountry}>{kycData?.poaCountry}</option>
+                                    <option value={t('documents:BANK_STATEMENT')} >{t('documents:BANK_STATEMENT')}</option>
+                                </>
+                                : <>
+                                    <option value={t('documents:BANK_STATEMENT')} >{t('documents:BANK_STATEMENT')}</option>
+                                    <option value={t('documents:UTILITY_BILL')} >{t('documents:UTILITY_BILL')}</option>
+                                </>
+                        }
                     </Form.Select>
                     {errors?.countryPoa && <p style={{ color: "#ff0000", marginTop: 5 }}>
                         {t('dataInput:INPUT_ERROR')}
@@ -340,7 +366,7 @@ const Documents = () => {
             </div>
             <Button
                 type="submit"
-                disabled={kycData?.status === 2}
+                disabled={kycData?.status === 2 || loading}
             >
                 {t('documents:SEND')}
                 <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
