@@ -31,7 +31,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
         beforeChange: (current, next) => {
             setActiveSlide(next + 1);
-            if ((activeSlide === limit - 4) && (total > skip)) {
+            if ((activeSlide === objects.length - (limit - 1)) && (objects.length < total)) {
                 setSkip(skip + limit);
             };
         },
