@@ -43,9 +43,11 @@ export const callMeBackSlice = createSlice({
         });
         builder.addCase(userRequest.fulfilled, (state, action) => {
             state.isLoading = false;
+            state.value = false;
         });
         builder.addCase(userRequest.rejected, state => {
             state.isLoading = false;
+            state.value = false;
         });
     }
 });
