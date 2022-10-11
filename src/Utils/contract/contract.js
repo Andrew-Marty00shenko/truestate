@@ -1,6 +1,6 @@
 import Web3 from "web3";
+import contractABI from "./contractABI.json";
 import transactionAPI from "../../API/transactionsAPI";
-const { contractABI } = require("./contractABI");
 
 export const ETH_RPC = 'https://rpc-mumbai.maticvigil.com/';
 export const HASH_LINK = 'https://mumbai.polygonscan.com/';
