@@ -29,7 +29,12 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
-        beforeChange: (current, next) => setActiveSlide(next + 1),
+        beforeChange: (current, next) => {
+            setActiveSlide(next + 1);
+            if ((activeSlide === limit - 4) && (total > skip)) {
+                setSkip(skip + limit);
+            };
+        },
         autoplay: windowWidth < 500 || showSecondSlider ? false : true,
         autoplaySpeed: 3000,
         responsive: [
@@ -66,9 +71,6 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
 
     const next = () => {
         if (showFirstSlider) {
-            if ((activeSlide === limit - 2) && (total > skip)) {
-                setSkip(skip + limit);
-            };
             sliderOneRef.current.slickNext();
         }
         if (showSecondSlider) {
@@ -92,8 +94,8 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         </h2>
         <div className="section-five__navigation">
             <p>
-                {`0${activeSlide}`}&nbsp;
-                <span> – {total < 10
+                {activeSlide < 10 ? `0${activeSlide}` : activeSlide}
+                <span>&nbsp;– {total < 10
                     ? `0${total}`
                     : total
                 }</span>
