@@ -1,4 +1,4 @@
-const contractABI = {
+export const contractABI = {
     address: '0x669DE0D0d61cE2D6265479d781b8531BBa4dC693',
     abi: [
         {
@@ -274,5 +274,3 @@ const contractABI = {
         }
     ]
 };
-
-export default contractABI;

@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import contractABI from "./contractABI";
+import { contractABI } from "./contractABI";
 
 import transactionAPI from "../../API/transactionsAPI";
 
