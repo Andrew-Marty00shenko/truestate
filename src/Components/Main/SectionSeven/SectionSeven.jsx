@@ -4,6 +4,8 @@ import { Fade } from "react-awesome-reveal";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
+import PrivacyPolicy from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
+
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
 
@@ -38,7 +40,8 @@ const SectionSeven = ({
         variableWidth: true,
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
         beforeChange: (current, next) => setActiveSlide(next + 1),
-        autoplay: windowWidth < 500 || showSecondSlider ? false : true,
+        // autoplay: windowWidth < 500 || showSecondSlider ? false : true,
+        autoplay: true,
         autoplaySpeed: 3000,
         responsive: [
             {
@@ -174,7 +177,7 @@ const SectionSeven = ({
 
         <p className="section-seven__policy">
             {t('landing:SECTION_SEVEN_BOTTOM_TEXT_1')} <br />
-            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_2')} <a href="#"> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF')} </a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_NEXT')}
+            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_2')} <a target="_blank" href={PrivacyPolicy}> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF')} </a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_NEXT')}
         </p>
     </section>
 }

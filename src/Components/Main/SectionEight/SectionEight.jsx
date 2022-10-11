@@ -3,12 +3,15 @@ import { Element, Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
 import Modal from "../Modal/Modal";
-
+import WhitePapperEn from "../../../assets/pdfs/white_papper_en.pdf";
+import WhitePapperRu from "../../../assets/pdfs/white_papper_ru.pdf";
+import WhitePapperUa from "../../../assets/pdfs/white_papper_ua.pdf";
 import SectionEightImage from "../../../assets/images/section-eight-image.png";
+
 import "./SectionEight.scss";
 
 const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return <section className="section-eight">
         <div className="section-eight__faq">
@@ -27,7 +30,15 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_1')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_1')}<a href="#"> {t('landing:SECTION_EIGHT_HREF')}</a>.
+                            {t('landing:SECTION_EIGHT_ANSWER_1')}<a target="_blank" href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=5`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=5`
+                                        : `${WhitePapperUa}#page=5`
+                            }>
+                                {t('landing:SECTION_EIGHT_HREF')}
+                            </a>.
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
@@ -83,7 +94,9 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="7">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_8')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_8')} <a href="#">{t('landing:SECTION_EIGHT_HREF')}</a>).
+                            {t('landing:SECTION_EIGHT_ANSWER_8')} <Link to="estates">
+                                {t('landing:SECTION_EIGHT_HREF')}
+                            </Link>).
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="8">
@@ -101,19 +114,43 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="10">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_11')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_11')} <a href="#"> {t('landing:SECTION_EIGHT_HREF')}</a>.
+                            {t('landing:SECTION_EIGHT_ANSWER_11')} <a target="_blank" href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=5`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=5`
+                                        : `${WhitePapperUa}#page=5`
+                            }>
+                                {t('landing:SECTION_EIGHT_HREF')}
+                            </a>.
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="11">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_12')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_12')} <a href="#"> {t('landing:SECTION_EIGHT_HREF')}</a>.
+                            {t('landing:SECTION_EIGHT_ANSWER_12')} <a target="_blank" href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=5`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=5`
+                                        : `${WhitePapperUa}#page=5`
+                            }>
+                                {t('landing:SECTION_EIGHT_HREF')}
+                            </a>.
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="12">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_13')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_13')} <a href="#">{t('landing:SECTION_EIGHT_ANSWER_13_HREF')}</a> {t('landing:SECTION_EIGHT_ANSWER_13_TEXT')}
+                            {t('landing:SECTION_EIGHT_ANSWER_13')} <a target="_blank" href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=1`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=1`
+                                        : `${WhitePapperUa}#page=1`
+                            }>
+                                {t('landing:SECTION_EIGHT_ANSWER_13_HREF')}
+                            </a> {t('landing:SECTION_EIGHT_ANSWER_13_TEXT')}
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="13">
@@ -131,7 +168,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
             openModalAddress={openModalAddress}
             setOpenModalAddress={setOpenModalAddress}
         />
-    </section>
+    </section >
 }
 
 export default SectionEight;

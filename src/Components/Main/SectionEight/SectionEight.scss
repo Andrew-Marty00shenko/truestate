@@ -115,7 +115,8 @@
 
                     a {
                         border-bottom: 1px solid #8A0BFF;
-                        color: #8A0BFF;
+                        color: #8A0BFF !important;
+                        cursor: pointer; 
                     }
 
                     h4 {

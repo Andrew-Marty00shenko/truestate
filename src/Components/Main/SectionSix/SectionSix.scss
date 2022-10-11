@@ -37,10 +37,11 @@
             font-weight: 200;
             font-size: 20px;
 
-            span{
-                color: #8A0BFF;
+            a{
+                color: #8A0BFF !important;
                 border-bottom: 1px solid #8A0BFF;
                 cursor: pointer;
+                text-decoration: none;
             }
         }
     }

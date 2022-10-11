@@ -5,7 +5,11 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import PrivacyPolicyDoc from "../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
+import WhitePapperEn from "../../assets/pdfs/white_papper_en.pdf";
+import WhitePapperRu from "../../assets/pdfs/white_papper_ru.pdf";
+import WhitePapperUa from "../../assets/pdfs/white_papper_ua.pdf";
 import FooterLogo from "../../assets/images/footer-logo.svg";
+
 import { opened } from "../../Redux/slices/callMeBack";
 
 import "./Footer.scss";
@@ -40,7 +44,13 @@ const Footer = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a target="_blank" href={
+                        i18n.language === 'EN'
+                            ? `${WhitePapperEn}#page=1`
+                            : i18n.language === 'RU'
+                                ? `${WhitePapperRu}#page=1`
+                                : `${WhitePapperUa}#page=1`
+                    } >
                         White paper
                     </a>
                 </li>
@@ -143,7 +153,13 @@ const Footer = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a target="_blank" href={
+                            i18n.language === 'EN'
+                                ? `${WhitePapperEn}#page=1`
+                                : i18n.language === 'RU'
+                                    ? `${WhitePapperRu}#page=1`
+                                    : `${WhitePapperUa}#page=1`
+                        } >
                             White paper
                         </a>
                     </li>

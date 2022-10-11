@@ -1,10 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
+import WhitePapperEn from "../../../assets/pdfs/white_papper_en.pdf";
+import WhitePapperRu from "../../../assets/pdfs/white_papper_ru.pdf";
+import WhitePapperUa from "../../../assets/pdfs/white_papper_ua.pdf";
+
 import "./SectionSix.scss";
 
 const SectionSix = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return <section className="section-six">
         <h2>
@@ -25,7 +29,18 @@ const SectionSix = () => {
                         {t('landing:SECTION_SIX_STEP')} 2.
                     </h3>
                     <p>
-                        {t('landing:SECTION_SIX_STEP_2_TEXT')} <span>{t('landing:SECTION_SIX_STEP_2_HREF')}</span>).
+                        {t('landing:SECTION_SIX_STEP_2_TEXT')} <a
+                            target="_blank"
+                            href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=5`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=5`
+                                        : `${WhitePapperUa}#page=5`
+                            }
+                        >
+                            {t('landing:SECTION_SIX_STEP_2_HREF')}
+                        </a>).
                     </p>
                 </Col>
                 <Col lg={6} className="section-six__item">
@@ -41,7 +56,18 @@ const SectionSix = () => {
                         {t('landing:SECTION_SIX_STEP')} 4.
                     </h3>
                     <p>
-                        {t('landing:SECTION_SIX_STEP_4_TEXT')} <span>{t('landing:SECTION_SIX_STEP_4_HREF')}</span>).
+                        {t('landing:SECTION_SIX_STEP_4_TEXT')} <a
+                            target="_blank"
+                            href={
+                                i18n.language === 'EN'
+                                    ? `${WhitePapperEn}#page=5`
+                                    : i18n.language === 'RU'
+                                        ? `${WhitePapperRu}#page=5`
+                                        : `${WhitePapperUa}#page=5`
+                            }
+                        >
+                            {t('landing:SECTION_SIX_STEP_4_HREF')}
+                        </a>).
                     </p>
                 </Col>
             </Row>
