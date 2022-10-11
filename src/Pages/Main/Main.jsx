@@ -80,7 +80,7 @@ const Main = () => {
                         setLimit={setLimitCompletedObjects}
                     />}
                 <SectionSix />
-                {completedObjects.length !== 0 &&
+                {activeObjects.length !== 0 &&
                     <SectionSeven
                         objects={activeObjects}
                         total={totalActiveObjects}
