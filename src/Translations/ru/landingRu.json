@@ -92,7 +92,9 @@
     "SECTION_SEVEN_OBJECT_IS_NOT_OFFERT": "*Указанные данные являются прогнозом по успешности проекта. Не является офертой.",
     "SECTION_SEVEN_BOTTOM_TEXT_1": "*отправляя ETH на адрес смарт-контракта TRUSTATE и приобретая токены ",
     "SECTION_SEVEN_BOTTOM_TEXT_2": "проекта TRUSTATE ты автоматически соглашаешься с ",
-    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " условиями",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " Политикой Конфиденциальности",
+    "SECTION_SEVEN_BOTTOM_TEXT_AND": " и",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF_2": " условиями",
     "SECTION_SEVEN_BOTTOM_TEXT_NEXT": "проекта.",
     "SECTION_EIGHT_TITLE": "Остались вопросы?",
     "SECTION_EIGHT_QUESTION_1": "Как купить токены TRUESTATE?",
@@ -109,7 +111,9 @@
     "SECTION_EIGHT_QUESTION_5": "Я могу хранить токены TRUESTATE на других кошельках?",
     "SECTION_EIGHT_ANSWER_5": "В настоящий момент токены TRUESTATE можно хранить только на кошельке Metamask. Мы работаем над интеграцией с другими кошельками.",
     "SECTION_EIGHT_QUESTION_6": "Как я вами связаться?",
-    "SECTION_EIGHT_ANSWER_6": "Задать интересующий вопрос можно через email: question@tru.estate, а также заполнив форму «Перезвоните мне» на нашем сайте, и наш специалист свяжется с тобой для консультации.",
+    "SECTION_EIGHT_ANSWER_6": "Задать интересующий вопрос можно через email: question@tru.estate, а также заполнив форму ",
+    "SECTION_EIGHT_ANSWER_6_HREF": "«Перезвоните мне»",
+    "SECTION_EIGHT_ANSWER_6_NEXT": " на нашем сайте, и наш специалист свяжется с тобой для консультации.",
     "SECTION_EIGHT_QUESTION_7": "За счет чего TRUESTATE получает такую доходность по проектам?",
     "SECTION_EIGHT_ANSWER_7": "Высокая доходность достигается за счет нескольких факторов:",
     "SECTION_EIGHT_ANSWER_7_TEXT_1": "Покупка недвижимости по цене ниже рыночной (предложения off market или аукционы);",
@@ -141,5 +145,6 @@
     "SECTION_NINE_PRIVACY_POLICY": "Пожалуйста, прими соглашение с политикой конфиденциальности!",
     "SECTION_NINE_THANKS_SUBSCRIPTION": "Спасибо за подписку!",
     "SECTION_NINE_THANKS_EMAIL_ERROR": "Введи свой Email!",
-    "SECTION_NINE_BEFORE_LOGIN": "Сначала войди в свой аккаунт!"
+    "SECTION_NINE_BEFORE_LOGIN": "Сначала войди в свой аккаунт!",
+    "SECTION_NINE_SUBSCRIBED": "ты подписан"
 }

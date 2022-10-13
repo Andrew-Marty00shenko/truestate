@@ -238,7 +238,7 @@
                     margin-bottom: 11px !important;
                 }
 
-                span {
+                span:not(.href-to-call-me-back) {
                     font-size: 20px;
                     display: flex;
                     justify-content: center;

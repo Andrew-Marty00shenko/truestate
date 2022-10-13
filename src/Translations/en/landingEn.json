@@ -91,8 +91,10 @@
     "SECTION_SEVEN_OBJECT_INVEST_BUTTON": "Invest",
     "SECTION_SEVEN_OBJECT_IS_NOT_OFFERT": "*Forecast data is the result of project success. Not an offer.",
     "SECTION_SEVEN_BOTTOM_TEXT_1": "*By sending ETH to the TRUESTATE smart contract address and purchasing ",
-    "SECTION_SEVEN_BOTTOM_TEXT_2": "TRUESTATE project tokens, you automatically agree to the",
-    "SECTION_SEVEN_BOTTOM_TEXT_HREF": "terms",
+    "SECTION_SEVEN_BOTTOM_TEXT_2": "TRUESTATE project tokens, you automatically agree to the ",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF": "Privacy Policy",
+    "SECTION_SEVEN_BOTTOM_TEXT_AND": " and",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF_2": " terms",
     "SECTION_SEVEN_BOTTOM_TEXT_NEXT": "of the project.",
     "SECTION_EIGHT_TITLE": "Do you have any questions?",
     "SECTION_EIGHT_QUESTION_1": "How can I buy TRUESTATE tokens?",
@@ -109,7 +111,9 @@
     "SECTION_EIGHT_QUESTION_5": "Can I store TRUESTATE tokens in other wallets?",
     "SECTION_EIGHT_ANSWER_5": "Currently, TRUESTATE tokens can only be stored in the Metamask wallet. We are working on integrating with other wallets.",
     "SECTION_EIGHT_QUESTION_6": "How can I contact you?",
-    "SECTION_EIGHT_ANSWER_6": "You can ask a question via email: question@TRUESTATE, or by filling out the «Call me back» form on our website, and our specialist will contact you for a consultation.",
+    "SECTION_EIGHT_ANSWER_6": "You can ask a question via email: question@TRUESTATE, or by filling out the ",
+    "SECTION_EIGHT_ANSWER_6_HREF": "«Call me back»",
+    "SECTION_EIGHT_ANSWER_6_NEXT": " form on our website, and our specialist will contact you for a consultation.",
     "SECTION_EIGHT_QUESTION_7": "How does TRUESTATE get such great project returns?",
     "SECTION_EIGHT_ANSWER_7": "High profitability is achieved due to several factors:",
     "SECTION_EIGHT_ANSWER_7_TEXT_1": "Purchase of real estate at a price below the market (off-market offers or auctions);",
@@ -141,5 +145,6 @@
     "SECTION_NINE_PRIVACY_POLICY": "Please accept the agreement with the Privacy Policy!",
     "SECTION_NINE_THANKS_SUBSCRIPTION": "Thanks for subscribing!",
     "SECTION_NINE_THANKS_EMAIL_ERROR": "Enter your Email!",
-    "SECTION_NINE_BEFORE_LOGIN": "Login to your account first!"
+    "SECTION_NINE_BEFORE_LOGIN": "Login to your account first!",
+    "SECTION_NINE_SUBSCRIBED": "you are subscribed"
 }

@@ -1,5 +1,5 @@
 {
-    "LOGIN": "Логин",
+    "LOGIN": "Логин или Email",
     "PASSWORD": "Пароль",
     "FORGOT_PASSWORD": "Забыли пароль?",
     "SIGNIN": "Войти",

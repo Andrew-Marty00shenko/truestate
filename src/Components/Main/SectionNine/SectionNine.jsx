@@ -10,12 +10,16 @@ import SectionNineImageMobile from "../../../assets/images/section-nine-image-mo
 import PrivacyPolicyDoc from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
 
 import "./SectionNine.scss";
+import { useEffect } from "react";
 
 const SectionNine = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [checkbox, setCheckbox] = useState(false);
     const [value, setValue] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [subscribed, setSubscribed] = useState();
+    const [updated, setUpdated] = useState(false);
 
     let userAgent = navigator.userAgent.toLowerCase();
 
@@ -24,7 +28,12 @@ const SectionNine = () => {
     let Safari = /safari/.test(userAgent);
     let Opera = /opera/.test(userAgent);
 
+    useEffect(() => {
+        setSubscribed(window.localStorage.subscribed);
+    }, [updated]);
+
     const userSubscribe = (email) => {
+        setLoading(true);
         userAPI.subscribe({
             email: email,
             browser: Mozila ? 'Mozila' : Chrome ? 'Chrome' : Safari ? 'Safari' : Opera ? 'Opera' : 'Edge',
@@ -37,8 +46,14 @@ const SectionNine = () => {
                     autoClose: 3000,
                     progressClassName: 'toast-modal-progress'
                 });
+                window.localStorage['subscribed'] = true;
+                setUpdated(true);
+                setLoading(false);
             })
-            .catch(err => toast.error(err));
+            .catch(err => {
+                setLoading(false);
+                toast.error(err)
+            });
     };
 
     const onSubmit = data => {
@@ -98,11 +113,11 @@ const SectionNine = () => {
                     />
                     <label htmlFor="check">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_1')} <a href={PrivacyPolicyDoc} target="_blank">{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_2')}</a>{t('landing:SECTION_NINE_CONFIDENTIAL_TEXT_3')}</label>
                 </div>
-                <Button type="submit">
-                    {t('landing:SECTION_NINE_BUTTON')}
-                    <svg width="41" height="16" viewBox="0 0 41 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <Button type="submit" disabled={loading || subscribed}>
+                    {subscribed ? t('landing:SECTION_NINE_SUBSCRIBED') : t('landing:SECTION_NINE_BUTTON')}
+                    {!subscribed && <svg width="41" height="16" viewBox="0 0 41 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M40.7071 8.45711C41.0976 8.06658 41.0976 7.43342 40.7071 7.04289L34.3431 0.678932C33.9526 0.288408 33.3195 0.288408 32.9289 0.678932C32.5384 1.06946 32.5384 1.70262 32.9289 2.09315L38.5858 7.75L32.9289 13.4069C32.5384 13.7974 32.5384 14.4305 32.9289 14.8211C33.3195 15.2116 33.9526 15.2116 34.3431 14.8211L40.7071 8.45711ZM0 8.75H40V6.75H0V8.75Z" fill="white" />
-                    </svg>
+                    </svg>}
                 </Button>
             </form>
             <div className="section-nine__block-image">

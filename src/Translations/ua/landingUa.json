@@ -92,7 +92,9 @@
     "SECTION_SEVEN_OBJECT_IS_NOT_OFFERT": "*Дані прогнозу є результатом успішності проекту. Не є офертою.",
     "SECTION_SEVEN_BOTTOM_TEXT_1": "*Надсилаючи ETH на адресу смарт контракту TRUESTATE і купуючи токени ",
     "SECTION_SEVEN_BOTTOM_TEXT_2": "проєкту TRUESTATE, ти автоматично погоджуєшся з ",
-    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " умовами ",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF": " Політикою Конфіденційності",
+    "SECTION_SEVEN_BOTTOM_TEXT_AND": " та",
+    "SECTION_SEVEN_BOTTOM_TEXT_HREF_2": " умовами",
     "SECTION_SEVEN_BOTTOM_TEXT_NEXT": "проєкту.",
     "SECTION_EIGHT_TITLE": "Залишились питання?",
     "SECTION_EIGHT_QUESTION_1": "Як придбати токени TRUESTATE?",
@@ -109,7 +111,9 @@
     "SECTION_EIGHT_QUESTION_5": "Чи можу я зберігати токени TRUESTATE на інших гаманцях?",
     "SECTION_EIGHT_ANSWER_5": "Наразі токени TRUESTATE можна зберігати лише на гаманці Metamask. Ми працюємо над інтеграцією з іншими гаманцями.",
     "SECTION_EIGHT_QUESTION_6": "Як зв'язатися з вами?",
-    "SECTION_EIGHT_ANSWER_6": "Поставити питання можна через email: question@TRUESTATE, а також заповнивши форму «Передзвоніть мені» на нашому сайті, і наш спеціаліст зв'яжеться з тобою для консультації.",
+    "SECTION_EIGHT_ANSWER_6": "Поставити питання можна через email: question@TRUESTATE, а також заповнивши форму ",
+    "SECTION_EIGHT_ANSWER_6_HREF": "«Передзвоніть мені»",
+    "SECTION_EIGHT_ANSWER_6_NEXT": " на нашому сайті, і наш спеціаліст зв'яжеться з тобою для консультації.",
     "SECTION_EIGHT_QUESTION_7": "Завдяки чому TRUESTATE отримує таку прибутковість за проєктами?",
     "SECTION_EIGHT_ANSWER_7": "Висока прибутковість досягається внаслідок кількох факторів:",
     "SECTION_EIGHT_ANSWER_7_TEXT_1": "Купівля нерухомості за ціною, нижчою від ринкової (пропозиції off market або аукціони);",
@@ -141,5 +145,6 @@
     "SECTION_NINE_PRIVACY_POLICY": "Будь ласка, погодьтеся з Політикою Конфіденційності!",
     "SECTION_NINE_THANKS_SUBSCRIPTION": "Дякую за підписку!",
     "SECTION_NINE_THANKS_EMAIL_ERROR": "Введи свою електронну пошту!",
-    "SECTION_NINE_BEFORE_LOGIN": "Спочатку увійди до свого облікового запису!"
+    "SECTION_NINE_BEFORE_LOGIN": "Спочатку увійди до свого облікового запису!",
+    "SECTION_NINE_SUBSCRIBED": "ти підписаний"
 }

@@ -1,7 +1,9 @@
 import { Accordion } from "react-bootstrap";
 import { Element, Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
+import { opened } from "../../../Redux/slices/callMeBack";
 import Modal from "../Modal/Modal";
 import WhitePapperEn from "../../../assets/pdfs/white_papper_en.pdf";
 import WhitePapperRu from "../../../assets/pdfs/white_papper_ru.pdf";
@@ -12,6 +14,13 @@ import "./SectionEight.scss";
 
 const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
+
+    const scrollToTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        dispatch(opened());
+    };
 
     return <section className="section-eight">
         <div className="section-eight__faq">
@@ -74,7 +83,10 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="5">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_6')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_6')}
+                            {t('landing:SECTION_EIGHT_ANSWER_6')} <span className="href-to-call-me-back" onClick={scrollToTop} style={{ borderBottom: '1px solid #000', fontSize: 18, cursor: 'pointer' }}>
+                                {t('landing:SECTION_EIGHT_ANSWER_6_HREF')}
+                            </span>
+                            {t('landing:SECTION_EIGHT_ANSWER_6_NEXT')}
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="6">

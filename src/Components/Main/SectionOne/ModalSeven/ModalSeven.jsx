@@ -2,6 +2,10 @@ import { Modal, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 
+import WhitePapperEn from "../../../../assets/pdfs/white_papper_en.pdf";
+import WhitePapperRu from "../../../../assets/pdfs/white_papper_ru.pdf";
+import WhitePapperUa from "../../../../assets/pdfs/white_papper_ua.pdf";
+
 const ModalSeven = ({
     showSeventhModal,
     setShowSeventhModal,
@@ -12,7 +16,7 @@ const ModalSeven = ({
     selectedProfit,
     setSelectedProfit,
 }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const profit = parseInt(selectedSumm, 10) * parseFloat(`0.${selectedProfit}`, 10);
     const resultRevenue = profit + parseInt(selectedSumm, 10);
 
@@ -88,7 +92,14 @@ const ModalSeven = ({
             </Link>
             <p style={{ fontSize: 10, marginTop: 30, textAlign: 'left' }}>
                 {t('modalCalculateProfit:SLIDE_EIGHT_TEXT')} <a
-                    href="/#"
+                    target="_blank"
+                    href={
+                        i18n.language === 'EN'
+                            ? `${WhitePapperEn}#page=2`
+                            : i18n.language === 'RU'
+                                ? `${WhitePapperRu}#page=2`
+                                : `${WhitePapperUa}#page=2`
+                    }
                     style={{ color: '#8A0BFF' }}
                 >
                     {t('modalCalculateProfit:SLIDE_EIGHT_TEXT_HREF')}

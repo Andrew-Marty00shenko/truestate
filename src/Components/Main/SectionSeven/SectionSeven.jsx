@@ -5,6 +5,9 @@ import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
 import PrivacyPolicy from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
+import WhitePapperEn from "../../../assets/pdfs/white_papper_en.pdf";
+import WhitePapperRu from "../../../assets/pdfs/white_papper_ru.pdf";
+import WhitePapperUa from "../../../assets/pdfs/white_papper_ua.pdf";
 
 import SliderOne from "./SliderOne/SliderOne";
 import SliderTwo from "./SliderTwo/SliderTwo";
@@ -20,7 +23,7 @@ const SectionSeven = ({
     setOpenModalAddress,
     setActiveObjectEstate
 }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [windowWidth, setWindowWidth] = useState(null);
     const [showFirstSlider, setShowFirstSlider] = useState(true);
     const [showSecondSlider, setShowSecondSlider] = useState(false);
@@ -177,7 +180,14 @@ const SectionSeven = ({
 
         <p className="section-seven__policy">
             {t('landing:SECTION_SEVEN_BOTTOM_TEXT_1')} <br />
-            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_2')} <a target="_blank" href={PrivacyPolicy}> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF')} </a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_NEXT')}
+            {t('landing:SECTION_SEVEN_BOTTOM_TEXT_2')} <a target="_blank" href={PrivacyPolicy}>{t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF')}</a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_AND')} <a target="_blank"
+                href={
+                    i18n.language === 'EN'
+                        ? `${WhitePapperEn}#page=1`
+                        : i18n.language === 'RU'
+                            ? `${WhitePapperRu}#page=1`
+                            : `${WhitePapperUa}#page=1`
+                }> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_HREF_2')}</a> {t('landing:SECTION_SEVEN_BOTTOM_TEXT_NEXT')}
         </p>
     </section>
 }
