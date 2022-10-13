@@ -1,11 +1,15 @@
 {
     "REGISTRATION_TITLE": "Welcome to TRUESTATE!",
     "REGISTRATION_TEXT": "Fill in the fields to create an account",
-    "REGISTRATION_LOGIN": "Login",
+    "REGISTRATION_LOGIN": "Username",
+    "REGISTRATION_LOGIN_PLACEHOLDER": "Think of a username",
     "REGISTRATION_EMAIL": "Email",
+    "REGISTRATION_EMAIL_PLACEHOLDER": "Your Email",
     "REGISTRATION_PASSWORD": "Password",
+    "REGISTRATION_PASSWORD_PLACEHOLDER": "Think of password",
     "REGISTRATION_BUTTON": "Register",
     "REGISTRATION_NOTIFICATION": "An account confirmation has been sent to your email!",
     "REGISTRATION_ERROR": "*this field is required",
-    "REGISTRATION_ERROR_RESPONSE": "User with this login or email already exists!"
+    "REGISTRATION_ERROR_PATTERN": "*minimum six characters, at least one letter and one number",
+    "REGISTRATION_ERROR_RESPONSE": "User with this username or email already exists!"
 }

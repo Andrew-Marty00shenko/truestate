@@ -1,11 +1,15 @@
 {
     "REGISTRATION_TITLE": "Добро пожаловать в TRUESTATE!",
-    "REGISTRATION_TEXT": "Заполните поля для создания аккаунта",
-    "REGISTRATION_LOGIN": "Логин",
+    "REGISTRATION_TEXT": "Заполни поля для создания аккаунта",
+    "REGISTRATION_LOGIN": "Имя пользователя",
+    "REGISTRATION_LOGIN_PLACEHOLDER": "Придумай имя пользователя",
     "REGISTRATION_EMAIL": "Email",
+    "REGISTRATION_EMAIL_PLACEHOLDER": "Твой Email",
     "REGISTRATION_PASSWORD": "Пароль",
+    "REGISTRATION_PASSWORD_PLACEHOLDER": "Придумай пароль",
     "REGISTRATION_BUTTON": "Зарегистрироваться",
     "REGISTRATION_NOTIFICATION": "На твою почту отправлено продтверждение аккаунта!",
     "REGISTRATION_ERROR": "*обязательное поле для заполнения",
-    "REGISTRATION_ERROR_RESPONSE": "Пользователь с таким логином или email уже существует!"
+    "REGISTRATION_ERROR_PATTERN": "*минимум шесть символов, минимум одна буква и одна цифра",
+    "REGISTRATION_ERROR_RESPONSE": "Пользователь с таким именем или email уже существует!"
 }

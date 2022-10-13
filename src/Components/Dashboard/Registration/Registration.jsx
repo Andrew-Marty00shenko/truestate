@@ -17,6 +17,8 @@ const Registration = () => {
         dispatch(registerUser(data));
     };
 
+    console.log(errors)
+
     return <form className="registration" onSubmit={handleSubmit(onSubmit)}>
         <h1>
             {t('registration:REGISTRATION_TITLE')}
@@ -34,7 +36,7 @@ const Registration = () => {
                 className={classNames({ "error": errors?.login })}
                 name="login"
                 type="text"
-                placeholder={t('registration:REGISTRATION_LOGIN')}
+                placeholder={t('registration:REGISTRATION_LOGIN_PLACEHOLDER')}
             />
             {errors?.login && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('registration:REGISTRATION_ERROR')}
@@ -55,7 +57,7 @@ const Registration = () => {
                 className={classNames({ "error": errors?.email })}
                 name="email"
                 type="email"
-                placeholder={t('registration:REGISTRATION_EMAIL')}
+                placeholder={t('registration:REGISTRATION_EMAIL_PLACEHOLDER')}
             />
             {errors?.email && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('registration:REGISTRATION_ERROR')}
@@ -67,14 +69,20 @@ const Registration = () => {
                 {t('registration:REGISTRATION_PASSWORD')}:
             </p>
             <input
-                {...register("password", { required: true })}
+                {...register("password", {
+                    required: true,
+                    pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+                })}
                 className={classNames({ "error": errors?.password })}
                 name="password"
                 type="password"
-                placeholder={t('registration:REGISTRATION_PASSWORD')}
+                placeholder={t('registration:REGISTRATION_PASSWORD_PLACEHOLDER')}
             />
-            {errors?.password && <p style={{ color: "#ff0000", marginTop: 5 }}>
+            {errors?.password?.type === 'required' && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('registration:REGISTRATION_ERROR')}
+            </p>}
+            {errors?.password?.type === 'pattern' && <p style={{ color: "#ff0000", marginTop: 5, fontSize: 12 }}>
+                {t('registration:REGISTRATION_ERROR_PATTERN')}
             </p>}
         </div>
 
