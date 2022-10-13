@@ -17,8 +17,6 @@ const Registration = () => {
         dispatch(registerUser(data));
     };
 
-    console.log(errors)
-
     return <form className="registration" onSubmit={handleSubmit(onSubmit)}>
         <h1>
             {t('registration:REGISTRATION_TITLE')}
