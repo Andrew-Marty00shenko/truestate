@@ -272,18 +272,18 @@ const DataInput = () => {
                     required: true
                 })}
             >
-                <option value={userData?.language === "ru"
+                <option value={userData?.lang === "ru"
                     ? 'ru'
-                    : userData?.language === "en"
+                    : userData?.lang === "en"
                         ? 'en'
-                        : userData?.language === "ua"
+                        : userData?.lang === "ua"
                             ? 'ua'
                             : null}
                     disabled
                 >
-                    {userData?.language === "ru"
+                    {userData?.lang === "ru"
                         ? 'Русский'
-                        : userData?.language === "en"
+                        : userData?.lang === "en"
                             ? 'English'
                             : 'Український'
                     }
