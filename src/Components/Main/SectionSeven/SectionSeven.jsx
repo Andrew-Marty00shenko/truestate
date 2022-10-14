@@ -42,7 +42,12 @@ const SectionSeven = ({
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
-        beforeChange: (current, next) => setActiveSlide(next + 1),
+        beforeChange: (current, next) => {
+            setActiveSlide(next + 1);
+            if ((activeSlide === objects.length - (limit - 1)) && (objects.length < total)) {
+                setSkip(skip + limit);
+            };
+        },
         // autoplay: windowWidth < 500 || showSecondSlider ? false : true,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -80,9 +85,6 @@ const SectionSeven = ({
 
     const next = () => {
         if (showFirstSlider) {
-            if ((activeSlide === limit - 2) && (total > skip)) {
-                setSkip(skip + limit);
-            };
             sliderOneRef.current.slickNext();
         }
         if (showSecondSlider) {

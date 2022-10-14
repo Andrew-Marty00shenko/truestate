@@ -52,7 +52,9 @@ const SliderOne = ({
             <p>
                 {t('landing:SECTION_SEVEN_OBJECT_ALLOW_INVEST')}: <br />
                 <span>
-                    {balance?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} €
+                    {balance?.substr(0, balance.length - 2)
+                        + '.'
+                        + balance?.substr(balance.length - 2, balance.length)}€
                 </span>
             </p>
         </div>
