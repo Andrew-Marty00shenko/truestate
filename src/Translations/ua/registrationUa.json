@@ -10,6 +10,7 @@
     "REGISTRATION_BUTTON": "Зареєструватися",
     "REGISTRATION_NOTIFICATION": "На твою пошту надіслано підтвердження облікового запису!",
     "REGISTRATION_ERROR": "*це поле є обов'язковим",
+    "REGISTRATION_ERROR_LOGIN": "*дозволено лише англійський алфавіт",
     "REGISTRATION_ERROR_PATTERN": "*мінімум шість символів, мінімум одна літера та одна цифра",
     "REGISTRATION_ERROR_RESPONSE": "Користувач із таким ім'ям користувача або електронною поштою вже існує!"
 }

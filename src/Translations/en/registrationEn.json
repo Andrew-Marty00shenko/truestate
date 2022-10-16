@@ -10,6 +10,7 @@
     "REGISTRATION_BUTTON": "Register",
     "REGISTRATION_NOTIFICATION": "An account confirmation has been sent to your email!",
     "REGISTRATION_ERROR": "*this field is required",
+    "REGISTRATION_ERROR_LOGIN": "*only english alphabet allowed",
     "REGISTRATION_ERROR_PATTERN": "*minimum six characters, at least one letter and one number",
     "REGISTRATION_ERROR_RESPONSE": "User with this username or email already exists!"
 }

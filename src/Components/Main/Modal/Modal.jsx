@@ -6,12 +6,12 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Web3 from "web3";
+import axios from "axios";
 
 import { connectWallet, saveTransaction } from "../../../Utils/contract/contract";
 import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
 
 import "./Modal.scss";
-
 
 const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     const { t } = useTranslation();
@@ -19,10 +19,15 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
     const watchAllFields = watch();
     const { minAmount, getMinAmount } = useMinAmount();
     const [loading, setLoading] = useState(false);
+    const [ethCurrency, setEthCurrency] = useState(null);
 
     useEffect(() => {
         getMinAmount();
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')
+            .then(({ data }) => setEthCurrency(data.ETH));
     }, []);
+
+    console.log(watchAllFields)
 
     const notify = () => {
         toast.success(t('modalInvest:NOTIFICATION'), {
@@ -41,10 +46,16 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                         {t(`modalInvest:METAMASK_IS_NOT_INSTALLED_HREF`)}
                     </a>
                 </>, { autoClose: 5000 });
-            } else if (watchAllFields.amount < minAmount) {
+            } else if ((watchAllFields.amount < minAmount) && watchAllFields.currency === 'ETH') {
                 toast.error(`${t('modalInvest:LITTLE_AMOUNT')} ${minAmount} ETH`, { autoClose: 5000 });
+            } else if ((watchAllFields.amount < 100) && watchAllFields.currency === 'EUR') {
+                toast.error(`${t('modalInvest:LITTLE_AMOUNT')} 100€`, { autoClose: 5000 });
             } else {
-                invest(data.amount);
+                if (watchAllFields.currency === 'EUR' && (data.amount > ethCurrency * 100)) {
+                    invest(ethCurrency * data.amount);
+                } else {
+                    invest(data.amount);
+                }
             }
         } else {
             toast.error(t('modalInvest:LOGIN_IN_ACCOUNT'));
@@ -149,7 +160,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                         <option value="ETH">
                             ETH
                         </option>
-                        <option value="€">
+                        <option value="EUR">
                             €
                         </option>
                     </Form.Select>

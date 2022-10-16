@@ -30,14 +30,20 @@ const Registration = () => {
                 {t('registration:REGISTRATION_LOGIN')}:
             </p>
             <input
-                {...register("login", { required: true })}
+                {...register("login", {
+                    required: true,
+                    pattern: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g
+                })}
                 className={classNames({ "error": errors?.login })}
                 name="login"
                 type="text"
                 placeholder={t('registration:REGISTRATION_LOGIN_PLACEHOLDER')}
             />
-            {errors?.login && <p style={{ color: "#ff0000", marginTop: 5 }}>
+            {errors?.login?.type === 'required' && <p style={{ color: "#ff0000", marginTop: 5 }}>
                 {t('registration:REGISTRATION_ERROR')}
+            </p>}
+            {errors?.login?.type === 'pattern' && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                {t('registration:REGISTRATION_ERROR_LOGIN')}
             </p>}
         </div>
 

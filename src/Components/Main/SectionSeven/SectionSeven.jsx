@@ -50,6 +50,7 @@ const SectionSeven = ({
         },
         // autoplay: windowWidth < 500 || showSecondSlider ? false : true,
         autoplay: true,
+        pauseOnHover: true,
         autoplaySpeed: 3000,
         responsive: [
             {

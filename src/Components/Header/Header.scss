@@ -34,7 +34,10 @@
             font-weight: 300;
             font-size: 16px;
             margin-right: 33px;
-            cursor: pointer;
+            
+            a{
+                cursor: pointer;
+            }
 
             &:nth-child(5){
                 margin-right: 0;
