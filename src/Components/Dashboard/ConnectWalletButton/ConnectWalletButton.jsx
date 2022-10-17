@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap"
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { toast } from "react-toastify";
 import { connectWallet } from "../../../Utils/contract/contract";
 
 import "./ConnectWalletButton.scss";
@@ -12,8 +13,17 @@ const ConnectWalletButton = () => {
     const [addressWallet, setAddressWallet] = useState(null);
 
     const handleClickConnectWallet = async () => {
-        const account = await connectWallet();
-        setAddressWallet(account);
+        if (window.ethereum) {
+            const account = await connectWallet();
+            setAddressWallet(account);
+        } else {
+            toast.error(<>
+                {t(`modalInvest:METAMASK_IS_NOT_INSTALLED`)}
+                <a href="https://metamask.io/download/">
+                    {t(`modalInvest:METAMASK_IS_NOT_INSTALLED_HREF`)}
+                </a>
+            </>, { autoClose: 5000 });
+        }
     };
 
     return <Button className="connect-wallet-btn"
