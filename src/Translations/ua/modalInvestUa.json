@@ -16,6 +16,9 @@
     "INVEST": "Інвестувати",
     "METAMASK_IS_NOT_INSTALLED": "На вашому пристрої не встановлено метамаск, скачайте його ",
     "METAMASK_IS_NOT_INSTALLED_HREF": "тут",
-    "LOGIN_IN_ACCOUNT": "Спочатку увійди до свого облікового запису",
+    "LOGIN_IN_ACCOUNT": "Спочатку ",
+    "LOGIN_IN_ACCOUNT_HREF_1": "увійди",
+    "LOGIN_IN_ACCOUNT_TEXT_2": " до свого облікового запису або ",
+    "LOGIN_IN_ACCOUNT_HREF_2": "зареєструйся",
     "SUCCESS_INVEST": "Ви успішно інвестували в об'єкт"
 }

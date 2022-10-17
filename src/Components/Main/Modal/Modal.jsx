@@ -12,6 +12,7 @@ import { connectWallet, saveTransaction } from "../../../Utils/contract/contract
 import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
 
 import "./Modal.scss";
+import { Link } from "react-router-dom";
 
 const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     const { t } = useTranslation();
@@ -20,14 +21,15 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
     const { minAmount, getMinAmount } = useMinAmount();
     const [loading, setLoading] = useState(false);
     const [ethCurrency, setEthCurrency] = useState(null);
+    const [maticCurrency, setMaticCurrency] = useState(null);
 
     useEffect(() => {
         getMinAmount();
         axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')
             .then(({ data }) => setEthCurrency(data.ETH));
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=MATIC')
+            .then(({ data }) => setMaticCurrency(data.MATIC));
     }, []);
-
-    console.log(watchAllFields)
 
     const notify = () => {
         toast.success(t('modalInvest:NOTIFICATION'), {
@@ -51,14 +53,28 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
             } else if ((watchAllFields.amount < 100) && watchAllFields.currency === 'EUR') {
                 toast.error(`${t('modalInvest:LITTLE_AMOUNT')} 100€`, { autoClose: 5000 });
             } else {
-                if (watchAllFields.currency === 'EUR' && (data.amount > ethCurrency * 100)) {
-                    invest(ethCurrency * data.amount);
+                // if (watchAllFields.currency === 'EUR' && (data.amount > ethCurrency * 100)) {
+                //     invest(ethCurrency * data.amount);
+                // } else {
+                //     invest(data.amount);
+                // }
+                if (watchAllFields.currency === 'EUR') {
+                    invest(maticCurrency * data.amount);
                 } else {
                     invest(data.amount);
                 }
             }
         } else {
-            toast.error(t('modalInvest:LOGIN_IN_ACCOUNT'));
+            toast.error(<>
+                {t('modalInvest:LOGIN_IN_ACCOUNT')}
+                <Link to="/dashboard/login">
+                    {t('modalInvest:LOGIN_IN_ACCOUNT_HREF_1')}
+                </Link>
+                {t('modalInvest:LOGIN_IN_ACCOUNT_TEXT_2')}
+                <Link to="/dashboard/registration">
+                    {t('modalInvest:LOGIN_IN_ACCOUNT_HREF_2')}
+                </Link>
+            </>);
         }
     };
 

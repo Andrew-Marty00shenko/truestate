@@ -48,8 +48,7 @@ const SectionSeven = ({
                 setSkip(skip + limit);
             };
         },
-        // autoplay: windowWidth < 500 || showSecondSlider ? false : true,
-        autoplay: true,
+        autoplay: windowWidth < 500 || showSecondSlider || total < 5 ? false : true,
         pauseOnHover: true,
         autoplaySpeed: 3000,
         responsive: [

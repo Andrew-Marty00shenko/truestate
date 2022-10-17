@@ -2,9 +2,13 @@
 .Toastify__toast--error{
 
     a{
-        color: #8B8B8B;
+        color: #8B8B8B !important;
         text-decoration: underline;
-        border-bottom: 1px solid #8B8B8B;
+        border-bottom: 1px solid #b8b8b8;
+
+        &:hover{
+            opacity: .8;
+        }
     }
 
     .Toastify__toast-icon{

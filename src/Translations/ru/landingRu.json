@@ -48,7 +48,7 @@
     "SECTION_FOUR_BLOCK_TITLE_1": "Лицензия Центрального банка Литвы.",
     "SECTION_FOUR_BLOCK_TEXT_1": "Процесс выпуска и оборота токенов TRUESTATE регулируется и контролируется Центробанком Литвы, государством-членом Евросоюза.",
     "SECTION_FOUR_BLOCK_TITLE_2": "Никакой волатильности.",
-    "SECTION_FOUR_BLOCK_TEXT_2": "TRUESTATE — это security token, который обеспечен реальным активом: он не падает в цене и не подвержен волатильности на криптовалютном рынке.    ",
+    "SECTION_FOUR_BLOCK_TEXT_2": "TRUESTATE — это, по сути, stablecoin, обеспеченный реальным активом: он не падает в цене и не подвержен волатильности на криптовалютном рынке.    ",
     "SECTION_FOUR_BLOCK_TITLE_3": "Инвестиции в пару кликов.",
     "SECTION_FOUR_BLOCK_TEXT_3": "Забудь о бумажной волоките, длительном поиске объекта недвижимости и неразберихе с налогами — TRUESTATE сделает все за тебя, а ты лишь получишь пассивный доход.",
     "SECTION_FOUR_BLOCK_TITLE_4": "Фиксированный доход.",
@@ -146,5 +146,5 @@
     "SECTION_NINE_THANKS_SUBSCRIPTION": "Спасибо за подписку!",
     "SECTION_NINE_THANKS_EMAIL_ERROR": "Введи свой Email!",
     "SECTION_NINE_BEFORE_LOGIN": "Сначала войди в свой аккаунт!",
-    "SECTION_NINE_SUBSCRIBED": "ты подписан"
+    "SECTION_NINE_SUBSCRIBED": "ты подписан / а"
 }

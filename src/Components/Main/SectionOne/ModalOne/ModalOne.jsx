@@ -55,6 +55,12 @@ const ModalOne = ({
                 <option value="5000">€5000</option>
                 <option value="10000">€10000</option>
                 <option value="15000">€15000</option>
+                <option value="20000">€20000</option>
+                <option value="25000">€25000</option>
+                <option value="30000">€30000</option>
+                <option value="40000">€40000</option>
+                <option value="50000">€50000</option>
+                <option value="100000">€100000</option>
             </Form.Select>
             <Button onClick={() => {
                 setShowSecondModal(true)

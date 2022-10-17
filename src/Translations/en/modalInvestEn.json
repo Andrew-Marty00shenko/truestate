@@ -16,6 +16,9 @@
     "INVEST": "Invest",
     "METAMASK_IS_NOT_INSTALLED": "Metamask is not installed on your device, download it ",
     "METAMASK_IS_NOT_INSTALLED_HREF": "here",
-    "LOGIN_IN_ACCOUNT": "Login to your account first",
+    "LOGIN_IN_ACCOUNT": "First ",
+    "LOGIN_IN_ACCOUNT_HREF_1": "login",
+    "LOGIN_IN_ACCOUNT_TEXT_2": " to your account or ",
+    "LOGIN_IN_ACCOUNT_HREF_2": "register",
     "SUCCESS_INVEST": "You have successfully invested in an object"
 }
