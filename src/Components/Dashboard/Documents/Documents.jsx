@@ -11,6 +11,7 @@ import "./Documents.scss";
 import kycDataAPI from "../../../API/kycDataAPI";
 import { toast } from "react-toastify";
 import { getBase64 } from "../../../Utils/helpers/getBase64";
+import ModalImage from "../../Main/SectionFive/SliderTwo/ModalImage/ModalImage";
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 countries.registerLocale(require('i18n-iso-countries/langs/ru.json'));
@@ -23,6 +24,8 @@ const Documents = () => {
     const allFields = watch();
     const url = 'https://topmail.net.ua:8443';
 
+    const [modalShow, setModalShow] = useState(false);
+    const [activeBigImage, setActiveBigImage] = useState(null);
     const [passportValue, setPassportValue] = useState('');
     const [idValue, setIdValue] = useState('');
     const [poaValue, setPoaValue] = useState('');
@@ -200,7 +203,15 @@ const Documents = () => {
                             </>
                         ) : (
                             <div>
-                                <img src={`${url}${kycData.passportFiles[0]}`} alt="" />
+                                <img
+                                    src={`${url}${kycData.passportFiles[0]}`}
+                                    onClick={() => {
+                                        setModalShow(true);
+                                        setActiveBigImage(kycData.passportFiles[0])
+                                    }}
+                                    alt=""
+                                    style={{ cursor: 'pointer' }}
+                                />
                                 <svg
                                     onClick={() => handleRemoveDoc("passport")}
                                     width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,7 +273,15 @@ const Documents = () => {
                             </>
                         ) : (
                             <div>
-                                <img src={`${url}${kycData.idFiles[0]}`} alt="" />
+                                <img
+                                    src={`${url}${kycData.idFiles[0]}`}
+                                    onClick={() => {
+                                        setModalShow(true);
+                                        setActiveBigImage(kycData.idFiles[0])
+                                    }}
+                                    alt=""
+                                    style={{ cursor: 'pointer' }}
+                                />
                                 <svg
                                     onClick={() => handleRemoveDoc("id")}
                                     width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -325,7 +344,15 @@ const Documents = () => {
                             </>
                         ) : (
                             <div>
-                                <img src={`${url}${kycData.poaFiles[0]}`} alt="" />
+                                <img
+                                    src={`${url}${kycData.poaFiles[0]}`}
+                                    onClick={() => {
+                                        setModalShow(true);
+                                        setActiveBigImage(kycData.poaFiles[0])
+                                    }}
+                                    alt=""
+                                    style={{ cursor: 'pointer' }}
+                                />
                                 <svg
                                     onClick={() => handleRemoveDoc("poa")}
                                     width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -395,10 +422,17 @@ const Documents = () => {
                 }
             </p>
             <p>
-                {kycData?.reason !== null && <span style={{ fontWeight: 500 }}>Комментарий: </span>}
+                {kycData?.reason !== null && <span style={{ fontWeight: 500 }}>{t('documents:COMMENTS')}: </span>}
                 {kycData?.reason}
             </p>
         </div>
+
+        <ModalImage
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            image={activeBigImage}
+            url={url}
+        />
     </form >
 }
 

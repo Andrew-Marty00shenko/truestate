@@ -11,6 +11,7 @@
     "NO_INFO": "No info",
     "RECIEVED": "revieved",
     "NOT_RECIEVED": "not recieved",
+    "COMMENTS": "Comments",
     "INPUT_ERROR": "*this field is required",
     "SUCCESS_SEND": "Documents sent for review",
     "DOCUMENT_REMOVED": "Document deleted",
