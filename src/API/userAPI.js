@@ -16,5 +16,6 @@ export default {
         browser,
         date,
         client
-    })
+    }),
+    balance: () => axios.get('/user/balances')
 }

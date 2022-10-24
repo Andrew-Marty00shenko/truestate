@@ -1,5 +1,7 @@
 {
     "TOKEN_BALANCE": "Your TRUESTATE token balance",
+    "INVESTMENTS_NOT_YET": "No investment yet",
     "CHOOSE_OBJECT": "Select an object",
-    "CANT_BUY": "*You cannot buy TRUESTATE tokens."
+    "CANT_BUY": "*You cannot buy TRUESTATE tokens.",
+    "SUCCESS_TRANSACTION": "Transaction success!"
 }

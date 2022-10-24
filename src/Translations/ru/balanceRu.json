@@ -2,5 +2,6 @@
     "TOKEN_BALANCE": "Твой баланс токенов TRUESTATE",
     "CHOOSE_OBJECT": "Выбери объект",
     "INVESTMENTS_NOT_YET": "Инвестирований пока не было",
-    "CANT_BUY": "*Ты не можешь покупать токены TRUESTATE."
+    "CANT_BUY": "*Ты не можешь покупать токены TRUESTATE.",
+    "SUCCESS_TRANSACTION": "Транзакция успешна!"
 }
