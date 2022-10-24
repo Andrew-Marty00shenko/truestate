@@ -43,14 +43,15 @@ const SliderOne = ({
                         : object.location.ua
                 }
                 <br />
+                <span>{t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE')}:</span> {object.profit}%
+                <br />
                 <span>{t('landing:SECTION_FIVE_OBJECT_DEADLINE')}:</span> {i18n.language === "EN"
                     ? object.term.en
                     : i18n.language === "RU"
                         ? object.term.ru
                         : object.term.ua
                 }
-                <br />
-                <span>{t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE')}:</span> {object.profit}%
+
             </p>
         </div >
         <Button onClick={handleShowInfo}>

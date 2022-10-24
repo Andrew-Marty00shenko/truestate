@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { registerUser } from "../../../Redux/slices/user";
 
@@ -11,6 +11,7 @@ import "./Registration.scss";
 const Registration = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const loading = useSelector(state => state.user.loading);
     const dispatch = useDispatch();
 
     const onSubmit = data => {
@@ -90,7 +91,7 @@ const Registration = () => {
             </p>}
         </div>
 
-        <Button type="submit">
+        <Button type="submit" disabled={loading}>
             {t('registration:REGISTRATION_BUTTON')}
         </Button>
 

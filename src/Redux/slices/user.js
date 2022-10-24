@@ -64,6 +64,9 @@ const userSlice = createSlice({
             state.loading = true;
             state.isAuth = false;
         });
+        builder.addCase(registerUser.pending, state => {
+            state.loading = true;
+        });
         builder.addCase(loginUser.fulfilled, (state, action) => {
             state.loading = false;
             if (action.payload?.access_token) {
@@ -72,9 +75,15 @@ const userSlice = createSlice({
                 state.isAuth = false;
             }
         });
+        builder.addCase(registerUser.fulfilled, (state, action) => {
+            state.loading = false;
+        });
         builder.addCase(loginUser.rejected, state => {
             state.loading = false;
             state.isAuth = false;
+        });
+        builder.addCase(registerUser.rejected, state => {
+            state.loading = false;
         });
     }
 });

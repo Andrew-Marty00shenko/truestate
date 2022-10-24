@@ -75,13 +75,14 @@
     }
 
     &__block{
-        min-height: 450px;
+        min-height: 693px;
         width: 386px !important;
         padding: 26px 26px 29px;
         background: #FFFFFF;
         border: 1px solid #D9D9D9;
         border-radius: 30px;
         transition: opacity 1s;
+        position: relative;
 
         img{
             width: 334px;
@@ -151,6 +152,8 @@
             height: 55px;
             font-size: 20px;
             margin-top: 26px;
+            position: absolute;
+            bottom: 20px;
         }
     }
 }
@@ -237,7 +240,7 @@
 
                 .section-seven__block{
                     width: 314px !important;
-                    min-height: 450px;
+                    min-height: 630px;
                     padding: 26px 26px 29px;
 
                     img{

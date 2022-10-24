@@ -58,14 +58,14 @@ const SliderTwo = ({
                 <p>{t('landing:SECTION_FIVE_OBJECT_PURCHACE_PRICE')}:<span> {object.buy_price}€</span></p>
                 <p>{t('landing:SECTION_FIVE_OBJECT_REPAIR_AND_IMPROVEMENTS')}:<span> {object.upgrade}€</span></p>
                 <p>{t('landing:SECTION_FIVE_OBJECT_TAXES_FEES_ETC')}:<span> {object.taxes}€</span></p>
-                <p>{t('landing:SECTION_FIVE_OBJECT_SALE_PRICE')}:<span> {object.sell_price}€</span></p>
-                <p>{t('landing:SECTION_FIVE_OBJECT_DEADLINE')}:<span> {i18n.language === "EN"
+                <p>{t('landing:SECTION_SEVEN_OBJECT_SALE_PRICE')}:<span> {object.sell_price}€</span></p>
+                <p>{t('landing:SECTION_SEVEN_OBJECT_DEADLINE')}:<span> {i18n.language === "EN"
                     ? object.term.en
                     : i18n.language === "RU"
                         ? object.term.ru
                         : object.term.ua
                 }</span></p>
-                <p>{t('landing:SECTION_FIVE_OBJECT_PROFIT_PERCENTAGE')}:<span> {object.profit}%</span></p>
+                <p>{t('landing:SECTION_SEVEN_OBJECT_PROFIT_PERCENTAGE')}:<span> {object.profit}%</span></p>
                 <Button onClick={handleClickInvest} style={{ width: 256, height: 56 }}>
                     {t('landing:SECTION_SEVEN_OBJECT_INVEST_BUTTON')}
                     <svg width="35" height="14" viewBox="0 0 35 14" fill="none" xmlns="http://www.w3.org/2000/svg">
