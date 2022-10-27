@@ -16,6 +16,7 @@ const PasswordConfirmation = () => {
     const [checkingEqualPasswords, setChekingEqualPasswords] = useState(false);
     const [clickedChangePassword, setClickedChangePassword] = useState(false);
     const [token, setToken] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         userAPI.restore(searchParams.get('user_id'), searchParams.get('uid'))
@@ -29,11 +30,15 @@ const PasswordConfirmation = () => {
             setChekingEqualPasswords(true);
             return;
         } else {
+            setLoading(true);
             userAPI.new_password(data, token)
                 .then(res => {
                     setClickedChangePassword(true);
+                    setLoading(false);
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    setLoading(false);
+                });
         }
     };
 
@@ -49,14 +54,20 @@ const PasswordConfirmation = () => {
                         {t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}:
                     </p>
                     <input
-                        {...register("password", { required: true })}
+                        {...register("password", {
+                            required: true,
+                            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+                        })}
                         className={classNames({ "error": errors?.password })}
                         name="password"
                         type="password"
                         placeholder={t('forgotPassword:FORGOT_PASSWORD_NEW_PASSWORD')}
                     />
-                    {errors?.password && <p style={{ color: "#ff0000", marginTop: 5 }}>
-                        {t('forgotPassword:FORGOT_PASSWORD_ERROR')}
+                    {errors?.password?.type === 'required' && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                        {t('registration:REGISTRATION_ERROR')}
+                    </p>}
+                    {errors?.password?.type === 'pattern' && <p style={{ color: "#ff0000", marginTop: 5, fontSize: 12 }}>
+                        {t('registration:REGISTRATION_ERROR_PATTERN')}
                     </p>}
                 </div>
 
@@ -84,6 +95,7 @@ const PasswordConfirmation = () => {
 
                 <Button className="btn-third"
                     type="submit"
+                    disabled={loading}
                 >
                     {t('forgotPassword:FORGOT_PASSWORD_CHANGE_PASSWORD_BTN')}
                     <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
