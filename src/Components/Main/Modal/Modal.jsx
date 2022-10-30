@@ -50,8 +50,8 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                 </>, { autoClose: 5000 });
             } else if ((watchAllFields.amount < minAmount) && watchAllFields.currency === 'ETH') {
                 toast.error(`${t('modalInvest:LITTLE_AMOUNT')} ${minAmount} ETH`, { autoClose: 5000 });
-            } else if ((watchAllFields.amount < 100) && watchAllFields.currency === 'EUR') {
-                toast.error(`${t('modalInvest:LITTLE_AMOUNT')} 100€`, { autoClose: 5000 });
+            } else if ((watchAllFields.amount < 1) && watchAllFields.currency === 'EUR') {
+                toast.error(`${t('modalInvest:LITTLE_AMOUNT')} 1€`, { autoClose: 5000 });
             } else {
                 // if (watchAllFields.currency === 'EUR' && (data.amount > ethCurrency * 100)) {
                 //     invest(ethCurrency * data.amount);
@@ -105,6 +105,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                             null
                         )}`);
                         setLoading(false);
+                        setOpenModalAddress(false);
                     })
             })
             .on('error', error => {
@@ -163,7 +164,8 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                     <input
                         {...register("amount", { required: true })}
                         className={classNames({ "error": errors.amount })}
-                        type="text"
+                        type="number"
+                        step="any"
                         placeholder={t('modalInvest:AMOUNT_INVEST')}
                     />
                 </div>

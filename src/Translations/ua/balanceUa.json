@@ -3,5 +3,7 @@
     "CHOOSE_OBJECT": "Вибери об'єкт",
     "INVESTMENTS_NOT_YET": "Інвестувань ще не було",
     "CANT_BUY": "*Ти не можеш купувати токени TRUESTATE.",
-    "SUCCESS_TRANSACTION": "Транзакція успішна!"
+    "SUCCESS_TRANSACTION": "Транзакція успішна!",
+    "PROJECT_IS_NOT_COMPLETED": "Проект ще не завершено!",
+    "FINISH_KYC": "Заверши процедуру KYC!"
 }

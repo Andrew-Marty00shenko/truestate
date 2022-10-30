@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { Link, useLocation, Routes, Route, useNavigate } from 'react-router-dom';
+import { Link, useLocation, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMain';
@@ -15,16 +15,13 @@ import Documents from '../../Components/Dashboard/Documents/Documents';
 import Balance from '../../Components/Dashboard/Balance/Balance';
 import PasswordConfirmation from '../../Components/Dashboard/ForgotPassword/PasswordConfirmation/PasswordConfirmation';
 
-import { logout } from '../../Redux/slices/user';
-
 import "./Dashboard.scss";
+import LogoutButton from '../../Components/LogoutButton/LogoutButton';
 
 const Dashboard = () => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
     const location = useLocation();
     const isAuth = useSelector(state => state.user.isAuth);
-    const dispatch = useDispatch();
 
     const clickLinks = () => {
         if (!isAuth) {
@@ -66,11 +63,6 @@ const Dashboard = () => {
             name: t('dashboardMain:DASHBOARD_MENU_BALANCE')
         },
     ];
-
-    const handleLogout = () => {
-        dispatch(logout());
-        navigate('dashboard')
-    };
 
     return <div className={classNames("dashboard", {
         "dashboard--registration": location.pathname === '/dashboard/registration',
@@ -116,26 +108,16 @@ const Dashboard = () => {
                                     to={isAuth ? `${m.link}` : '/dashboard/login'}
                                     key={m.id}
                                     onClick={clickLinks}
+                                    style={(isAuth && m.id === 1) ? { width: 0, height: 0 } : null}
+                                    className={classNames({ "loggined": isAuth })}
                                 >
                                     {isAuth && m.id === 1
-                                        ? <li className={classNames(
-                                            { "active": location.pathname === m.link },
-                                            { "disabled": !isAuth && m.id !== 1 }
-                                        )}
-                                            onClick={handleLogout}
-                                        >
-                                            {m.id === 1
-                                                ? <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M35.0607 13.0607C35.6464 12.4749 35.6464 11.5251 35.0607 10.9393L25.5147 1.3934C24.9289 0.807611 23.9792 0.807611 23.3934 1.3934C22.8076 1.97919 22.8076 2.92893 23.3934 3.51472L31.8787 12L23.3934 20.4853C22.8076 21.0711 22.8076 22.0208 23.3934 22.6066C23.9792 23.1924 24.9289 23.1924 25.5147 22.6066L35.0607 13.0607ZM0 13.5H34V10.5H0V13.5Z" fill="#000" />
-                                                </svg>
-                                                : m.icon
-                                            }
-                                            {m.id === 1 ? t('dashboardMain:LOGOUT') : m.name}
-                                        </li>
+                                        ? null
                                         : <li className={classNames(
                                             { "active": location.pathname === m.link },
-                                            { "disabled": !isAuth && m.id !== 1 }
-                                        )}>
+                                            { "disabled": !isAuth && m.id !== 1 },
+                                        )}
+                                        >
                                             {m.icon}
                                             {m.name}
                                         </li>}
@@ -150,15 +132,15 @@ const Dashboard = () => {
                                 <Route path='/dashboard/balance' element={<Balance />} />
                             </Routes>
                         </div>
-                        <Link to='/dashboard'>
+                        <Link to='/'>
                             <svg className="close-btn" width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1.47607L26 26.4761" stroke="black" strokeWidth="2" strokeLinecap="round" />
                                 <path d="M1 26.4761L26 1.47609" stroke="black" strokeWidth="2" strokeLinecap="round" />
                             </svg>
                         </Link>
                     </div>
-
                     <ConnectWalletButton />
+                    {isAuth && <LogoutButton />}
                 </>
             )}
     </div >

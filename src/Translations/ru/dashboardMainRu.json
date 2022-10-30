@@ -8,6 +8,7 @@
     "DASHBOARD_MENU_DOCS": "Документы",
     "DASHBOARD_MENU_BALANCE": "Баланс",
     "DASHBOARD_CONNECT_WALLET": "Соединить с кошельком Metamask",
+    "DASHBOARD_CONNECTED_WALLET": "Соединино с кошельком",
     "CLICK_LINKS_ERROR": "Сначала войди в аккаунт",
     "CONFIRMATION": "Почта успешно подтверждена!",
     "CONFIRMATION_LOGIN": "Войти",

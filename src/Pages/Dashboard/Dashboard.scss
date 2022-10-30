@@ -70,6 +70,19 @@
             width: 109px;
 
             a {
+
+                &.loggined{
+                   li{
+                       height: 33.3333%;
+                   }
+
+                    &:nth-child(2) {
+                        li {
+                            border-top-left-radius: 15px;
+                        }
+                    }
+                }
+
                 li {
                     cursor: pointer;
                     width: 100%;
@@ -226,9 +239,18 @@
                 a {
                     width: 25%;
 
+                    &.loggined{
+                        width: 33.333%;
+
+                        li{
+                            height: 94px;
+                        }
+                    }
+
                     li {
                         height: 94px;
                         font-size: 12px;
+                        width: 100% !important;
 
                         svg {
                             width: 20px;

@@ -19,7 +19,7 @@ countries.registerLocale(require('i18n-iso-countries/langs/uk.json'));
 
 const DataInput = () => {
     const { t, i18n } = useTranslation();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, formState: { errors, isDirty }, reset } = useForm();
     const navigate = useNavigate();
 
     const [activeCountries, setActiveCountries] = useState(null);
@@ -327,7 +327,7 @@ const DataInput = () => {
             <Button
                 className="send-btn"
                 type="submit"
-                disabled={checkingResidentOfUsa || loading}
+                disabled={checkingResidentOfUsa || loading || !isDirty}
             >
                 {t('dataInput:SEND_BTN')}
                 <svg width="36" height="13" viewBox="0 0 36 13" fill="none" xmlns="http://www.w3.org/2000/svg">

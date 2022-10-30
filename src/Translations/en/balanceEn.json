@@ -3,5 +3,7 @@
     "INVESTMENTS_NOT_YET": "No investment yet",
     "CHOOSE_OBJECT": "Select an object",
     "CANT_BUY": "*You cannot buy TRUESTATE tokens.",
-    "SUCCESS_TRANSACTION": "Transaction success!"
+    "SUCCESS_TRANSACTION": "Transaction success!",
+    "PROJECT_IS_NOT_COMPLETED": "The project is not finished yet!",
+    "FINISH_KYC": "Finish the KYC procedure!"
 }

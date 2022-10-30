@@ -449,6 +449,11 @@ const Documents = () => {
                     </p>}
                 </div>
             </div>
+            <div className="info">
+                <p>
+                    {t('documents:INFO')}
+                </p>
+            </div>
             <Button
                 type="submit"
                 disabled={kycData?.status === 2 || loading}

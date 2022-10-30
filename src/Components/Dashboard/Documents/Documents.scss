@@ -4,6 +4,12 @@
     margin-top: 40px;
     overflow: auto;
 
+    .info{
+        color: #8B8B8B;
+        font-size: 11px;
+        margin-bottom: 15px;
+        line-height: 15px;
+    }
 
     &-width {
         max-width: 590px;
@@ -27,7 +33,7 @@
             color: #000000 !important;
             height: 48px;
             padding: 0px 20px !important;
-            width: 249px !important;
+            width: 290px !important;
             margin-top: 7px;
 
             &:focus {
@@ -42,7 +48,7 @@
         }
 
         &-file {
-            margin-right: 44px;
+            margin-right: 14px;
             width: 297px;
             height: 48px;
             border: 1.18107px solid #D9D9D9;

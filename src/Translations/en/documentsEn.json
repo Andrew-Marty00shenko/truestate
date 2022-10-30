@@ -3,7 +3,7 @@
     "ID": "ID",
     "CHOOSE_COUNTRY": "Choose a country",
     "PROOF_OF_ADDRESS": "Address confirmation",
-    "CHOOSE_PROOF_OF_ADDRESS": "Choose a proof of address",
+    "CHOOSE_PROOF_OF_ADDRESS": "Choose a type of document",
     "BANK_STATEMENT": "Bank statement",
     "UTILITY_BILL": "Utility bill",
     "SEND": "Send",
@@ -16,5 +16,6 @@
     "SUCCESS_SEND": "Documents sent for review",
     "DOCUMENT_REMOVED": "Document deleted",
     "DOCUMENT_REMOVE_CONFIRMATION": "Are you sure you want to delete the document?",
-    "ERROR_REMOVE_DOCS": "You cannot delete received documents"
+    "ERROR_REMOVE_DOCS": "You cannot delete received documents",
+    "INFO": "All images can be uploaded in pdf, jpg, webp, jpeg formats. Images must be clear, readable, without glare and not blurry, and must not contain foreign objects on the document (fingers, pencils, etc.). If the uploaded image does not meet these requirements, we may ask you to remake it and upload it again."
 }

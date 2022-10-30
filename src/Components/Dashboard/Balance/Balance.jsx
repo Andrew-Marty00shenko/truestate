@@ -13,6 +13,8 @@ import { connectWallet } from "../../../Utils/contract/contract";
 import contractABI from "../../../Utils/contract/contractABI.json";
 
 import "./Balance.scss";
+import usePayoutDone from "../../../Hooks/web3hooks/usePayoutDone";
+import kycDataAPI from "../../../API/kycDataAPI";
 
 const Balance = () => {
     const { t } = useTranslation();
@@ -20,8 +22,11 @@ const Balance = () => {
     const { register, handleSubmit } = useForm();
     const checkingResidentOfUsa = useSelector(state => state.checkingResidentOfUsa.value);
     const isAuth = useSelector(state => state.user.isAuth);
+    const { getPayoutDone, payoutData } = usePayoutDone();
+
     const [objectData, setObjectData] = useState([]);
     const [activeObjectId, setActiveObjectId] = useState(null);
+    const [checkVerifyKyc, setCheckVerifyKyc] = useState(false);
 
     useEffect(() => {
         if (!isAuth) {
@@ -32,30 +37,41 @@ const Balance = () => {
     useEffect(() => {
         userAPI.balance()
             .then(({ data }) => {
+                getPayoutDone(data[0]?.contract);
                 setObjectData(data);
-                setActiveObjectId(data[0].object_id);
-            })
+                setActiveObjectId(data[0]?.object_id);
+            });
+
+        kycDataAPI.getKycData()
+            .then(({ data }) => setCheckVerifyKyc(data.status));
     }, []);
 
     const onSubmit = async (data) => {
         if (window.ethereum) {
-            const account = await connectWallet();
-            const contract = new window.web3.eth.Contract(
-                contractABI.abi,
-                contractABI.address,
-                { from: account }
-            );
+            if (checkVerifyKyc !== 2) {
+                toast.error(t(`balance:FINISH_KYC`), { autoClose: 5000 });
+            } else if (!payoutData) {
+                toast.error(t(`balance:PROJECT_IS_NOT_COMPLETED`), { autoClose: 5000 });
+            } else {
+                const account = await connectWallet();
+                const contract = new window.web3.eth.Contract(
+                    contractABI.abi,
+                    contractABI.address,
+                    { from: account }
+                );
 
-            contract.methods[
-                'claim(uint256,address)'
-            ](Number(activeObjectId), account)
-                .send()
-                .then(res => {
-                    toast.success(t(`balance:SUCCESS_TRANSACTION`));
-                })
-                .catch(err => {
-                    toast.error(err);
-                });
+                contract.methods[
+                    'claim(uint256,address)'
+                ](Number(activeObjectId), account)
+                    .send()
+                    .then(res => {
+                        toast.success(t(`balance:SUCCESS_TRANSACTION`));
+                    })
+                    .catch(err => {
+                        toast.error(err);
+                    });
+            }
+
         } else {
             toast.error(<>
                 {t(`modalInvest:METAMASK_IS_NOT_INSTALLED`)}
@@ -64,7 +80,7 @@ const Balance = () => {
                 </a>
             </>, { autoClose: 5000 });
         }
-    }
+    };
 
     return <form className="balance" onSubmit={handleSubmit(onSubmit)}>
         <div className="balance__block one">
@@ -75,7 +91,11 @@ const Balance = () => {
                 </p>
                 <Form.Select
                     {...register("object_id", {
-                        onChange: e => setActiveObjectId(e.target.value)
+                        onChange: e => {
+                            const address = objectData?.filter(object => object.object_id === Number(e.target.value))[0]?.contract;
+                            setActiveObjectId(e.target.value);
+                            getPayoutDone(address);
+                        }
                     })}
                     defaultValue="1"
                 >
@@ -83,7 +103,6 @@ const Balance = () => {
                         return <option
                             key={object.object_id}
                             value={object.object_id}
-
                         >
                             {object.object_id < 10
                                 ? `TRUESTATE №0000${object.object_id}`

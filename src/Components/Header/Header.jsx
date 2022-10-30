@@ -54,6 +54,7 @@ const languages = [
 const Header = ({ openSidebar, setOpenSidebar }) => {
     const { t, i18n } = useTranslation();
     const callMeBackState = useSelector(state => state.callMeBack.value);
+    const isAuth = useSelector(state => state.user.isAuth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [openLanguagesMenu, setOpenLanguagesMenu] = useState(false);
@@ -190,7 +191,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
                 </svg>
             </li>
             <li>
-                <Link to='/dashboard'>
+                <Link to={isAuth ? '/dashboard/data' : '/dashboard'}>
                     <svg className={classNames("third-desktop", { "active": openSidebar })}
                         width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.5688 10.4644C14.0198 9.53885 14.9814 7.95758 14.9814 6.16238C14.9814 3.31609 12.5688 1 9.60396 1C6.63908 1 4.22649 3.31609 4.22649 6.16238C4.22649 7.95758 5.18571 9.53885 6.63908 10.4644C3.35204 11.6294 1 14.6547 1 18.2079H2.43399C2.43399 14.4129 5.65079 11.3248 9.60396 11.3248C13.5571 11.3248 16.7739 14.4129 16.7739 18.2079H18.2079C18.2079 14.6547 15.8559 11.6294 12.5688 10.4644ZM9.60396 9.94812C7.42875 9.94812 5.66048 8.25058 5.66048 6.16238C5.66048 4.07417 7.42875 2.37663 9.60396 2.37663C11.7792 2.37663 13.5474 4.07417 13.5474 6.16238C13.5474 8.25058 11.7792 9.94812 9.60396 9.94812Z" fill="black" stroke="black" strokeWidth="0" />

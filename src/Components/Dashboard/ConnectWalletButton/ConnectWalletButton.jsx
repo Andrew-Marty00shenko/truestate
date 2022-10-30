@@ -32,9 +32,9 @@ const ConnectWalletButton = () => {
     >
         {addressWallet === null
             ? t('dashboardMain:DASHBOARD_CONNECT_WALLET')
-            : `${addressWallet.substr(0, 8)
+            : `${t('dashboardMain:DASHBOARD_CONNECTED_WALLET')} ${addressWallet.substr(0, 4)
             + '...'
-            + addressWallet.substr(addressWallet.length - 8, addressWallet.length)
+            + addressWallet.substr(addressWallet.length - 4, addressWallet.length)
             }`}
     </Button>
 }

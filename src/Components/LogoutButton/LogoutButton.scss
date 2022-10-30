@@ -1,14 +1,14 @@
-.connect-wallet-btn {
+.logout-btn{
     position: absolute;
     right: 20px;
     top: 48px;
-    right: 40px;
+    right: 340px;
     background: #A585FF !important;
     border-radius: 61.1336px;
     font-weight: 600 !important;
-    font-size: 15px !important;
+    font-size: 16px !important;
     line-height: 19px !important;
-    max-width: 302px !important;
+    max-width: 111px !important;
     height: 40px !important;
 
     &:disabled {
@@ -21,28 +21,28 @@
 }
 
 @media (max-width: 850px) {
-    .connect-wallet-btn {
+    .logout-btn {
         font-size: 12px !important;
-        max-width: 350px !important;
+        max-width: 111px !important;
+        right: 320px;
     }
 }
 
 @media (max-width: 730px) {
-    .connect-wallet-btn {
+    .logout-btn {
         width: 100% !important;
-        max-width: 290px !important;
+        max-width: 110px !important;
         top: 134px;
-        right: 24px;
+        right: 324px;
         font-size: 15px !important;
     }
 }
 
-@media (max-width: 360px) {
-    .connect-wallet-btn {
-        width: 250px !important;
-        max-width: 290px !important;
-        top: 134px;
+@media (max-width: 490px) {
+    .logout-btn {
+        max-width: 110px !important;
+        top: 184px;
         right: 24px;
-        font-size: 12px !important;
+        font-size: 15px !important;
     }
 }

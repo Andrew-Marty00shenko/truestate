@@ -43,6 +43,12 @@
     animation-duration: 0.4s;
 	animation-timing-function: linear;
 
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
     &--hidden{
         animation-name: fadeOut;
         opacity: 0;
