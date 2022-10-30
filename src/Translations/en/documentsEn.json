@@ -13,9 +13,18 @@
     "NOT_RECIEVED": "not recieved",
     "COMMENTS": "Comments",
     "INPUT_ERROR": "*this field is required",
-    "SUCCESS_SEND": "Documents sent for review",
+    "SUCCESS_SEND_PASSPORT": "The passport sent for verification!",
+    "SUCCESS_SEND_ID": "The ID sent for verification!",
+    "SUCCESS_SEND_CONFIRMATION": "The address verification sent for verification!",
     "DOCUMENT_REMOVED": "Document deleted",
     "DOCUMENT_REMOVE_CONFIRMATION": "Are you sure you want to delete the document?",
     "ERROR_REMOVE_DOCS": "You cannot delete received documents",
-    "INFO": "All images can be uploaded in pdf, jpg, webp, jpeg formats. Images must be clear, readable, without glare and not blurry, and must not contain foreign objects on the document (fingers, pencils, etc.). If the uploaded image does not meet these requirements, we may ask you to remake it and upload it again."
+    "INFO": "All images can be uploaded in pdf, jpg, webp, jpeg formats. Images must be clear, readable, without glare and not blurry, and must not contain foreign objects on the document (fingers, pencils, etc.). If the uploaded image does not meet these requirements, we may ask you to remake it and upload it again.",
+    "INFO_PASSPORT": "Upload a photo or scan of a passport photo page.",
+    "INFO_COUNTRY_PASSPORT": "Choose the country in which the passport was issued.",
+    "INFO_ID_FRONT": "Upload a photo or scan of the front side of ID.",
+    "INFO_ID_BACK": "Upload a photo or scan of the back side of ID.",
+    "INFO_COUNTRY_ID": "Choose the country where the ID was issued.",
+    "INFO_CONFIRMATION_ADDRESS": "Upload a photo or scan of a document confirming your address.",
+    "INFO_COUNTRY_CONFIRMATION": "Choose the type of document that confirms your address."
 }

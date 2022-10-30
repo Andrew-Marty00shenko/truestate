@@ -22,5 +22,11 @@
     "RESIDENT_OF_USA_ERROR": "*You cannot buy TRUESTATE tokens",
     "INPUT_ERROR": "*this field is required",
     "ERROR_PHONE_NUMBER": "*Fill in the format +66 (066) 66 666 66 ",
-    "USER_PROFILE_UPDATED": "Profile updated successfully!"
+    "USER_PROFILE_UPDATED": "Profile updated successfully!",
+    "INFO_NAME_SURNAME_DOB": "As in your document (passport or ID)",
+    "INFO_LANG": "Your preferred language of communication",
+    "INFO_ADDRESS": "The full address of your residence, including postal code. Must match the address on the document confirming your place of residence (see the «documents» tab).",
+    "INFO_EMAIL": "We will send informational letters and notification about the end of the project to this email.",
+    "INFO_COUNTRY": "Your country of primary residence.",
+    "INFO_PHONE": "We will send notifications about the completion of projects and payments to this phone number."
 }

@@ -21,6 +21,23 @@
 
             div {
                 margin-bottom: 23px;
+                position: relative;
+
+                svg{
+                    position: absolute;
+                    top: 27px;
+                    left: 5px;
+                    cursor: pointer;
+                    z-index: 100;
+
+                    path{
+                        fill: #8B8B8B;
+                    }
+
+                    &:hover{
+                        opacity: .5;
+                    }
+                }
 
                 p {
                     font-weight: 400;
@@ -36,7 +53,7 @@
                     border-radius: 10px;
                     font-weight: 400;
                     font-size: 16px;
-                    padding: 0px 20px;
+                    padding: 0px 25px;
                     line-height: 19px;
                     color: #000;
                     margin-top: 7px;
@@ -67,6 +84,22 @@
 
             div {
                 margin-bottom: 23px;
+                position: relative;
+
+                svg{
+                    position: absolute;
+                    top: 28px;
+                    left: 5px;
+                    cursor: pointer;
+
+                    path{
+                        fill: #8B8B8B;
+                    }
+
+                    &:hover{
+                        opacity: .5;
+                    }
+                }
 
                 p {
                     font-weight: 400;
@@ -82,7 +115,7 @@
                     border-radius: 10px;
                     font-weight: 400;
                     font-size: 16px;
-                    padding: 0px 20px;
+                    padding: 0px 25px;
                     line-height: 19px;
                     color: #000;
                     margin-top: 7px;
@@ -107,7 +140,7 @@
             line-height: 19px !important;
             color: #000000 !important;
             height: 40px;
-            padding: 0px 20px !important;
+            padding: 0px 25px !important;
             width: 100%;
             margin-top: 7px;
 
@@ -130,6 +163,22 @@
 
     &__language{
         width: 247px;
+        position: relative;
+
+                svg{
+                    position: absolute;
+                    top: 28px;
+                    left: 5px;
+                    cursor: pointer;
+
+                    path{
+                        fill: #8B8B8B;
+                    }
+
+                    &:hover{
+                        opacity: .5;
+                    }
+                }
         
         p {
             font-weight: 400;

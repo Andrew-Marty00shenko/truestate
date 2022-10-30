@@ -111,3 +111,21 @@ ul{
     }
   }
 }
+
+.tooltip{
+ 
+  &-inner{
+    background-color: #8d8d8d !important;
+    max-width: 400px !important;
+  }
+
+  &-arrow{
+    &::before{
+      border-top-color: #8d8d8d !important;
+    }
+  }
+
+  &.show{
+    opacity: 1 !important;
+  }
+}
