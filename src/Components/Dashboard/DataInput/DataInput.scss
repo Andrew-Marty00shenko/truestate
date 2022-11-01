@@ -11,6 +11,18 @@
         font-weight: 400;
     }
 
+    &::-webkit-scrollbar {
+        width: 5px; /* ширина для вертикального скролла */
+        height: 8px; /* высота для горизонтального скролла */
+        background-color: #e2e2e2;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #8d8d8d;
+        border-radius: 5px;
+    }
+
     &__block {
         display: flex;
         justify-content: space-between;

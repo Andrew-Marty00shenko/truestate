@@ -28,6 +28,8 @@ const Balance = () => {
     const [activeObjectId, setActiveObjectId] = useState(null);
     const [checkVerifyKyc, setCheckVerifyKyc] = useState(false);
 
+    let currentObjectBalance = objectData?.filter(object => object.object_id === Number(activeObjectId))[0]?.tokens.toString();
+
     useEffect(() => {
         if (!isAuth) {
             navigate('/dashboard/login');
@@ -127,22 +129,17 @@ const Balance = () => {
                 </p>
                 <div>
                     {objectData.length !== 0
-                        ? objectData?.filter(object => object.object_id === Number(activeObjectId))[0]?.tokens || '00.000.000'
+                        ? currentObjectBalance < 100 ? `0${currentObjectBalance?.substr(0, currentObjectBalance.length - 2)
+                            + '.'
+                            + currentObjectBalance?.substr(currentObjectBalance.length - 2, currentObjectBalance.length)}` : currentObjectBalance?.substr(0, currentObjectBalance.length - 2)
+                            + '.'
+                            + currentObjectBalance?.substr(currentObjectBalance.length - 2, currentObjectBalance.length) || '00.000.000'
                         : '00.000.000'
                     }
+
+
                 </div>
             </div>
-
-            {
-                checkingResidentOfUsa && <span style={{
-                    position: "absolute",
-                    marginTop: 30,
-                    color: "#ff0000"
-                }}>
-                    {t('balance:CANT_BUY')}
-                </span>
-            }
-
 
             <Button disabled={checkingResidentOfUsa || objectData.length === 0} type="submit">
                 CLAIM
@@ -152,6 +149,14 @@ const Balance = () => {
             </Button>
 
         </div >
+        {
+            checkingResidentOfUsa && <div style={{
+                position: "absolute",
+                color: "#ff0000"
+            }}>
+                {t('balance:CANT_BUY')}
+            </div>
+        }
     </form >
 }
 

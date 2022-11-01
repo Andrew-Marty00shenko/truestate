@@ -82,36 +82,46 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
         const account = await connectWallet();
         window.web3 = new Web3(window.ethereum);
 
-        window.web3.eth.sendTransaction({
-            from: account,
-            to: activeObjectEstate.contract,
-            value: window.web3.utils.toWei(String(amount))
-        })
-            .on('transactionHash', hash => {
-                setLoading(true);
-                saveTransaction(hash)
-                    .then(res => {
-                        toast.success(`${t('modalInvest:SUCCESS_INVEST')} ${activeObjectEstate !== null ? (
-                            activeObjectEstate.id < 10
-                                ? `TRUESTATE №0000${activeObjectEstate.id}`
-                                : activeObjectEstate.id < 100
-                                    ? `TRUESTATE №000${activeObjectEstate.id}`
-                                    : activeObjectEstate.id < 1000
-                                        ? `TRUESTATE №00${activeObjectEstate.id}`
-                                        : activeObjectEstate.id < 10000
-                                            ? `TRUESTATE №0${activeObjectEstate.id}`
-                                            : null
-                        ) : (
-                            null
-                        )}`);
-                        setLoading(false);
-                        setOpenModalAddress(false);
-                    })
+        if (localStorage.getItem("wallet") === account || localStorage.getItem("wallet") === null) {
+            window.web3.eth.sendTransaction({
+                from: account,
+                to: activeObjectEstate.contract,
+                value: window.web3.utils.toWei(String(amount))
             })
-            .on('error', error => {
-                toast.error(error);
-                setLoading(false);
-            });
+                .on('transactionHash', hash => {
+                    setLoading(true);
+                    saveTransaction(hash)
+                        .then(res => {
+                            toast.success(`${t('modalInvest:SUCCESS_INVEST')} ${activeObjectEstate !== null ? (
+                                activeObjectEstate.id < 10
+                                    ? `TRUESTATE №0000${activeObjectEstate.id}`
+                                    : activeObjectEstate.id < 100
+                                        ? `TRUESTATE №000${activeObjectEstate.id}`
+                                        : activeObjectEstate.id < 1000
+                                            ? `TRUESTATE №00${activeObjectEstate.id}`
+                                            : activeObjectEstate.id < 10000
+                                                ? `TRUESTATE №0${activeObjectEstate.id}`
+                                                : null
+                            ) : (
+                                null
+                            )}`);
+                            setLoading(false);
+                            setOpenModalAddress(false);
+                            localStorage.setItem("wallet", account);
+                        })
+                })
+                .on('error', error => {
+                    toast.error(error);
+                    setLoading(false);
+                });
+        } else {
+            toast.error(<>
+                {t('modalInvest:ERROR_WALLET')} <br />
+                {t('modalInvest:ERROR_WALLET_ADDRESS')} <span style={{ wordBreak: 'break-all' }}> {`${localStorage.getItem("wallet")}`}</span>
+                {t('modalInvest:ERROR_WALLET_TEXT')}
+            </>, { autoClose: 5000, className: "wallet-err" })
+        }
+
     }
 
     return <div className={classNames("section-seven__modal", {

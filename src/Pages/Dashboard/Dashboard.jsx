@@ -8,7 +8,7 @@ import DashboardMain from '../../Components/Dashboard/DashboardMain/DashboardMai
 import Registration from '../../Components/Dashboard/Registration/Registration';
 import Confirmation from '../../Components/Dashboard/Confirmation/Confirmation'
 import ForgotPassword from '../../Components/Dashboard/ForgotPassword/ForgotPassword';
-import ConnectWalletButton from '../../Components/Dashboard/ConnectWalletButton/ConnectWalletButton';
+import LogoutButton from '../../Components/LogoutButton/LogoutButton';
 import DataInput from '../../Components/Dashboard/DataInput/DataInput';
 import Login from '../../Components/Dashboard/Login/Login';
 import Documents from '../../Components/Dashboard/Documents/Documents';
@@ -16,7 +16,6 @@ import Balance from '../../Components/Dashboard/Balance/Balance';
 import PasswordConfirmation from '../../Components/Dashboard/ForgotPassword/PasswordConfirmation/PasswordConfirmation';
 
 import "./Dashboard.scss";
-import LogoutButton from '../../Components/LogoutButton/LogoutButton';
 
 const Dashboard = () => {
     const { t } = useTranslation();
@@ -139,7 +138,6 @@ const Dashboard = () => {
                             </svg>
                         </Link>
                     </div>
-                    <ConnectWalletButton />
                     {isAuth && <LogoutButton />}
                 </>
             )}

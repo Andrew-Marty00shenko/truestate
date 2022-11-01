@@ -16,6 +16,20 @@ body,.wrapper, html, #root{
   color: #000;
 }
 
+body{
+    &::-webkit-scrollbar {
+      width: 12px; /* ширина для вертикального скролла */
+      height: 8px; /* высота для горизонтального скролла */
+      background-color: #e2e2e2;
+      border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: #8d8d8d;
+      border-radius: 5px;
+  }
+}
+
 *{
   margin: 0;
   padding: 0;

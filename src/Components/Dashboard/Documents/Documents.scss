@@ -1,8 +1,20 @@
 .documents {
-    width: 100%;
+    width: 90%;
     padding: 40px 40px;
     margin-top: 40px;
     overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px; /* ширина для вертикального скролла */
+        height: 8px; /* высота для горизонтального скролла */
+        background-color: #e2e2e2;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #8d8d8d;
+        border-radius: 5px;
+    }
 
     .info{
         color: #8B8B8B;

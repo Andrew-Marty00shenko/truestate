@@ -20,5 +20,8 @@
     "LOGIN_IN_ACCOUNT_HREF_1": "login",
     "LOGIN_IN_ACCOUNT_TEXT_2": " to your account or ",
     "LOGIN_IN_ACCOUNT_HREF_2": "register",
-    "SUCCESS_INVEST": "You have successfully invested in an object"
+    "SUCCESS_INVEST": "You have successfully invested in an object",
+    "ERROR_WALLET": "One account = one wallet.",
+    "ERROR_WALLET_ADDRESS": "You have already purchased TRUESTATE tokens on this account using ",
+    "ERROR_WALLET_TEXT": "wallet.  You can continue to invest using the same wallet. If you want to pay for the purchase of tokens from another wallet, first create a new account on the TRUESTATE website."
 }

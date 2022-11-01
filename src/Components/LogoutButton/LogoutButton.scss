@@ -2,7 +2,7 @@
     position: absolute;
     right: 20px;
     top: 48px;
-    right: 340px;
+    right: 80px;
     background: #A585FF !important;
     border-radius: 61.1336px;
     font-weight: 600 !important;
@@ -24,7 +24,7 @@
     .logout-btn {
         font-size: 12px !important;
         max-width: 111px !important;
-        right: 320px;
+        right: 40px;
     }
 }
 
@@ -33,15 +33,6 @@
         width: 100% !important;
         max-width: 110px !important;
         top: 134px;
-        right: 324px;
-        font-size: 15px !important;
-    }
-}
-
-@media (max-width: 490px) {
-    .logout-btn {
-        max-width: 110px !important;
-        top: 184px;
         right: 24px;
         font-size: 15px !important;
     }
