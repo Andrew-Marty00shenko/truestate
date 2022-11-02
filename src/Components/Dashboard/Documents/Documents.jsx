@@ -146,36 +146,40 @@ const Documents = () => {
     };
 
     const onSubmit = data => {
-        setLoading(true);
-        kycDataAPI.sendKycData({
-            doctype: 'passport',
-            country: data.countryPassport,
-            files: passportFiles
-        }).then(({ data }) => {
-            toast.success(t('documents:SUCCESS_SEND_PASSPORT'));
-            setUpdated(true);
-            setLoading(false);
-        });
+        if (passportValue?.length === 0 && idValue?.length === 0) {
+            toast.error(t('documents:ERROR_ID_PASSPORT'));
+        } else {
+            setLoading(true);
+            kycDataAPI.sendKycData({
+                doctype: 'passport',
+                country: data.countryPassport,
+                files: passportFiles
+            }).then(({ data }) => {
+                toast.success(t('documents:SUCCESS_SEND_PASSPORT'));
+                setUpdated(true);
+                setLoading(false);
+            });
 
-        kycDataAPI.sendKycData({
-            doctype: 'id',
-            country: data.countryId,
-            files: idFiles
-        }).then(({ data }) => {
-            toast.success(t('documents:SUCCESS_SEND_ID'));
-            setUpdated(true);
-            setLoading(false);
-        });
+            kycDataAPI.sendKycData({
+                doctype: 'id',
+                country: data.countryId,
+                files: idFiles
+            }).then(({ data }) => {
+                toast.success(t('documents:SUCCESS_SEND_ID'));
+                setUpdated(true);
+                setLoading(false);
+            });
 
-        kycDataAPI.sendKycData({
-            doctype: 'poa',
-            country: data.countryPoa,
-            files: poaFiles
-        }).then(({ data }) => {
-            toast.success(t('documents:SUCCESS_SEND_CONFIRMATION'));
-            setUpdated(true);
-            setLoading(false);
-        });
+            kycDataAPI.sendKycData({
+                doctype: 'poa',
+                country: data.countryPoa,
+                files: poaFiles
+            }).then(({ data }) => {
+                toast.success(t('documents:SUCCESS_SEND_CONFIRMATION'));
+                setUpdated(true);
+                setLoading(false);
+            });
+        }
     };
 
     return <form className="documents"
@@ -192,10 +196,9 @@ const Documents = () => {
                                 <label htmlFor="passport">
                                     <input
                                         {...register("passport", {
-                                            required: true,
                                             onChange: e => handleChangeDoc(e, 'passport')
                                         })}
-
+                                        placeholder={t('documents:Passport')}
                                         type="file"
                                         id="passport"
                                     />
@@ -228,14 +231,12 @@ const Documents = () => {
                                     </svg>
                                     <span>
                                         {passportValue?.length === 0 && t('documents:Passport')}
-                                        {passportValue?.length > 0 && passportValue[0].name}
+                                        {passportValue?.length > 0 && <img style={{ borderRadius: 5 }} src={passportValue[0].base64} alt="" />}
                                     </span>
                                 </label>
-                                <div>
-                                    {errors?.passport && <p style={{ color: "#ff0000", marginTop: 18 }}>
-                                        {t('dataInput:INPUT_ERROR')}
-                                    </p>}
-                                </div>
+                                {errors?.passport && <p style={{ color: "#ff0000", position: 'absolute', left: 0, marginTop: 16 }}>
+                                    {t('dataInput:INPUT_ERROR')}
+                                </p>}
                             </>
                         ) : (
                             <div>
@@ -283,7 +284,7 @@ const Documents = () => {
                 <div style={{ position: 'relative' }}>
                     <Form.Select
                         {...register("countryPassport", {
-                            validate: value => value !== ''
+                            required: passportValue?.length !== 0 ? true : false
                         })}
                         className={classNames("documents__block-select", { "error": errors?.countryPassport })}
                     >
@@ -338,8 +339,10 @@ const Documents = () => {
                                     <input type="file"
                                         id="id"
                                         {...register("id", {
-                                            onChange: e => handleChangeDoc(e, 'id')
+                                            onChange: e => handleChangeDoc(e, 'id'),
+                                            required: idValueSecond?.length !== 0 ? true : false
                                         })}
+                                        placeholder={t('documents:ID')}
                                     />
                                     <OverlayTrigger placement="top"
                                         overlay={
@@ -370,14 +373,12 @@ const Documents = () => {
                                     </svg>
                                     <span>
                                         {idValue?.length === 0 && t('documents:ID')}
-                                        {idValue?.length > 0 && idValue[0].name}
+                                        {idValue?.length > 0 && <img style={{ borderRadius: 5 }} src={idValue[0].base64} alt="" />}
                                     </span>
                                 </label>
-                                <div>
-                                    {errors?.id && <p style={{ color: "#ff0000", marginTop: 18 }}>
-                                        {t('dataInput:INPUT_ERROR')}
-                                    </p>}
-                                </div>
+                                {errors?.id && <p style={{ color: "#ff0000", position: 'absolute', left: 0, marginTop: 16, fontSize: 12 }}>
+                                    {t('dataInput:INPUT_ERROR')}
+                                </p>}
                             </>
                         ) : (
                             <div>
@@ -423,7 +424,7 @@ const Documents = () => {
                         )}
                 </div>
                 <div className={classNames("documents__block-file", {
-                    "error": errors?.id
+                    "error": errors?.id_2
                 })}>
                     {!kycData?.idFiles
                         ? (
@@ -432,8 +433,10 @@ const Documents = () => {
                                     <input type="file"
                                         id="id_2"
                                         {...register("id_2", {
-                                            onChange: e => handleChangeDoc(e, 'id_2')
+                                            onChange: e => handleChangeDoc(e, 'id_2'),
+                                            required: idValue?.length !== 0 ? true : false
                                         })}
+                                        placeholder={t('documents:ID')}
                                     />
                                     <OverlayTrigger placement="top"
                                         overlay={
@@ -464,14 +467,12 @@ const Documents = () => {
                                     </svg>
                                     <span>
                                         {idValueSecond?.length === 0 && t('documents:ID')}
-                                        {idValueSecond?.length > 0 && idValueSecond[0].name}
+                                        {idValueSecond?.length > 0 && <img style={{ borderRadius: 5 }} src={idValueSecond[0].base64} alt="" />}
                                     </span>
                                 </label>
-                                <div>
-                                    {errors?.id && <p style={{ color: "#ff0000", marginTop: 18 }}>
-                                        {t('dataInput:INPUT_ERROR')}
-                                    </p>}
-                                </div>
+                                {errors?.id_2 && <p style={{ color: "#ff0000", position: 'absolute', left: 0, marginTop: 16, fontSize: 12 }}>
+                                    {t('dataInput:INPUT_ERROR')}
+                                </p>}
                             </>
                         ) : (
                             <div>
@@ -518,7 +519,7 @@ const Documents = () => {
                 </div>
                 <div style={{ position: 'relative' }}>
                     <Form.Select
-                        {...register("countryId", idFiles.length !== 0 && { required: true })}
+                        {...register("countryId", idFiles.length !== 0 && { required: idValue?.length !== 0 || idValueSecond?.length !== 0 ? true : false })}
                         className={classNames("documents__block-select", { "error": errors?.countryId })}
                     >
                         <option value="" disabled selected>{t('documents:CHOOSE_COUNTRY')}</option>
@@ -573,6 +574,7 @@ const Documents = () => {
                                             validate: value => value.length !== 0,
                                             onChange: e => handleChangeDoc(e, 'poa')
                                         })}
+                                        placeholder={t('documents:PROOF_OF_ADDRESS')}
                                         type="file"
                                         id="address"
                                     />
@@ -607,14 +609,12 @@ const Documents = () => {
                                         fontSize: 15
                                     } : null}>
                                         {poaValue?.length === 0 && t('documents:PROOF_OF_ADDRESS')}
-                                        {poaValue?.length > 0 && poaValue[0].name}
+                                        {poaValue?.length > 0 && <img style={{ borderRadius: 5 }} src={poaValue[0].base64} alt="" />}
                                     </span>
                                 </label>
-                                <div>
-                                    {errors?.poa && <p style={{ color: "#ff0000", marginTop: 18 }}>
-                                        {t('dataInput:INPUT_ERROR')}
-                                    </p>}
-                                </div>
+                                {errors?.poa && <p style={{ color: "#ff0000", position: 'absolute', left: 0, marginTop: 16 }}>
+                                    {t('dataInput:INPUT_ERROR')}
+                                </p>}
                             </>
                         ) : (
                             <div>

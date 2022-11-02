@@ -26,5 +26,6 @@
     "INFO_ID_BACK": "Upload a photo or scan of the back side of ID.",
     "INFO_COUNTRY_ID": "Choose the country where the ID was issued.",
     "INFO_CONFIRMATION_ADDRESS": "Upload a photo or scan of a document confirming your address.",
-    "INFO_COUNTRY_CONFIRMATION": "Choose the type of document that confirms your address."
+    "INFO_COUNTRY_CONFIRMATION": "Choose the type of document that confirms your address.",
+    "ERROR_ID_PASSPORT": "You need to attach a photo or a scan of your passport or ID!"
 }

@@ -63,7 +63,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                             <Link
                                 to="estates"
                                 className="section_href"
-                                style={{ border: 0, cursor: "pointer" }}
+                                style={{ border: 0, cursor: "pointer", borderBottom: '1px solid #8A0BFF' }}
                             >{t('landing:SECTION_EIGHT_ANSWER_3_HREF')}</Link>
                             {t('landing:SECTION_EIGHT_ANSWER_3_TEXT_2')}
                         </Accordion.Body>
@@ -83,7 +83,7 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                     <Accordion.Item eventKey="5">
                         <Accordion.Header>{t('landing:SECTION_EIGHT_QUESTION_6')}</Accordion.Header>
                         <Accordion.Body>
-                            {t('landing:SECTION_EIGHT_ANSWER_6')} <span className="href-to-call-me-back" onClick={scrollToTop} style={{ borderBottom: '1px solid #000', fontSize: 18, cursor: 'pointer' }}>
+                            {t('landing:SECTION_EIGHT_ANSWER_6')} <span className="href-to-call-me-back" onClick={scrollToTop} style={{ fontWeight: 300, color: '#8A0BFF', borderBottom: '1px solid #8A0BFF', fontSize: 18, cursor: 'pointer' }}>
                                 {t('landing:SECTION_EIGHT_ANSWER_6_HREF')}
                             </span>
                             {t('landing:SECTION_EIGHT_ANSWER_6_NEXT')}
@@ -163,6 +163,10 @@ const SectionEight = ({ openModalAddress, setOpenModalAddress, activeObjectEstat
                             }>
                                 {t('landing:SECTION_EIGHT_ANSWER_13_HREF')}
                             </a> {t('landing:SECTION_EIGHT_ANSWER_13_TEXT')}
+                            <span className="href-to-call-me-back" onClick={scrollToTop} style={{ fontWeight: 300, color: '#8A0BFF', borderBottom: '1px solid #8A0BFF', fontSize: 18, cursor: 'pointer' }}>
+                                {t('landing:SECTION_EIGHT_ANSWER_13_HREF_FORM')}
+                            </span>
+                            {t('landing:SECTION_EIGHT_ANSWER_13_TEXT_NEXT')}
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="13">

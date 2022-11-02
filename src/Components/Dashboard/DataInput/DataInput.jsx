@@ -110,20 +110,34 @@ const DataInput = () => {
                                 {
                                     userData?.sex === 'М' || userData?.sex === 'M' || userData?.sex === 'Ч'
                                         ? t('dataInput:MALE')
-                                        : t('dataInput:FEMALE')
+                                        : userData?.sex === 'O' || userData?.sex === 'І' || userData?.sex === 'Д'
+                                            ? t('dataInput:OTHER')
+                                            : t('dataInput:FEMALE')
                                 }
                             </option>
 
                             {
                                 userData?.sex === 'М' || userData?.sex === 'M' || userData?.sex === 'Ч'
-                                    ? <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
-                                    : <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                                    ? <>
+                                        <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
+                                        <option value={t('dataInput:OTHER')}>{t('dataInput:OTHER')}</option>
+                                    </>
+                                    : userData?.sex === 'O' || userData?.sex === 'І' || userData?.sex === 'Д'
+                                        ? <>
+                                            <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                                            <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
+                                        </>
+                                        : <>
+                                            <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                                            <option value={t('dataInput:OTHER')}>{t('dataInput:OTHER')}</option>
+                                        </>
                             }
                         </>
                             : <>
                                 <option value="" disabled selected>{t('dataInput:CHOOSE_SEX')}</option>
                                 <option value={t('dataInput:FEMALE')}>{t('dataInput:FEMALE')}</option>
                                 <option value={t('dataInput:MALE')}>{t('dataInput:MALE')}</option>
+                                <option value={t('dataInput:OTHER')}>{t('dataInput:OTHER')}</option>
                             </>
                         }
                     </Form.Select>
