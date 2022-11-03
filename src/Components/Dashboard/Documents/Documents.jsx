@@ -734,14 +734,16 @@ const Documents = () => {
                 {t('documents:STATUS')}: {kycData?.reason === null && kycData?.status === 1
                     ? t('documents:NO_INFO')
                     : kycData?.reason !== null && kycData?.status === 1
-                        ? t('documents:NOT_RECIEVED')
+                        ? <span style={{ color: '#ff0000', fontWeight: 500 }}> {t('documents:NOT_RECIEVED')}</span>
                         : kycData?.status === 2
                             ? <>
-                                {t('documents:RECIEVED')}
+                                <span style={{ color: '#14d600', fontWeight: 500 }}>
+                                    {t('documents:RECIEVED')}
+                                </span>
                                 <span>
                                     <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.25" y="7.75" width="12.5" height="12.5" stroke="black" strokeWidth="0.5" />
-                                        <path d="M2 11.9908L6.44356 16.4344L16.7677 3.77681" stroke="black" />
+                                        <rect x="0.25" y="7.75" width="12.5" height="12.5" stroke="#14d600" strokeWidth="0.5" />
+                                        <path d="M2 11.9908L6.44356 16.4344L16.7677 3.77681" stroke="#14d600" />
                                     </svg>
                                 </span>
                             </>
@@ -749,7 +751,7 @@ const Documents = () => {
                 }
             </p>
             <p>
-                {kycData?.reason !== null && <span style={{ fontWeight: 500 }}>{t('documents:COMMENTS')}: </span>}
+                {kycData?.reason !== null && <span style={{ fontWeight: 500, color: '#000' }}>{t('documents:COMMENTS')}: </span>}
                 {kycData?.reason}
             </p>
         </div>

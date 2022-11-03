@@ -78,7 +78,15 @@ const Footer = () => {
                             </p>
                             <p>
                                 {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_2')}
-                                <a href="#">Telegram</a>
+                                <a href={
+                                    i18n.language === 'RU'
+                                        ? "https://t.me/truestate_ru"
+                                        : i18n.language === 'UA'
+                                            ? "https://t.me/truestate_ua"
+                                            : "https://t.me/truestate_eng"
+                                }
+                                    target="_blank"
+                                >Telegram</a>
                             </p>
                             <p>
                                 {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_3')}
@@ -241,7 +249,17 @@ const Footer = () => {
                                 </p>
                                 <p>
                                     {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_2')}
-                                    <a href="#">Telegram</a>
+                                    <a href={
+                                        i18n.language === 'RU'
+                                            ? "https://t.me/truestate_ru"
+                                            : i18n.language === 'UA'
+                                                ? "https://t.me/truestate_ua"
+                                                : "https://t.me/truestate_eng"
+                                    }
+                                        target="_blank"
+                                    >
+                                        Telegram
+                                    </a>
                                 </p>
                                 <p>
                                     {t('footer:FOOTER_WINDOW_CONTACTS_TEXT_3')}
