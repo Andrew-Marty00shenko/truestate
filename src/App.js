@@ -80,11 +80,11 @@ const App = () => {
       </svg>}
     >
       <p>
-        Мы используем файлы cookie <br />
-        на нашем сайте.
+        {t('landing:COOKIES_NOTIFY_1')} <br />
+        {t('landing:COOKIES_NOTIFY_2')}
       </p>
       <p>
-        Продолжая навигацию по сайту, <br /> вы автоматически соглашаетесь <br /> с их использованием
+        {t('landing:COOKIES_NOTIFY_3')} <br />  {t('landing:COOKIES_NOTIFY_4')} <br />  {t('landing:COOKIES_NOTIFY_5')}
       </p>
     </CookieConsent>
   </div>
