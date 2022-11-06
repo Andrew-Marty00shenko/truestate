@@ -25,10 +25,10 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
 
     useEffect(() => {
         getMinAmount();
-        axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')
-            .then(({ data }) => setEthCurrency(data.ETH));
-        axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=MATIC')
-            .then(({ data }) => setMaticCurrency(data.MATIC));
+        // axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')
+        //     .then(({ data }) => setEthCurrency(data.ETH));
+        // axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=MATIC')
+        //     .then(({ data }) => setMaticCurrency(data.MATIC));
     }, []);
 
     const notify = () => {
@@ -58,8 +58,11 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                 // } else {
                 //     invest(data.amount);
                 // }
+
+
+                //когда будет реальный эфир нужно делить на 100
                 if (watchAllFields.currency === 'EUR') {
-                    invest(maticCurrency * data.amount);
+                    invest((minAmount * 10) * data.amount);
                 } else {
                     invest(data.amount);
                 }

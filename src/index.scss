@@ -100,6 +100,56 @@ ul{
       margin-bottom: 10px;
     }
   }
+
+  .CookieConsent{
+    top: 168px !important;
+    max-width: 1280px !important;
+    height: 585px !important;
+    left: 50% !important;
+    transform: translate(-50%, -0%);
+    background-image: url('./assets/images/cookies-background.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-color: #d9d9d9 !important;
+    border: 2px solid #C2C2C2;
+    border-radius: 30px;
+    animation: trans 1s;
+
+    @keyframes trans {
+      from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+    }
+
+    button{
+      background-color: transparent !important;
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      cursor: pointer;
+    }
+
+    p{
+        font-weight: 500;
+        font-size: 35px;
+        color: #000;
+        line-height: 120%;
+        
+        &:nth-child(1){
+          margin-top: 155px;
+          margin-left: 60px;
+        }
+
+        &:nth-child(2){
+          font-weight: 300;
+          margin-left: 60px;
+          margin-top: 60px;
+        }
+    }
+  }
 }
 
 .Toastify__toast--success{
@@ -142,4 +192,55 @@ ul{
   &.show{
     opacity: 1 !important;
   }
+}
+
+@media (max-width: 1440px) {
+  .CookieConsent{
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 730px) {
+  .wrapper{
+
+  .CookieConsent{
+    top: 109px !important;
+    background-image: url('./assets/images/cookies-background-mobile.png') !important;
+    background-position: top !important;
+    background-size: contain !important;
+    max-width: 334px !important;
+    height: 460px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+
+    button{
+     top: 0;
+     right: 0;
+
+     svg{
+       width: 20px;
+     }
+    }
+
+    p{
+      font-size: 24px;
+      br{
+        display: none;
+      }
+
+      &:nth-child(1){
+        margin-top: 59px;
+        text-align: left;
+        margin-left: 0;
+      }
+
+      &:nth-child(2){
+        margin-top: 30px;
+        text-align: left;
+        font-size: 22px;
+        margin-left: 0;
+      }
+    }
+  }
+}
 }

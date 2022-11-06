@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import CookieConsent from "react-cookie-consent";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -27,7 +28,7 @@ const App = () => {
     } else {
       setShowBtn(false);
     }
-  }
+  };
 
   const topFunction = () => {
     document.body.scrollTop = 0;
@@ -68,6 +69,24 @@ const App = () => {
       </svg>
       {t('buttonUp:BUTTON_UP')}
     </div>
+
+    <CookieConsent
+      location="top"
+      cookieName="myAwesomeCookieName2"
+      expires={150}
+      buttonText={<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L26 26" stroke="black" stroke-width="2" stroke-linecap="round" />
+        <path d="M1 26L26 1.00002" stroke="black" stroke-width="2" stroke-linecap="round" />
+      </svg>}
+    >
+      <p>
+        Мы используем файлы cookie <br />
+        на нашем сайте.
+      </p>
+      <p>
+        Продолжая навигацию по сайту, <br /> вы автоматически соглашаетесь <br /> с их использованием
+      </p>
+    </CookieConsent>
   </div>
 }
 
