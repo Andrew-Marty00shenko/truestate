@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
@@ -7,7 +7,11 @@ import "./SectionFour.scss";
 const SectionFour = () => {
     const { t } = useTranslation();
     const [slider, setSlider] = useState();
-    const [activeSlide, setActiveSlide] = useState('01');
+    const [windowWidth, setWindowWidth] = useState(null);
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+    }, []);
 
     const settings = {
         className: "section-four__slider variable-width",
@@ -16,10 +20,9 @@ const SectionFour = () => {
         slidesToScroll: 1,
         variableWidth: true,
         slidesToShow: 4,
-        autoplay: true,
-        pauseOnHover: false,
-        autoplaySpeed: 3000,
-        beforeChange: (current, next) => setActiveSlide(`0${next + 1}`),
+        autoplay: windowWidth < 500 ? false : true,
+        pauseOnHover: true,
+        autoplaySpeed: 6000,
         responsive: [
             {
                 breakpoint: 1661,
@@ -56,8 +59,7 @@ const SectionFour = () => {
         </h2>
         <div className="section-four__navigation">
             <p>
-                {activeSlide}&nbsp;
-                <span> – 06</span>
+                <span></span>
             </p>
             <p>
                 <button onClick={prev}>

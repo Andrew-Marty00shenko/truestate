@@ -50,7 +50,7 @@ const SectionSeven = ({
         },
         autoplay: windowWidth < 500 || showSecondSlider || total < 5 ? false : true,
         pauseOnHover: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 6000,
         responsive: [
             {
                 breakpoint: 1661,
@@ -108,11 +108,7 @@ const SectionSeven = ({
         </h2>
         <div className="section-seven__navigation">
             <p>
-                {`0${activeSlide}`}&nbsp;
-                <span> – {total < 10
-                    ? `0${total}`
-                    : total
-                }</span>
+                <span></span>
             </p>
             <p>
                 <div onClick={prev}>

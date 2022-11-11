@@ -28,6 +28,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         speed: 500,
         slidesToScroll: 1,
         variableWidth: true,
+        pauseOnHover: true,
         slidesToShow: total === 0 ? 0 : total === 1 ? 1 : total === 2 ? 2 : total === 3 ? 3 : total === 4 ? 4 : 4,
         beforeChange: (current, next) => {
             setActiveSlide(next + 1);
@@ -36,7 +37,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
             };
         },
         autoplay: windowWidth < 500 || showSecondSlider ? false : true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 6000,
         responsive: [
             {
                 breakpoint: 1661,
@@ -94,11 +95,7 @@ const SectionFive = ({ objects, total, skip, setSkip, limit }) => {
         </h2>
         <div className="section-five__navigation">
             <p>
-                {activeSlide < 10 ? `0${activeSlide}` : activeSlide}
-                <span>&nbsp;– {total < 10
-                    ? `0${total}`
-                    : total
-                }</span>
+                <span></span>
             </p>
             <p>
                 <div onClick={prev}>
