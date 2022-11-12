@@ -3,6 +3,7 @@ import { t } from "i18next";
 import { toast } from "react-toastify";
 
 import userAPI from "../../API/userAPI";
+import userDataAPI from "../../API/userDataAPI";
 
 const initialState = {
     user: null,
@@ -50,6 +51,18 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const getUserProfile = createAsyncThunk(
+    'user/profile',
+    async () => {
+        const response = await userDataAPI.getUserProfile()
+            .then(res => {
+                return res.data;
+            });
+
+        return response;
+    }
+)
+
 const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -78,6 +91,9 @@ const userSlice = createSlice({
         builder.addCase(registerUser.fulfilled, (state, action) => {
             state.loading = false;
         });
+        builder.addCase(getUserProfile.fulfilled, (state, action) => {
+            state.user = action.payload;
+        })
         builder.addCase(loginUser.rejected, state => {
             state.loading = false;
             state.isAuth = false;
@@ -85,6 +101,9 @@ const userSlice = createSlice({
         builder.addCase(registerUser.rejected, state => {
             state.loading = false;
         });
+        builder.addCase(getUserProfile.rejected, state => {
+            state.user = null;
+        })
     }
 });
 

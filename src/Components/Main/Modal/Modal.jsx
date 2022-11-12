@@ -6,13 +6,15 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Web3 from "web3";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
+import { getUserProfile } from "../../../Redux/slices/user";
 import { connectWallet, saveTransaction } from "../../../Utils/contract/contract";
 import useMinAmount from "../../../Hooks/web3hooks/useMinAmount";
+import userDataAPI from "../../../API/userDataAPI";
 
 import "./Modal.scss";
-import { Link } from "react-router-dom";
 
 const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) => {
     const { t } = useTranslation();
@@ -20,15 +22,12 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
     const watchAllFields = watch();
     const { minAmount, getMinAmount } = useMinAmount();
     const [loading, setLoading] = useState(false);
-    const [ethCurrency, setEthCurrency] = useState(null);
-    const [maticCurrency, setMaticCurrency] = useState(null);
+    const userProfile = useSelector(state => state.user.user);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getMinAmount();
-        // axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')
-        //     .then(({ data }) => setEthCurrency(data.ETH));
-        // axios.get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=MATIC')
-        //     .then(({ data }) => setMaticCurrency(data.MATIC));
+        dispatch(getUserProfile());
     }, []);
 
     const notify = () => {
@@ -85,7 +84,7 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
         const account = await connectWallet();
         window.web3 = new Web3(window.ethereum);
 
-        if (localStorage.getItem("wallet") === account || localStorage.getItem("wallet") === null) {
+        if (userProfile?.wallet === account || userProfile?.wallet === null) {
             window.web3.eth.sendTransaction({
                 from: account,
                 to: activeObjectEstate.contract,
@@ -108,9 +107,9 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
                             ) : (
                                 null
                             )}`);
+                            userDataAPI.saveUserProfile({ ...userProfile, wallet: account })
                             setLoading(false);
                             setOpenModalAddress(false);
-                            localStorage.setItem("wallet", account);
                         })
                 })
                 .on('error', error => {
@@ -120,11 +119,10 @@ const Modal = ({ openModalAddress, setOpenModalAddress, activeObjectEstate }) =>
         } else {
             toast.error(<>
                 {t('modalInvest:ERROR_WALLET')} <br />
-                {t('modalInvest:ERROR_WALLET_ADDRESS')} <span style={{ wordBreak: 'break-all' }}> {`${localStorage.getItem("wallet")}`}</span>
+                {t('modalInvest:ERROR_WALLET_ADDRESS')} <span style={{ wordBreak: 'break-all' }}> {`${userProfile?.wallet}`}</span>
                 {t('modalInvest:ERROR_WALLET_TEXT')}
             </>, { autoClose: 5000, className: "wallet-err" })
         }
-
     }
 
     return <div className={classNames("section-seven__modal", {
