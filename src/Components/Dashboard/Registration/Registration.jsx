@@ -33,7 +33,7 @@ const Registration = () => {
             <input
                 {...register("login", {
                     required: true,
-                    pattern: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g
+                    pattern: /^[a-zA-Z0-9\s*!@#\$%\^\&*\)\(+=._-]+$/g
                 })}
                 className={classNames({ "error": errors?.login })}
                 name="login"
@@ -76,7 +76,7 @@ const Registration = () => {
             <input
                 {...register("password", {
                     required: true,
-                    pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+                    pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&_-]{6,}$/
                 })}
                 className={classNames({ "error": errors?.password })}
                 name="password"

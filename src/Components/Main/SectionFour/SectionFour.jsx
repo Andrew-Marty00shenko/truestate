@@ -8,10 +8,37 @@ const SectionFour = () => {
     const { t } = useTranslation();
     const [slider, setSlider] = useState();
     const [windowWidth, setWindowWidth] = useState(null);
+    let firstClientX;
+    let firstClientY;
+    let clientX;
+    let clientY;
+
+    useEffect(() => {
+        window.addEventListener('touchstart', touchStart);
+        window.addEventListener('touchmove', preventTouch, { passive: false });
+    }, []);
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
     }, []);
+
+    const touchStart = (e) => {
+        firstClientX = e.touches[0].clientX;
+        firstClientY = e.touches[0].clientY;
+    };
+
+    const preventTouch = (e) => {
+        const minValue = 5; // threshold
+
+        clientX = e.touches[0].clientX - firstClientX;
+        clientY = e.touches[0].clientY - firstClientY;
+        // Vertical scrolling does not work when you start swiping horizontally.
+        if (Math.abs(clientX) > minValue) {
+            e.preventDefault();
+            e.returnValue = false;
+            return false;
+        }
+    };
 
     const settings = {
         className: "section-four__slider variable-width",
@@ -142,7 +169,7 @@ const SectionFour = () => {
                 </svg>
             </p>
         </div>
-    </section>
+    </section >
 }
 
 export default SectionFour;

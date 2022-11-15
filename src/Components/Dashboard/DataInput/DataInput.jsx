@@ -355,25 +355,38 @@ const DataInput = () => {
                 </div>
                 <div className="data-input__block-right-flex">
                     <div>
-                        <p style={errors?.email && { color: "#ff0000" }}>
-                            {t('dataInput:EMAIL')}:
+                        <p style={errors?.language && { color: "#ff0000" }}>
+                            {t('dataInput:LANGUAGE')}:
                         </p>
-                        <input
-                            {...register("email",
-                                {
-                                    required: true,
-                                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
-                                })
-                            }
-                            className={classNames({ "error": errors?.email })}
-                            name="email"
-                            type="email"
-                            placeholder={t('dataInput:EMAIL')}
-                        />
+                        <Form.Select className="data-input__block-select"
+                            {...register("language", {
+                                required: true
+                            })}
+                        >
+                            <option value={userData?.lang === "ru"
+                                ? 'ru'
+                                : userData?.lang === "en"
+                                    ? 'en'
+                                    : userData?.lang === "ua"
+                                        ? 'ua'
+                                        : null}
+                                disabled
+                            >
+                                {userData?.lang === "ru"
+                                    ? 'Русский'
+                                    : userData?.lang === "en"
+                                        ? 'English'
+                                        : 'Український'
+                                }
+                            </option>
+                            <option value="en">English</option>
+                            <option value="ru">Русский</option>
+                            <option value="ua">Український</option>
+                        </Form.Select>
                         <OverlayTrigger placement="top"
                             overlay={
                                 <Tooltip>
-                                    {t('dataInput:INFO_EMAIL')}
+                                    {t('dataInput:INFO_LANG')}
                                 </Tooltip>
                             }
                         >
@@ -394,8 +407,8 @@ const DataInput = () => {
 					C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"/>
                             </svg>
                         </OverlayTrigger>
-                        {errors?.email && <p style={{ color: "#ff0000", marginTop: 5 }}>
-                            {t('registration:REGISTRATION_ERROR')}
+                        {errors?.language && <p style={{ color: "#ff0000", marginTop: 5 }}>
+                            {t('dataInput:INPUT_ERROR')}
                         </p>}
                     </div>
                     <div>
@@ -443,64 +456,6 @@ const DataInput = () => {
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div className="data-input__language">
-            <p style={errors?.language && { color: "#ff0000" }}>
-                {t('dataInput:LANGUAGE')}:
-            </p>
-            <Form.Select className="data-input__block-select"
-                {...register("language", {
-                    required: true
-                })}
-            >
-                <option value={userData?.lang === "ru"
-                    ? 'ru'
-                    : userData?.lang === "en"
-                        ? 'en'
-                        : userData?.lang === "ua"
-                            ? 'ua'
-                            : null}
-                    disabled
-                >
-                    {userData?.lang === "ru"
-                        ? 'Русский'
-                        : userData?.lang === "en"
-                            ? 'English'
-                            : 'Український'
-                    }
-                </option>
-                <option value="en">English</option>
-                <option value="ru">Русский</option>
-                <option value="ua">Український</option>
-            </Form.Select>
-            <OverlayTrigger placement="top"
-                overlay={
-                    <Tooltip>
-                        {t('dataInput:INFO_LANG')}
-                    </Tooltip>
-                }
-            >
-                <svg width="15" version="1.1" id="Capa_1" x="0px" y="0px"
-                    viewBox="0 0 302.967 302.967">
-                    <path d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0
-				s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067
-				s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"/>
-                    <path d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898
-					c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441
-					c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118
-					c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759
-					c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908
-					c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445
-					c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908
-					c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605
-					s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55
-					C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"/>
-                </svg>
-            </OverlayTrigger>
-            {errors?.language && <p style={{ color: "#ff0000", marginTop: 5 }}>
-                {t('dataInput:INPUT_ERROR')}
-            </p>}
         </div>
 
         <div className="data-input__text">

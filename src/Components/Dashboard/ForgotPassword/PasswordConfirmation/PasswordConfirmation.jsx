@@ -56,7 +56,7 @@ const PasswordConfirmation = () => {
                     <input
                         {...register("password", {
                             required: true,
-                            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+                            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&_-]{6,}$/
                         })}
                         className={classNames({ "error": errors?.password })}
                         name="password"
