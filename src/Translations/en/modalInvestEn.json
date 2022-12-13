@@ -4,7 +4,7 @@
     "FOR_INVEST_TEXT_SPAN": "Metamask ",
     "FOR_INVEST_TEXT_2": "wallet to the address of the smart contract:",
     "COPY_BUTTON": "Copy",
-    "INFO_TOKEN_TEXT": "In return, you will receive TRUESTATE tokens at the current € — ETH exchange rate",
+    "INFO_TOKEN_TEXT": "In return, you will receive TRUEST tokens at the current € — ETH exchange rate",
     "DETAIL_INSTRUCTION": "Detailed instructions — ",
     "DETAIL_INSTRUCTION_HREF": "here.",
     "NOTIFICATION": "Address copied!",
@@ -22,6 +22,6 @@
     "LOGIN_IN_ACCOUNT_HREF_2": "register",
     "SUCCESS_INVEST": "You have successfully invested in an object",
     "ERROR_WALLET": "One account = one wallet.",
-    "ERROR_WALLET_ADDRESS": "You have already purchased TRUESTATE tokens on this account using ",
+    "ERROR_WALLET_ADDRESS": "You have already purchased TRUEST tokens on this account using ",
     "ERROR_WALLET_TEXT": "wallet.  You can continue to invest using the same wallet. If you want to pay for the purchase of tokens from another wallet, first create a new account on the TRUESTATE website."
 }

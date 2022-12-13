@@ -12,7 +12,7 @@ const SliderOne = ({
     ...object
 }) => {
     const { t, i18n } = useTranslation();
-    const url = 'https://topmail.net.ua:8443';
+    const url = 'http://topmail.net.ua:8888';
     const [photo, setPhoto] = useState(null);
 
     useEffect(() => {

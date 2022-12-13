@@ -1,8 +1,8 @@
 {
-    "TOKEN_BALANCE": "Твой баланс токенов TRUESTATE",
+    "TOKEN_BALANCE": "Твой баланс токенов TRUEST",
     "CHOOSE_OBJECT": "Выбери объект",
     "INVESTMENTS_NOT_YET": "Инвестирований пока не было",
-    "CANT_BUY": "*На данный момент ты не можешь покупать токены TRUESTATE.",
+    "CANT_BUY": "*На данный момент ты не можешь покупать токены TRUEST.",
     "SUCCESS_TRANSACTION": "Транзакция успешна!",
     "PROJECT_IS_NOT_COMPLETED": "Проект еще не завершен!",
     "FINISH_KYC": "Заверши процедуру KYC!"

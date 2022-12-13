@@ -10,7 +10,7 @@ const SliderTwo = ({
     setShowSecondSlider,
     ...object
 }) => {
-    const url = 'https://topmail.net.ua:8443';
+    const url = 'http://topmail.net.ua:8888';
     const { t, i18n } = useTranslation();
     const [photos, setPhotos] = useState([]);
     const [modalShow, setModalShow] = useState(false);

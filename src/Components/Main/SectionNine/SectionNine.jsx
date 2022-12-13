@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import userAPI from "../../../API/userAPI";
 import SectionNineImage from "../../../assets/images/section-nine-image.png";
 import SectionNineImageMobile from "../../../assets/images/section-nine-image-mobile.png";
-import PrivacyPolicyDoc from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
+import PrivacyPolicyDoc from "../../../assets/pdfs/Privacy_Policy_for_TRUESTATE.pdf";
 
 import "./SectionNine.scss";
 import { useEffect } from "react";

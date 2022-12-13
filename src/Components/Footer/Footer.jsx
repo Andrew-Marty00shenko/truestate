@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import PrivacyPolicyDoc from "../../assets/pdfs/Privacy_Policy_for_TRUESTATE.PDF";
+import PrivacyPolicyDoc from "../../assets/pdfs/Privacy_Policy_for_TRUESTATE.pdf";
 import WhitePapperEn from "../../assets/pdfs/white_papper_en.pdf";
 import WhitePapperRu from "../../assets/pdfs/white_papper_ru.pdf";
 import WhitePapperUa from "../../assets/pdfs/white_papper_ua.pdf";

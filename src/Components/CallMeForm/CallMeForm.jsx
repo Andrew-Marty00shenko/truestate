@@ -373,7 +373,7 @@ const CallMeForm = () => {
                     name="ukranian"
                     onChange={changeCheckboxValue}
                 />
-                <label htmlFor="Ukranian">Украинский</label>
+                <label htmlFor="Ukranian">Український</label>
             </div>
             {/* <div>
                 <input type="checkbox" class="custom-checkbox" id="Deutsch" name="happy" value="yes" />

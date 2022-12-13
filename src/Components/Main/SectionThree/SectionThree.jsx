@@ -93,7 +93,6 @@ const SectionThree = () => {
         </Table>
         <p>
             {t('landing:SECTION_THREE_BOTTOM_TEXT_1')} <br />
-            {t('landing:SECTION_THREE_BOTTOM_TEXT_2')} <br />
             <span>  {t('landing:SECTION_THREE_BOTTOM_TEXT_3')}</span>
         </p>
     </section >
