@@ -22,7 +22,7 @@ const Documents = () => {
     const { register, watch, handleSubmit, formState: { errors, isDirty }, reset } = useForm();
     const navigate = useNavigate();
     const allFields = watch();
-    const url = 'http://topmail.net.ua:8888';
+    const url = 'https://tru.estate:8443';
 
     const [modalShow, setModalShow] = useState(false);
     const [activeBigImage, setActiveBigImage] = useState(null);

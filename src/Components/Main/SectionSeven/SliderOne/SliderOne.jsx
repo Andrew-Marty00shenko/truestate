@@ -15,7 +15,7 @@ const SliderOne = ({
     setShowSecondSlider,
     ...object
 }) => {
-    const url = 'http://topmail.net.ua:8888';
+    const url = 'https://tru.estate:8443';
     const { t, i18n } = useTranslation();
     const [photo, setPhoto] = useState(null);
     const { balance, getBalance } = useBalanceById();
